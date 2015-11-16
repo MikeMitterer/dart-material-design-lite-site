@@ -20,7 +20,7 @@ dependencies:
     # path: /Volumes/Daten/DevLocal/DevDart/ConsoleLogHandler
 
   mdl:
-    path: ../../
+    path: /Volumes/Daten/DevLocal/DevDart/MaterialDesignLite
 
   di: ^3.3.0
 

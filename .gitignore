@@ -1,0 +1,17 @@
+.buildlog
+.DS_Store
+.idea
+.pub/
+build/
+packages
+pubspec.lock
+.sass-cache
+lib/sass/*/*.css
+.bs
+*.css.map
+example/*/*.css
+example/**/*.css
+*.applescript
+syncsite
+
+site/downloads/

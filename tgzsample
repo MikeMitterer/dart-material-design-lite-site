@@ -38,7 +38,8 @@ NC='\033[0m' # No Color
 
 LOGFILE="${APPNAME}_`date +"%Y%m%d"`.log"
 
-MDLSAMPLES="/Volumes/Daten/DevLocal/DevDart/MaterialDesignLite/samples"
+#MDLSAMPLES="/Volumes/Daten/DevLocal/DevDart/MaterialDesignLiteSite/samples"
+MDLSAMPLES="samples"
 
 #------------------------------------------------------------------------------
 # Functions
@@ -77,10 +78,23 @@ genTGZ() {
     echo "${TARGETFOLDER}/${SAMPLE}.tgz created!"
 }
 
+genAll() {
+    for i in $(ls -d ${MDLSAMPLES}/*/); do
+        SAMPLE=`echo ${i%%/} | sed "s#${MDLSAMPLES}/##"`
+        if [[ ${SAMPLE} =~ ^[^_]+ ]];
+        then
+            genTGZ ${SAMPLE}
+        fi
+    done
+}
+
 listSamples() {
     for i in $(ls -d ${MDLSAMPLES}/*/); do
         SAMPLE=`echo ${i%%/} | sed "s#${MDLSAMPLES}/##"`
-        echo ${SAMPLE}
+        if [[ ${SAMPLE} =~ ^[^_]+ ]];
+        then
+            echo ${SAMPLE}
+        fi
     done
 }
 
@@ -92,6 +106,7 @@ usage() {
     echo
     echo "Usage: `basename $0` [ options ]"
     echo -e "\t--gen <samplename>       Generates TGZ for 'samplename'"
+    echo -e "\t--genall                 Generates all samples"
     echo -e "\t--list                   List all samples"
     echo
 }
@@ -104,6 +119,10 @@ case "$1" in
 
     gen|-gen|--gen)
         genTGZ $2
+    ;;
+
+    genall|-genall|--genall)
+        genAll
     ;;
 
     list|-list|--list)

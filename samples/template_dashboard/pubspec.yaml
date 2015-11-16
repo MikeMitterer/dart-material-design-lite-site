@@ -11,7 +11,7 @@ dependencies:
   browser: any
 
   mdl:
-    path: ../..
+    path: /Volumes/Daten/DevLocal/DevDart/MaterialDesignLite
 
   logging: any
   logging_handlers: any
