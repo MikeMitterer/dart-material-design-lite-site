@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+#------------------------------------------------------------------------------
+# Syncs build/web from site to vhost2
+#------------------------------------------------------------------------------
+
+rsync -avz -e ssh build/web/ bcadmin@vhost2.mikemitterer.at:/home/mdlmm98766/site/

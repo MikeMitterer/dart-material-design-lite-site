@@ -1,0 +1,14 @@
+@import "config";
+//@import "packages/mdl/assets/themes/grey-orange/material-design-lite";
+@import "packages/mdl/assets/styles/material-design-lite";
+@import "packages/mdl/assets/styles/_config/show_config";
+
+.demo-page--data-tableex, .demo-section--data-tableex {
+    .mdl-div-data-tableex__row {
+
+        // Set a default  width for all cells
+        > * {
+            width            : 80px;
+        }
+    }
+}

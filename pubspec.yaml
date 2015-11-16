@@ -1,0 +1,37 @@
+name: mdl_site
+version: 0.0.1
+description: Material Design Lite
+author: <Mike Mitterer> <office@mikemitterer.at>
+homepage: http://www.material-design-lite.pub/
+
+environment:
+  sdk: ^1.0.0
+
+dependencies:
+  browser: ^0.10.0
+
+  mdl:
+    path: /Volumes/Daten/DevLocal/DevDart/MaterialDesignLite
+
+  logging: ^0.11.0
+  logging_handlers: ^0.8.0
+  console_log_handler: ^0.1.0
+
+  prettify: ^0.1.0
+
+  di: ^3.3.0
+
+#dependency_overrides:
+#  analyzer: ">=0.23.0 <0.26.0"
+
+dev_dependencies:
+  test: any
+  grinder: any
+
+transformers:
+  - di
+
+  - $dart2js:
+      commandLineOptions: [--enable-experimental-mirrors]
+#      minify: false
+#      sourceMaps: true
