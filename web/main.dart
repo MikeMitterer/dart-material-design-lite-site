@@ -92,6 +92,16 @@ void prepareScrolling() {
         });
     }
 
+//    final String targetName = dom.window.location.href.trim().replaceFirst(new RegExp(r".*#"),"");
+//    if(targetName.isNotEmpty) {
+//        anchorsMain.first.classes.remove("is-active");
+//        anchorsMain.forEach((final dom.AnchorElement anchor) {
+//            final String mainTargetName = anchor.href.trim().replaceFirst(new RegExp(r".*#"),"");
+//            if(mainTargetName == targetName) {
+//                anchor.classes.add("is-active");
+//            }
+//        });
+//    }
 
     anchors.forEach((final dom.HtmlElement element) {
         final dom.AnchorElement anchor = element;

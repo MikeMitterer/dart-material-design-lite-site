@@ -218,6 +218,10 @@ a img{
                 color : black;
                 font-family: 'Montserrat', sans-serif;
                 font-size: 80px;
+                img {
+                    height: 100%;
+                    max-width: 300px;
+                }
             }
         }
 
@@ -542,9 +546,30 @@ a img{
         .resources-content {
             padding-top    : 80px;
             padding-bottom : 80px;
+            padding-left: 24px;
+            padding-right: 24px;
+
             max-width      : 1044px;
             margin-left    : auto;
             margin-right   : auto;
+
+            .downloads {
+                margin-left: auto;
+                margin-right: auto;
+
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: center; // ⇾
+                align-content: space-between; // ||
+                align-items: flex-start; // ↓
+
+                .material-icons { vertical-align: middle; margin-right: 10px; }
+                a {
+                    text-decoration: none;
+                    width: 250px;
+                }
+            }
         }
     }
 

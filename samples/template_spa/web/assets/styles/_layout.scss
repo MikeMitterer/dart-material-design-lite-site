@@ -17,20 +17,24 @@
 // limitations under the License.
 //
 
-$application-footer-height: 30px;
+$application-footer-height: 30px !default;
 
-// Just a setting - more or less private
+// private settings
 $_application-footer-padding : 4px;
+$_application-shadow-opacity: 0.5;
 
 @mixin bgimage($margin-left: 0) {
     background : url(../images/pattern.png) repeat $margin-left 0;
 }
 
-@mixin shadow-2dp-right() {
+@mixin shadow-drawer-2dp() {
     box-shadow: 0 64px 0 0 rgba(0, 0, 0, $shadow-key-penumbra-opacity),
         0 65px 1px -2px rgba(0, 0, 0, $shadow-key-umbra-opacity),
         0 64px 5px 0 rgba(0, 0, 0, $shadow-ambient-shadow-opacity);
 }
+
+@mixin shadow-top-drawer() { box-shadow : -1px 0px 5px 1px rgba(0, 0, 0, $_application-shadow-opacity); }
+@mixin shadow-top-title()  { box-shadow : -2px 1px 1px 1px rgba(0, 0, 0, $_application-shadow-opacity); }
 
 @mixin smooth-font() {
     /* Support for all WebKit browsers. */
@@ -55,10 +59,11 @@ $_application-footer-padding : 4px;
     }
 
     > .mdl-layout__header {
-
+        @include shadow-top-title();
         @include bgimage(-$layout-drawer-width);
 
         .mdl-layout__header-row {
+            box-shadow: none;
             padding-left: 24px;
             padding-right: 24px;
 
@@ -112,10 +117,6 @@ $_application-footer-padding : 4px;
     }
 
     > .mdl-layout__drawer {
-        //.mdl-layout-title {
-        //    color            : $layout-header-text-color;
-        //    background-color : $layout-header-bg-color;
-        //}
         overflow: scroll;
         border-right: none;
 
@@ -123,7 +124,7 @@ $_application-footer-padding : 4px;
           height: 100%;
         } @else { height: calc(100% - #{$application-footer-height + ($_application-footer-padding * 2)}); }
 
-        @include shadow-2dp-right();
+        @include shadow-drawer-2dp();
 
         .mdl-layout-title {
             display: flex;
@@ -136,7 +137,7 @@ $_application-footer-padding : 4px;
             min-height: $layout-header-desktop-row-height;
 
             @include bgimage();
-            @include shadow-2dp();
+            @include shadow-top-drawer();
         }
 
         .mdl-navigation {
@@ -256,6 +257,5 @@ $_application-footer-padding : 4px;
                 display: none;
             }
         }
-
     }
 }

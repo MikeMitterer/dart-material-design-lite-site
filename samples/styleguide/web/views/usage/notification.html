@@ -1,4 +1,5 @@
 <div class="mdl-accordion-group mdl-js-accordion mdl-js-ripple-effect usage usage-notification">
+
     <!-- Panel 1 -->
     <div class="mdl-accordion">
         <label class="mdl-accordion__label mdl-color--200">
@@ -7,6 +8,7 @@
             <i class="material-icons indicator right mdl-color-text--primary">chevron_right</i>
         </label>
         <div class="mdl-accordion--content">
+
             <div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
                 <!-- TabBar -->
                 <div class="mdl-tabs__tab-bar">
@@ -14,26 +16,34 @@
                     <a href="#html" class="mdl-tabs__tab">HTML</a>
                     <a href="#css" class="mdl-tabs__tab">README</a>
                 </div>
+
                 <!-- Dart-Tab -->
                 <div class="mdl-tabs__panel is-active" id="dart">
                 <pre class="prettyprint linenums lang-dart">
 import &#39;package:mdl&#47;mdl.dart&#39;;
 
+
 main() &#123;
     final Logger _logger = new Logger(&#39;dialog.Main&#39;);
+
     registerMdl();
+
     componentFactory().run().then((_) &#123;
         final MaterialButton btnNotification = MaterialButton.widget(dom.querySelector(&quot;#notification&quot;));
         final MaterialTextfield title = MaterialTextfield.widget(dom.querySelector(&quot;#notification-title&quot;));
         final MaterialTextfield subtitle = MaterialTextfield.widget(dom.querySelector(&quot;#notification-subtitle&quot;));
         final MaterialTextfield content = MaterialTextfield.widget(dom.querySelector(&quot;#notification-content&quot;));
         final MaterialRadioGroup notificationtype = MaterialRadioGroup.widget(dom.querySelector(&quot;#notification-type&quot;));
+
         void _checkIfButtonShouldBeEnabled(_) &#123; btnNotification.enabled = (title.value.isNotEmpty || content.value.isNotEmpty); &#125;
+
         title.hub.onKeyUp.listen( _checkIfButtonShouldBeEnabled);
         content.hub.onKeyUp.listen( _checkIfButtonShouldBeEnabled);
+
         int counter = 0;
         btnNotification.onClick.listen( (_) &#123;
             _logger.info(&quot;Click on Notification&quot;);
+
             NotificationType type = NotificationType.INFO;
             if(notificationtype.hasValue) &#123;
                 switch(notificationtype.value) &#123;
@@ -44,11 +54,15 @@ main() &#123;
                     default: type = NotificationType.INFO;
                 &#125;
             &#125;
+
             _logger.info(&quot;NT $&#123;notificationtype.value&#125; - $&#123;notificationtype.hasValue&#125;&quot;);
+
             final MaterialNotification notification = new MaterialNotification();
             final String titleToShow = title.value.isNotEmpty ? &quot;$&#123;title.value&#125; (#$&#123;counter&#125;)&quot; : &quot;&quot;;
+
             notification(content.value, type: type,title: titleToShow, subtitle: subtitle.value)
                 .show().then((final MdlDialogStatus status) &#123;
+
                 _logger.info(status);
             &#125;);
             counter++;
@@ -56,6 +70,7 @@ main() &#123;
     &#125;);
 &#125;</pre>
                 </div>
+
                 <!-- HTML-Tab -->
                 <div class="mdl-tabs__panel" id="html">
                 <div class="linkinfo">
@@ -109,6 +124,7 @@ main() &#123;
 &lt;&#47;div&gt;
 </pre>
                 </div>
+
                 <!-- CSS-Tab -->
                 <div class="mdl-tabs__panel" id="css">
 <h4>notification</h4>

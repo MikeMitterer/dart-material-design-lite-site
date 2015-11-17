@@ -1,4 +1,5 @@
 <div class="mdl-accordion-group mdl-js-accordion mdl-js-ripple-effect usage usage-repeat_data-table">
+
     <!-- Panel 1 -->
     <div class="mdl-accordion">
         <label class="mdl-accordion__label mdl-color--200">
@@ -7,6 +8,7 @@
             <i class="material-icons indicator right mdl-color-text--primary">chevron_right</i>
         </label>
         <div class="mdl-accordion--content">
+
             <div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
                 <!-- TabBar -->
                 <div class="mdl-tabs__tab-bar">
@@ -14,38 +16,49 @@
                     <a href="#html" class="mdl-tabs__tab">HTML</a>
                     <a href="#css" class="mdl-tabs__tab">README</a>
                 </div>
+
                 <!-- Dart-Tab -->
                 <div class="mdl-tabs__panel is-active" id="dart">
                 <pre class="prettyprint linenums lang-dart">
 import &#39;package:mdl&#47;mdl.dart&#39;;
 import &#39;package:mdl&#47;mdlobservable.dart&#39;;
+
 @MdlComponentModel
 class HackintoshComponent &#123;
     final Logger _logger = new Logger(&#39;main.HackintoshComponent&#39;);
+
     final String id;
     final String name;
     final int quantity;
     final double price;
+
     HackintoshComponent(this.id,this.name, this.quantity, this.price);
 &#125;
+
 @MdlComponentModel @di.Injectable()
 class Application implements MaterialApplication &#123;
     final Logger _logger = new Logger(&#39;main.Application&#39;);
+
     final ObservableList&lt;HackintoshComponent&gt; components = new ObservableList&lt;HackintoshComponent&gt;();
     final ObservableProperty&lt;bool&gt;   isListEmpty = new ObservableProperty&lt;bool&gt;(true);
     final ObservableProperty&lt;double&gt; total = new ObservableProperty&lt;double&gt;(0.0);
+
     Application() &#123;
         isListEmpty.observes(() =&gt; components.isEmpty);
         _addItems();
     &#125;
+
     @override
     void run() &#123;
         _addListeners();
     &#125;
+
     check(final String componentName) &#123;
         _logger.info(&quot;Clicked on $&#123;componentName&#125;&quot;);
     &#125;
+
     &#47;&#47;- private -----------------------------------------------------------------------------------
+
     void _addItems() &#123;
         if(components.isNotEmpty) &#123;
             return;
@@ -58,17 +71,21 @@ class Application implements MaterialApplication &#123;
         components.add(new HackintoshComponent(&quot;6&quot;,&quot;Corsair RM 650 Watt&quot;,1,135.99 ));
         components.add(new HackintoshComponent(&quot;7&quot;,&quot;Corsair Carbide 500R&quot;,1,123.99));
     &#125;
+
     void _removeItems() &#123;
         components.clear();
     &#125;
+
     void _addListeners() &#123;
         final MaterialDivDataTable table = MaterialDivDataTable.widget(dom.querySelector(&quot;.mdl-data-tableex&quot;));
         if(table == null) &#123;
             return;
         &#125;
+
         table.onChange.listen((_) &#123;
             final List&lt;MaterialDivDataTableRow&gt; rows = table.selectedRows;
             _logger.info(&quot;DataTable changed! $&#123;rows.length&#125; items are selected...&quot;);
+
             total.value = 0;
             rows.forEach((final MaterialDivDataTableRow row) &#123;
                 final String id = row.hub.dataset[&quot;id&quot;];
@@ -77,19 +94,26 @@ class Application implements MaterialApplication &#123;
             &#125;);
         &#125;);
     &#125;
+
     HackintoshComponent _getComponent(final String id) &#123;
         return components.firstWhere((final HackintoshComponent component) =&gt; component.id == id);
     &#125;
 &#125;
+
 main() &#123;
     final Logger _logger = new Logger(&#39;main.MaterialRepeat&#39;);
+
     registerMdl();
+
     componentFactory().rootContext(Application).run()
     .then( (final Application application) &#123;
+
         final MaterialButton add = MaterialButton.widget(dom.querySelector(&quot;#addComponents&quot;));
         add.onClick.listen((_) =&gt; application._addItems());
+
         final MaterialButton remove = MaterialButton.widget(dom.querySelector(&quot;#removeComponents&quot;));
         remove.onClick.listen((_) =&gt; application._removeItems());
+
         application.isListEmpty.onChange.listen((final PropertyChangeEvent&lt;bool&gt; property) &#123;
             add.enabled = property.value;
             remove.enabled = !property.value;
@@ -97,12 +121,18 @@ main() &#123;
             final MaterialDivDataTable table = MaterialDivDataTable.widget(dom.querySelector(&quot;.mdl-data-tableex&quot;));
             table.select = false;
         &#125;);
+
         application.run();
+
     &#125;);
+
 &#125;
+
+
 
 </pre>
                 </div>
+
                 <!-- HTML-Tab -->
                 <div class="mdl-tabs__panel" id="html">
                 <div class="linkinfo">
@@ -150,6 +180,7 @@ main() &#123;
 &lt;&#47;div&gt;
 </pre>
                 </div>
+
                 <!-- CSS-Tab -->
                 <div class="mdl-tabs__panel" id="css">
 <h4>repeat_data-table</h4>
