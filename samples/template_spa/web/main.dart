@@ -47,6 +47,11 @@ class Application extends MaterialApplication {
     /// Title will be displayed
     final ObservableProperty<String> title = new ObservableProperty<String>("");
 
+    // Adds "debug" class to body!
+    final ObservableProperty<bool> checkDebug = new ObservableProperty<bool>(false);
+
+    final ObservableProperty<bool> keepProperties = new ObservableProperty<bool>(false);
+
     bool isUserLoggedIn = false;
 
     Application() {
@@ -56,9 +61,12 @@ class Application extends MaterialApplication {
 
     @override
     void run() {
-        _login().then((final MdlDialogStatus status) {
-            _checkStatus(status);
-        });
+//        _login().then((final MdlDialogStatus status) {
+//            _checkStatus(status);
+//        });
+        isUserLoggedIn = true;
+        _checkStatus(MdlDialogStatus.OK);
+
     }
 
     void go(final String routePath, final Map params) {
@@ -74,6 +82,15 @@ class Application extends MaterialApplication {
 
             final MdlDialogStatus status = await _login();
             _checkStatus(status);
+        });
+
+        final MaterialButton properties = MaterialButton.widget(dom.querySelector("#showprops"));
+        properties.onClick.listen( (final dom.Event event) async {
+            event.preventDefault();
+
+            dom.querySelector("body")
+                ..classes.toggle("show-properties");
+                //..classes.toggle("hide-properties");
         });
     }
 
@@ -163,16 +180,24 @@ class ControllerView1 extends DefaultController {
 class ControllerView2 extends DefaultController {
     final Logger _logger = new Logger('main.ControllerView2');
 
+    bool keepPropertiesState;
+
     @override
     void loaded(final Route route) {
         super.loaded(route);
+
+        final Application app = componentFactory().application;
+        keepPropertiesState = app.keepProperties.value;
+        app.keepProperties.value = true;
+
         _logger.info("ControllerView2 loaded!");
     }
 
     @override
     void unload() {
+        final Application app = componentFactory().application;
+        app.keepProperties.value = keepPropertiesState;
         _logger.info("ControllerView2 unloaded!");
-
     }
     // - private ------------------------------------------------------------------------------------------------------
 }

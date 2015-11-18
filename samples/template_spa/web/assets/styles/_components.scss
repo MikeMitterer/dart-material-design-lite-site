@@ -23,26 +23,70 @@
 // -
 
 .mdl-card {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    justify-content: flex-start; // ↓
-    align-content: space-between; // =
-    align-items: stretch; // ⇾
+    display         : flex;
+    flex-direction  : column;
+    flex-wrap       : wrap;
+    justify-content : flex-start; // ↓
+    align-content   : space-between; // =
+    align-items     : stretch; // ⇾
 
     .mdl-card__supporting-text {
-        flex-grow: 1;
+        flex-grow : 1;
     }
 }
 
 // - NEU ----------
 .mdl-form__hint {
-    font-size: 12px;
-    padding-top: 8px;
-    padding-bottom: 8px;
+    font-size      : 12px;
+    padding-top    : 8px;
+    padding-bottom : 8px;
     a {
-        text-decoration: none;
+        text-decoration : none;
     }
+}
+
+.mdl-form {
+    .application-section__has-properties aside.properties & {
+        margin-top       : 12px;
+        border-radius    : 0;
+        border           : none;
+        background-color : transparent !important;
+        box-shadow       : none;
+
+        .mdl-form__group {
+            flex-wrap     : nowrap;
+            margin-bottom : 12px;
+
+            .mdl-icon {
+                min-width : 24px;
+            }
+
+        }
+    }
+
+}
+
+.mdl-card {
+    .application-section .main & {
+        margin-right: 24px;
+        margin-bottom: 24px;
+    }
+}
+
+.mdl-button {
+    .application .toolbar & {
+        &[disabled] {
+            opacity: 0.5;
+        }
+    }
+}
+
+.mdl-sticky-mini-footer {
+    a { text-decoration: none; }
+}
+
+.mdl-menu {
+    width: 180px;
 }
 
 // ----------------------------------------------------------------------------
@@ -51,5 +95,5 @@
 
 input.mdl-textfield__input:-webkit-autofill,
 input[type="password"].mdl-textfield__input:-webkit-autofill {
-    -webkit-box-shadow: 0 0 0 1000px white inset;
+    -webkit-box-shadow : 0 0 0 1000px white inset;
 }

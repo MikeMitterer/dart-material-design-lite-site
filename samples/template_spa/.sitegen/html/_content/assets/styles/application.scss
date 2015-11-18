@@ -16,48 +16,173 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
-
 //@import "../../packages/mdl/assets/themes/grey-orange/material-design-lite";
 //@import "../../packages/mdl/assets/styles/material-design-lite";
-
 @import "../../packages/mdl/assets/styles/variables/variables";
 @import "../../packages/mdl/assets/styles/mixins/mixins";
-
 @import "components";
 @import "dialogs";
 @import "layout";
 
-.application-section {
+// https://coveloping.com/tools/css-animation-generator
 
-    margin-top: 24px;
+@-webkit-keyframes bounceInRight {
+    0% {
+        opacity: 0;
+        width      : 264px;
+        min-width  : 264px;
+        max-width  : 264px;
+        -webkit-transform: translateX(500px);
+    }
+    60% {
+        opacity: 1;
+        -webkit-transform: translateX(-30px);
+    }
+    80% {
+        -webkit-transform: translateX(10px);
+    }
+    100% {
+        width      : 264px;
+        min-width  : 264px;
+        max-width  : 264px;
+        -webkit-transform: translateX(0);
+    }
+}
+
+
+.bounceInRight {
+    -webkit-animation-duration: 0.5s;
+    animation-duration: 0.5s;
+
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+
+    -webkit-animation-timing-function: ease-in-out;
+    animation-timing-function: ease-in-out;
+
+    .show-properties & {
+        -webkit-animation-name: bounceInRight;
+        animation-name: bounceInRight;
+    }
+}
+
+.application {
+    .mdl-layout__header-row {
+        .mdl-menu {
+            .mdl-switch {
+                margin: 0 16px 0 16px;
+            }
+        }
+    }
+}
+.application-section {
+    margin-top : 24px;
+
+    &__has-properties {
+        box-sizing      : border-box;
+
+        flex-grow : 1;
+        width: 100%;
+
+        display         : flex;
+        flex-direction  : row;
+        flex-wrap       : nowrap;
+        justify-content : flex-start; // ⇾
+        align-content   : stretch; // ||
+        align-items     : stretch; // ↓
+
+        height: 100%;
+
+        transition : all 0.5s ease-in-out;
+        .debug & { border: 1px solid yellow; }
+
+        section.main {
+            flex-grow : 1;
+
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: flex-start; // ⇾
+            align-content: flex-start; // ||
+            align-items: flex-start; // ↓
+
+            //margin-right: 24px;
+
+            .debug & { border: 1px solid red; }
+        }
+
+        aside.properties {
+            box-sizing                : border-box;
+
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+            justify-content: flex-start; // ↓
+            align-content: space-between; // =
+            align-items: flex-start; // ⇾
+
+            overflow                  : scroll;
+            width: 0;
+            //min-width                 : 0;
+            //max-width                 : 0;
+            //opacity                   : 0;
+            padding                   : 0;
+            margin-right               : -24px;
+            border-top-left-radius    : 3px;
+            border-bottom-left-radius : 3px;
+
+            @if $application-footer-height == 0 or $application-footer-height == 0px {
+                min-height       : 100%;
+            } @else { min-height : calc(100% - #{$application-footer-height - ($_application-footer-padding * 2)} - 24px); }
+
+            .show-properties &, .sticky-properties & {
+                //opacity    : 1;
+                width      : 264px;
+                min-width  : 264px;
+                max-width  : 264px;
+                //padding    : 12px;
+
+                @include shadow-2dp();
+
+            }
+
+            :first-child {
+                flex-grow: 1;
+            }
+
+            .mdl-checkbox {
+                margin: 12px;
+            }
+        }
+    }
 
     &--home {
-        h1 { color: lightcoral; }
+        h1 { color : lightcoral; }
     }
 
     &--view1 {
-        h1 { color: blue; }
+        h1 { color : blue; }
 
         .mdl-card {
-            .mdl-card__title { background-color: darkslateblue; }
+            .mdl-card__title { background-color : darkslateblue; }
 
             &.demo-card-wide {
-                width: 600px;
+                width: 100%;
+                max-width : 600px;
 
                 .is-small-screen & {
-                    width: auto;
+                    width : auto;
                 }
             }
         }
 
     }
     &--view2 {
-        h1 { color: green; }
+        h1 { color : green; }
     }
     &--view3 {
-        h1 { color: purple; }
+        h1 { color : purple; }
     }
 }
-
 
 

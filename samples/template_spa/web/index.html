@@ -50,7 +50,7 @@
         body.mdl-upgrading div.loading { display: block; }
     </style>
 </head>
-<body class="mdl-upgrading">      <div class="mdl-splashscreen mdl-color--primary">
+<body class="mdl-upgrading" mdl-class="checkDebug : 'debug', keepProperties : 'sticky-properties'">      <div class="mdl-splashscreen mdl-color--primary">
           <div class="spinner">
               <div class="dot1 mdl-color--white"></div><div class="dot2 mdl-color--accent"></div>
           </div>
@@ -67,6 +67,11 @@
             <div class="toolbar">
                 <a href="#/view1" class="mdl-color-text--100"><i class="material-icons">info</i></a>
                 <a href="#/view2" class="mdl-color-text--100"><i class="material-icons">settings</i></a>
+
+                <button class="mdl-button mdl-js-button mdl-button--icon mdl-js-ripple-effect mdl-color-text--100"
+                        id="showprops" mdl-attribute="keepProperties : 'disabled'">
+                    <i class="material-icons">view_list</i>
+                </button>
                 <button class="mdl-button mdl-js-button mdl-button--icon mdl-js-ripple-effect" id="login">
                     <i class="material-icons">exit_to_app</i>
                 </button>
@@ -79,6 +84,10 @@
             <ul class="mdl-menu mdl-js-menu mdl-menu--bottom-right mdl-js-ripple-effect" for="more-button">
                 <li class="mdl-menu__item"><a class="mdl-color-text--black" href="#/view1">View 1</a></li>
                 <li class="mdl-menu__item"><a class="mdl-color-text--black" href="#/view2">View 2</a></li>
+                <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="debug">
+                    <input type="checkbox" id="debug" class="mdl-switch__input" mdl-model="checkDebug">
+                    <span class="mdl-switch__label mdl-color-text--primary">Debug CSS</span>
+                </label>
             </ul>
         </div>
     </header>

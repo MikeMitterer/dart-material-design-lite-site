@@ -81,7 +81,7 @@ $_application-shadow-opacity: 0.5;
 
                 > * {
                     max-height: 20px;
-                    margin-left: 0.70em;
+                    margin-left: 12px;
 
                     .material-icons {
                         font-weight: 100;
@@ -89,8 +89,13 @@ $_application-shadow-opacity: 0.5;
                     }
                 }
 
+                > .mdl-button--icon {
+                    min-width: 20px;
+                    width: 20px;
+                }
+
                 > :last-child {
-                    margin-right: 1em;
+                    margin-right: 12px;
                 }
 
             }
@@ -206,16 +211,35 @@ $_application-shadow-opacity: 0.5;
     > .mdl-layout__content {
         box-sizing      : border-box;
 
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: flex-start; // ⇾
+        align-content: stretch; // ||
+        align-items: flex-start; // ↓
+
+        .debug & { border: 2px solid blue; }
+
         .mdl-content {
-            // Align lastmod at bottom of page
-            //min-height: calc(100vh - 160px);
+            flex-grow : 1;
+            height: calc(100% - 24px);
+
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+            justify-content: flex-start; // ↓
+            align-content: stretch; // =
+            align-items: flex-start; // ⇾
+
             margin    : 0 24px 24px 24px;
 
             .mdl-accordion-group.usage {
                 .indicator.right {
-                    margin-right: 12px;
+                    margin-right : 12px;
                 }
             }
+
+            .debug & { border: 1px solid green; }
         }
 
         h6 {
