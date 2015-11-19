@@ -88,7 +88,6 @@ class Application extends MaterialApplication {
 
             final dom.Element body = dom.querySelector("body");
             body.classes.toggle("show-properties");
-                //..classes.toggle("hide-properties");
 
             if(body.classes.contains("show-properties")) {
 
