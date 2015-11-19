@@ -1,3 +1,4 @@
+import "dart:async";
 /**
  * Copyright (c) 2015, Michael Mitterer (office@mikemitterer.at),
  * IT-Consulting and Development Limited.
@@ -18,23 +19,20 @@
  */
 
 import "dart:html" as dom;
-import "dart:async";
-import "dart:math" as Math;
 
-import 'package:logging/logging.dart';
 import 'package:console_log_handler/console_log_handler.dart';
-
-import 'package:mdl/mdl.dart';
-import 'package:mdl/mdldemo.dart';
-import 'package:mdl/mdlobservable.dart';
-
-import 'package:route_hierarchical/client.dart';
-import 'package:route_hierarchical/link_matcher.dart';
-
 import 'package:di/di.dart' as di;
-
+import 'package:logging/logging.dart';
+import 'package:mdl/mdl.dart';
+import 'package:mdl/mdlanimation.dart';
 import "package:mdl/mdldialog.dart";
+import 'package:mdl/mdlobservable.dart';
+import 'package:route_hierarchical/client.dart';
 import "package:spa_template/dialogs.dart";
+
+
+final MdlAnimation bounceInRight = new MdlAnimation.fromStock(StockAnimation.BounceInRight);
+final MdlAnimation fadeIn = new MdlAnimation.fromStock(StockAnimation.FadeIn);
 
 /**
  * Application - you can get the Application via injector.getByKey(MDLROOTCONTEXT)
@@ -88,9 +86,14 @@ class Application extends MaterialApplication {
         properties.onClick.listen( (final dom.Event event) async {
             event.preventDefault();
 
-            dom.querySelector("body")
-                ..classes.toggle("show-properties");
+            final dom.Element body = dom.querySelector("body");
+            body.classes.toggle("show-properties");
                 //..classes.toggle("hide-properties");
+
+            if(body.classes.contains("show-properties")) {
+
+                bounceInRight(dom.querySelector(".properties")).then((_) => _logger.info("Animation completed!"));
+            }
         });
     }
 
