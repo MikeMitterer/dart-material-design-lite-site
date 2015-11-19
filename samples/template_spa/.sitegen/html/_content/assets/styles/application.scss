@@ -94,7 +94,21 @@
 
             @if $application-footer-height == 0 or $application-footer-height == 0px {
                 min-height       : 100%;
-            } @else { min-height : calc(100% - #{$application-footer-height - ($_application-footer-padding * 2)} - 24px); }
+            } @else {
+                min-height : calc(100% - #{$application-footer-height - ($_application-footer-padding * 2)} - 24px);
+                //height: calc(100% - #{$application-footer-height - ($_application-footer-padding * 2)} - 24px);
+            }
+
+            .is-small-screen & {
+                z-index: 2;
+                position: fixed;
+
+                top: 64px;
+                right: 0;
+
+                min-height : calc(100% - #{$application-footer-height - ($_application-footer-padding * 2)} - 88px);
+                height : calc(100% - #{$application-footer-height - ($_application-footer-padding * 2)} - 88px);
+            }
 
             .show-properties &, .sticky-properties & {
                 opacity    : 1;
