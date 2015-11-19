@@ -27,6 +27,23 @@
 @import "dialogs";
 @import "layout";
 
+$properties-vertical-distance: 12px !default;
+
+@mixin properties-height($header-height) {
+    $footer-padding: $application-footer-padding * 2;
+    $vertical-distance: $properties-vertical-distance * 2;
+
+    @if $application-footer-height == 0 or $application-footer-height == 0px {
+        $footer-padding: $application-footer-padding;
+    }
+
+    $height: #{$application-footer-height + $footer-padding + $header-height} - #{($vertical-distance)};
+
+    /* (footer + footer-padding + header) - (properties-vertical-distance * 2) */
+    min-height : calc(100% - #{$height});
+    //height: calc(100% - #{$height});
+}
+
 .application {
     .mdl-layout__header-row {
         .mdl-menu {
@@ -84,30 +101,28 @@
 
             overflow                  : scroll;
             width: 0;
-            //min-width                 : 0;
-            //max-width                 : 0;
             opacity                   : 0;
             padding                   : 0;
             margin-right               : -24px;
             border-top-left-radius    : 3px;
             border-bottom-left-radius : 3px;
 
-            @if $application-footer-height == 0 or $application-footer-height == 0px {
-                min-height       : 100%;
-            } @else {
-                min-height : calc(100% - #{$application-footer-height - ($_application-footer-padding * 2)} - 24px);
-                //height: calc(100% - #{$application-footer-height - ($_application-footer-padding * 2)} - 24px);
-            }
+            @include properties-height($layout-header-desktop-row-height);
 
-            .is-small-screen & {
+            .is-small-screen & , &--sticky {
                 z-index: 2;
                 position: fixed;
 
-                top: 64px;
+                top: $layout-header-desktop-row-height + $properties-vertical-distance;
                 right: 0;
 
-                min-height : calc(100% - #{$application-footer-height - ($_application-footer-padding * 2)} - 88px);
-                height : calc(100% - #{$application-footer-height - ($_application-footer-padding * 2)} - 88px);
+                @include properties-height($layout-header-desktop-row-height);
+            }
+
+            .is-small-screen & {
+                top: $layout-mobile-header-height + $properties-vertical-distance;
+
+                @include properties-height($layout-mobile-header-height);
             }
 
             .show-properties &, .sticky-properties & {
@@ -115,7 +130,6 @@
                 width      : 264px;
                 min-width  : 264px;
                 max-width  : 264px;
-                //padding    : 12px;
 
                 @include shadow-2dp();
 

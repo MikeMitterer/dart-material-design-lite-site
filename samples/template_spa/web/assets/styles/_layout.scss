@@ -18,9 +18,9 @@
 //
 
 $application-footer-height: 30px !default;
+$application-footer-padding : 4px !default;
 
 // private settings
-$_application-footer-padding : 4px;
 $_application-shadow-opacity: 0.5;
 
 @mixin bgimage($margin-left: 0) {
@@ -127,7 +127,7 @@ $_application-shadow-opacity: 0.5;
 
         @if $application-footer-height == 0 or $application-footer-height == 0px {
           height: 100%;
-        } @else { height: calc(100% - #{$application-footer-height + ($_application-footer-padding * 2)}); }
+        } @else { height: calc(100% - #{$application-footer-height + ($application-footer-padding * 2)}); }
 
         @include shadow-drawer-2dp();
 
