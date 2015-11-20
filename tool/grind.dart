@@ -88,6 +88,12 @@ runSiteGen() {
 }
 
 @Task()
+runTGZSamples() {
+    run("./tgzsample",arguments: [ "--genall" ]);
+}
+
+@Task()
+@Depends(runTGZSamples)
 runSyncSite() {
     run("./syncsite",arguments: []);
 }
