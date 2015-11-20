@@ -3,7 +3,7 @@
 # watchfolder1: ../../lib/assets/styles/connections
 
 # Turne it off while developing
-#autoprefixer: false
+autoprefixer: false
 
 # Usage: _site.<var name>
 # Sample: _site.site_name
@@ -13,6 +13,7 @@ site_options:
   author: Mike Mitterer
 
   # Color settings - Try e.g. mdl-color--yellow
-  color-main: mdl-color--primary
-  color-sidebar: mdl-color--blue-grey-800
+  # Usage: <header class="mdl-layout__header {{_site.color-main}}">
+  # color-main: mdl-color--primary
+  # color-sidebar: mdl-color--blue-grey-800
 

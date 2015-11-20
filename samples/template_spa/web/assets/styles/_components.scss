@@ -46,7 +46,7 @@
 }
 
 .mdl-form {
-    .application-section__has-properties aside.properties & {
+    .mdl-properties > & {
         margin-top       : 12px;
         border-radius    : 0;
         border           : none;
@@ -60,7 +60,6 @@
             .mdl-icon {
                 min-width : 24px;
             }
-
         }
     }
 

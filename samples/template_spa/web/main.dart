@@ -93,7 +93,7 @@ class Application extends MaterialApplication {
 
             if(body.classes.contains("show-properties")) {
 
-                bounceInRight(dom.querySelector(".properties")).then((_) {
+                bounceInRight(dom.querySelector(".mdl-properties")).then((_) {
                     _logger.info("Animation completed!");
                 });
             }

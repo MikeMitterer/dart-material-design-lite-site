@@ -42,6 +42,8 @@
     <!-- Page styles -->
     <link rel="stylesheet" href="packages/mdl/assets/styles/splashscreen/dots.min.css">
     <link rel="stylesheet" href="packages/mdl/assets/styles/material.min.css">
+    <link rel="stylesheet" href="packages/mdl/assets/layouts/2col-header-footer-props.min.css">
+
     <link rel="stylesheet" href="assets/styles/application.css">
 
     <style>
@@ -52,7 +54,7 @@
 </head>
 <body class="mdl-upgrading" mdl-class="checkDebug : 'debug', keepProperties : 'show-properties--permanent'">{{>splashscreen}}
 <div class="application mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
-    <header class="mdl-layout__header {{_site.color-main}}">
+    <header class="mdl-layout__header mdl-color--primary-dark">
         <div class="mdl-layout__header-row">
             <span mdl-observe="title" class="mdl-layout-title">Fixed drawer and header</span>
 
@@ -86,9 +88,9 @@
             </ul>
         </div>
     </header>
-    <div class="mdl-layout__drawer {{_site.color-sidebar}}">
-        <span class="mdl-layout-title {{_site.color-main}}">
-            <a href="/" class="mdl-color-text--white"><img src="assets/images/logo-drawer.svg"></a>
+    <div class="mdl-layout__drawer mdl-color--grey-900">
+        <span class="mdl-layout-title mdl-color--primary-dark">
+            <a href="/" class="mdl-color-text--white"><img src="packages/mdl/assets/images/mdl-dart-logo.svg"></a>
         </span>
         <nav class="mdl-navigation">
             <div class="mdl-accordion-group mdl-accordion--navigation mdl-accordion--radio-type mdl-js-ripple-effect">
@@ -122,7 +124,7 @@
     <main class="mdl-layout__content mdl-color--grey-200">
         <div id="main" class="mdl-content mdl-js-content">Loading...</div>
     </main>
-    <footer class="mdl-sticky-mini-footer {{_site.color-main}} mdl-color-text--white">
+    <footer class="mdl-sticky-mini-footer mdl-color--primary-dark mdl-color-text--white">
         <div class="mdl-mini-footer--left-section">
             <p class="gh-link">Contributions welcome: <a href="https://github.com/MikeMitterer/dart-material-design-lite" target="_blank">GitHub.</a>
                 <span class="additional-info">Built with <a href="https://pub.dartlang.org/packages/sitegen" target="_blank">SiteGen.</a></span>
