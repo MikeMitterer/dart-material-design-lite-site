@@ -28,6 +28,7 @@
 @import "layout";
 
 $properties-vertical-distance: 12px !default;
+$properties-width: 264px !default;
 
 @mixin properties-height($header-height) {
     $footer-padding: $application-footer-padding * 2;
@@ -100,8 +101,10 @@ $properties-vertical-distance: 12px !default;
             align-items: flex-start; // ⇾
 
             overflow                  : scroll;
+
             width: 0;
             opacity                   : 0;
+
             padding                   : 0;
             margin-right               : -24px;
             border-top-left-radius    : 3px;
@@ -125,14 +128,15 @@ $properties-vertical-distance: 12px !default;
                 @include properties-height($layout-mobile-header-height);
             }
 
-            .show-properties &, .sticky-properties & {
-                opacity    : 1;
-                width      : 264px;
-                min-width  : 264px;
-                max-width  : 264px;
+            .show-properties &, .show-properties--permanent & {
+                width      : $properties-width;
+                min-width  : $properties-width;
+                max-width  : $properties-width;
 
                 @include shadow-2dp();
-
+            }
+            .show-properties--permanent & {
+                opacity: 1;
             }
 
             :first-child {

@@ -35,7 +35,9 @@ final MdlAnimation bounceInRight = new MdlAnimation.fromStock(StockAnimation.Bou
 final MdlAnimation fadeIn = new MdlAnimation.fromStock(StockAnimation.FadeIn);
 
 /**
- * Application - you can get the Application via injector.getByKey(MDLROOTCONTEXT)
+ * Application - you can get the Application via final Application app = componentFactory().application;
+ * Sample:
+ *      final Application app = componentFactory().application;
  */
 @MdlComponentModel @di.Injectable()
 class Application extends MaterialApplication {
@@ -91,7 +93,9 @@ class Application extends MaterialApplication {
 
             if(body.classes.contains("show-properties")) {
 
-                bounceInRight(dom.querySelector(".properties")).then((_) => _logger.info("Animation completed!"));
+                bounceInRight(dom.querySelector(".properties")).then((_) {
+                    _logger.info("Animation completed!");
+                });
             }
         });
     }
