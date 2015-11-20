@@ -12,8 +12,10 @@ main(args) => grind(args);
 test() => new TestRunner().testAsync();
 
 @DefaultTask()
-@Depends(showConfig)
+@Depends(runSiteGen)
 build() {
+    Pub.build();
+    runSyncSite();
 }
 
 @Task()
@@ -81,7 +83,23 @@ genStyleguide() {
 }
 
 @Task()
-/// Testing only!!!!
-genSite() {
-    run("ls",arguments: [ "-a" ]);
+runSiteGen() {
+    run("/Users/mikemitterer/.pub-cache/bin/sitegen",arguments: [ "-g" ]);
+}
+
+@Task()
+runSyncSite() {
+    run("./syncsite",arguments: []);
+}
+
+@Task()
+@Depends(genSamples,genStyleguide)
+runSiteGenForSamples() {
+    run("/Users/mikemitterer/.pub-cache/bin/buildSamples",arguments: [ "--sitegen" ]);
+}
+
+@Task()
+@Depends(runSiteGenForSamples)
+buildSamples() {
+    run("/Users/mikemitterer/.pub-cache/bin/buildSamples",arguments: [ "-ubcr" ]);
 }
