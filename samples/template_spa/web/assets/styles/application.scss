@@ -30,7 +30,11 @@
     .mdl-layout__header-row {
         .mdl-menu {
             .mdl-switch {
-                margin: 0 16px 0 16px;
+                margin: 0 16px 12px 16px;
+
+                &:last-child {
+                    margin-bottom: 0;
+                }
             }
         }
     }

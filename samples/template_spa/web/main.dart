@@ -47,10 +47,14 @@ class Application extends MaterialApplication {
     /// Title will be displayed
     final ObservableProperty<String> title = new ObservableProperty<String>("");
 
-    // Adds "debug" class to body!
+    /// Adds "debug" class to body!
     final ObservableProperty<bool> checkDebug = new ObservableProperty<bool>(false);
 
+    /// Make the Properties always visible
     final ObservableProperty<bool> keepProperties = new ObservableProperty<bool>(false);
+
+    /// Shows the Drawer permanently
+    final ObservableProperty<bool> fixDrawer = new ObservableProperty<bool>(false);
 
     bool isUserLoggedIn = false;
 
