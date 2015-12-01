@@ -63,6 +63,10 @@ a img{
     //width  : 200px;
 }
 
+.icon-box .material-icons {
+    width: 70px;
+}
+
 .mdl-layout__header {
     overflow : visible;
 
@@ -271,6 +275,43 @@ a img{
 
         }
     }
+
+    .donate-section {
+        background-color : white;
+        color            : $palette-primary-800;
+
+        .donate-content {
+            padding-top    : 80px;
+            padding-bottom : 80px;
+            max-width      : 1044px;
+            margin-left    : auto;
+            margin-right   : auto;
+
+            h3,h4 {
+                margin-top : 0;
+            }
+
+
+            > div {
+                padding : 0 8px;
+            }
+
+            .icon-box {
+                text-align   : center;
+                min-width    : 70px;
+                margin-right : 12px;
+
+                .material-icons {
+                    font-size : 70px;
+                    color     : $palette-accent-500;
+                }
+            }
+            .mdl-grid {
+                a { font-weight: bold; }
+            }
+        }
+    }
+
 
     .why-section {
 
