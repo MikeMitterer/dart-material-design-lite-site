@@ -15,6 +15,8 @@ test() => new TestRunner().testAsync();
 @Depends(runSiteGen)
 build() {
     Pub.build();
+
+    runTGZSamples();
     runSyncSite();
 }
 
