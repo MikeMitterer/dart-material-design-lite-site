@@ -1,6 +1,5 @@
 import 'dart:html' as dom;
 import "dart:async";
-import "dart:math" as Math;
 import 'package:logging/logging.dart';
 import 'package:console_log_handler/console_log_handler.dart';
 
@@ -68,7 +67,7 @@ void prepareScrolling() {
     }
 
     void _startAnimation(final int endLocation) {
-        final dom.HtmlElement body = dom.querySelector("body");
+        //final dom.HtmlElement body = dom.querySelector("body");
         int timeLapsed = 0;
         int speed = 750;
         double percentage;
