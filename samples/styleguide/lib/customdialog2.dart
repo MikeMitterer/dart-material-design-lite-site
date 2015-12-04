@@ -17,7 +17,7 @@
  * limitations under the License.
  */
 
-library mdl_styleguide.customdialog1;
+library mdl_styleguide.customdialog2;
 
 import 'package:mdl/mdl.dart';
 import "package:mdl/mdldialog.dart";

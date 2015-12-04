@@ -22,7 +22,6 @@ library devicestatus;
 import "dart:html" as dom;
 
 import 'package:logging/logging.dart';
-import 'package:console_log_handler/console_log_handler.dart';
 import 'package:di/di.dart' as di;
 
 import 'package:mdl/mdl.dart';

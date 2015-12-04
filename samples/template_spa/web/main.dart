@@ -134,7 +134,7 @@ class ApplicationModule extends di.Module {
 }
 
 main() async {
-    final Logger _logger = new Logger('main.MaterialContent');
+    // final Logger _logger = new Logger('main.MaterialContent');
 
     configLogging();
 

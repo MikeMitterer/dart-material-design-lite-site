@@ -1,4 +1,3 @@
-import "dart:html" as dom;
 import "dart:async";
 import "dart:math" as Math;
 
@@ -11,7 +10,7 @@ import 'package:mdl/mdlobservable.dart';
 
 @MdlComponentModel @di.Injectable()
 class Application extends MaterialApplication {
-    final Logger _logger = new Logger('main.Application');
+    // final Logger _logger = new Logger('main.Application');
 
     final ObservableProperty<double> pi = new ObservableProperty<double>(3.14159265359);
     final ObservableProperty<String> name = new ObservableProperty<String>("Mike");
@@ -41,8 +40,6 @@ class Application extends MaterialApplication {
 }
 
 main() async {
-    final Logger _logger = new Logger('main.Formatter');
-
     configLogging();
 
     registerMdl();

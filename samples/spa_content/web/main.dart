@@ -6,7 +6,6 @@ import 'package:logging/logging.dart';
 import 'package:console_log_handler/console_log_handler.dart';
 
 import 'package:mdl/mdl.dart';
-import 'package:di/di.dart' as di;
 
 import 'package:route_hierarchical/client.dart';
 
@@ -140,8 +139,8 @@ class DemoController extends MaterialController {
         _slider5.value = _model.sliderValue;
         _slider2.value = _model.sliderValue;
 
-        _slider5.onChange.listen((_) => _model.sliderValue = _slider5.value);
-        _slider2.onChange.listen((_) => _model.sliderValue = _slider2.value);
+        _slider5.hub.onChange.listen((_) => _model.sliderValue = _slider5.value);
+        _slider2.hub.onChange.listen((_) => _model.sliderValue = _slider2.value);
 
 
         _model.onChange.listen((_) => _modelChanged());

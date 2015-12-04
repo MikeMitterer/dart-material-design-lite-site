@@ -1,12 +1,20 @@
 &lt;div class=&quot;demo-preview-block&quot;&gt;
-    &lt;div class=&quot;mdl-textfield mdl-js-textfield&quot;&gt;
-        &lt;input id=&quot;item&quot; class=&quot;mdl-textfield__input&quot; type=&quot;text&quot; autofocus &#47;&gt;
-        &lt;label class=&quot;mdl-textfield__label&quot; for=&quot;item&quot;&gt;Type Something...&lt;&#47;label&gt;
+    &lt;todo-input&gt;&lt;&#47;todo-input&gt;
+    &lt;div class=&quot;cols&quot;&gt;
+        &lt;div class=&quot;col&quot;&gt;
+            &lt;h6&gt;List I&lt;&#47;h6&gt;
+            &lt;todo-list class=&quot;mdl-color--100&quot;&gt;&lt;&#47;todo-list&gt;
+        &lt;&#47;div&gt;
+        &lt;div class=&quot;col&quot;&gt;
+            &lt;h6&gt;List II&lt;&#47;h6&gt;
+            &lt;todo-list class=&quot;mdl-color--100&quot;&gt;&lt;&#47;todo-list&gt;
+        &lt;&#47;div&gt;
     &lt;&#47;div&gt;
-    &lt;button id=&quot;add&quot; class=&quot;mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-js-ripple-effect&quot;&gt;
-        Add
-    &lt;&#47;button&gt;
-    &lt;span mdl-observe=&quot;nrOfItemsDone&quot;&gt;&lt;&#47;span&gt; &#47;
-    &lt;span mdl-observe=&quot;nrOfItems&quot;&gt;&lt;&#47;span&gt;
-    &lt;div id=&quot;todo&quot; class=&quot;todo-items&quot;&gt;&lt;&#47;div&gt;
+    &lt;p&gt;
+        The two lists are here to demonstrate the component-independence.&lt;br&gt;
+        There is one DataStore. Each component listens to the &lt;strong&gt;onChange&lt;&#47;strong&gt;-Action.&lt;br&gt;
+        (Empty entries are allowed - makes testing faster!)
+    &lt;&#47;p&gt;
+    &lt;p class=&quot;hint&quot;&gt;Open the console. If you click on &quot;Add&quot; you&#39;ll see a log-message sent from
+    the Application-Object. It listens to changes on the &quot;ActionBus&quot;&lt;&#47;p&gt;
 &lt;&#47;div&gt;

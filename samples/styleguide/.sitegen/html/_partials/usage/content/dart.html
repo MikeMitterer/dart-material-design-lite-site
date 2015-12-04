@@ -127,8 +127,8 @@ class DemoController extends MaterialController &#123;
         _slider5.value = _model.sliderValue;
         _slider2.value = _model.sliderValue;
 
-        _slider5.onChange.listen((_) =&gt; _model.sliderValue = _slider5.value);
-        _slider2.onChange.listen((_) =&gt; _model.sliderValue = _slider2.value);
+        _slider5.hub.onChange.listen((_) =&gt; _model.sliderValue = _slider5.value);
+        _slider2.hub.onChange.listen((_) =&gt; _model.sliderValue = _slider2.value);
 
 
         _model.onChange.listen((_) =&gt; _modelChanged());

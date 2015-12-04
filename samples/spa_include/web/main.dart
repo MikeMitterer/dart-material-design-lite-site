@@ -1,6 +1,4 @@
 import "dart:html" as dom;
-import "dart:async";
-import "dart:math" as Math;
 
 import 'package:logging/logging.dart';
 import 'package:console_log_handler/console_log_handler.dart';

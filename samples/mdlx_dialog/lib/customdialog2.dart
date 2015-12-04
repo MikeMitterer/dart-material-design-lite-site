@@ -17,11 +17,12 @@
  * limitations under the License.
  */
 
+library mdl_dialog_sample.customdialog2;
+
 import 'package:mdl/mdl.dart';
 import "package:mdl/mdldialog.dart";
 
 import 'package:di/di.dart' as di;
-
 
 @MdlComponentModel  @di.Injectable()
 class CustomDialog2 extends MaterialDialog {

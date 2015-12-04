@@ -37,7 +37,7 @@ class CustomDialog1 extends MaterialDialog {
 
     CustomDialog1() : super(new DialogConfig());
 
-    CustomDialog call({ final String title: "",
+    CustomDialog1 call({ final String title: "",
                       final String yesButton: _DEFAULT_YES_BUTTON, final String noButton: _DEFAULT_NO_BUTTON }) {
 
         this.title = title;

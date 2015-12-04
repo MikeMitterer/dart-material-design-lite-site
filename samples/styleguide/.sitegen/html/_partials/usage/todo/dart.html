@@ -5,59 +5,51 @@ import &#39;package:mdl&#47;mdlobservable.dart&#39;;
 class Application implements MaterialApplication &#123;
     final Logger _logger = new Logger(&#39;main.Application&#39;);
 
-    final ObservableProperty&lt;int&gt; nrOfItems = new ObservableProperty&lt;int&gt;(0);
-    final ObservableProperty&lt;int&gt; nrOfItemsDone = new ObservableProperty&lt;int&gt;(0,
-        interval: new Duration(milliseconds: 500));
+    &#47;&#47;&#47; Added by the MDL&#47;Dart-Framework (mdlapplication.dart)
+    final ActionBus _actionbus;
 
-    Application() &#123;
+    Application(this._actionbus) &#123;
     &#125;
 
     @override
     void run() &#123;
-        final MaterialButton addButton = MaterialButton.widget(dom.querySelector(&quot;#add&quot;));
-        final MaterialTextfield item = MaterialTextfield.widget(dom.querySelector(&quot;#item&quot;));
-        final ToDoItemComponent todo = ToDoItemComponent.widget(dom.querySelector(&quot;#todo&quot;));
-
-        nrOfItems.observes( () =&gt; todo.items.length );
-        nrOfItemsDone.observes(() &#123;
-            int done = 0;
-            todo.items.forEach((final ToDoItem item) &#123; done += item.checked ? 1 : 0; &#125;);
-            return done;
-        &#125;);
-
-        addButton.onClick.listen((_) =&gt; _addItem());
-        item.hub.onKeyDown.listen((final dom.KeyboardEvent event) &#123;
-            if(event.keyCode == 13) &#123;
-                event.preventDefault();
-                event.stopPropagation();
-                _addItem();
-                item.value = &quot;&quot;;
-            &#125;
-        &#125;);
+        _bindSignals();
     &#125;
 
     &#47;&#47;- private -----------------------------------------------------------------------------------
 
-    void _addItem() &#123;
-        final MaterialTextfield item = MaterialTextfield.widget(dom.querySelector(&quot;#item&quot;));
-        final ToDoItemComponent todo = ToDoItemComponent.widget(dom.querySelector(&quot;#todo&quot;));
-
-        todo.addItemOnTop(new ToDoItem(false,&quot;Cnt $&#123;todo.incrementalIndex&#125; ($&#123;item.value&#125;)&quot;));
+    void _bindSignals() &#123;
+        &#47;&#47; Not necessary - just a demonstration how to listen to the &quot;global&quot; ActionBus
+        _actionbus.on(AddItemAction.NAME).listen((_) &#123;
+            _logger.info(&quot;User clicked on &#39;Add&#39;!&quot;);
+        &#125;);
     &#125;
+
 &#125;
 
-main() &#123;
-    final Logger _logger = new Logger(&#39;main.ToDo&#39;);
+Future main() async &#123;
+    &#47;&#47; final Logger _logger = new Logger(&#39;main.ToDo&#39;);
 
     registerMdl();
-    registerToDoItemComponent();
+    registerToDoComponents();
 
-    componentFactory().rootContext(Application).run()
-        .then( (final MaterialApplication application) &#123;
+    final MaterialApplication application = await componentFactory().rootContext(Application)
+        .addModule(new SampleModule())
+        .run();
 
-            application.run();
+    application.run();
 
-    &#125;);
+&#125;
+
+&#47;**
+ * Application-Config via DI
+ *&#47;
+class SampleModule extends di.Module &#123;
+    SampleModule() &#123;
+
+        bind(ToDoInputStoreInterface, toImplementation: ToDoDataStore);
+        bind(ToDoListStoreInterface, toImplementation: ToDoDataStore);
+    &#125;
 &#125;
 
 

@@ -1,13 +1,10 @@
 import "dart:html" as dom;
 import "dart:async";
-import "dart:math" as Math;
 
 import 'package:logging/logging.dart';
 import 'package:console_log_handler/console_log_handler.dart';
-import 'package:di/di.dart' as di;
 
 import 'package:mdl/mdl.dart';
-import 'package:mdl/mdlobservable.dart';
 
 typedef void RemoveCallback(final Name name);
 
@@ -38,13 +35,11 @@ class Name {
 }
 
 main() {
-    final Logger _logger = new Logger('main.MaterialRepeat');
-
+    // final Logger _logger = new Logger('main.MaterialRepeat');
 
     configLogging();
 
     registerMdl();
-
 
     componentFactory().run(enableVisualDebugging: true).then((_) {
 

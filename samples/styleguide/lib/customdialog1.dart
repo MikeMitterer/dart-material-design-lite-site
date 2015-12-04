@@ -25,7 +25,7 @@ import "package:mdl/mdldialog.dart";
 import 'package:di/di.dart' as di;
 
 
-@MdlComponentModel  @di.Injectable()
+@MdlComponentModel @di.Injectable()
 class CustomDialog1 extends MaterialDialog {
 
     static const String _DEFAULT_YES_BUTTON = "Yes";
@@ -37,7 +37,7 @@ class CustomDialog1 extends MaterialDialog {
 
     CustomDialog1() : super(new DialogConfig());
 
-    CustomDialog call({ final String title: "",
+    CustomDialog1 call({ final String title: "",
                       final String yesButton: _DEFAULT_YES_BUTTON, final String noButton: _DEFAULT_NO_BUTTON }) {
 
         this.title = title;

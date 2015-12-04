@@ -25,7 +25,7 @@ import &#39;package:mdl&#47;mdlobservable.dart&#39;;
 
 @MdlComponentModel @di.Injectable()
 class Application extends MaterialApplication &#123;
-    final Logger _logger = new Logger(&#39;main.Application&#39;);
+    &#47;&#47; final Logger _logger = new Logger(&#39;main.Application&#39;);
 
     final ObservableProperty&lt;bool&gt; checkAttribute = new ObservableProperty&lt;bool&gt;(false);
 
@@ -41,8 +41,6 @@ class Application extends MaterialApplication &#123;
 &#125;
 
 main() async &#123;
-    final Logger _logger = new Logger(&#39;main.Attribute&#39;);
-
     registerMdl();
 
     final MaterialApplication application = await componentFactory().

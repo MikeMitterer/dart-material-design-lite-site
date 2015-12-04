@@ -13,7 +13,6 @@
         }
     }
 
-
     .row {
         display: flex;
         flex-direction: row;
@@ -23,13 +22,53 @@
         align-items: center; // ↓
 
         .mdl-checkbox {
-            width: 200px;
+            width: initial;
+            flex-grow: 1;
         }
 
         .mdl-checkbox.is-checked .mdl-checkbox__label {
             text-decoration : line-through;
         }
+    }
 
+    .cols {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: flex-start; // ⇾
+        align-content: space-between; // ||
+        align-items: flex-start; // ↓
+
+        width: 100%;
+        margin-bottom: 24px;
+
+        .col {
+            width: calc(50% - 6px);
+
+            &:first-child {
+                margin-right: 12px;
+            }
+
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+            justify-content: flex-start; // ↓
+            align-content: space-between; // =
+            align-items: stretch; // ⇾
+
+            box-sizing: border-box;
+
+            todo-list {
+                box-sizing: border-box;
+                border-radius: 3px;
+
+                padding: 8px;
+            }
+        }
+    }
+
+    .hint {
+        font-size: 80%;
     }
 
 }

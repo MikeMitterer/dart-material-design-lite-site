@@ -6,8 +6,6 @@ import 'package:console_log_handler/console_log_handler.dart';
 import 'package:mdl/mdl.dart';
 
 main() async {
-    final Logger _logger = new Logger('mdl_radio.main');
-
     configLogging();
 
     registerMdl();

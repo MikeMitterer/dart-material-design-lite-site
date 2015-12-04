@@ -3,7 +3,7 @@ import &#39;package:mdl&#47;mdlobservable.dart&#39;;
 
 @MdlComponentModel @di.Injectable()
 class Application extends MaterialApplication &#123;
-    final Logger _logger = new Logger(&#39;main.Application&#39;);
+    &#47;&#47; final Logger _logger = new Logger(&#39;main.Application&#39;);
 
     final ObservableProperty&lt;double&gt; pi = new ObservableProperty&lt;double&gt;(3.14159265359);
     final ObservableProperty&lt;String&gt; name = new ObservableProperty&lt;String&gt;(&quot;Mike&quot;);
@@ -33,8 +33,6 @@ class Application extends MaterialApplication &#123;
 &#125;
 
 main() async &#123;
-    final Logger _logger = new Logger(&#39;main.Formatter&#39;);
-
     registerMdl();
 
     final MaterialApplication application = await componentFactory().

@@ -90,13 +90,11 @@ class Application extends MaterialApplication {
 }
 
 main() async {
-    final Logger _logger = new Logger('dialog.Main');
-
     configLogging();
 
     registerMdl();
 
-    final Application app = await componentFactory().rootContext(Application).run();
+    await componentFactory().rootContext(Application).run();
 }
 
 void configLogging() {

@@ -1,5 +1,3 @@
-import "dart:html" as dom;
-
 import 'package:logging/logging.dart';
 import 'package:console_log_handler/console_log_handler.dart';
 import 'package:di/di.dart' as di;
@@ -23,7 +21,7 @@ class _Natural extends _Language {
 
 @MdlComponentModel @di.Injectable()
 class Application extends MaterialApplication {
-    final _logger = new Logger('dnd.Application');
+    // final _logger = new Logger('dnd.Application');
 
     final ObservableList<_Language> languages = new ObservableList<_Language>();
     final ObservableList<_Language> natural = new ObservableList<_Language>();
@@ -73,8 +71,6 @@ class Application extends MaterialApplication {
 }
 
 main() {
-    final Logger _logger = new Logger('dnd.Main');
-
     configLogging();
 
     registerMdl();

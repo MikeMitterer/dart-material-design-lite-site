@@ -1,4 +1,3 @@
-import "dart:html" as dom;
 import "dart:async";
 
 import 'package:logging/logging.dart';
@@ -38,7 +37,7 @@ class Application implements MaterialApplication {
 }
 
 Future main() async {
-    final Logger _logger = new Logger('main.ToDo');
+    // final Logger _logger = new Logger('main.ToDo');
 
     configLogging();
 

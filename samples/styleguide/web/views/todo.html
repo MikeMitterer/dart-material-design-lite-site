@@ -3,15 +3,23 @@
         Loading...
     </div>
     <div class="demo-preview-block">
-        <div class="mdl-textfield mdl-js-textfield">
-            <input id="item" class="mdl-textfield__input" type="text" autofocus />
-            <label class="mdl-textfield__label" for="item">Type Something...</label>
+        <todo-input></todo-input>
+        <div class="cols">
+            <div class="col">
+                <h6>List I</h6>
+                <todo-list class="mdl-color--100"></todo-list>
+            </div>
+            <div class="col">
+                <h6>List II</h6>
+                <todo-list class="mdl-color--100"></todo-list>
+            </div>
         </div>
-        <button id="add" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-js-ripple-effect">
-            Add
-        </button>
-        <span mdl-observe="nrOfItemsDone"></span> /
-        <span mdl-observe="nrOfItems"></span>
-        <div id="todo" class="todo-items"></div>
+        <p>
+            The two lists are here to demonstrate the component-independence.<br>
+            There is one DataStore. Each component listens to the <strong>onChange</strong>-Action.<br>
+            (Empty entries are allowed - makes testing faster!)
+        </p>
+        <p class="hint">Open the console. If you click on "Add" you'll see a log-message sent from
+        the Application-Object. It listens to changes on the "ActionBus"</p>
     </div>
 </section>
