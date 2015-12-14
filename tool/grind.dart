@@ -12,7 +12,7 @@ main(args) => grind(args);
 build() {}
 
 @Task()
-@Depends(runSiteGen, analyze )
+@Depends(runSiteGen, analyzeSite )
 buildSite() {
     Pub.build();
 
@@ -34,7 +34,11 @@ buildSamples() async {
 }
 
 @Task()
-analyze() {
+@Depends(analyzeSite,analyzeSamples)
+analyze() { }
+
+@Task()
+analyzeSamples() {
     final List<String> samples = [
         "mdl_animation/web/main.dart",
         "mdl_badge/web/main.dart",
@@ -88,13 +92,16 @@ analyze() {
         "template_spa/web/main.dart",
         "template_sticky-footer/web/main.dart",
         "template_text-only/web/main.dart",
-];
+    ];
 
     samples.forEach((final String sample ) {
         final String sampleFolder = sample.replaceAll("/web/main.dart","");
         run("tool/analyze-sample.sh",arguments: [ "samples/${sampleFolder}", "web/main.dart" ]);
     });
+}
 
+@Task()
+analyzeSite() {
     Analyzer.analyze("web/main.dart");
 }
 
