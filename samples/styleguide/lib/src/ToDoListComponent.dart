@@ -17,32 +17,20 @@
  * limitations under the License.
  */
 
-part of todo;
+part of mdl_todo_sample.components;
 
 /// Store strings for class names defined by this component that are used in
 /// Dart. This allows us to simply change it in one place should we
 /// decide to modify at a later date.
-class _ToDoItemComponentCssClasses {
+class _ToDoListComponentCssClasses {
 
-    static const String MAIN_CLASS  = "todo-items";
+    static const String MAIN_CLASS  = "todo-list";
 
     final String IS_UPGRADED = 'is-upgraded';
 
-    const _ToDoItemComponentCssClasses();
+    const _ToDoListComponentCssClasses();
 }
 
-@MdlComponentModel
-class ToDoItem {
-    final Logger _logger = new Logger('todo.ToDoItem');
-
-    static int counter = 0;
-    int id;
-
-    bool checked;
-    final String name;
-
-    ToDoItem(this.checked, this.name) : id = counter { counter++; }
-}
 
 class ModelChangedEvent {
     final ToDoItem item;
@@ -50,61 +38,43 @@ class ModelChangedEvent {
 }
 
 @MdlComponentModel
-class ToDoItemComponent extends MdlTemplateComponent implements ScopeAware {
-    final Logger _logger = new Logger('todo.ToDoItemComponent');
+class ToDoListComponent extends MdlTemplateComponent implements ScopeAware {
+    final Logger _logger = new Logger('todo.ToDoListComponent');
 
-    static const _ToDoItemComponentCssClasses _cssClasses = const _ToDoItemComponentCssClasses();
+    static const _ToDoListComponentCssClasses _cssClasses = const _ToDoListComponentCssClasses();
 
     final ObservableList<ToDoItem> items = new ObservableList<ToDoItem>();
+    final ToDoListStoreInterface _datastore;
 
-    ToDoItemComponent.fromElement(final dom.HtmlElement element,final di.Injector injector)
-        : super(element,injector) {
-
+    ToDoListComponent.fromElement(final dom.HtmlElement element,final di.Injector injector)
+        : super(element,injector), _datastore = injector.get(ToDoListStoreInterface) {
         _init();
     }
 
-    static ToDoItemComponent widget(final dom.HtmlElement element) => mdlComponent(element,ToDoItemComponent) as ToDoItemComponent;
+    static ToDoListComponent widget(final dom.HtmlElement element) => mdlComponent(element,ToDoListComponent) as ToDoListComponent;
 
 
-    void addItem(final ToDoItem value) {
-        items.add(value);
-    }
-
-    void addItemOnTop(final ToDoItem item) {
-        items.insert(0,item);
-    }
-
-    void remove(final String id) {
+    void onRemove(final String id) {
         _logger.info("Remove $id");
         final ToDoItem item = _getItem(id);
-        items.remove(item);
-
+        _datastore.fire(new RemoveItemAction(item));
     }
 
-    void check(final String id) {
+    void onCheck(final String id) {
         _logger.info("Check $id");
 
         final MaterialCheckbox checkbox = MaterialCheckbox.widget(element.querySelector("#check${id.trim()}"));
         final ToDoItem item = _getItem(id);
         item.checked = checkbox.checked;
+        _datastore.fire(new ItemCheckedAction(item));
     }
-
-    int get incrementalIndex => ToDoItem.counter;
 
     //- private -----------------------------------------------------------------------------------
 
     void _init() {
         _logger.fine("ToDoItem - init");
 
-        // items.add(new ToDoItem(false,"Mike (Cnt 0)"));
-        // items.add(new ToDoItem(true,"Gerda (Cnt 1)"));
-        // items.add(new ToDoItem(false,"Sarah (Cnt 2)"));
-        //
-        // for(int counter = 3;counter < 1000;counter++) {
-        //    items.add(new ToDoItem(false,"Cnt $counter"));
-        // }
-
-        _render();
+        _render().then((_) => _bindSignals() );
 
         element.classes.add(_cssClasses.IS_UPGRADED);
     }
@@ -121,15 +91,32 @@ class ToDoItemComponent extends MdlTemplateComponent implements ScopeAware {
     Future _render() async {
         Stopwatch stopwatch = new Stopwatch()..start();
 
-        render().then((_) {
-            stopwatch.stop();
+        await render();
+        stopwatch.stop();
 
-            final String message = "Data rendered with TemplateRenderer (${items.length}), "
-                "took ${stopwatch.elapsedMilliseconds}ms";
+        final String message = "Data rendered with TemplateRenderer (${items.length}), "
+            "took ${stopwatch.elapsedMilliseconds}ms";
 
-            _logger.info(message);
+        _logger.info(message);
+    }
+
+    void _bindSignals() {
+        _datastore.onChange.listen( (_) {
+            // Remove deleted items
+            items.removeWhere((final ToDoItem item) => (!_datastore.items.contains(item)));
+
+            // Add new items
+            _datastore.items.forEach((final ToDoItem item) {
+                if(!items.contains(item)) {
+                    items.add(item);
+                }
+                // and update its checked-state
+                final MaterialCheckbox checkbox = MaterialCheckbox.widget(element.querySelector("#check${item.id}"));
+                if(checkbox != null) {
+                    checkbox.checked = item.checked;
+                }
+            });
         });
-
     }
 
     //- Template -----------------------------------------------------------------------------------
@@ -145,12 +132,12 @@ class ToDoItemComponent extends MdlTemplateComponent implements ScopeAware {
                             <input type="checkbox" id="check{{item.id}}" class="mdl-checkbox__input" checked data-mdl-click="check({{item.id}})"/>
                         {{/item.checked}}
                         {{^item.checked}}
-                            <input type="checkbox" id="check{{item.id}}" class="mdl-checkbox__input" data-mdl-click="check({{item.id}})"/>
+                            <input type="checkbox" id="check{{item.id}}" class="mdl-checkbox__input" data-mdl-click="onCheck({{item.id}})"/>
                         {{/item.checked}}
                         <span class="mdl-checkbox__label">{{item.name}}</span>
                     </label>
                     <button class="mdl-button mdl-js-button mdl-button--colored mdl-js-ripple-effect"
-                        data-mdl-click="remove({{item.id}})">
+                        data-mdl-click="onRemove({{item.id}})">
                         Remove
                     </button>
                 </div>
@@ -161,12 +148,12 @@ class ToDoItemComponent extends MdlTemplateComponent implements ScopeAware {
 }
 
 /// registration-Helper
-void registerToDoItemComponent() {
-    final MdlConfig config = new MdlWidgetConfig<ToDoItemComponent>(
-        _ToDoItemComponentCssClasses.MAIN_CLASS,
-            (final dom.HtmlElement element, final di.Injector injector) => new ToDoItemComponent.fromElement(element, injector));
+void registerToDoListComponent() {
+    final MdlConfig config = new MdlWidgetConfig<ToDoListComponent>(
+        _ToDoListComponentCssClasses.MAIN_CLASS,
+            (final dom.HtmlElement element, final di.Injector injector) => new ToDoListComponent.fromElement(element, injector));
 
-    config.selectorType = SelectorType.CLASS;
+    config.selectorType = SelectorType.TAG;
 
     componentHandler().register(config);
 }

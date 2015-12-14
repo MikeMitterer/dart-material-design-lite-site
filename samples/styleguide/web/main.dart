@@ -38,7 +38,10 @@ import "package:mdl/mdldialog.dart";
 import "package:mdl_styleguide/customdialog1.dart";
 import "package:mdl_styleguide/customdialog2.dart";
 
-import "package:mdl_styleguide/todo.dart";
+// ToDo - Sample
+import "package:mdl_styleguide/src/interfaces.dart";
+import "package:mdl_styleguide/components.dart";
+import "package:mdl_styleguide/datastore.dart";
 
 /**
  * Used for mdl-model sample
@@ -99,7 +102,10 @@ class Application extends MaterialApplication {
     /// Title will be displayed
     final ObservableProperty<String> title = new ObservableProperty<String>("");
 
-    Application() {
+    /// Added by the MDL/Dart-Framework (mdlapplication.dart)
+    final ActionBus _actionbus;
+
+    Application(this._actionbus) {
         _logger.info("Application created");
 
         records.observes(() => (languages.isNotEmpty ? languages.length.toString() : "<empty>"));
@@ -174,7 +180,9 @@ class Application extends MaterialApplication {
 
 class StyleguideModule extends di.Module {
     StyleguideModule() {
-       // Nothing interesting here - just a reminder how to use a Module
+
+        bind(ToDoInputStoreInterface, toImplementation: ToDoDataStore);
+        bind(ToDoListStoreInterface, toImplementation: ToDoDataStore);
     }
 }
 
@@ -189,7 +197,7 @@ main() {
     registerDemoAnimation();
 
     // register this Demo-Specific Component
-    registerToDoItemComponent();
+    registerToDoComponents();
 
     componentFactory().rootContext(Application)
     .addModule(new StyleguideModule()).run()
@@ -860,27 +868,27 @@ class ToDoController extends DemoController {
     void loaded(final Route route) {
         super.loaded(route);
 
-        final Application app = componentFactory().application;
-        final MaterialButton addButton = MaterialButton.widget(dom.querySelector("#add"));
-        final MaterialTextfield item = MaterialTextfield.widget(dom.querySelector("#item"));
-        final ToDoItemComponent todo = ToDoItemComponent.widget(dom.querySelector("#todo"));
-
-        app.nrOfItems.observes( () => todo.items.length );
-        app.nrOfItemsDone.observes(() {
-            int done = 0;
-            todo.items.forEach((final ToDoItem item) { done += item.checked ? 1 : 0; });
-            return done;
-        });
-
-        addButton.onClick.listen((_) => _addItem());
-        item.hub.onKeyDown.listen((final dom.KeyboardEvent event) {
-            if(event.keyCode == 13) {
-                event.preventDefault();
-                event.stopPropagation();
-                _addItem();
-                item.value = "";
-            }
-        });
+//        final Application app = componentFactory().application;
+//        final MaterialButton addButton = MaterialButton.widget(dom.querySelector("#add"));
+//        final MaterialTextfield item = MaterialTextfield.widget(dom.querySelector("#item"));
+//        final ToDoItemComponent todo = ToDoItemComponent.widget(dom.querySelector("#todo"));
+//
+//        app.nrOfItems.observes( () => todo.items.length );
+//        app.nrOfItemsDone.observes(() {
+//            int done = 0;
+//            todo.items.forEach((final ToDoItem item) { done += item.checked ? 1 : 0; });
+//            return done;
+//        });
+//
+//        addButton.onClick.listen((_) => _addItem());
+//        item.hub.onKeyDown.listen((final dom.KeyboardEvent event) {
+//            if(event.keyCode == 13) {
+//                event.preventDefault();
+//                event.stopPropagation();
+//                _addItem();
+//                item.value = "";
+//            }
+//        });
     }
 
     @override
@@ -888,17 +896,17 @@ class ToDoController extends DemoController {
         final Application app = componentFactory().application;
 
         /// Cleanup - not really necessary but nice style
-        app.nrOfItems.pause();
-        app.nrOfItemsDone.pause();
+//        app.nrOfItems.pause();
+//        app.nrOfItemsDone.pause();
     }
 
     //- private -----------------------------------------------------------------------------------
 
     void _addItem() {
-        final MaterialTextfield item = MaterialTextfield.widget(dom.querySelector("#item"));
-        final ToDoItemComponent todo = ToDoItemComponent.widget(dom.querySelector("#todo"));
-
-        todo.addItemOnTop(new ToDoItem(false,"Cnt ${todo.incrementalIndex} (${item.value})"));
+//        final MaterialTextfield item = MaterialTextfield.widget(dom.querySelector("#item"));
+//        final ToDoItemComponent todo = ToDoItemComponent.widget(dom.querySelector("#todo"));
+//
+//        todo.addItemOnTop(new ToDoItem(false,"Cnt ${todo.incrementalIndex} (${item.value})"));
     }
 }
 
