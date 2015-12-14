@@ -114,6 +114,7 @@ class Application extends MaterialApplication {
 
     @override
     void run() {
+        _bindSignals();
     }
 
     /**
@@ -175,6 +176,13 @@ class Application extends MaterialApplication {
         final DateTime now = new DateTime.now();
         return "${now.hour.toString().padLeft(2, "0")}:${now.minute.toString().padLeft(
             2, "0")}:${now.second.toString().padLeft(2, "0")}";
+    }
+
+    void _bindSignals() {
+        // Not necessary - just a demonstration how to listen to the "global" ActionBus
+        _actionbus.on(AddItemAction.NAME).listen((_) {
+            _logger.info("User clicked on 'Add'!");
+        });
     }
 }
 
@@ -868,46 +876,14 @@ class ToDoController extends DemoController {
     void loaded(final Route route) {
         super.loaded(route);
 
-//        final Application app = componentFactory().application;
-//        final MaterialButton addButton = MaterialButton.widget(dom.querySelector("#add"));
-//        final MaterialTextfield item = MaterialTextfield.widget(dom.querySelector("#item"));
-//        final ToDoItemComponent todo = ToDoItemComponent.widget(dom.querySelector("#todo"));
-//
-//        app.nrOfItems.observes( () => todo.items.length );
-//        app.nrOfItemsDone.observes(() {
-//            int done = 0;
-//            todo.items.forEach((final ToDoItem item) { done += item.checked ? 1 : 0; });
-//            return done;
-//        });
-//
-//        addButton.onClick.listen((_) => _addItem());
-//        item.hub.onKeyDown.listen((final dom.KeyboardEvent event) {
-//            if(event.keyCode == 13) {
-//                event.preventDefault();
-//                event.stopPropagation();
-//                _addItem();
-//                item.value = "";
-//            }
-//        });
     }
 
     @override
     void unload() {
-        final Application app = componentFactory().application;
 
-        /// Cleanup - not really necessary but nice style
-//        app.nrOfItems.pause();
-//        app.nrOfItemsDone.pause();
     }
 
     //- private -----------------------------------------------------------------------------------
-
-    void _addItem() {
-//        final MaterialTextfield item = MaterialTextfield.widget(dom.querySelector("#item"));
-//        final ToDoItemComponent todo = ToDoItemComponent.widget(dom.querySelector("#todo"));
-//
-//        todo.addItemOnTop(new ToDoItem(false,"Cnt ${todo.incrementalIndex} (${item.value})"));
-    }
 }
 
 void configRouter() {
