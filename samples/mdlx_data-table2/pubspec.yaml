@@ -18,7 +18,8 @@ dependencies:
     # path: /Volumes/Daten/DevLocal/DevDart/ConsoleLogHandler
 
   mdl:
-    path: /Volumes/Daten/DevLocal/DevDart/MaterialDesignLite
+    # path: /Volumes/Daten/DevLocal/DevDart/MaterialDesignLite
+    git: https://github.com/MikeMitterer/dart-material-design-lite-reflections
 
   di: ^3.3.0
 
@@ -29,6 +30,7 @@ dependencies:
 transformers:
   - di
   - dart_to_js_script_rewriter
+
   - reflectable:
       entry_points:
         - web/main.dart # The path to your main file

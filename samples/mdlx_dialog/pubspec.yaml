@@ -18,7 +18,8 @@ dependencies:
     # path: /Volumes/Daten/DevLocal/DevDart/ConsoleLogHandler
 
   mdl:
-    path: /Volumes/Daten/DevLocal/DevDart/MaterialDesignLite
+    # path: /Volumes/Daten/DevLocal/DevDart/MaterialDesignLite
+    git: https://github.com/MikeMitterer/dart-material-design-lite-reflections
 
   di: ^3.3.0
 
