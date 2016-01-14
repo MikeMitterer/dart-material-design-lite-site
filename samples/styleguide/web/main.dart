@@ -886,6 +886,38 @@ class ToDoController extends DemoController {
     //- private -----------------------------------------------------------------------------------
 }
 
+class LablefieldController extends DemoController {
+    final Logger _logger = new Logger('main.LablefieldController');
+
+    @override
+    void loaded(final Route route) {
+        super.loaded(route);
+
+        final MaterialButton button = MaterialButton.widget(dom.querySelector(".mdl-button"));
+        button.onClick.listen((final dom.Event event) {
+            event.preventDefault();
+
+            final MaterialLabelfield label = MaterialLabelfield.widget(dom.querySelector("#search_engine"));
+            label.label = "Another search engine";
+            label.value = "Yahoo";
+
+            final MaterialLabelfield label2 = MaterialLabelfield.widget(dom.querySelector("#interruption"));
+            label2.label = "Do not disturbe!";
+
+            final MaterialLabelfield label3 = MaterialLabelfield.widget(dom.querySelector("#ringtone"));
+            label3.value = "I am <strong>escaped</strong>";
+        });
+    }
+
+    @override
+    void unload() {
+
+    }
+
+    //- private -----------------------------------------------------------------------------------
+}
+
+
 void configRouter() {
     final Router router = new Router(useFragment: true);
     final ViewFactory view = new ViewFactory();
@@ -948,6 +980,9 @@ void configRouter() {
 
         ..addRoute(name: 'layout', path: '/layout',
             enter: view("views/layout.html", new DemoController()))
+
+        ..addRoute(name: 'lablefield', path: '/lablefield',
+            enter: view("views/lablefield.html", new LablefieldController()))
 
         ..addRoute(name: 'list', path: '/list',
             enter: view("views/list.html", new DemoController()))

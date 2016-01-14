@@ -32,7 +32,6 @@ class Application extends MaterialApplication {
             final MaterialLabelfield label3 = MaterialLabelfield.widget(dom.querySelector("#ringtone"));
             label3.value = "I am <strong>escaped</strong>";
         });
-
     }
 }
 

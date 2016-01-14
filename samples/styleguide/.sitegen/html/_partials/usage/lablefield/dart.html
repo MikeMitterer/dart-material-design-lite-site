@@ -1,0 +1,42 @@
+import &#39;package:mdl&#47;mdl.dart&#39;;
+import &#39;package:mdl&#47;mdlobservable.dart&#39;;
+
+@MdlComponentModel @di.Injectable()
+class Application extends MaterialApplication &#123;
+    final Logger _logger = new Logger(&#39;main.Application&#39;);
+
+    Application() &#123;
+    &#125;
+
+    @override
+    void run() &#123;
+        final MaterialButton button = MaterialButton.widget(dom.querySelector(&quot;.mdl-button&quot;));
+        button.onClick.listen((final dom.Event event) &#123;
+            event.preventDefault();
+
+            final MaterialLabelfield label = MaterialLabelfield.widget(dom.querySelector(&quot;#search_engine&quot;));
+            label.label = &quot;Another search engine&quot;;
+            label.value = &quot;Yahoo&quot;;
+
+            final MaterialLabelfield label2 = MaterialLabelfield.widget(dom.querySelector(&quot;#interruption&quot;));
+            label2.label = &quot;Do not disturbe!&quot;;
+
+            final MaterialLabelfield label3 = MaterialLabelfield.widget(dom.querySelector(&quot;#ringtone&quot;));
+            label3.value = &quot;I am &lt;strong&gt;escaped&lt;&#47;strong&gt;&quot;;
+        &#125;);
+
+    &#125;
+&#125;
+
+main() async &#123;
+    final Logger _logger = new Logger(&#39;main.Labelfield&#39;);
+
+    registerMdl();
+
+    final MaterialApplication application = await componentFactory().
+        rootContext(Application).run(enableVisualDebugging: true);
+
+    application.run();
+&#125;
+
+
