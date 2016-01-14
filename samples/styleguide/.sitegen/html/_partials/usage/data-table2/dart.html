@@ -5,6 +5,14 @@ main() &#123;
     registerMdl();
 
     componentFactory().run().then((_) &#123;
+        final MaterialDivDataTable table = MaterialDivDataTable.widget(dom.querySelector(&quot;.mdl-data-tableex&quot;));
+        final MaterialLabelfield label = MaterialLabelfield.widget(dom.querySelector(&quot;#selection&quot;));
 
+        table.onRowClick.listen((final DataTableRowClickedEvent event) &#123;
+            final dom.DivElement div = event.row.element;
+            final dom.HtmlElement child = div.querySelector(&quot;.material&quot;);
+
+            label.value = child.text.replaceAll(new RegExp(r&quot;\s&#123;2,&#125;&quot;),&quot;&quot;);
+        &#125;);
     &#125;);
 &#125;

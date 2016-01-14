@@ -27,7 +27,15 @@ main() &#123;
     registerMdl();
 
     componentFactory().run().then((_) &#123;
+        final MaterialDivDataTable table = MaterialDivDataTable.widget(dom.querySelector(&quot;.mdl-data-tableex&quot;));
+        final MaterialLabelfield label = MaterialLabelfield.widget(dom.querySelector(&quot;#selection&quot;));
 
+        table.onRowClick.listen((final DataTableRowClickedEvent event) &#123;
+            final dom.DivElement div = event.row.element;
+            final dom.HtmlElement child = div.querySelector(&quot;.material&quot;);
+
+            label.value = child.text.replaceAll(new RegExp(r&quot;\s&#123;2,&#125;&quot;),&quot;&quot;);
+        &#125;);
     &#125;);
 &#125;</pre>
                 </div>
@@ -44,27 +52,108 @@ main() &#123;
                 <pre class="prettyprint linenums lang-html">
 &lt;div class=&quot;demo-preview-block debug-off&quot;&gt;
     &lt;h5&gt;With &#39;divs&#39;&lt;&#47;h5&gt;
-    &lt;div class=&quot;mdl-data-tableex mdl-js-data-tableex mdl-data-tableex--selectable mdl-shadow--2dp&quot;&gt;
-        &lt;div class=&quot;mdl-div-data-tableex__row mdl-div-data-tableex__head&quot;&gt;
-            &lt;div class=&quot;mdl-data-tableex__cell--non-numeric mdl-data-tableex__cell--grow&quot;&gt;Material&lt;&#47;div&gt;
-            &lt;div class=&quot;mdl-data-tableex__cell--numeric&quot;&gt;Quantity&lt;&#47;div&gt;
-            &lt;div class=&quot;mdl-data-tableex__cell--numeric&quot;&gt;Unit price&lt;&#47;div&gt;
+    &lt;div class=&quot;mdl-data-tableex mdl-js-data-tableex mdl-data-tableex--selectable&quot;&gt;
+        &lt;div class=&quot;mdl-div-data-tableex__row mdl-div-data-tableex__head mdl-color--A200 mdl-shadow--2dp mdl-color-text--white&quot;&gt;
+            &lt;div class=&quot;mdl-data-tableex__cell--non-numeric mdl-data-tableex__cell--grow mdl-color-text--white&quot;&gt;Material&lt;&#47;div&gt;
+            &lt;div class=&quot;mdl-data-tableex__cell--numeric mdl-color-text--white&quot;&gt;Quantity&lt;&#47;div&gt;
+            &lt;div class=&quot;mdl-data-tableex__cell--numeric mdl-color-text--white&quot;&gt;Unit price&lt;&#47;div&gt;
         &lt;&#47;div&gt;
-        &lt;div class=&quot;mdl-div-data-tableex__row&quot;&gt;
-            &lt;div class=&quot;mdl-data-tableex__cell--grow&quot;&gt;Acrylic (Transparent)&lt;&#47;div&gt;
-            &lt;div class=&quot;mdl-data-tableex__cell--numeric&quot;&gt;25&lt;&#47;div&gt;
-            &lt;div class=&quot;mdl-data-tableex__cell--numeric&quot;&gt;$2.90&lt;&#47;div&gt;
+        &lt;div class=&quot;mdl-div-data-tableex__data&quot;&gt;
+            &lt;div class=&quot;mdl-div-data-tableex__row&quot;&gt;
+                &lt;div class=&quot;material mdl-data-tableex__cell--grow&quot;&gt;Acrylic (Transparent)&lt;&#47;div&gt;
+                &lt;div class=&quot;mdl-data-tableex__cell--numeric&quot;&gt;25&lt;&#47;div&gt;
+                &lt;div class=&quot;mdl-data-tableex__cell--numeric&quot;&gt;$2.90&lt;&#47;div&gt;
+            &lt;&#47;div&gt;
+            &lt;div class=&quot;mdl-div-data-tableex__row&quot;&gt;
+                &lt;div class=&quot;material mdl-data-tableex__cell--non-numeric mdl-data-tableex__cell--grow&quot;&gt;Plywood (Birch)
+                &lt;&#47;div&gt;
+                &lt;div class=&quot;mdl-data-tableex__cell--numeric&quot;&gt;50&lt;&#47;div&gt;
+                &lt;div class=&quot;mdl-data-tableex__cell--numeric&quot;&gt;$1.25&lt;&#47;div&gt;
+            &lt;&#47;div&gt;
+            &lt;div class=&quot;mdl-div-data-tableex__row&quot;&gt;
+                &lt;div class=&quot;material mdl-data-tableex__cell--non-numeric mdl-data-tableex__cell--grow&quot;&gt;Laminate (Gold on
+                    Blue)
+                &lt;&#47;div&gt;
+                &lt;div class=&quot;mdl-data-tableex__cell--numeric&quot;&gt;10&lt;&#47;div&gt;
+                &lt;div class=&quot;mdl-data-tableex__cell--numeric&quot;&gt;$2.35&lt;&#47;div&gt;
+            &lt;&#47;div&gt;
+            &lt;div class=&quot;mdl-div-data-tableex__row&quot;&gt;
+                &lt;div class=&quot;material mdl-data-tableex__cell--grow&quot;&gt;Acrylic (Transparent)&lt;&#47;div&gt;
+                &lt;div class=&quot;mdl-data-tableex__cell--numeric&quot;&gt;25&lt;&#47;div&gt;
+                &lt;div class=&quot;mdl-data-tableex__cell--numeric&quot;&gt;$2.90&lt;&#47;div&gt;
+            &lt;&#47;div&gt;
+            &lt;div class=&quot;mdl-div-data-tableex__row&quot;&gt;
+                &lt;div class=&quot;material mdl-data-tableex__cell--non-numeric mdl-data-tableex__cell--grow&quot;&gt;Plywood (Birch)
+                &lt;&#47;div&gt;
+                &lt;div class=&quot;mdl-data-tableex__cell--numeric&quot;&gt;50&lt;&#47;div&gt;
+                &lt;div class=&quot;mdl-data-tableex__cell--numeric&quot;&gt;$1.25&lt;&#47;div&gt;
+            &lt;&#47;div&gt;
+            &lt;div class=&quot;mdl-div-data-tableex__row&quot;&gt;
+                &lt;div class=&quot;material mdl-data-tableex__cell--non-numeric mdl-data-tableex__cell--grow&quot;&gt;Laminate (Gold on
+                    Blue)
+                &lt;&#47;div&gt;
+                &lt;div class=&quot;mdl-data-tableex__cell--numeric&quot;&gt;10&lt;&#47;div&gt;
+                &lt;div class=&quot;mdl-data-tableex__cell--numeric&quot;&gt;$2.35&lt;&#47;div&gt;
+            &lt;&#47;div&gt;
+            &lt;div class=&quot;mdl-div-data-tableex__row&quot;&gt;
+                &lt;div class=&quot;material mdl-data-tableex__cell--grow&quot;&gt;Acrylic (Transparent)&lt;&#47;div&gt;
+                &lt;div class=&quot;mdl-data-tableex__cell--numeric&quot;&gt;25&lt;&#47;div&gt;
+                &lt;div class=&quot;mdl-data-tableex__cell--numeric&quot;&gt;$2.90&lt;&#47;div&gt;
+            &lt;&#47;div&gt;
+            &lt;div class=&quot;mdl-div-data-tableex__row&quot;&gt;
+                &lt;div class=&quot;material mdl-data-tableex__cell--non-numeric mdl-data-tableex__cell--grow&quot;&gt;Plywood (Birch)
+                &lt;&#47;div&gt;
+                &lt;div class=&quot;mdl-data-tableex__cell--numeric&quot;&gt;50&lt;&#47;div&gt;
+                &lt;div class=&quot;mdl-data-tableex__cell--numeric&quot;&gt;$1.25&lt;&#47;div&gt;
+            &lt;&#47;div&gt;
+            &lt;div class=&quot;mdl-div-data-tableex__row&quot;&gt;
+                &lt;div class=&quot;material mdl-data-tableex__cell--non-numeric mdl-data-tableex__cell--grow&quot;&gt;Laminate (Gold on
+                    Blue)
+                &lt;&#47;div&gt;
+                &lt;div class=&quot;mdl-data-tableex__cell--numeric&quot;&gt;10&lt;&#47;div&gt;
+                &lt;div class=&quot;mdl-data-tableex__cell--numeric&quot;&gt;$2.35&lt;&#47;div&gt;
+            &lt;&#47;div&gt;
+            &lt;div class=&quot;mdl-div-data-tableex__row&quot;&gt;
+                &lt;div class=&quot;material mdl-data-tableex__cell--grow&quot;&gt;Acrylic (Transparent)&lt;&#47;div&gt;
+                &lt;div class=&quot;mdl-data-tableex__cell--numeric&quot;&gt;25&lt;&#47;div&gt;
+                &lt;div class=&quot;mdl-data-tableex__cell--numeric&quot;&gt;$2.90&lt;&#47;div&gt;
+            &lt;&#47;div&gt;
+            &lt;div class=&quot;mdl-div-data-tableex__row&quot;&gt;
+                &lt;div class=&quot;material mdl-data-tableex__cell--non-numeric mdl-data-tableex__cell--grow&quot;&gt;Plywood (Birch)
+                &lt;&#47;div&gt;
+                &lt;div class=&quot;mdl-data-tableex__cell--numeric&quot;&gt;50&lt;&#47;div&gt;
+                &lt;div class=&quot;mdl-data-tableex__cell--numeric&quot;&gt;$1.25&lt;&#47;div&gt;
+            &lt;&#47;div&gt;
+            &lt;div class=&quot;mdl-div-data-tableex__row&quot;&gt;
+                &lt;div class=&quot;material mdl-data-tableex__cell--non-numeric mdl-data-tableex__cell--grow&quot;&gt;Laminate (Gold on
+                    Blue)
+                &lt;&#47;div&gt;
+                &lt;div class=&quot;mdl-data-tableex__cell--numeric&quot;&gt;10&lt;&#47;div&gt;
+                &lt;div class=&quot;mdl-data-tableex__cell--numeric&quot;&gt;$2.35&lt;&#47;div&gt;
+            &lt;&#47;div&gt;
+            &lt;div class=&quot;mdl-div-data-tableex__row&quot;&gt;
+                &lt;div class=&quot;material mdl-data-tableex__cell--grow&quot;&gt;Acrylic (Transparent)&lt;&#47;div&gt;
+                &lt;div class=&quot;mdl-data-tableex__cell--numeric&quot;&gt;25&lt;&#47;div&gt;
+                &lt;div class=&quot;mdl-data-tableex__cell--numeric&quot;&gt;$2.90&lt;&#47;div&gt;
+            &lt;&#47;div&gt;
+            &lt;div class=&quot;mdl-div-data-tableex__row&quot;&gt;
+                &lt;div class=&quot;material mdl-data-tableex__cell--non-numeric mdl-data-tableex__cell--grow&quot;&gt;Plywood (Birch)
+                &lt;&#47;div&gt;
+                &lt;div class=&quot;mdl-data-tableex__cell--numeric&quot;&gt;50&lt;&#47;div&gt;
+                &lt;div class=&quot;mdl-data-tableex__cell--numeric&quot;&gt;$1.25&lt;&#47;div&gt;
+            &lt;&#47;div&gt;
+            &lt;div class=&quot;mdl-div-data-tableex__row&quot;&gt;
+                &lt;div class=&quot;material mdl-data-tableex__cell--non-numeric mdl-data-tableex__cell--grow&quot;&gt;Laminate (Gold on
+                    Blue)
+                &lt;&#47;div&gt;
+                &lt;div class=&quot;mdl-data-tableex__cell--numeric&quot;&gt;10&lt;&#47;div&gt;
+                &lt;div class=&quot;mdl-data-tableex__cell--numeric&quot;&gt;$2.35&lt;&#47;div&gt;
+            &lt;&#47;div&gt;
         &lt;&#47;div&gt;
-        &lt;div class=&quot;mdl-div-data-tableex__row&quot;&gt;
-            &lt;div class=&quot;mdl-data-tableex__cell--non-numeric mdl-data-tableex__cell--grow&quot;&gt;Plywood (Birch)&lt;&#47;div&gt;
-            &lt;div class=&quot;mdl-data-tableex__cell--numeric&quot;&gt;50&lt;&#47;div&gt;
-            &lt;div class=&quot;mdl-data-tableex__cell--numeric&quot;&gt;$1.25&lt;&#47;div&gt;
-        &lt;&#47;div&gt;
-        &lt;div class=&quot;mdl-div-data-tableex__row&quot;&gt;
-            &lt;div class=&quot;mdl-data-tableex__cell--non-numeric mdl-data-tableex__cell--grow&quot;&gt;Laminate (Gold on Blue)&lt;&#47;div&gt;
-            &lt;div class=&quot;mdl-data-tableex__cell--numeric&quot;&gt;10&lt;&#47;div&gt;
-            &lt;div class=&quot;mdl-data-tableex__cell--numeric&quot;&gt;$2.35&lt;&#47;div&gt;
-        &lt;&#47;div&gt;
+    &lt;&#47;div&gt;
+    &lt;div id=&quot;selection&quot; class=&quot;mdl-labelfield mdl-labelfield--with-border&quot;&gt;
+        &lt;label class=&quot;mdl-labelfield__label &quot;&gt;Clicked&lt;&#47;label&gt;
+        &lt;div class=&quot;mdl-labelfield__text&quot;&gt;nothing&lt;&#47;div&gt;
     &lt;&#47;div&gt;
     &lt;h5&gt;With &#39;table-element&#39;&lt;&#47;h5&gt;
     &lt;table class=&quot;mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp&quot;&gt;

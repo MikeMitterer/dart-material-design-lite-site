@@ -917,6 +917,31 @@ class LablefieldController extends DemoController {
     //- private -----------------------------------------------------------------------------------
 }
 
+class DataTable2Controller extends DemoController {
+    final Logger _logger = new Logger('main.DataTable2Controller');
+
+    @override
+    void loaded(final Route route) {
+        super.loaded(route);
+
+        final MaterialDivDataTable table = MaterialDivDataTable.widget(dom.querySelector(".mdl-data-tableex"));
+        final MaterialLabelfield label = MaterialLabelfield.widget(dom.querySelector("#selection"));
+
+        table.onRowClick.listen((final DataTableRowClickedEvent event) {
+            final dom.DivElement div = event.row.element;
+            final dom.HtmlElement child = div.querySelector(".material");
+
+            label.value = child.text.replaceAll(new RegExp(r"\s{2,}"),"");
+        });
+    }
+
+    @override
+    void unload() {
+
+    }
+
+//- private -----------------------------------------------------------------------------------
+}
 
 void configRouter() {
     final Router router = new Router(useFragment: true);
@@ -953,6 +978,9 @@ void configRouter() {
 
         ..addRoute(name: 'data-table', path: '/data-table',
             enter: view("views/data-table.html", new DemoController()))
+
+        ..addRoute(name: 'data-table2', path: '/data-table2',
+            enter: view("views/data-table2.html", new DataTable2Controller()))
 
         ..addRoute(name: 'dialog', path: '/dialog',
             enter: view("views/dialog.html", new DialogController()))

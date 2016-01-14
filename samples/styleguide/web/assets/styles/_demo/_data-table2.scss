@@ -1,4 +1,18 @@
-.demo-page--data-tableex, .demo-section--data-tableex {
+$_demo-data-tableex-table-height: ($data-table-row-height * 4);
+
+.demo-page--data-table2, .demo-section--data-table2 {
+
+    .mdl-div-data-tableex__head {
+        border-left: 1px solid rgb(41,98,255);
+        border-right: 1px solid rgb(41,98,255);
+        border-top: 1px solid rgb(41,98,255);
+    }
+
+    .mdl-div-data-tableex__data {
+        max-height: $_demo-data-tableex-table-height;
+        height: $_demo-data-tableex-table-height;
+    }
+
     .mdl-div-data-tableex__row {
 
         // Set a default  width for all cells

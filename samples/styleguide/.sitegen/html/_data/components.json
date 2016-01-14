@@ -6,6 +6,7 @@
   { "name": "card", "link": "#/card" },
   { "name": "checkbox", "link": "#/checkbox" },
   { "name": "data-table", "link": "#/data-table" },
+  { "name": "data-table2", "link": "#/data-table2" },
   { "name": "footer", "link": "#/footer" },
   { "name": "grid", "link": "#/grid" },
   { "name": "icon-toggle", "link": "#/icon-toggle" },
