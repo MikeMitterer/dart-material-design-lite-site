@@ -1,9 +1,9 @@
-<section class="demo-section demo-section--getting-started">
+<section class="demo-section demo-section--getting-started docs">
 
     <h3 class="mdl-color-text--600" id="introduction">Introduction</h3>
 
-    <p>The MDL components are created with CSS, Dart, and HTML. You can use the components to construct web pages
-        and web apps that are attractive, consistent, and functional. Pages developed with MDL will adhere to modern web
+    <p>The MDL/Dart components are created with CSS, Dart, and HTML. You can use the components to construct web pages
+        and web apps that are attractive, consistent, and functional. Pages developed with MDL/Dart will adhere to modern web
         design principles like browser portability, device independence, and graceful degradation.</p>
 
     <p>The MDL component library includes new versions of common user interface controls such as buttons, check boxes,
@@ -12,13 +12,28 @@
 
     <p>MDL is free to download and use, and may be used with or without any build library or development environment.
         It is a cross-browser, cross-OS web developer's toolkit that can be used by anyone who wants to write more
-        productive,
-        portable, and — most importantly — usable web pages.</p>
+        productive, portable, and — most importantly — usable web pages.</p>
+
+    <section class="docs__toc">
+        <h3>Contents</h3>
+        <nav class="docs__content">
+            <ul>
+                <li><a href="#update-yaml">Update your pubspec.yaml</a></li>
+                <li><a href="#pub-update">pub update</a></li>
+                <li><a href="#include-the-master-css">Include the necessary CSS</a></li>
+                <li><a href="#main_dart">Add necessary code to main.dart</a></li>
+                <li><a href="#use-the-components">Use the components</a></li>
+                <li><a href="#general-rules">General rules and principles</a></li>
+                <li><a href="#tgz-samples">All samples as TGZ-Files</a></li>
+                <li><a href="#whats-next">What's next?</a></li>
+            </ul>
+        </nav>
+    </section>
 
     <h4 id="getting-started">Getting started</h4>
 
     <p>To obtain the components, first, install the <a href="https://pub.dartlang.org/packages/mdl"
-                                                target="_blank">MDL Package</a>.
+                                                       target="_blank">MDL/Dart Package</a>.
     </p>
 
     <h5 id="update-yaml">1 - Update your pubspec.yaml</h5>
@@ -37,45 +52,235 @@ dependencies:
   logging_handlers: any
   console_log_handler: any
 
-  mdl: any</pre>
+  mdl: &quot;^1.0.0&quot;
+  di: &quot;^3.3.0&quot;
+
+  // Not necessary but nice to have
+  dart_to_js_script_rewriter: ^0.1.0
+
+transformers:
+  - di
+  - dart_to_js_script_rewriter
+</pre>
 
     <h5 id="pub-update">2 - pub update</h5>
 
-    <h5 id="include-the-master-css">3 - Include the master CSS</h5>
+    <h5 id="include-the-master-css">3 - Include the necessary CSS</h5>
 
     <p>In each HTML page in your project, include the minified (compressed) CSS using standard
         references.</p>
-    <pre class="prettyprint linenums lang-html">
-&lt;link id=&quot;theme&quot; rel=&quot;stylesheet&quot; href=&quot;https://cdn.rawgit.com/MikeMitterer/dart-mdl-theme/master/blue_grey-pink/material.min.css&quot;&gt;</pre>
-    <p><strong>That's it!</strong>You are now ready to use the MDL components.<br>
+
+<pre class="prettyprint html">
+&lt;!-- Fonts --&gt;
+&lt;link rel=&quot;stylesheet&quot; href=&quot;packages/mdl/assets/fonts/fonts.min.css&quot;&gt;
+&lt;!-- Another way for accessing the necessary font:
+&lt;link href='//fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;amp;lang=en' rel='stylesheet' type='text/css'&gt;
+&lt;link href=&quot;https://fonts.googleapis.com/icon?family=Material+Icons&quot; rel=&quot;stylesheet&quot;&gt;
+--&gt;
+
+&lt;!-- MDL/Dart styles --&gt;
+&lt;link rel=&quot;stylesheet&quot; href=&quot;packages/mdl/assets/styles/material.min.css&quot;&gt;
+</pre>
+
+    <h5 id="main_dart">4 - Add necessary code to main.dart</h5>
+    <h4>4a - Simplest way of using MDL/Dart components</h4>
+    <strong>main.dart</strong>
+
+<pre class="prettyprint dart">
+// Logging is not necessary but recommended. Almost all components
+// show you log-infos in the console
+import 'package:logging/logging.dart';
+import 'package:console_log_handler/console_log_handler.dart';
+
+import 'package:mdl/mdl.dart';
+
+main() async {
+    configLogging();
+
+    registerMdl();
+
+    await componentFactory().run();
+}
+
+void configLogging() {
+    hierarchicalLoggingEnabled = false; // set this to true - its part of Logging SDK
+
+    // now control the logging.
+    // Turn off all logging first
+    Logger.root.level = Level.INFO;
+    Logger.root.onRecord.listen(new LogConsoleHandler());
+}</pre>
+
+    <h4>4b - Use DI with MDL/Dart</h4>
+    <strong>main.dart</strong> (<a href="http://samples.material-design-lite.pub/mdl_spinner/index.html" target="_blank">
+    Spinner sample</a> )
+
+<pre class="prettyprint dart">
+import 'dart:html' as dom;
+
+import 'package:logging/logging.dart';
+import 'package:console_log_handler/console_log_handler.dart';
+import 'package:di/di.dart' as di;
+
+import 'package:mdl/mdl.dart';
+
+@MdlComponentModel @di.Injectable()
+class Application implements MaterialApplication {
+    final Logger _logger = new Logger('main.Application');
+
+    /// Added by the MDL/Dart-Framework (mdlapplication.dart)
+    final ActionBus _actionbus;
+
+    Application(this._actionbus) {
+    }
+
+    @override
+    void run() {
+        _bindSignals();
+    }
+
+    /// Add your actions / events you want to listen to
+    void _bindSignals() {
+
+        // _actionbus.on(&lt;Action&gt;.NAME).listen((_) {
+        //    _logger.info(&quot;User clicked on 'Add'!&quot;);
+        // });
+
+        // final MaterialButton button = MaterialButton.widget(dom.querySelector(&quot;#button&quot;));
+
+        // button.onClick.listen((_) {
+        //    _logger.info("Clicked!");
+        // });
+
+    }
+
+}
+
+main() async {
+    configLogging();
+
+    registerMdl();
+
+    final Application application = await componentFactory()
+        .rootContext(Application)
+        .addModule(new SampleModule())
+        .run();
+
+    application.run();
+}
+
+/**
+ * Application-Config via DI
+ */
+class SampleModule extends di.Module {
+    SampleModule() {
+    }
+}
+
+void configLogging() {
+    hierarchicalLoggingEnabled = false; // set this to true - its part of Logging SDK
+
+    // now control the logging.
+    // Turn off all logging first
+    Logger.root.level = Level.INFO;
+    Logger.root.onRecord.listen(new LogConsoleHandler());
+}
+</pre>
+
+    <p><strong>That's it!</strong><br>You are now ready to use the MDL components.<br>
         If you want to know how you can "theme" your project - Jump to the <a href="#/theming">Theming</a> section.
     </p>
 
     <h4 id="use-the-components">Use the components</h4>
+    <p>
+        You'll find below a couple of examples of <a href="#/button">MDL/Dart Button</a> elements: a Button with ripples and a FAB Button.
+        Just copy & paste the corresponding source code in the &lt;body&gt; of an HTML page of your
+        project and the elements will render as shown below.
 
+        <div class="docs__button_sample">
+            <div>
+                <div class="element">
+                    <!-- Accent-colored raised button with ripple -->
+                    <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+                        Button
+                    </button>
+                </div>
+                <div class="description">
+                    <div>Raised button</div>
+                </div>
+            </div>
+            <div>
+                <div class="element">
+                    <!-- Colored FAB button -->
+                    <button class="mdl-button mdl-js-button mdl-button--fab mdl-button--colored">
+                        <i class="material-icons">add</i>
+                    </button>
+                </div>
+                <div class="description">
+                    <div>Colored FAB</div>
+                </div>
+            </div>
+        </div>
+    </p>
+
+<pre class="prettyprint html">
+&lt;!-- Accent-colored raised button with ripple --&gt;
+&lt;button class=&quot;mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent&quot;&gt;
+    Button
+&lt;/button&gt;
+    &lt;!-- Colored FAB button --&gt;
+&lt;button class=&quot;mdl-button mdl-js-button mdl-button--fab mdl-button--colored&quot;&gt;
+    &lt;i class=&quot;material-icons&quot;&gt;add&lt;/i&gt;
+&lt;/button&gt;
+</pre>
+    <p>
+        MDL/Dart elements can be tweaked and configured by adding CSS classes.
+        For example adding mdl-js-ripple-effect to an MDL/Dart Button will add a Ripple effect when the button is
+        clicked and adding mdl-button--fab will change the style of the button to a FAB button.
+
+        There are many other elements available such as Card containers, Sliders, Tables, Menus...
+        For the complete set of MDL elements and options have a look at the
+            <a href="http://styleguide.material-design-lite.pub/#/accordion">components</a> page.
+
+        We also recommend that you check out our templates. These are ready to use website
+            <a href="http://styleguide.material-design-lite.pub/#/templates">templates</a>
+        using MDL/Dart components. Feel free to have a look at them to get started quickly on your next project.
+    </p>
+
+    <h4 id="general-rules">General rules and principles</h4>
     <p>In general, follow these basic steps to use an MDL component in your HTML page.</p>
     <ol>
         <li>Start with a standard HTML element, such as <code>&lt;button&gt;</code>, <code>&lt;div&gt;</code>, or <code>
-            &lt;ul&gt;</code>, depending on the MDL component you want to use. This establishes the element in the page
+            &lt;ul&gt;</code>, depending on the MDL/Dart component you want to use. This establishes the element in the page
             and readies it for MDL modification.<br/><br/></li>
-        <li>Add one or more MDL-specific CSS classes to the element, such as <code>mdl-button</code>, <code>mdl-tabs__panel</code>,
+        <li>Add one or more MDL/Dart-specific CSS classes to the element, such as <code>mdl-button</code>, <code>mdl-tabs__panel</code>,
             or <code>mdl-list--inline</code>, again depending on the component. The classes apply the MDL enhancements
-            to the element and effectively turn it into an MDL component.<br/><br/></li>
+            to the element and effectively turn it into an MDL/Dart component.<br/><br/></li>
         <li>View the page, preferably in multiple browsers on multiple devices, to ensure that the component looks and
             behaves as expected.
         </li>
     </ol>
-    <blockquote>
-        <p><strong>A note about HTML elements and MDL CSS classes</strong><br/>Material Design Lite uses CSS <em>independent
-            classes</em>, which can apply to any HTML element, to construct components. For some components, you can use
-            almost any element. For other components, some elements give better visual or behavioral performance than
-            others. The examples in each component's README file use elements that perform well as that component. If
-            you must use elements other than those shown in the examples, we encourage you to experiment to find the
-            best combination of HTML elements and MDL CSS classes for your application.</p>
-    </blockquote>
-    <h4 id="whats-next">What's next?</h4>
+    <p>Remember to include the meta viewport tag in your document so mobile devices will render correctly.</p>
+<pre class="prettyprint html">
+&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+</pre>
 
-    <p>Detailed instructions for using the components, including MDL classes and their effects, coding considerations,
-        and configuration options, can be found in each component's section (on the left). Working examples using
-        various options are in each component's demo page or under <a href="/#/samples">"Samples"</a>.</p>
+
+    <p><strong>A note about HTML elements and MDL CSS classes</strong><br/>MDL/Dart uses namespaces <em>
+        CSS-classes</em>, which can apply to any HTML element, to construct components. For some components, you can use
+        almost any element. For other components, some elements give better visual or behavioral performance than
+        others. The examples in each component's README file use elements that perform well as that component. If
+        you must use elements other than those shown in the examples, we encourage you to experiment to find the
+        best combination of HTML elements and MDL CSS classes for your application.</p>
+
+    <h4 id="tgz-samples">All samples as TGZ-Files</h4>
+    <p>You can find all samples as downloadable TGZ-File on <a href="http://www.material-design-lite.pub/#resources" target="_blank">
+        http://www.material-design-lite.pub/#resources
+    </a> - Check it out!</p>
+
+    <h4 id="whats-next">What's next?</h4>
+    <p>Detailed instructions for using the <a href="#/accordion">components</a>, including MDL/Dart classes and their effects,
+        coding considerations, and configuration options, can be found in each component's section ("Basic Usage" - on the top).
+        Working <a href="#/samples">samples</a> using
+        various options are in each component's demo page under "Basic Usage" (top).</p>
 </section>

@@ -17,18 +17,23 @@
                 font-size: 24px;
             }
 
-            .mdl-list-view--avatar {
+            .mdl-list__item__preview {
                 font-size       : 35px;
-                height          : 190px;
-                width           : 190px;
                 display         : flex;
                 flex-direction  : row;
                 flex-wrap       : wrap;
                 justify-content : center; // ⇾
                 align-content   : space-between; // ||
                 align-items     : center; // ↓
+
+                padding: 4px;
+                margin: 12px;
             }
 
+        }
+
+        h5 {
+            font-size: 20px;
         }
     }
 }

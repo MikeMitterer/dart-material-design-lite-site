@@ -21,20 +21,63 @@
                 <div class="mdl-tabs__panel is-active" id="dart">
                 <pre class="prettyprint linenums lang-dart">
 import &#39;package:mdl&#47;mdl.dart&#39;;
+import &#39;package:mdl&#47;mdlobservable.dart&#39;;
 
+@MdlComponentModel @di.Injectable()
+class Application implements MaterialApplication &#123;
+    final Logger _logger = new Logger(&#39;main.Application&#39;);
 
-main() &#123;
-    registerMdl();
+    &#47;&#47;&#47; Added by the MDL&#47;Dart-Framework (mdlapplication.dart)
+    final ActionBus _actionbus;
 
-    componentFactory().run().then((_) &#123;
+    Application(this._actionbus) &#123;
+    &#125;
+
+    @override
+    void run() &#123;
+        _bindSignals();
+    &#125;
+
+    &#47;&#47;- private -----------------------------------------------------------------------------------
+
+    &#47;&#47;&#47; Add your actions &#47; events you want to listen to
+    void _bindSignals() &#123;
+
+        &#47;&#47; _actionbus.on(&lt;Action&gt;.NAME).listen((_) &#123;
+        &#47;&#47;    _logger.info(&quot;User clicked on &#39;Add&#39;!&quot;);
+        &#47;&#47; &#125;);
+
         final MaterialSpinner spinner = MaterialSpinner.widget(dom.querySelector(&quot;#first&quot;));
         final MaterialButton button = MaterialButton.widget(dom.querySelector(&quot;#button&quot;));
 
         button.onClick.listen((_) &#123;
             spinner.active = !spinner.active;
         &#125;);
-    &#125;);
-&#125;</pre>
+
+    &#125;
+
+&#125;
+
+main() async &#123;
+    registerMdl();
+
+    final Application application = await componentFactory()
+        .rootContext(Application)
+        .addModule(new SampleModule())
+        .run();
+
+    application.run();
+&#125;
+
+&#47;**
+ * Application-Config via DI
+ *&#47;
+class SampleModule extends di.Module &#123;
+    SampleModule() &#123;
+    &#125;
+&#125;
+
+</pre>
                 </div>
 
                 <!-- HTML-Tab -->

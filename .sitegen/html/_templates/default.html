@@ -47,13 +47,13 @@
                     <a class="mdl-navigation__link mdl-navigation__link-animated mdl-typography--text-uppercase is-active"
                        href="#home">Home</a>
                     <a class="mdl-navigation__link mdl-navigation__link-animated mdl-typography--text-uppercase"
-                       href="#donate">Donate</a>
+                       href="#gettingstarted">Getting started</a>
                     <a class="mdl-navigation__link mdl-navigation__link-animated mdl-typography--text-uppercase"
                        href="#why">Why</a>
                     <a class="mdl-navigation__link mdl-navigation__link-animated mdl-typography--text-uppercase"
                        href="#features">Features</a>
                     <a class="mdl-navigation__link mdl-navigation__link-animated mdl-typography--text-uppercase"
-                       href="#gettingstarted">Getting started</a>
+                       href="#donate">Donate</a>
                     <a class="mdl-navigation__link mdl-navigation__link-animated mdl-typography--text-uppercase"
                        href="#resources">Resources</a>
                     <!--<a class="mdl-navigation__link mdl-navigation__link-animated mdl-typography&#45;&#45;text-uppercase"-->
@@ -158,6 +158,66 @@ main() &#123;
 
         </section>
 
+        <!-- GETTING STARTED
+        ============================================= -->
+        <section class="gettingstarted-section"><a name="gettingstarted"></a>
+
+            <div class="gettingstarted-content">
+                <div class="text-center titlebar">
+                    <h3>Getting started</h3>
+
+                    <h2>Let's do it!</h2>
+                </div>
+
+                <div class="mdl-grid">
+
+                    <!-- ACCORDION HOLDER IMAGE -->
+                    <div class="text-center animated mdl-cell--5-col mdl-cell--12-col-tablet"
+                         data-animation="fadeInLeft"
+                         data-animation-delay="600">
+                        <img class="img-responsive gettingstarted-image" src="images/thumbs/tablet.png"
+                             alt="gettingstarted-image"/>
+                    </div>
+
+                    <div class="mdl-cell--7-col">
+                        <div class="mdl-accordion-group">
+                            <!-- Panel 1 -->
+                            <div class="mdl-accordion mdl-js-accordion mdl-js-ripple-effect">
+                                <label class="mdl-accordion__label"><i class="material-icons">check</i>Quick
+                                    start</label>
+                                <div class="mdl-accordion--content">
+                                    <p class="mdl-accordion--body">
+                                        Please follow the guide on <a class="mdl-navigation__link" href="http://styleguide.material-design-lite.pub/#/gettingstarted" target="_blank">
+                                        styleguide.material-design-lite.pub
+                                    </a>
+                                    </p>
+                                </div>
+                            </div>
+
+                            <!-- Panel 2 -->
+                            <div class="mdl-accordion mdl-js-accordion mdl-js-ripple-effect">
+                                <label class="mdl-accordion__label"><i class="material-icons">check</i>Download samples</label>
+                                <div class="mdl-accordion--content">
+                                    <p class="mdl-accordion--body">
+                                        Go to  <a class="mdl-navigation__link mdl-navigation__link-animated mdl-typography--text-uppercase"
+                                                  href="#resources">Resources</a>
+
+                                        <ol>
+                                            <li>Unpack the downloade file.</li>
+                                            <li>"cd" to samples/&lt;your file&gt;/</li>
+                                            <li>pup get</li>
+                                        </ol>
+
+                                    </p>
+                                </div>
+                            </div>
+
+                        </div><!-- .mdl-accordion -->
+                    </div>
+                </div>
+            </div>
+
+        </section>
 
         <!-- DONATE
         ============================================= -->
@@ -527,148 +587,7 @@ main() &#123;
         </section>
 
 
-        <!-- GETTING STARTED
-        ============================================= -->
-        <section class="gettingstarted-section"><a name="gettingstarted"></a>
 
-            <div class="gettingstarted-content">
-                <div class="text-center titlebar">
-                    <h3>Getting started</h3>
-
-                    <h2>Let's do it!</h2>
-                </div>
-
-                <div class="mdl-grid">
-
-                    <!-- ACCORDION HOLDER IMAGE -->
-                    <div class="text-center animated mdl-cell--5-col mdl-cell--12-col-tablet"
-                         data-animation="fadeInLeft"
-                         data-animation-delay="600">
-                        <img class="img-responsive gettingstarted-image" src="images/thumbs/tablet.png"
-                             alt="gettingstarted-image"/>
-                    </div>
-
-                    <div class="mdl-cell--7-col">
-                        <div class="mdl-accordion-group">
-                            <!-- Panel 1 -->
-                            <div class="mdl-accordion mdl-js-accordion mdl-js-ripple-effect">
-                                <label class="mdl-accordion__label"><i class="material-icons">check</i>Quick
-                                    start</label>
-                                <div class="mdl-accordion--content">
-                                    <p class="mdl-accordion--body">In your <strong>pubspec.yaml</strong> specify `mdl`,
-                                        `browser` and `di`
-                                        packages as dependencies, as well as the `di` transformer.
-
-<pre class="prettyprint yaml">dependencies:
-  mdl: &quot;^1.0.0&quot;
-  browser: '^0.10.0'
-  di: &quot;^3.3.4&quot;
-transformers:
-  - di</pre>
-                                    <br>
-                                    Add the mdl style sheet to your `index.html`
-
-<pre class="prettyprint html">
-&lt;link rel=&quot;stylesheet&quot; href=&quot;packages/mdl/assets/styles/material.min.css&quot;&gt;</pre>
-
-                                    Initialize the mdl library from your <strong>main.dart</strong>
-
-<pre class="prettyprint dart">
-import 'package:mdl/mdl.dart' as mdl;
-
-main() async {
-  mdl.registerMdl();
-  await mdl.componentFactory().run();
-}</pre>
-
-                                    <strong>pub update</strong> and you are done!
-
-
-                                    </p>
-                                </div>
-                            </div>
-
-                            <!-- Panel 2 -->
-                            <div class="mdl-accordion mdl-js-accordion mdl-js-ripple-effect">
-                                <label class="mdl-accordion__label"><i class="material-icons">check</i>Start by using
-                                    StageDive</label>
-                                <div class="mdl-accordion--content">
-                                    <p class="mdl-accordion--body">MDL/Dart comes with <strong>
-                                        <a href="https://pub.dartlang.org/packages/stagedive" target="_blank"
-                                           class="mdl-color-text--grey">StageDive</a></strong> support!
-                                        Try it out and follow these steps:</p>
-<pre class="prettyprint bash"># if you don't have mdl installed
-pub cache add mdl
-
-# if you don't have stagedive installed or if you want to update stagedive
-pub global activate stagedive
-
-# if you don't have sitegen installed or if you want to update sitegen
-# sitegen - will later act as a local server
-pub global activate sitegen
-
-stagedive -l
-
-# You should see something like this
-
-#   'MDL Android Template'         Package: mdl          Template name: android        Version: 1.x
-#   'MDL Android Template'         Package: mdl          Template name: android        Version: 1.x
-#   'MDL Article Template'         Package: mdl          Template name: article        Version: 1.x
-#   'MDL Android Template'         Package: mdl          Template name: blog           Version: 1.x
-#   'MDL Blog Template'            Package: mdl          Template name: dashboard      Version: 1.x
-#   'MDL Fixed-Header Template'    Package: mdl          Template name: fixed-header   Version: 1.x
-#   'MDL Sample Template'          Package: mdl          Template name: sample         Version: 1.x
-#   'MDL Sticky-Footer Template'   Package: mdl          Template name: sticky-footer  Version: 1.x
-#   'MDL Text-Only Template'       Package: mdl          Template name: text-only      Version: 1.x
-
-# Now lets generate a new (-n) folder: android
-stagedive -n android -p mdl -t android
-
-# This is what stagedive asks you
-#   Your email address: office@mikemitterer
-#   Your name: Mike
-#   Enter the package-name: android_mdl
-#
-#   'MDL Android Template' created! (android)
-
-# move the newly created dir
-cd android
-
-# Update everything
-pub update
-
-# Serve the site (you are in 'android'-folder!)
-sitegen -x
-
-# In Chromium/Dartium
-localhost:8000</pre>
-                                </div>
-                            </div>
-
-
-                            <!-- Panel 3 -->
-                            <div class="mdl-accordion mdl-js-accordion mdl-js-ripple-effect">
-                                <label class="mdl-accordion__label"><i class="material-icons">check</i>Download
-                                    simple.zip</label>
-                                <div class="mdl-accordion--content">
-                                    <p class="mdl-accordion--body">Download
-                                        <a href="https://cdn.rawgit.com/MikeMitterer/dart-material-design-lite/master/site/downloads/simple.zip"
-                                           class="mdl-color-text--grey">simple.zip</a><br>
-                                        Unzip the downloaded file<br>
-                                        cd simple<br>
-                                        <strong>pub update</strong><br>
-                                        sitegen -x (If you are using sitegen)<br>
-                                        <strong>Done!</strong> - with localhost:8000 you should see the created
-                                        sample-page
-                                    </p>
-                                </div>
-                            </div>
-                        </div><!-- .mdl-accordion -->
-                    </div>
-                </div>
-            </div>
-
-        </section>
 
         <!--        &lt;!&ndash; TABLE
                 ============================================= &ndash;&gt;

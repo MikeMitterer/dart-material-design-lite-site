@@ -2,22 +2,24 @@ template: none
 ~~~
 <section class="demo-section demo-section--samples">
     <h4>Standalone samples</h4>
-    <div class="mdl-list--styled-view"><ul>
+    <p>You can find all samples as downloadable TGZ-File on <a href="http://www.material-design-lite.pub/#resources" target="_blank">
+        http://www.material-design-lite.pub/#resources
+    </a> - Check it out!</p>
+    <div class="mdl-list--styled-view"><ul class="mdl-list">
         {{#_data.samples}}
-        <li>
-            <a href="http://samples.material-design-lite.pub/{{prefix}}{{name}}/index.html" target="_blank" class="mdl-color-text--700">
-                <span class="mdl-list-view--avatar mdl-color--200">
-                    <i class="mdl-icon material-icons">extension</i>
-                </span>
-                <span class="mdl-list-view--name">
-                    {{name}}
-                </span>
-            </a> |
-            <a href="https://github.com/MikeMitterer/dart-material-design-lite-site/tree/master/samples/{{prefix}}{{name}}/web"
-               class="mdl-color-text--400 github" target="_blank">
-              Source on GitHub
-            </a>
+        <li class="mdl-list__item">
+            <span class="mdl-list__item-primary-content">
+                <i class="mdl-icon material-icons mdl-color-text--200" style="padding-top: 32px">extension</i>
+
+                <a href="http://samples.material-design-lite.pub/{{prefix}}{{name}}/index.html" target="_blank" class="mdl-color-text--700">
+                {{name}}</a> |
+                <a href="https://github.com/MikeMitterer/dart-material-design-lite-site/tree/master/samples/{{prefix}}{{name}}/web"
+                    class="mdl-color-text--400 github" target="_blank">
+                    Source on GitHub
+                </a>
+            </span>
         </li>
+
         {{/_data.samples}}
     </ul></div>
 

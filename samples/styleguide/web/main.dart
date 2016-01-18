@@ -115,6 +115,11 @@ class Application extends MaterialApplication {
     @override
     void run() {
         _bindSignals();
+
+        // Redirect to 'home'
+        if(!dom.window.location.href.contains("#")) {
+            dom.window.location.href = "/#/";
+        }
     }
 
     /**
@@ -1018,6 +1023,9 @@ void configRouter() {
         ..addRoute(name: 'materialdesign', path: '/materialdesign',
             enter: view("views/materialdesign.html", new DemoController()))
 
+        ..addRoute(name: 'mdlflux', path: '/mdlflux',
+            enter: view("views/mdlflux.html", new DemoController()))
+
         ..addRoute(name: 'menu', path: '/menu',
             enter: view("views/menu.html", new MenuController()))
 
@@ -1042,9 +1050,6 @@ void configRouter() {
         ..addRoute(name: 'progress', path: '/progress',
             enter: view("views/progress.html", new ProgressController()))
 
-        ..addRoute(name: 'quickstart', path: '/quickstart',
-            enter: view("views/quickstart.html", new DemoController()))
-
         ..addRoute(name: 'radio', path: '/radio',
             enter: view("views/radio.html", new RadioController()))
 
@@ -1065,6 +1070,9 @@ void configRouter() {
 
         ..addRoute(name: 'spinner', path: '/spinner',
             enter: view("views/spinner.html", new SpinnerController()))
+
+        ..addRoute(name: 'stagedive', path: '/stagedive',
+            enter: view("views/stagedive.html", new DemoController()))
 
         ..addRoute(name: 'switch', path: '/switch',
             enter: view("views/switch.html", new DemoController()))
@@ -1091,9 +1099,13 @@ void configRouter() {
             enter: view("views/typography.html", new DemoController()))
 
 
-        ..addRoute(name: 'home', defaultRoute: true, path: '/',
+        // No 'defaultRoute' - Application#run redirects to '/#/'
+        // Makes it possible to use in-page-links
+        ..addRoute(name: 'home', path: '/',
             enter: view("views/home.html", new DemoController()))
 
+        // ..addRoute(name: 'default', defaultRoute: true, path: '/',
+        //    enter: view("views/home.html", new DemoController()))
     ;
 
     router.listen();

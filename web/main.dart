@@ -45,8 +45,12 @@ void prepareScrolling() {
     final List<dom.AnchorElement> anchorsDrawer =
         drawer.querySelectorAll('a.mdl-navigation__link-animated[href^="#"]:not([href="#"])') as List<dom.AnchorElement>;
 
+    final List<dom.AnchorElement> anchorsPage =
+    content.querySelectorAll('a.mdl-navigation__link-animated[href^="#"]:not([href="#"])') as List<dom.AnchorElement>;
+
     final List<dom.AnchorElement> anchors = new List<dom.AnchorElement>.from(anchorsMain);
     anchors.addAll(anchorsDrawer);
+    anchors.addAll(anchorsPage);
 
     double _easingPattern(final String type,double time ) {
         double pattern = 0.0;
