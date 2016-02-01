@@ -8,12 +8,12 @@ import 'package:mdl/mdl.dart';
 
 @MdlComponentModel @di.Injectable()
 class Application implements MaterialApplication {
-    final Logger _logger = new Logger('main.Application');
+    // final Logger _logger = new Logger('main.Application');
 
     /// Added by the MDL/Dart-Framework (mdlapplication.dart)
-    final ActionBus _actionbus;
+    // final ActionBus _actionbus;
 
-    Application(this._actionbus) {
+    Application(/* this._actionbus */) {
     }
 
     @override
