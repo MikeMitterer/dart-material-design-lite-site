@@ -70,7 +70,7 @@ main() &#123;
     &lt;h2&gt;Styled List View&lt;&#47;h2&gt;
     &lt;div class=&quot;styled-list-views&quot;&gt;
         &lt;div class=&quot;mdl-cell mdl-cell--6-col&quot;&gt;
-            &lt;h4&gt; List Item &lt;&#47;h4&gt;
+            &lt;h4&gt;Simple list&lt;&#47;h4&gt;
             &lt;ul class=&quot;mdl-list&quot;&gt;
                 &lt;li class=&quot;mdl-list__item&quot;&gt;
                   &lt;span class=&quot;mdl-list__item-primary-content&quot;&gt;
@@ -93,22 +93,22 @@ main() &#123;
             &lt;h4&gt;Icon List&lt;&#47;h4&gt;
             &lt;ul class=&quot;mdl-list&quot;&gt;
                 &lt;li class=&quot;mdl-list__item&quot;&gt;
-                  &lt;span class=&quot;mdl-list__item-primary-content&quot;&gt;
-                  &lt;i class=&quot;material-icons&quot;&gt;person&lt;&#47;i&gt;
-                  Bryan Cranston
-                &lt;&#47;span&gt;
-                &lt;&#47;li&gt;
-                &lt;li class=&quot;mdl-list__item&quot;&gt;
-                  &lt;span class=&quot;mdl-list__item-primary-content&quot;&gt;
-                  &lt;i class=&quot;material-icons&quot;&gt;person&lt;&#47;i&gt;
-                  Aaron Paul
+                    &lt;span class=&quot;mdl-list__item-primary-content&quot;&gt;
+                    &lt;i class=&quot;material-icons mdl-list__item-icon&quot;&gt;person&lt;&#47;i&gt;
+                    Bryan Cranston
                     &lt;&#47;span&gt;
                 &lt;&#47;li&gt;
                 &lt;li class=&quot;mdl-list__item&quot;&gt;
-                  &lt;span class=&quot;mdl-list__item-primary-content&quot;&gt;
-                  &lt;i class=&quot;material-icons&quot;&gt;person&lt;&#47;i&gt;
-                  Bob Odenkirk
-                &lt;&#47;span&gt;
+                    &lt;span class=&quot;mdl-list__item-primary-content&quot;&gt;
+                    &lt;i class=&quot;material-icons mdl-list__item-icon&quot;&gt;person&lt;&#47;i&gt;
+                    Aaron Paul
+                    &lt;&#47;span&gt;
+                &lt;&#47;li&gt;
+                &lt;li class=&quot;mdl-list__item&quot;&gt;
+                    &lt;span class=&quot;mdl-list__item-primary-content&quot;&gt;
+                    &lt;i class=&quot;material-icons mdl-list__item-icon&quot;&gt;person&lt;&#47;i&gt;
+                    Bob Odenkirk
+                    &lt;&#47;span&gt;
                 &lt;&#47;li&gt;
             &lt;&#47;ul&gt;
         &lt;&#47;div&gt;
@@ -182,93 +182,153 @@ main() &#123;
             &lt;&#47;ul&gt;
         &lt;&#47;div&gt;
         &lt;div class=&quot;mdl-cell mdl-cell--6-col&quot;&gt;
-            &lt;h4&gt; Two Line List with Secondary Info and Action &lt;&#47;h4&gt;
-            &lt;ul class=&quot;mdl-list&quot;&gt;
-                &lt;li class=&quot;mdl-list__item mdl-list__item-two-line&quot;&gt;
-                  &lt;span class=&quot;mdl-list__item-primary-content&quot;&gt;
-                    &lt;i class=&quot;material-icons mdl-list__item-icon&quot;&gt;person&lt;&#47;i&gt;
-                    &lt;span class=mdl-list__item-text&gt;Bryan Cranston&lt;&#47;span&gt;
-                    &lt;span class=&quot;mdl-list__item-sub-title&quot;&gt;62 Episodes&lt;&#47;span&gt;
-                  &lt;&#47;span&gt;
-                  &lt;span class=&quot;mdl-list__item-secondary-content&quot;&gt;
-                    &lt;span class=&quot;mdl-list__item-secondary-info&quot;&gt;Actor&lt;&#47;span&gt;
-                    &lt;a class=&quot;mdl-list__item-secondary-action&quot; href=&quot;#&quot;&gt;&lt;i class=&quot;material-icons &quot;&gt;star&lt;&#47;i&gt;&lt;&#47;a&gt;
-                  &lt;&#47;span&gt;
+            &lt;h4&gt;List items with avatar and action&lt;&#47;h4&gt;
+            &lt;div class=&quot;demo-list-action mdl-list&quot;&gt;
+                &lt;div class=&quot;mdl-list__item&quot;&gt;
+                    &lt;span class=&quot;mdl-list__item-primary-content&quot;&gt;
+                      &lt;i class=&quot;material-icons mdl-list__item-avatar&quot;&gt;person&lt;&#47;i&gt;
+                      &lt;span&gt;Bryan Cranston&lt;&#47;span&gt;
+                    &lt;&#47;span&gt;
+                    &lt;a class=&quot;mdl-list__item-secondary-action&quot; href=&quot;#&quot;&gt;&lt;i class=&quot;material-icons&quot;&gt;star&lt;&#47;i&gt;&lt;&#47;a&gt;
+                &lt;&#47;div&gt;
+                &lt;div class=&quot;mdl-list__item&quot;&gt;
+                    &lt;span class=&quot;mdl-list__item-primary-content&quot;&gt;
+                      &lt;i class=&quot;material-icons mdl-list__item-avatar&quot;&gt;person&lt;&#47;i&gt;
+                      &lt;span&gt;Aaron Paul&lt;&#47;span&gt;
+                    &lt;&#47;span&gt;
+                    &lt;a class=&quot;mdl-list__item-secondary-action&quot; href=&quot;#&quot;&gt;&lt;i class=&quot;material-icons&quot;&gt;star&lt;&#47;i&gt;&lt;&#47;a&gt;
+                &lt;&#47;div&gt;
+                &lt;div class=&quot;mdl-list__item&quot;&gt;
+                    &lt;span class=&quot;mdl-list__item-primary-content&quot;&gt;
+                      &lt;i class=&quot;material-icons mdl-list__item-avatar&quot;&gt;person&lt;&#47;i&gt;
+                      &lt;span&gt;Bob Odenkirk&lt;&#47;span&gt;
+                    &lt;&#47;span&gt;
+                    &lt;span class=&quot;mdl-list__item-secondary-content&quot;&gt;
+                      &lt;a class=&quot;mdl-list__item-secondary-action&quot; href=&quot;#&quot;&gt;&lt;i class=&quot;material-icons&quot;&gt;star&lt;&#47;i&gt;&lt;&#47;a&gt;
+                    &lt;&#47;span&gt;
+                &lt;&#47;div&gt;
+            &lt;&#47;div&gt;
+        &lt;&#47;div&gt;
+        &lt;div class=&quot;mdl-cell mdl-cell--6-col&quot;&gt;
+            &lt;h4&gt;Two Line List with secondary info and action&lt;&#47;h4&gt;
+            &lt;ul class=&quot;demo-list-two mdl-list&quot;&gt;
+                &lt;li class=&quot;mdl-list__item mdl-list__item--two-line&quot;&gt;
+                    &lt;span class=&quot;mdl-list__item-primary-content&quot;&gt;
+                      &lt;i class=&quot;material-icons mdl-list__item-avatar&quot;&gt;person&lt;&#47;i&gt;
+                      &lt;span&gt;Bryan Cranston&lt;&#47;span&gt;
+                      &lt;span class=&quot;mdl-list__item-sub-title&quot;&gt;62 Episodes&lt;&#47;span&gt;
+                    &lt;&#47;span&gt;
+                    &lt;span class=&quot;mdl-list__item-secondary-content&quot;&gt;
+                      &lt;span class=&quot;mdl-list__item-secondary-info&quot;&gt;Actor&lt;&#47;span&gt;
+                      &lt;a class=&quot;mdl-list__item-secondary-action&quot; href=&quot;#&quot;&gt;&lt;i class=&quot;material-icons&quot;&gt;star&lt;&#47;i&gt;&lt;&#47;a&gt;
+                    &lt;&#47;span&gt;
                 &lt;&#47;li&gt;
-                &lt;li class=&quot;mdl-list__item mdl-list__item-two-line&quot;&gt;
-                  &lt;span class=&quot;mdl-list__item-primary-content&quot;&gt;
-                    &lt;i class=&quot;material-icons  mdl-list__item-icon&quot;&gt;person&lt;&#47;i&gt;
-                    &lt;span class=mdl-list__item-text&gt;Aaron Paul&lt;&#47;span&gt;
-                    &lt;span class=&quot;mdl-list__item-sub-title&quot;&gt;62 Episodes&lt;&#47;span&gt;
-                  &lt;&#47;span&gt;
-                  &lt;span class=&quot;mdl-list__item-secondary-content&quot;&gt;
-                    &lt;span class=&quot;mdl-list__item-secondary-info&quot;&gt;Actor&lt;&#47;span&gt;
-                    &lt;a class=&quot;mdl-list__item-secondary-action&quot; href=&quot;#&quot;&gt;&lt;i class=&quot;material-icons &quot;&gt;star&lt;&#47;i&gt;&lt;&#47;a&gt;
-                  &lt;&#47;span&gt;
+                &lt;li class=&quot;mdl-list__item mdl-list__item--two-line&quot;&gt;
+                    &lt;span class=&quot;mdl-list__item-primary-content&quot;&gt;
+                      &lt;i class=&quot;material-icons mdl-list__item-avatar&quot;&gt;person&lt;&#47;i&gt;
+                      &lt;span&gt;Aaron Paul&lt;&#47;span&gt;
+                      &lt;span class=&quot;mdl-list__item-sub-title&quot;&gt;62 Episodes&lt;&#47;span&gt;
+                    &lt;&#47;span&gt;
+                    &lt;span class=&quot;mdl-list__item-secondary-content&quot;&gt;
+                      &lt;a class=&quot;mdl-list__item-secondary-action&quot; href=&quot;#&quot;&gt;&lt;i class=&quot;material-icons&quot;&gt;star&lt;&#47;i&gt;&lt;&#47;a&gt;
+                    &lt;&#47;span&gt;
                 &lt;&#47;li&gt;
-                &lt;li class=&quot;mdl-list__item mdl-list__item-two-line&quot;&gt;
-                  &lt;span class=&quot;mdl-list__item-primary-content&quot;&gt;
-                    &lt;i class=&quot;material-icons  mdl-list__item-icon&quot;&gt;person&lt;&#47;i&gt;
-                    &lt;span class=mdl-list__item-text&gt;Bob Odenkirk&lt;&#47;span&gt;
-                    &lt;span class=&quot;mdl-list__item-sub-title&quot;&gt;62 Episodes&lt;&#47;span&gt;
-                  &lt;&#47;span&gt;
-                  &lt;span class=&quot;mdl-list__item-secondary-content&quot;&gt;
-                    &lt;span class=&quot;mdl-list__item-secondary-info&quot;&gt;Actor&lt;&#47;span&gt;
-                    &lt;a class=&quot;mdl-list__item-secondary-action&quot; href=&quot;#&quot;&gt;&lt;i class=&quot;material-icons &quot;&gt;star&lt;&#47;i&gt;&lt;&#47;a&gt;
-                  &lt;&#47;span&gt;
+                &lt;li class=&quot;mdl-list__item mdl-list__item--two-line&quot;&gt;
+                    &lt;span class=&quot;mdl-list__item-primary-content&quot;&gt;
+                      &lt;i class=&quot;material-icons mdl-list__item-avatar&quot;&gt;person&lt;&#47;i&gt;
+                      &lt;span&gt;Bob Odenkirk&lt;&#47;span&gt;
+                      &lt;span class=&quot;mdl-list__item-sub-title&quot;&gt;62 Episodes&lt;&#47;span&gt;
+                    &lt;&#47;span&gt;
+                    &lt;span class=&quot;mdl-list__item-secondary-content&quot;&gt;
+                      &lt;a class=&quot;mdl-list__item-secondary-action&quot; href=&quot;#&quot;&gt;&lt;i class=&quot;material-icons&quot;&gt;star&lt;&#47;i&gt;&lt;&#47;a&gt;
+                    &lt;&#47;span&gt;
                 &lt;&#47;li&gt;
             &lt;&#47;ul&gt;
         &lt;&#47;div&gt;
         &lt;div class=&quot;mdl-cell mdl-cell--6-col&quot;&gt;
-            &lt;h4&gt; Three Line List secondary info &lt;&#47;h4&gt;
+            &lt;h4&gt;Three Line List with secondary info and action&lt;&#47;h4&gt;
+            &lt;ul class=&quot;demo-list-three mdl-list&quot;&gt;
+                &lt;li class=&quot;mdl-list__item mdl-list__item--three-line&quot;&gt;
+                    &lt;span class=&quot;mdl-list__item-primary-content&quot;&gt;
+                      &lt;i class=&quot;material-icons mdl-list__item-avatar&quot;&gt;person&lt;&#47;i&gt;
+                      &lt;span&gt;Bryan Cranston&lt;&#47;span&gt;
+                      &lt;span class=&quot;mdl-list__item-text-body&quot;&gt;
+                        Bryan Cranston played the role of Walter in Breaking Bad. He is also known
+                        for playing Hal in Malcom in the Middle.
+                      &lt;&#47;span&gt;
+                    &lt;&#47;span&gt;
+                    &lt;span class=&quot;mdl-list__item-secondary-content&quot;&gt;
+                      &lt;a class=&quot;mdl-list__item-secondary-action&quot; href=&quot;#&quot;&gt;&lt;i class=&quot;material-icons&quot;&gt;star&lt;&#47;i&gt;&lt;&#47;a&gt;
+                    &lt;&#47;span&gt;
+                &lt;&#47;li&gt;
+                &lt;li class=&quot;mdl-list__item mdl-list__item--three-line&quot;&gt;
+                    &lt;span class=&quot;mdl-list__item-primary-content&quot;&gt;
+                      &lt;i class=&quot;material-icons  mdl-list__item-avatar&quot;&gt;person&lt;&#47;i&gt;
+                      &lt;span&gt;Aaron Paul&lt;&#47;span&gt;
+                      &lt;span class=&quot;mdl-list__item-text-body&quot;&gt;
+                        Aaron Paul played the role of Jesse in Breaking Bad. He also featured in
+                        the &quot;Need For Speed&quot; Movie.
+                      &lt;&#47;span&gt;
+                    &lt;&#47;span&gt;
+                    &lt;span class=&quot;mdl-list__item-secondary-content&quot;&gt;
+                      &lt;a class=&quot;mdl-list__item-secondary-action&quot; href=&quot;#&quot;&gt;&lt;i class=&quot;material-icons&quot;&gt;star&lt;&#47;i&gt;&lt;&#47;a&gt;
+                    &lt;&#47;span&gt;
+                &lt;&#47;li&gt;
+                &lt;li class=&quot;mdl-list__item mdl-list__item--three-line&quot;&gt;
+                    &lt;span class=&quot;mdl-list__item-primary-content&quot;&gt;
+                      &lt;i class=&quot;material-icons  mdl-list__item-avatar&quot;&gt;person&lt;&#47;i&gt;
+                      &lt;span&gt;Bob Odenkirk&lt;&#47;span&gt;
+                      &lt;span class=&quot;mdl-list__item-text-body&quot;&gt;
+                        Bob Odinkrik played the role of Saul in Breaking Bad. Due to public fondness for the
+                        character, Bob stars in his own show now, called &quot;Better Call Saul&quot;.
+                      &lt;&#47;span&gt;
+                    &lt;&#47;span&gt;
+                    &lt;span class=&quot;mdl-list__item-secondary-content&quot;&gt;
+                      &lt;a class=&quot;mdl-list__item-secondary-action&quot; href=&quot;#&quot;&gt;&lt;i class=&quot;material-icons&quot;&gt;star&lt;&#47;i&gt;&lt;&#47;a&gt;
+                    &lt;&#47;span&gt;
+                &lt;&#47;li&gt;
+            &lt;&#47;ul&gt;
+        &lt;&#47;div&gt;
+        &lt;div class=&quot;mdl-cell mdl-cell--6-col&quot;&gt;
+            &lt;style&gt;
+                .demo-list-radio {
+                    display: inline;
+                }
+            &lt;&#47;style&gt;
+            &lt;h4&gt;List with avatar and controls&lt;&#47;h4&gt;
             &lt;ul class=&quot;mdl-list&quot;&gt;
-                &lt;li class=&quot;mdl-list__item mdl-list__item-three-line&quot;&gt;
-                  &lt;span class=&quot;mdl-list__item-primary-content&quot;&gt;
-                    &lt;i class=&quot;material-icons mdl-list__item-icon&quot;&gt;person&lt;&#47;i&gt;
-                    &lt;span class=mdl-list__item-title&gt;Bryan Cranston&lt;&#47;span&gt;
-                    &lt;span class=&quot;mdl-list__item-text-body&quot;&gt;
-                      Bryan Cranston played the role of Bryan Cranston in Breaking Bad,he is also know
-                      for playing Hal in Malcom in the Middle. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                      Curabitur venenatis urna eget cursus varius. Donec ultrices quis arcu quis euismod.
-                      Mauris sollicitudin neque lectus, id bibendum libero eleifend sed.
+                &lt;li class=&quot;mdl-list__item&quot;&gt;
+                    &lt;span class=&quot;mdl-list__item-primary-content&quot;&gt;
+                      &lt;i class=&quot;material-icons  mdl-list__item-avatar&quot;&gt;person&lt;&#47;i&gt;
+                      Bryan Cranston
                     &lt;&#47;span&gt;
-                  &lt;&#47;span&gt;
-                  &lt;span class=&quot;mdl-list__item-secondary-content&quot;&gt;
-                    &lt;span class=&quot;mdl-list__item-secondary-info&quot;&gt;Actor&lt;&#47;span&gt;
-                    &lt;a class=&quot;mdl-list__item-secondary-action&quot; href=&quot;#&quot;&gt;&lt;i class=&quot;material-icons &quot;&gt;star&lt;&#47;i&gt;&lt;&#47;a&gt;
-                  &lt;&#47;span&gt;
+                    &lt;span class=&quot;mdl-list__item-secondary-action&quot;&gt;
+                      &lt;label class=&quot;mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect&quot; for=&quot;checkbox-11&quot;&gt;
+                          &lt;input type=&quot;checkbox&quot; id=&quot;checkbox-11&quot; class=&quot;mdl-checkbox__input&quot; checked &#47;&gt;
+                      &lt;&#47;label&gt;
+                    &lt;&#47;span&gt;
                 &lt;&#47;li&gt;
-                &lt;li class=&quot;mdl-list__item mdl-list__item-three-line&quot;&gt;
-                  &lt;span class=&quot;mdl-list__item-primary-content&quot;&gt;
-                    &lt;i class=&quot;material-icons  mdl-list__item-icon&quot;&gt;person&lt;&#47;i&gt;
-                    &lt;span class=mdl-list__item-title&gt;Aaron Paul&lt;&#47;span&gt;
-                    &lt;span class=&quot;mdl-list__item-text-body&quot;&gt;
-                      Aaron Paul played the role of Aaron Paul in Breaking Bad. He also featurd in
-                      the NEED FOR Speed Movie. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                      Curabitur venenatis urna eget cursus varius. Donec ultrices quis arcu quis euismod.
-                      Mauris sollicitudin neque lectus, id bibendum libero eleifend sed.
+                &lt;li class=&quot;mdl-list__item&quot;&gt;
+                    &lt;span class=&quot;mdl-list__item-primary-content&quot;&gt;
+                      &lt;i class=&quot;material-icons  mdl-list__item-avatar&quot;&gt;person&lt;&#47;i&gt;
+                      Aaron Paul
                     &lt;&#47;span&gt;
-                  &lt;&#47;span&gt;
-                  &lt;span class=&quot;mdl-list__item-secondary-content&quot;&gt;
-                    &lt;span class=&quot;mdl-list__item-secondary-info&quot;&gt;Actor&lt;&#47;span&gt;
-                    &lt;a class=&quot;mdl-list__item-secondary-action&quot; href=&quot;#&quot;&gt;&lt;i class=&quot;material-icons &quot;&gt;star&lt;&#47;i&gt;&lt;&#47;a&gt;
-                  &lt;&#47;span&gt;
+                      &lt;span class=&quot;mdl-list__item-secondary-action&quot;&gt;
+                        &lt;label class=&quot;demo-list-radio mdl-radio mdl-js-radio mdl-js-ripple-effect&quot; for=&quot;option-11&quot;&gt;
+                            &lt;input type=&quot;radio&quot; id=&quot;option-11&quot; class=&quot;mdl-radio__button&quot; name=&quot;options&quot; value=&quot;1&quot; checked &#47;&gt;
+                        &lt;&#47;label&gt;
+                    &lt;&#47;span&gt;
                 &lt;&#47;li&gt;
-                &lt;li class=&quot;mdl-list__item mdl-list__item-three-line&quot;&gt;
-                  &lt;span class=&quot;mdl-list__item-primary-content&quot;&gt;
-                    &lt;i class=&quot;material-icons  mdl-list__item-icon&quot;&gt;person&lt;&#47;i&gt;
-                    &lt;span class=mdl-list__item-title&gt;Bob Odenkirk&lt;&#47;span&gt;
-                    &lt;span class=&quot;mdl-list__item-text-body&quot;&gt;
-                      Bob Odinkrik played the role of Bob Odenkirk in Breaking Bad, due to the fondness of the
-                      character, Bob stars in his own show now, call &quot;Better Call Saul&quot;, Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                      Curabitur venenatis urna eget cursus varius. Donec ultrices quis arcu quis euismod.
-                      Mauris sollicitudin neque lectus, id bibendum libero eleifend sed.
+                &lt;li class=&quot;mdl-list__item&quot;&gt;
+                    &lt;span class=&quot;mdl-list__item-primary-content&quot;&gt;
+                      &lt;i class=&quot;material-icons  mdl-list__item-avatar&quot;&gt;person&lt;&#47;i&gt;
+                      Bob Odenkirk
                     &lt;&#47;span&gt;
-                  &lt;&#47;span&gt;
-                  &lt;span class=&quot;mdl-list__item-secondary-content&quot;&gt;
-                    &lt;span class=&quot;mdl-list__item-secondary-info&quot;&gt;Actor&lt;&#47;span&gt;
-                    &lt;a class=&quot;mdl-list__item-secondary-action&quot; href=&quot;#&quot;&gt;&lt;i class=&quot;material-icons &quot;&gt;star&lt;&#47;i&gt;&lt;&#47;a&gt;
-                  &lt;&#47;span&gt;
+                      &lt;span class=&quot;mdl-list__item-secondary-action&quot;&gt;
+                        &lt;label class=&quot;mdl-switch mdl-js-switch mdl-js-ripple-effect&quot; for=&quot;switch-11&quot;&gt;
+                            &lt;input type=&quot;checkbox&quot; id=&quot;switch-11&quot; class=&quot;mdl-switch__input&quot; checked &#47;&gt;
+                        &lt;&#47;label&gt;
+                    &lt;&#47;span&gt;
                 &lt;&#47;li&gt;
             &lt;&#47;ul&gt;
         &lt;&#47;div&gt;
