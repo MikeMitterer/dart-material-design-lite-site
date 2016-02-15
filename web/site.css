@@ -50,6 +50,14 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+/* DIALOG */
+/* smartphones, portrait iPhone, portrait 480x320 phones (Android) */
+/* smartphones, Android phones, landscape iPhone */
+/* portrait tablets, portrait iPad, e-readers (Nook/Kindle), landscape 800x480 phones (Android) */
+/* tablet, landscape iPad, lo-res laptops ands desktops */
+/* big landscape tablets, laptops, and desktops */
+/* hi-res laptops and desktops */
+/*  According to MD Adaptive UI */
 /**
  * Copyright 2015 Google Inc. All Rights Reserved.
  *
@@ -83,6 +91,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+/* DIALOG */
 /**
  * Copyright 2015 Google Inc. All Rights Reserved.
  *
@@ -116,6 +125,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+/* DIALOG */
 /* Config - MaterialDesignLite
 ------------------------------------------------------------------------------------------------------------------------
 
@@ -235,6 +245,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+/* DIALOG */
 /*
  * What follows is the result of much research on cross-browser styling.
  * Credit left inline and big thanks to Nicolas Gallagher, Jonathan Neal,
@@ -523,6 +534,7 @@ main {
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+/* DIALOG */
 .mdl-color-text--red {
   color: #f44336 !important; }
 
@@ -2419,6 +2431,14 @@ main {
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+/* DIALOG */
+/* smartphones, portrait iPhone, portrait 480x320 phones (Android) */
+/* smartphones, Android phones, landscape iPhone */
+/* portrait tablets, portrait iPad, e-readers (Nook/Kindle), landscape 800x480 phones (Android) */
+/* tablet, landscape iPad, lo-res laptops ands desktops */
+/* big landscape tablets, laptops, and desktops */
+/* hi-res laptops and desktops */
+/*  According to MD Adaptive UI */
 /**
  * Copyright 2015 Google Inc. All Rights Reserved.
  *
@@ -2452,6 +2472,7 @@ main {
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+/* DIALOG */
 html, body {
   font-family: "Helvetica", "Arial", sans-serif;
   font-size: 14px;
@@ -2905,6 +2926,14 @@ ul, ol {
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+/* DIALOG */
+/* smartphones, portrait iPhone, portrait 480x320 phones (Android) */
+/* smartphones, Android phones, landscape iPhone */
+/* portrait tablets, portrait iPad, e-readers (Nook/Kindle), landscape 800x480 phones (Android) */
+/* tablet, landscape iPad, lo-res laptops ands desktops */
+/* big landscape tablets, laptops, and desktops */
+/* hi-res laptops and desktops */
+/*  According to MD Adaptive UI */
 /**
  * Copyright 2015 Google Inc. All Rights Reserved.
  *
@@ -2938,6 +2967,7 @@ ul, ol {
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+/* DIALOG */
 .mdl-shadow--2dp {
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12); }
 
@@ -3007,6 +3037,7 @@ ul, ol {
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+/* DIALOG */
 .mdl-ripple {
   background: black;
   border-radius: 50%;
@@ -3076,6 +3107,7 @@ ul, ol {
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+/* DIALOG */
 .mdl-animation--default {
   -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
           transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); }
@@ -3140,6 +3172,14 @@ ul, ol {
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+/* DIALOG */
+/* smartphones, portrait iPhone, portrait 480x320 phones (Android) */
+/* smartphones, Android phones, landscape iPhone */
+/* portrait tablets, portrait iPad, e-readers (Nook/Kindle), landscape 800x480 phones (Android) */
+/* tablet, landscape iPad, lo-res laptops ands desktops */
+/* big landscape tablets, laptops, and desktops */
+/* hi-res laptops and desktops */
+/*  According to MD Adaptive UI */
 /**
  * Copyright 2015 Google Inc. All Rights Reserved.
  *
@@ -3173,6 +3213,7 @@ ul, ol {
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+/* DIALOG */
 .mdl-button {
   background: transparent;
   border: none;
@@ -3180,6 +3221,7 @@ ul, ol {
   color: black;
   position: relative;
   height: 36px;
+  margin: 0;
   min-width: 64px;
   padding: 0 16px;
   display: inline-block;
@@ -3412,6 +3454,7 @@ input.mdl-button[type="submit"] {
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+/* DIALOG */
 .mdl-card {
   display: -webkit-box;
   display: -webkit-flex;
@@ -3498,7 +3541,7 @@ input.mdl-button[type="submit"] {
   line-height: 18px;
   overflow: hidden;
   padding: 16px 16px;
-  width: 90%; }
+  box-sizing: border-box; }
 
 .mdl-card__actions {
   font-size: 16px;
@@ -3573,6 +3616,14 @@ input.mdl-button[type="submit"] {
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+/* DIALOG */
+/* smartphones, portrait iPhone, portrait 480x320 phones (Android) */
+/* smartphones, Android phones, landscape iPhone */
+/* portrait tablets, portrait iPad, e-readers (Nook/Kindle), landscape 800x480 phones (Android) */
+/* tablet, landscape iPad, lo-res laptops ands desktops */
+/* big landscape tablets, laptops, and desktops */
+/* hi-res laptops and desktops */
+/*  According to MD Adaptive UI */
 /**
  * Copyright 2015 Google Inc. All Rights Reserved.
  *
@@ -3606,6 +3657,7 @@ input.mdl-button[type="submit"] {
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+/* DIALOG */
 .mdl-checkbox {
   position: relative;
   z-index: 1;
@@ -3796,6 +3848,14 @@ input.mdl-button[type="submit"] {
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+/* DIALOG */
+/* smartphones, portrait iPhone, portrait 480x320 phones (Android) */
+/* smartphones, Android phones, landscape iPhone */
+/* portrait tablets, portrait iPad, e-readers (Nook/Kindle), landscape 800x480 phones (Android) */
+/* tablet, landscape iPad, lo-res laptops ands desktops */
+/* big landscape tablets, laptops, and desktops */
+/* hi-res laptops and desktops */
+/*  According to MD Adaptive UI */
 /**
  * Copyright 2015 Google Inc. All Rights Reserved.
  *
@@ -3829,6 +3889,7 @@ input.mdl-button[type="submit"] {
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+/* DIALOG */
 .mdl-data-table {
   position: relative;
   border: 1px solid rgba(0, 0, 0, 0.12);
@@ -3854,7 +3915,7 @@ input.mdl-button[type="submit"] {
     .mdl-data-table tbody tr:hover {
       background-color: #eeeeee; }
   .mdl-data-table td, .mdl-data-table th {
-    padding: 0 18px 0 18px;
+    padding: 0 18px 12px 18px;
     text-align: right; }
     .mdl-data-table td:first-of-type, .mdl-data-table th:first-of-type {
       padding-left: 24px; }
@@ -3862,16 +3923,14 @@ input.mdl-button[type="submit"] {
       padding-right: 24px; }
   .mdl-data-table td {
     position: relative;
-    vertical-align: top;
+    vertical-align: middle;
     height: 48px;
     border-top: 1px solid rgba(0, 0, 0, 0.12);
     border-bottom: 1px solid rgba(0, 0, 0, 0.12);
     padding-top: 12px;
     box-sizing: border-box; }
     .mdl-data-table td .mdl-data-table__select {
-      vertical-align: top;
-      position: absolute;
-      left: 24px; }
+      vertical-align: middle; }
   .mdl-data-table th {
     position: relative;
     vertical-align: bottom;
@@ -3885,14 +3944,9 @@ input.mdl-button[type="submit"] {
     color: rgba(0, 0, 0, 0.54);
     padding-bottom: 8px;
     box-sizing: border-box; }
-    .mdl-data-table th .mdl-data-table__select {
-      position: absolute;
-      bottom: 8px;
-      left: 24px; }
-    .mdl-data-table th .mdl-data-table__header--sorted-ascending, .mdl-data-table th .mdl-data-table__header--sorted-descending {
+    .mdl-data-table th.mdl-data-table__header--sorted-ascending, .mdl-data-table th.mdl-data-table__header--sorted-descending {
       color: rgba(0, 0, 0, 0.87); }
-      .mdl-data-table th .mdl-data-table__header--sorted-ascending:before, .mdl-data-table th .mdl-data-table__header--sorted-descending:before {
-        font-size: 16px;
+      .mdl-data-table th.mdl-data-table__header--sorted-ascending:before, .mdl-data-table th.mdl-data-table__header--sorted-descending:before {
         font-family: 'Material Icons';
         font-weight: normal;
         font-style: normal;
@@ -3905,10 +3959,16 @@ input.mdl-button[type="submit"] {
         -moz-font-feature-settings: 'liga';
              font-feature-settings: 'liga';
         -webkit-font-feature-settings: 'liga';
-        -webkit-font-smoothing: antialiased; }
-    .mdl-data-table th .mdl-data-table__header--sorted-ascending:before {
-      content: "\e5d8"; }
-    .mdl-data-table th .mdl-data-table__header--sorted-descending:before {
+        -webkit-font-smoothing: antialiased;
+        font-size: 16px;
+        content: "\e5d8";
+        margin-right: 5px;
+        vertical-align: sub; }
+      .mdl-data-table th.mdl-data-table__header--sorted-ascending:hover, .mdl-data-table th.mdl-data-table__header--sorted-descending:hover {
+        cursor: pointer; }
+        .mdl-data-table th.mdl-data-table__header--sorted-ascending:hover:before, .mdl-data-table th.mdl-data-table__header--sorted-descending:hover:before {
+          color: rgba(0, 0, 0, 0.26); }
+    .mdl-data-table th.mdl-data-table__header--sorted-descending:before {
       content: "\e5db"; }
 
 .mdl-data-table__select {
@@ -3965,6 +4025,14 @@ input.mdl-button[type="submit"] {
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+/* DIALOG */
+/* smartphones, portrait iPhone, portrait 480x320 phones (Android) */
+/* smartphones, Android phones, landscape iPhone */
+/* portrait tablets, portrait iPad, e-readers (Nook/Kindle), landscape 800x480 phones (Android) */
+/* tablet, landscape iPad, lo-res laptops ands desktops */
+/* big landscape tablets, laptops, and desktops */
+/* hi-res laptops and desktops */
+/*  According to MD Adaptive UI */
 /**
  * Copyright 2015 Google Inc. All Rights Reserved.
  *
@@ -3998,6 +4066,7 @@ input.mdl-button[type="submit"] {
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+/* DIALOG */
 .mdl-data-tableex {
   position: relative;
   border-collapse: collapse;
@@ -4065,14 +4134,13 @@ input.mdl-button[type="submit"] {
     height: 48px;
     border-left: 1px solid rgba(0, 0, 0, 0.12);
     border-right: 1px solid rgba(0, 0, 0, 0.12);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.12);
     -webkit-transition-duration: 0.28s;
             transition-duration: 0.28s;
     -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
             transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     -webkit-transition-property: background-color;
             transition-property: background-color; }
-    .mdl-data-tableex .mdl-div-data-tableex__row:not(:last-child) {
-      border-bottom: 1px solid rgba(0, 0, 0, 0.12); }
     .mdl-data-tableex .mdl-div-data-tableex__row.is-selected {
       background-color: #e0e0e0; }
     .mdl-data-tableex .mdl-div-data-tableex__row:hover {
@@ -4197,6 +4265,7 @@ input.mdl-button[type="submit"] {
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+/* DIALOG */
 .mdl-icon--spin {
   -webkit-animation: mdl-icon--spin 2s infinite linear;
   animation: mdl-icon--spin 2s infinite linear;
@@ -4384,6 +4453,7 @@ input.mdl-button[type="submit"] {
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+/* DIALOG */
 .mdl-icon-toggle {
   position: relative;
   z-index: 1;
@@ -4507,6 +4577,14 @@ input.mdl-button[type="submit"] {
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+/* DIALOG */
+/* smartphones, portrait iPhone, portrait 480x320 phones (Android) */
+/* smartphones, Android phones, landscape iPhone */
+/* portrait tablets, portrait iPad, e-readers (Nook/Kindle), landscape 800x480 phones (Android) */
+/* tablet, landscape iPad, lo-res laptops ands desktops */
+/* big landscape tablets, laptops, and desktops */
+/* hi-res laptops and desktops */
+/*  According to MD Adaptive UI */
 /**
  * Copyright 2015 Google Inc. All Rights Reserved.
  *
@@ -4540,6 +4618,7 @@ input.mdl-button[type="submit"] {
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+/* DIALOG */
 .mdl-mega-footer {
   padding: 16px 40px;
   color: #9e9e9e;
@@ -4816,6 +4895,7 @@ input.mdl-button[type="submit"] {
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+/* DIALOG */
 .mdl-mini-footer {
   display: -webkit-box;
   display: -webkit-flex;
@@ -4941,6 +5021,7 @@ input.mdl-button[type="submit"] {
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+/* DIALOG */
 .mdl-grid {
   display: -webkit-box;
   display: -webkit-flex;
@@ -5658,6 +5739,14 @@ input.mdl-button[type="submit"] {
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+/* DIALOG */
+/* smartphones, portrait iPhone, portrait 480x320 phones (Android) */
+/* smartphones, Android phones, landscape iPhone */
+/* portrait tablets, portrait iPad, e-readers (Nook/Kindle), landscape 800x480 phones (Android) */
+/* tablet, landscape iPad, lo-res laptops ands desktops */
+/* big landscape tablets, laptops, and desktops */
+/* hi-res laptops and desktops */
+/*  According to MD Adaptive UI */
 /**
  * Copyright 2015 Google Inc. All Rights Reserved.
  *
@@ -5691,6 +5780,7 @@ input.mdl-button[type="submit"] {
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+/* DIALOG */
 .mdl-menu__container {
   display: block;
   margin: 0;
@@ -5891,6 +5981,7 @@ input.mdl-button[type="submit"] {
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+/* DIALOG */
 .mdl-progress {
   display: block;
   position: relative;
@@ -6064,6 +6155,14 @@ input.mdl-button[type="submit"] {
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+/* DIALOG */
+/* smartphones, portrait iPhone, portrait 480x320 phones (Android) */
+/* smartphones, Android phones, landscape iPhone */
+/* portrait tablets, portrait iPad, e-readers (Nook/Kindle), landscape 800x480 phones (Android) */
+/* tablet, landscape iPad, lo-res laptops ands desktops */
+/* big landscape tablets, laptops, and desktops */
+/* hi-res laptops and desktops */
+/*  According to MD Adaptive UI */
 /**
  * Copyright 2015 Google Inc. All Rights Reserved.
  *
@@ -6097,6 +6196,7 @@ input.mdl-button[type="submit"] {
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+/* DIALOG */
 .mdl-navigation {
   display: -webkit-box;
   display: -webkit-flex;
@@ -6726,6 +6826,14 @@ input.mdl-button[type="submit"] {
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+/* DIALOG */
+/* smartphones, portrait iPhone, portrait 480x320 phones (Android) */
+/* smartphones, Android phones, landscape iPhone */
+/* portrait tablets, portrait iPad, e-readers (Nook/Kindle), landscape 800x480 phones (Android) */
+/* tablet, landscape iPad, lo-res laptops ands desktops */
+/* big landscape tablets, laptops, and desktops */
+/* hi-res laptops and desktops */
+/*  According to MD Adaptive UI */
 /**
  * Copyright 2015 Google Inc. All Rights Reserved.
  *
@@ -6759,22 +6867,25 @@ input.mdl-button[type="submit"] {
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+/* DIALOG */
 .mdl-list {
   display: block;
   padding: 8px 0;
   list-style: none; }
 
 .mdl-list__item {
-  font-size: 14px;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-size: 16px;
   font-weight: 400;
   line-height: 24px;
-  letter-spacing: 0;
+  letter-spacing: 0.04em;
+  line-height: 1;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  min-height: 48px;
   box-sizing: border-box;
-  height: 48px;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
   -webkit-flex-direction: row;
@@ -6787,8 +6898,10 @@ input.mdl-button[type="submit"] {
   -webkit-align-items: center;
       -ms-flex-align: center;
           align-items: center;
-  padding: 16px 16px 20px 16px;
-  cursor: default; }
+  padding: 16px;
+  cursor: default;
+  color: rgba(0, 0, 0, 0.87);
+  overflow: hidden; }
   .mdl-list__item .mdl-list__item-primary-content {
     -webkit-box-ordinal-group: 1;
     -webkit-order: 0;
@@ -6798,12 +6911,20 @@ input.mdl-button[type="submit"] {
     -webkit-flex-grow: 2;
         -ms-flex-positive: 2;
             flex-grow: 2;
-    text-decoration: none; }
-    .mdl-list__item .mdl-list__item-primary-content .material-icons {
-      font-size: 40px;
-      line-height: 0;
-      vertical-align: middle;
-      padding: 0 12px 0 0; }
+    text-decoration: none;
+    box-sizing: border-box;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+            align-items: center; }
+    .mdl-list__item .mdl-list__item-primary-content .mdl-list__item-icon {
+      margin-right: 32px; }
+    .mdl-list__item .mdl-list__item-primary-content .mdl-list__item-avatar {
+      margin-right: 16px; }
   .mdl-list__item .mdl-list__item-secondary-content {
     display: -webkit-box;
     display: -webkit-flex;
@@ -6815,7 +6936,8 @@ input.mdl-button[type="submit"] {
     -webkit-box-align: end;
     -webkit-align-items: flex-end;
         -ms-flex-align: end;
-            align-items: flex-end; }
+            align-items: flex-end;
+    margin-left: 16px; }
     .mdl-list__item .mdl-list__item-secondary-content .mdl-list__item-secondary-action label {
       display: inline; }
     .mdl-list__item .mdl-list__item-secondary-content .mdl-list__item-secondary-info {
@@ -6823,40 +6945,72 @@ input.mdl-button[type="submit"] {
       font-weight: 400;
       line-height: 1;
       letter-spacing: 0;
-      margin-bottom: 10px;
       color: rgba(0, 0, 0, 0.54); }
     .mdl-list__item .mdl-list__item-secondary-content .mdl-list__item-sub-header {
       padding: 0 0 0 16px; }
 
-.mdl-list__item-avatar {
-  height: 56px; }
+.mdl-list__item-icon,
+.mdl-list__item-icon.material-icons {
+  height: 24px;
+  width: 24px;
+  font-size: 24px;
+  box-sizing: border-box;
+  color: #757575; }
+
+.mdl-list__item-avatar,
+.mdl-list__item-avatar.material-icons {
+  height: 40px;
+  width: 40px;
+  box-sizing: border-box;
+  border-radius: 50%;
+  background-color: #757575;
+  font-size: 40px;
+  color: white; }
 
 .mdl-list__item--two-line {
   height: 72px; }
-  .mdl-list__item--two-line .mdl-list__item-primary-content .material-icons {
-    vertical-align: text-bottom; }
-  .mdl-list__item--two-line .mdl-list__item-primary-content .mdl-list__item-sub-title {
-    font-size: 12px;
-    font-weight: 400;
-    line-height: 1;
-    letter-spacing: 0;
-    display: block;
-    padding: 0 0 0 56px; }
+  .mdl-list__item--two-line .mdl-list__item-primary-content {
+    height: 36px;
+    line-height: 20px;
+    display: block; }
+    .mdl-list__item--two-line .mdl-list__item-primary-content .mdl-list__item-avatar {
+      float: left; }
+    .mdl-list__item--two-line .mdl-list__item-primary-content .mdl-list__item-icon {
+      float: left;
+      margin-top: 6px; }
+    .mdl-list__item--two-line .mdl-list__item-primary-content .mdl-list__item-secondary-content {
+      height: 36px; }
+    .mdl-list__item--two-line .mdl-list__item-primary-content .mdl-list__item-sub-title {
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 24px;
+      letter-spacing: 0;
+      line-height: 18px;
+      color: rgba(0, 0, 0, 0.54);
+      display: block;
+      padding: 0; }
 
 .mdl-list__item--three-line {
   height: 88px; }
-  .mdl-list__item--three-line .mdl-list__item-primary-content .material-icons {
-    vertical-align: text-bottom; }
+  .mdl-list__item--three-line .mdl-list__item-primary-content {
+    height: 52px;
+    line-height: 20px;
+    display: block; }
+    .mdl-list__item--three-line .mdl-list__item-primary-content .mdl-list__item-avatar,
+    .mdl-list__item--three-line .mdl-list__item-primary-content .mdl-list__item-icon {
+      float: left; }
+  .mdl-list__item--three-line .mdl-list__item-secondary-content {
+    height: 52px; }
   .mdl-list__item--three-line .mdl-list__item-text-body {
-    font-size: 12px;
+    font-size: 14px;
     font-weight: 400;
-    line-height: 1;
+    line-height: 24px;
     letter-spacing: 0;
+    line-height: 18px;
+    height: 52px;
     color: rgba(0, 0, 0, 0.54);
     display: block;
-    height: 24px;
-    padding: 0 0 0 56px;
-    overflow: hidden; }
+    padding: 0; }
 
 .mdl-list--inline {
   list-style: none;
@@ -6922,6 +7076,14 @@ input.mdl-button[type="submit"] {
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+/* DIALOG */
+/* smartphones, portrait iPhone, portrait 480x320 phones (Android) */
+/* smartphones, Android phones, landscape iPhone */
+/* portrait tablets, portrait iPad, e-readers (Nook/Kindle), landscape 800x480 phones (Android) */
+/* tablet, landscape iPad, lo-res laptops ands desktops */
+/* big landscape tablets, laptops, and desktops */
+/* hi-res laptops and desktops */
+/*  According to MD Adaptive UI */
 /**
  * Copyright 2015 Google Inc. All Rights Reserved.
  *
@@ -6955,6 +7117,7 @@ input.mdl-button[type="submit"] {
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+/* DIALOG */
 .mdl-radio {
   position: relative;
   font-size: 16px;
@@ -7107,6 +7270,7 @@ input.mdl-button[type="submit"] {
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+/* DIALOG */
 _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
   -ms-appearance: none;
   height: 32px;
@@ -7408,6 +7572,7 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+/* DIALOG */
 .mdl-spinner {
   display: inline-block;
   position: relative;
@@ -7783,6 +7948,14 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+/* DIALOG */
+/* smartphones, portrait iPhone, portrait 480x320 phones (Android) */
+/* smartphones, Android phones, landscape iPhone */
+/* portrait tablets, portrait iPad, e-readers (Nook/Kindle), landscape 800x480 phones (Android) */
+/* tablet, landscape iPad, lo-res laptops ands desktops */
+/* big landscape tablets, laptops, and desktops */
+/* hi-res laptops and desktops */
+/*  According to MD Adaptive UI */
 /**
  * Copyright 2015 Google Inc. All Rights Reserved.
  *
@@ -7816,6 +7989,7 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+/* DIALOG */
 .mdl-switch {
   position: relative;
   z-index: 1;
@@ -8000,6 +8174,7 @@ _:-ms-input-placeholder, :root .mdl-slider.mdl-slider.is-upgraded {
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+/* DIALOG */
 .mdl-tabs {
   display: block;
   width: 100%; }
@@ -8148,6 +8323,14 @@ template, div[template] {
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+/* DIALOG */
+/* smartphones, portrait iPhone, portrait 480x320 phones (Android) */
+/* smartphones, Android phones, landscape iPhone */
+/* portrait tablets, portrait iPad, e-readers (Nook/Kindle), landscape 800x480 phones (Android) */
+/* tablet, landscape iPad, lo-res laptops ands desktops */
+/* big landscape tablets, laptops, and desktops */
+/* hi-res laptops and desktops */
+/*  According to MD Adaptive UI */
 /**
  * Copyright 2015 Google Inc. All Rights Reserved.
  *
@@ -8181,6 +8364,7 @@ template, div[template] {
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+/* DIALOG */
 .mdl-textfield {
   position: relative;
   font-size: 16px;
@@ -8217,10 +8401,15 @@ template, div[template] {
   background: none;
   text-align: left;
   color: inherit; }
+  .mdl-textfield__input[type="number"] {
+    -moz-appearance: textfield; }
+  .mdl-textfield__input[type="number"]::-webkit-inner-spin-button, .mdl-textfield__input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0; }
   .mdl-textfield.is-focused .mdl-textfield__input {
     outline: none; }
   .mdl-textfield.is-invalid .mdl-textfield__input {
-    border-color: #de3226;
+    border-color: #d50000;
     box-shadow: none; }
   fieldset[disabled] .mdl-textfield .mdl-textfield__input,
   .mdl-textfield.is-disabled .mdl-textfield__input {
@@ -8265,7 +8454,7 @@ template, div[template] {
   .mdl-textfield--floating-label.is-dirty .mdl-textfield__expandable-holder .mdl-textfield__label {
     top: -16px; }
   .mdl-textfield--floating-label.is-invalid .mdl-textfield__label {
-    color: #de3226;
+    color: #d50000;
     font-size: 12px; }
   .mdl-textfield__label:after {
     background-color: #9e9e9e;
@@ -8285,10 +8474,10 @@ template, div[template] {
     visibility: visible;
     width: 100%; }
   .mdl-textfield.is-invalid .mdl-textfield__label:after {
-    background-color: #de3226; }
+    background-color: #d50000; }
 
 .mdl-textfield__error {
-  color: #de3226;
+  color: #d50000;
   position: absolute;
   font-size: 12px;
   margin-top: 3px;
@@ -8366,6 +8555,7 @@ template, div[template] {
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+/* DIALOG */
 .mdl-tooltip {
   -webkit-transform: scale(0);
       -ms-transform: scale(0);
@@ -8459,6 +8649,7 @@ template, div[template] {
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+/* DIALOG */
 /* Animation Variables */
 /* Accordion */
 mdl-accordion-group, mdl-accordion {
@@ -8619,6 +8810,7 @@ input[name^='mdl-accordion']:checked ~ .mdl-accordion--content {
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+/* DIALOG */
 .mdl-badge {
   position: relative;
   white-space: nowrap;
@@ -8706,6 +8898,8 @@ input[name^='mdl-accordion']:checked ~ .mdl-accordion--content {
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+/* DIALOG */
+/* Dialog */
 .mdl-dialog-container {
   display: -webkit-box;
   display: -webkit-flex;
@@ -8936,6 +9130,7 @@ mdl-draggable {
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+/* DIALOG */
 .mdl-sticky-mini-footer {
   display: -webkit-box;
   display: -webkit-flex;
@@ -9055,6 +9250,7 @@ mdl-draggable {
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+/* DIALOG */
 .mdl-basic-form {
   box-sizing: border-box;
   display: -webkit-box;
@@ -9213,7 +9409,7 @@ mdl-draggable {
       .mdl-basic-form .mdl-basic-form__group.help .help-block {
         padding: 0; }
     .mdl-basic-form .mdl-basic-form__group .help-block {
-      color: #de3226;
+      color: #d50000;
       font-weight: 600; }
   .mdl-basic-form input[type=submit], .mdl-basic-form button {
     width: 130px;
@@ -9415,6 +9611,7 @@ mdl-draggable {
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+/* DIALOG */
 .mdl-nav-pill, .mdl-nav-pills > * {
   padding: 4px 8px;
   margin: 0 0 8px 0;
@@ -9587,6 +9784,7 @@ mdl-draggable {
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+/* DIALOG */
 .mdl-notification-container {
   z-index: 3;
   position: absolute;
@@ -9859,6 +10057,7 @@ mdl-draggable {
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+/* DIALOG */
 .mdl-panel {
   padding: 8px 16px;
   color: rgba(0, 0, 0, 0.87);
@@ -9920,6 +10119,14 @@ mdl-draggable {
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+/* DIALOG */
+/* smartphones, portrait iPhone, portrait 480x320 phones (Android) */
+/* smartphones, Android phones, landscape iPhone */
+/* portrait tablets, portrait iPad, e-readers (Nook/Kindle), landscape 800x480 phones (Android) */
+/* tablet, landscape iPad, lo-res laptops ands desktops */
+/* big landscape tablets, laptops, and desktops */
+/* hi-res laptops and desktops */
+/*  According to MD Adaptive UI */
 /**
  * Copyright 2015 Google Inc. All Rights Reserved.
  *
@@ -9953,6 +10160,7 @@ mdl-draggable {
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+/* DIALOG */
 .mdl-properties__container {
   box-sizing: border-box;
   -webkit-box-flex: 1;
@@ -10112,6 +10320,7 @@ mdl-draggable {
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+/* DIALOG */
 .mdl-snackbar-container.is-visible .mdl-snackbar {
   opacity: 1;
   -webkit-transition: all 0.2s cubic-bezier(0.55, 0, 0.55, 0.2);
@@ -10241,6 +10450,13 @@ mdl-draggable {
       -webkit-transform: translate3d(100%, 0, 0) rotateZ(15deg);
               transform: translate3d(100%, 0, 0) rotateZ(15deg); } }
 
+/* smartphones, portrait iPhone, portrait 480x320 phones (Android) */
+/* smartphones, Android phones, landscape iPhone */
+/* portrait tablets, portrait iPad, e-readers (Nook/Kindle), landscape 800x480 phones (Android) */
+/* tablet, landscape iPad, lo-res laptops ands desktops */
+/* big landscape tablets, laptops, and desktops */
+/* hi-res laptops and desktops */
+/*  According to MD Adaptive UI */
 /**
  * Copyright 2015 Google Inc. All Rights Reserved.
  *
@@ -10274,6 +10490,7 @@ mdl-draggable {
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+/* DIALOG */
 /**
  * Copyright 2015 Google Inc. All Rights Reserved.
  *
@@ -10307,6 +10524,14 @@ mdl-draggable {
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+/* DIALOG */
+/* smartphones, portrait iPhone, portrait 480x320 phones (Android) */
+/* smartphones, Android phones, landscape iPhone */
+/* portrait tablets, portrait iPad, e-readers (Nook/Kindle), landscape 800x480 phones (Android) */
+/* tablet, landscape iPad, lo-res laptops ands desktops */
+/* big landscape tablets, laptops, and desktops */
+/* hi-res laptops and desktops */
+/*  According to MD Adaptive UI */
 /**
  * Copyright 2015 Google Inc. All Rights Reserved.
  *
@@ -10340,6 +10565,7 @@ mdl-draggable {
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+/* DIALOG */
 /* ANIMATION */
 /**
  * Copyright 2015 Google Inc. All Rights Reserved.
@@ -10389,6 +10615,7 @@ mdl-draggable {
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+/* DIALOG */
 .mdl-animation--default {
   -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
           transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); }
