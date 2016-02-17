@@ -13,7 +13,7 @@
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center; // ⇾
-    align-content: space-between; // ||
+    align-content: center; // ||
     align-items: center; // ↓
 
     @include _rock_solid_width($size);
@@ -156,6 +156,10 @@
                 }
                 #age {
                     width: 40px;
+                }
+
+                #bio-textfield {
+                    width: 100%;
                 }
             }
         }

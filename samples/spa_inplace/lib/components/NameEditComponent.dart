@@ -277,7 +277,7 @@ class NameEditComponent extends MdlTemplateComponent {
                         <label class="mdl-textfield__label" for="age">Age</label>
                     </div>
 
-                    <div class="mdl-textfield mdl-js-textfield">
+                    <div class="mdl-textfield mdl-js-textfield" id="bio-textfield">
                         <textarea class="mdl-textfield__input" type="text" maxrows="5" rows="5" id="bio">{{bio}}</textarea>
                         <label class="mdl-textfield__label" for="sample8">Bio</label>
                     </div>
