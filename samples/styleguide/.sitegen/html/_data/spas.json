@@ -1,5 +1,6 @@
 [
   { "name": "content" },
   { "name": "include" },
+  { "name": "inplace" },
   { "name": "todo" }
 ]

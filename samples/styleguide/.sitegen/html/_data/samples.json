@@ -19,6 +19,7 @@
   { "name": "icon-toggle", "original": true, "prefix": "mdl_" },
   { "name": "icons", "original": true, "prefix": "mdlo_" },
   { "name": "include", "original": false, "prefix": "spa_" },
+  { "name": "inplace", "original": false, "prefix": "spa_" },
   { "name": "layout", "original": true, "prefix": "mdl_" },
   { "name": "list", "original": true, "prefix": "mdl_" },
   { "name": "menu", "original": true, "prefix": "mdl_" },

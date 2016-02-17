@@ -54,12 +54,32 @@ class NameEditComponent extends MdlTemplateComponent {
     }
     
     static NameEditComponent widget(final dom.HtmlElement element) => mdlComponent(element,NameEditComponent) as NameEditComponent;
-    
+
+    // - Used for Template rendering --------------------------------------------------------------
+
+    String get id => element.dataset["id"];
+
+    String get time => _store.time;
+
+    String get firstname => _store.byId(id).firstname;
+
+    String get lastname => _store.byId(id).lastname;
+
+    int get age => _store.byId(id).age;
+
+    String get bio => _store.byId(id).bio;
+
+    String get firstCharacter {
+        final String firstname = _store.byId(id).firstname;
+        return firstname.isNotEmpty ? firstname.substring(0,1).toUpperCase() : "";
+    }
+
+    String get iconcolor => _colorName(firstCharacter);
+
     // - EventHandler -----------------------------------------------------------------------------
 
     void handleButtonClick(final dom.Event event) {
         event.preventDefault();
-        _logger.info("Event: handleButtonClick");
 
         _active = !_active;
 
@@ -83,29 +103,10 @@ class NameEditComponent extends MdlTemplateComponent {
 
     }
 
-    String get id => element.dataset["id"];
-
-    String get time => _store.time;
-
-    String get firstname => _store.byId(id).firstname;
-
-    String get lastname => _store.byId(id).lastname;
-
-    int get age => _store.byId(id).age;
-
-    String get bio => _store.byId(id).bio;
-
-    String get firstCharacter {
-        final String firstname = _store.byId(id).firstname;
-        return firstname.isNotEmpty ? firstname.substring(0,1).toUpperCase() : "";
-    }
-
-    String get iconcolor => _colorName(firstCharacter);
-
     //- private -----------------------------------------------------------------------------------
 
     void _init() {
-        _logger.info("NameEditComponent - init");
+        _logger.fine("NameEditComponent - init");
         
         // Recommended - add SELECTOR as class
         element.classes.add(_NameEditComponentConstant.WIDGET_SELECTOR);
