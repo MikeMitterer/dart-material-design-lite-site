@@ -27,7 +27,10 @@ import 'package:logging/logging.dart';
 import 'package:mdl/mdl.dart';
 import 'package:mdl/mdlanimation.dart';
 
+import 'package:mdl_inplace_edit_sample/model.dart';
+
 part 'components/NameEditComponent.dart';
+part 'components/PersonsComponent.dart';
 
 final MdlAnimation expandAnimation = new MdlAnimation.keyframes(
     <int, Map<String, Object>>{
@@ -51,4 +54,5 @@ final MdlAnimation fadeOut = new MdlAnimation.fromStock(StockAnimation.FadeOut);
 
 void registerInplaceSampleComponents() {
     registerNameEditComponent();
+    registerPersonsComponent();
 }

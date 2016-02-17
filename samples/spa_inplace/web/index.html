@@ -65,13 +65,19 @@
             <div class="content mdl-color--white mdl-shadow--4dp content mdl-color-text--grey-800 mdl-cell mdl-cell--8-col">
                 <section class="demo-section demo-section--inplace_edit">
                     <div class="demo-preview-block">
-    <div mdl-repeat="person in persons">
-         
-        <template>
-            <sample-inplace-edit class="sample-inplace-edit--shadow" data-id="{{person.id}}"></sample-inplace-edit>
-        </template>
-         
-    </div>
+    <!--
+        sample-inplace-persons implements "ScopeAware" so we can take
+        'persons' from this component and not from Application
+                                                                             -->
+    <sample-inplace-persons>
+        <div mdl-repeat="person in persons">
+             
+            <template>
+                <sample-inplace-edit class="sample-inplace-edit--shadow" data-id="{{person.id}}"></sample-inplace-edit>
+            </template>
+             
+        </div>
+    </sample-inplace-persons>
 </div>
                 </section>
             </div>

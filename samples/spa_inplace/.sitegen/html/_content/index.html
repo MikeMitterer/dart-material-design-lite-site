@@ -3,11 +3,17 @@ samplename: inplace_edit
 sampleurl: https://github.com/MikeMitterer/dart-material-design-lite/tree/mdl/example/spa_inplace/web
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 <div class="demo-preview-block">
-    <div mdl-repeat="person in persons">
-        {{! ----- Turn off default mustache interpretation ---- }} {{= | | =}}
-        <template>
-            <sample-inplace-edit class="sample-inplace-edit--shadow" data-id="{{person.id}}"></sample-inplace-edit>
-        </template>
-        |= {{ }} =| {{! ----- Turn on mustache ---- }}
-    </div>
+    <!--
+        sample-inplace-persons implements "ScopeAware" so we can take
+        'persons' from this component and not from Application
+                                                                             -->
+    <sample-inplace-persons>
+        <div mdl-repeat="person in persons">
+            {{! ----- Turn off default mustache interpretation ---- }} {{= | | =}}
+            <template>
+                <sample-inplace-edit class="sample-inplace-edit--shadow" data-id="{{person.id}}"></sample-inplace-edit>
+            </template>
+            |= {{ }} =| {{! ----- Turn on mustache ---- }}
+        </div>
+    </sample-inplace-persons>
 </div>

@@ -1,0 +1,129 @@
+
+// Private mixins!
+@mixin _rock_solid_width($size) {
+    width: $size;
+    min-width: $size;
+    min-height: $size;
+    max-width: $size;
+    max-height: $size;
+}
+
+@mixin _sample_inplace_icon($size,$color) {
+    display: inline-flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center; // ⇾
+    align-content: space-between; // ||
+    align-items: center; // ↓
+
+    @include _rock_solid_width($size);
+
+    border-radius: 50%;
+
+    background-color: rgba($color, 0.75);
+}
+
+.sample-inplace-edit {
+    display: block;
+    box-sizing: border-box;
+
+    background-color: $sample_inplace_edit_background;
+    margin: 8px 24px;
+
+    border-radius: 2px;
+
+    [data-mdl-click] {
+        cursor:pointer;
+    }
+
+    &.sample-inplace-edit--shadow {
+        @include shadow-2dp();
+    }
+    &.active.sample-inplace-edit--shadow {
+        @include shadow-16dp();
+    }
+
+    &.active {
+        margin: 24px 4px;
+
+        transition: margin 100ms linear;
+
+        .sample-inplace-edit__container {
+            //opacity: 1;
+
+            .sample-inplace-edit__title {
+                //opacity: 0;
+                padding : 20px 20px;
+                @include typo-subhead();
+                //border: 1px solid blue;
+            }
+
+            .sample-inplace-edit__content {
+                //opacity: 0;
+            }
+        }
+    }
+
+    &.active.show-content {
+
+        .sample-inplace-edit__container {
+
+            .sample-inplace-edit__content {
+                //opacity : 1;
+            }
+        }
+    }
+
+    // Keep the first panel on top!
+    &:first-child {
+        margin-top: inherit;
+    }
+
+    .sample-inplace-edit__container {
+        transition: opacity 150ms ease-in-out;
+
+        .sample-inplace-edit__title {
+            box-sizing: border-box;
+            //border: 1px solid blue;
+            padding : 4px 20px;
+
+            transition: opacity 150ms ease-in-out;
+
+            &-icon {
+                margin: 6px 22px 6px 2px;
+
+                @include _sample_inplace_icon(28px,$sample_inplace_edit_icon_background);
+
+                color: $sample_inplace_edit_icon_color;
+            }
+        }
+
+        .sample-inplace-edit__content {
+            //opacity: 0;
+
+            border-top: 1px solid #e5e5e5;
+            padding: 16px 20px;
+
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            justify-content: flex-start; // ⇾
+            align-content: space-between; // ||
+            align-items: stretch; // ↓
+
+            // Template set's the opacity to 0 for the expanded version
+            transition: opacity 250ms ease-in-out;
+
+            &-icon {
+                margin: 6px 20px 6px 0;
+                flex-grow: 1;
+
+                @include _sample_inplace_icon(40px,$sample_inplace_edit_icon_background);
+
+                color: $sample_inplace_edit_icon_color;
+            }
+
+        }
+
+    }
+}
