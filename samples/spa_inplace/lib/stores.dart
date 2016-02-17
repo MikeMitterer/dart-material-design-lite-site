@@ -17,44 +17,48 @@
  * limitations under the License.
  */
      
-library mdl_inplace_edit_sample.components;
+library mdl_inplace_edit_sample.stores;
 
-import 'dart:html' as dom;
 import 'dart:async';
+import 'dart:collection';
+import 'dart:math' as math;
 
 import 'package:di/di.dart' as di;
 import 'package:logging/logging.dart';
-import 'package:mdl/mdl.dart';
-import 'package:mdl/mdlanimation.dart';
+import 'package:validate/validate.dart';
+import 'package:intl/intl.dart';
 
-import 'package:mdl_inplace_edit_sample/model.dart';
+import 'package:mdl/mdl.dart';
+
 import 'package:mdl_inplace_edit_sample/components/interfaces/stores.dart';
 import 'package:mdl_inplace_edit_sample/components/interfaces/actions.dart';
 
-part 'components/NameEditComponent.dart';
-part 'components/PersonsComponent.dart';
+import 'package:mdl_inplace_edit_sample/model.dart';
 
-final MdlAnimation expandAnimation = new MdlAnimation.keyframes(
-    <int, Map<String, Object>>{
-        0 : const <String, Object>{
-            "margin" : "8px 24px 8px 24px" },
+part 'stores/PersonsStoreImpl.dart';
 
-        100 : const <String, Object>{
-            "margin" : "24px 4px 24px 4px"}
-    });
+PersonsStore _singletonStore = null;
 
-final MdlAnimation shrinkAnimation = new MdlAnimation.keyframes(
-    <int, Map<String, Object>>{
-        0 : const <String, Object>{
-            "margin" : "24px 4px 24px 4px" },
+/// Basic DI configuration for the Application-[DataStore]s
+///
+/// Usage:
+///     class MainModule extends di.Module {
+///         MainModule() {
+///             install(new StoreModule());
+///         }
+///     }
+class StoreModule  extends di.Module {
+    StoreModule() {
 
-        100 : const <String, Object>{
-            "margin" : "8px 24px 8px 24px"}
-    });
+        bind(PersonsStore,toFactory: _singletonFactory);
+        bind(PersonStore,toFactory: _singletonFactory);
+    }
+}
 
-final MdlAnimation fadeOut = new MdlAnimation.fromStock(StockAnimation.FadeOut);
-
-void registerInplaceSampleComponents() {
-    registerNameEditComponent();
-    registerPersonsComponent();
+/// Ugly hack because DI does not support "asSingleton" like Guice does!!!!
+_singletonFactory() {
+    if(_singletonStore == null) {
+        _singletonStore = new PersonsStoreImpl(componentFactory().injector.get(ActionBus));
+    }
+    return _singletonStore;
 }

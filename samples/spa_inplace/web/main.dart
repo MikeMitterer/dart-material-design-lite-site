@@ -11,11 +11,11 @@ import 'package:mdl/mdlobservable.dart';
 
 import 'package:mdl_inplace_edit_sample/components.dart';
 import 'package:mdl_inplace_edit_sample/model.dart';
+import 'package:mdl_inplace_edit_sample/stores.dart';
 
 @MdlComponentModel @di.Injectable()
 class Application extends MaterialApplication {
     final Logger _logger = new Logger('main.Application');
-
 
 
     Application() {
@@ -23,7 +23,6 @@ class Application extends MaterialApplication {
 
     @override
     void run() {
-
 
     }
 
@@ -39,12 +38,26 @@ main() async {
     registerMdl();
     registerInplaceSampleComponents();
 
-    final MaterialApplication application = await componentFactory().
-        rootContext(Application).run(enableVisualDebugging: true);
+    final MaterialApplication application = await componentFactory()
+        .rootContext(Application)
+        .addModule(new SampleModule())
+        .run(enableVisualDebugging: true);
 
     application.run();
 }
 
+/**
+ * Demo Module
+ */
+class SampleModule extends di.Module {
+    SampleModule() {
+        install(new StoreModule());
+
+        // -- services
+
+        // -- stores
+    }
+}
 
 void configLogging() {
     hierarchicalLoggingEnabled = false; // set this to true - its part of Logging SDK

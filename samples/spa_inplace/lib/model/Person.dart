@@ -32,5 +32,19 @@ class Person {
 
     Person(this.firstname,this.lastname,this.age,this.bio) : id = new Uuid().v1();
 
+    Person.from(final Person person) : firstname = person.firstname, lastname = person.lastname,
+        age = person.age, bio = person.bio, id = person.id;
+
+    /// Updates the current person with the incoming [Person] data.
+    ///
+    /// Must be the same ID!!!!
+    void update(final Person person) {
+        Validate.isTrue(id == person.id);
+        firstname = person.firstname;
+        lastname = person.lastname;
+        age = person.age;
+        bio = person.bio;
+    }
+
     //- private -----------------------------------------------------------------------------------
 }
