@@ -82,6 +82,7 @@ analyzeSamples() {
         "mdlx_snackbar/web/main.dart",
         "spa_content/web/main.dart",
         "spa_include/web/main.dart",
+        "spa_inplace/web/main.dart",
         "spa_todo/web/main.dart",
         "styleguide/web/main.dart",
         "template_android-dot-com/web/main.dart",
