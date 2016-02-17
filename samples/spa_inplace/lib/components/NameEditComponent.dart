@@ -64,12 +64,18 @@ class NameEditComponent extends MdlTemplateComponent {
 
         _active = !_active;
 
-        element.classes.remove(_cssClasses.SHOW_CONTENT);
+        //element.classes.remove(_cssClasses.SHOW_CONTENT);
 
         if(_active) {
-            element.classes.add(_cssClasses.ACTIVE);
-            // CSS-Margin-Transition takes ~ 200ms
-            render().then((_) => element.classes.add(_cssClasses.SHOW_CONTENT));
+
+            render().then((_) {
+                element.classes.add(_cssClasses.ACTIVE);
+          //      element.classes.add(_cssClasses.SHOW_CONTENT);
+                new Future.delayed(new Duration(milliseconds: 50),() {
+                    // Avoid title flickering
+                    element.querySelector(".${_cssClasses.CONTAINER}").style.removeProperty("opacity");
+                });
+            });
         } else {
             render().then((_) {
                 element.classes.remove(_cssClasses.ACTIVE);
@@ -99,13 +105,15 @@ class NameEditComponent extends MdlTemplateComponent {
     String get template => _active ? _activeTemplate : _inactiveTemplate;
 
     final String _inactiveTemplate = """
-        <div class="sample-inplace-edit__title" data-mdl-click="handleButtonClick(\$event)">
-            <span class="sample-inplace-edit__title-icon">A</span>{{id}}
+        <div class="sample-inplace-edit__container">
+            <div class="sample-inplace-edit__title" data-mdl-click="handleButtonClick(\$event)">
+                <span class="sample-inplace-edit__title-icon">A</span>{{id}}
+            </div>
         </div>
     """.trim().replaceAll(new RegExp(r"\s+")," ");
 
     final String _activeTemplate = """
-        <div>
+        <div class="sample-inplace-edit__container" style="opacity: 0;">
             <div class="sample-inplace-edit__title" data-mdl-click="handleButtonClick(\$event)">
                 {{id}}
             </div>
@@ -161,6 +169,8 @@ class _NameEditComponentCssClasses {
     final String ACTIVE = 'active';
 
     final String SHOW_CONTENT = 'show-content';
+
+    final String CONTAINER = 'sample-inplace-edit__container';
 
     const _NameEditComponentCssClasses(); }
     

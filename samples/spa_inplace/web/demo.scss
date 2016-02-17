@@ -4,6 +4,31 @@
 $_inplace_edit_background: #f2f2f2 !important;
 
 $sample_inplace_edit_background: white !default;
+$sample_inplace_edit_icon_color: rgba(white,0.55) !default;
+$sample_inplace_edit_icon_background: blue  !default;
+
+@mixin _rock_solid_width($size) {
+    width: $size;
+    min-width: $size;
+    min-height: $size;
+    max-width: $size;
+    max-height: $size;
+}
+
+@mixin _sample_inplace_icon($size,$color) {
+    display: inline-flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center; // ⇾
+    align-content: space-between; // ||
+    align-items: center; // ↓
+
+    @include _rock_solid_width($size);
+
+    border-radius: 50%;
+
+    background-color: rgba($color, 0.75);
+}
 
 .demo-page--inplace_edit, .demo-section--inplace_edit {
 
@@ -20,130 +45,100 @@ $sample_inplace_edit_background: white !default;
 
         border-radius: 2px;
 
-        &.active {
-            margin: 24px 4px;
-            //// border: 1px solid green;
-            //
-            //.sample-inplace-edit__title {
-            //    @include typo-subhead();
-            //
-            //    padding : 20px 20px;
-            //    //border: 1px solid blue;
-            //}
-            //
-            //.sample-inplace-edit__content,
-            //.sample-inplace-edit__title {
-            //    opacity: 0;
-            //}
-            //
-            //transition: margin 1500ms linear;
-        }
-
-        &.active-.show-content {
-            opacity: 1;
-            transition: opacity 50ms ease-in-out, margin 200ms linear;
-
-            .sample-inplace-edit__content,
-            .sample-inplace-edit__title {
-                opacity: 1;
-                //border: 1px solid green;
-                transition: opacity 200ms ease-in-out;
-            }
-        }
-
-        &:first-child {
-            margin-top: inherit;
-        }
-
         [data-mdl-click] {
             cursor:pointer;
         }
 
-        &--shadow {
+        &.sample-inplace-edit--shadow {
             @include shadow-2dp();
         }
         &.active.sample-inplace-edit--shadow {
-            @include shadow-6dp();
+            @include shadow-16dp();
         }
 
-        .sample-inplace-edit__title {
-            box-sizing: border-box;
-            //border: 1px solid blue;
-            padding : 4px 20px;
+        &.active {
+            margin: 24px 4px;
 
-            &-icon {
-                margin: 6px 22px 6px 2px;
+            transition: margin 100ms linear;
 
-                display: inline-flex;
-                flex-direction: row;
-                flex-wrap: wrap;
-                justify-content: center; // ⇾
-                align-content: space-between; // ||
-                align-items: center; // ↓
+            .sample-inplace-edit__container {
+                //opacity: 1;
 
-                min-width: 28px;
-                min-height: 28px;
-                max-width: 28px;
-                max-height: 28px;
+                .sample-inplace-edit__title {
+                    //opacity: 0;
+                    padding : 20px 20px;
+                    @include typo-subhead();
+                    //border: 1px solid blue;
+                }
 
-                border-radius: 50%;
+                .sample-inplace-edit__content {
+                    //opacity: 0;
+                }
+            }
+        }
 
-                background-color: rgba(255, 0, 0, 0.74);
+        &.active.show-content {
 
-                color: rgba(white,0.55);
+            .sample-inplace-edit__container {
+
+                .sample-inplace-edit__content {
+                    //opacity : 1;
+                }
+            }
+        }
+
+        // Keep the first panel on top!
+        &:first-child {
+            margin-top: inherit;
+        }
+
+        .sample-inplace-edit__container {
+            transition: opacity 150ms ease-in-out;
+
+            .sample-inplace-edit__title {
+                box-sizing: border-box;
+                //border: 1px solid blue;
+                padding : 4px 20px;
+
+                transition: opacity 150ms ease-in-out;
+
+                &-icon {
+                    margin: 6px 22px 6px 2px;
+
+                    @include _sample_inplace_icon(28px,$sample_inplace_edit_icon_background);
+
+                    color: $sample_inplace_edit_icon_color;
+                }
             }
 
-            transition: opacity 150ms ease-in-out
-        }
-        &.active .sample-inplace-edit__title {
-            padding : 20px 20px;
-            @include typo-subhead();
-            //border: 1px solid blue;
-        }
+            .sample-inplace-edit__content {
+                //opacity: 0;
 
-        .sample-inplace-edit__content {
-            //opacity: 0;
+                border-top: 1px solid #e5e5e5;
+                padding: 16px 20px;
 
-            border-top: 1px solid #e5e5e5;
-            padding: 16px 20px;
-
-            display: flex;
-            flex-direction: row;
-            flex-wrap: nowrap;
-            justify-content: flex-start; // ⇾
-            align-content: space-between; // ||
-            align-items: stretch; // ↓
-
-            &-icon {
-                margin: 6px 20px 6px 0px;
-                flex-grow: 1;
-
-                display: inline-flex;
+                display: flex;
                 flex-direction: row;
-                flex-wrap: wrap;
-                justify-content: center; // ⇾
+                flex-wrap: nowrap;
+                justify-content: flex-start; // ⇾
                 align-content: space-between; // ||
-                align-items: center; // ↓
+                align-items: stretch; // ↓
 
-                min-width: 40px;
-                min-height: 40px;
-                max-width: 40px;
-                max-height: 40px;
+                // Template set's the opacity to 0 for the expanded version
+                transition: opacity 250ms ease-in-out;
 
-                border-radius: 50%;
+                &-icon {
+                    margin: 6px 20px 6px 0px;
+                    flex-grow: 1;
 
-                background-color: rgba(255, 0, 0, 0.74);
+                    @include _sample_inplace_icon(40px,$sample_inplace_edit_icon_background);
 
-                color: rgba(white,0.55);
+                    color: $sample_inplace_edit_icon_color;
+                }
+
             }
 
-            transition: opacity 250ms ease-in-out
         }
-        &.active .sample-inplace-edit__content {
-
-        }
-
-        transition: margin 50ms linear
     }
 
 }
