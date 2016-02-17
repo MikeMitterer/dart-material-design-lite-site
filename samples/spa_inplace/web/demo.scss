@@ -3,33 +3,12 @@
 
 $_inplace_edit_background: #f2f2f2 !important;
 
-.demo-page--inplace_edit, .demo-section--inplace_edit {
+.demo-page--inplace, .demo-section--inplace {
 
     // Default color for background set to content-box to make the demo
     // look more realistic
     .mdl-layout__content > .container > .content {
         background-color: $_inplace_edit_background;
-
-        .mdl-form {
-            display: flex;
-            flex-direction: row;
-            flex-wrap: wrap;
-            justify-content: flex-start; // ⇾
-            align-content: space-between; // ||
-            align-items: flex-start; // ↓
-
-            .mdl-textfield {
-                flex-grow: 1;
-                margin-right: 12px;
-
-                &:last-child {
-                    margin-right: initial;
-                }
-            }
-            #age {
-                width: 40px;
-            }
-        }
     }
 }
 

@@ -41,6 +41,7 @@
   { "name" : "mdlx_snackbar" },
   { "name" : "spa_content" },
   { "name" : "spa_include" },
+  { "name" : "spa_inplace" },
   { "name" : "spa_todo" },
   { "name" : "styleguide" },
   { "name" : "template_android-dot-com" },

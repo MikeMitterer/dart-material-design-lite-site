@@ -138,6 +138,25 @@
 
             .mdl-form {
                 box-shadow: initial;
+
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: flex-start; // ⇾
+                align-content: space-between; // ||
+                align-items: flex-start; // ↓
+
+                .mdl-textfield {
+                    flex-grow: 1;
+                    margin-right: 12px;
+
+                    &:last-child {
+                        margin-right: initial;
+                    }
+                }
+                #age {
+                    width: 40px;
+                }
             }
         }
 

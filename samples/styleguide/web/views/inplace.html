@@ -1,0 +1,16 @@
+<section class="demo-section demo-section--inplace demo-page--inplace">
+    <div id="usage" class="mdl-include mdl-js-include" data-url="views/usage/inplace.html">
+        Loading...
+    </div>
+    <div class="demo-preview-block">
+        <sample-inplace-persons>
+            <div mdl-repeat="person in persons">
+                 
+                <template>
+                    <sample-inplace-edit class="sample-inplace-edit--shadow" data-id="{{person.id}}"></sample-inplace-edit>
+                </template>
+                 
+            </div>
+        </sample-inplace-persons>
+    </div>
+</section>

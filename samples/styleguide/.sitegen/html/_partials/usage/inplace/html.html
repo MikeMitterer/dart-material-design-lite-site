@@ -1,0 +1,11 @@
+&lt;div class=&quot;demo-preview-block&quot;&gt;
+    &lt;sample-inplace-persons&gt;
+        &lt;div mdl-repeat=&quot;person in persons&quot;&gt;
+            {{! ----- Turn off default mustache interpretation ---- }} {{= | | =}}
+            &lt;template&gt;
+                &lt;sample-inplace-edit class=&quot;sample-inplace-edit--shadow&quot; data-id=&quot;{{person.id}}&quot;&gt;&lt;&#47;sample-inplace-edit&gt;
+            &lt;&#47;template&gt;
+            |= {{ }} =| {{! ----- Turn on mustache ---- }}
+        &lt;&#47;div&gt;
+    &lt;&#47;sample-inplace-persons&gt;
+&lt;&#47;div&gt;
