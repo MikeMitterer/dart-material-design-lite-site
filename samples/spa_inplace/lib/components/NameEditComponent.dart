@@ -133,7 +133,7 @@ class NameEditComponent extends MdlTemplateComponent {
 
     /// Form is only available in the active (open) template
     void _bindFormActions() {
-        final MaterialFormComponent form = MaterialFormComponent.widget(element.querySelector(".mdl-form"));
+        //final MaterialFormComponent form = MaterialFormComponent.widget(element.querySelector(".mdl-form"));
 
         _updateStore() {
             // Create new Person - we don't want to edit the "Store person"!

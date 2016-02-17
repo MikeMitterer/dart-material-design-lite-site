@@ -20,8 +20,6 @@
 library mdl_inplace_edit_sample.stores;
 
 import 'dart:async';
-import 'dart:collection';
-import 'dart:math' as math;
 
 import 'package:di/di.dart' as di;
 import 'package:logging/logging.dart';

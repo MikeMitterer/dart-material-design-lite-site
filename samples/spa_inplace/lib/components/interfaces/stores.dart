@@ -19,17 +19,7 @@
 
 library mdl_inplace_edit_sample.components.interfaces.stores;
 
-import 'dart:async';
-import 'dart:collection';
-import 'dart:html' as dom;
-import 'dart:math' as Math;
-
 import 'package:mdl/mdl.dart';
-import 'package:mdl/mdlutils.dart';
-
-import 'package:validate/validate.dart';
-import 'package:logging/logging.dart';
-import 'package:di/di.dart' as di;
 
 import 'package:mdl_inplace_edit_sample/model.dart';
 
