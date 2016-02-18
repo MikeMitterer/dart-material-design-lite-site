@@ -100,7 +100,6 @@ class NameEditComponent extends MdlTemplateComponent {
                 element.classes.remove(_cssClasses.ACTIVE);
             });
         }
-
     }
 
     //- private -----------------------------------------------------------------------------------
@@ -118,6 +117,7 @@ class NameEditComponent extends MdlTemplateComponent {
         element.classes.add(_cssClasses.IS_UPGRADED);
     }
 
+    /// After the template is rendered we bind all the necessary events for this component
     void _bindActions() {
         _store.onChange.listen((final DataStoreChangedEvent event) {
             // This message comes every second - so we optimize this update section a bit
@@ -132,6 +132,7 @@ class NameEditComponent extends MdlTemplateComponent {
     }
 
     /// Form is only available in the active (open) template
+    /// so this function is called if we render the active (expanded) template
     void _bindFormActions() {
         //final MaterialFormComponent form = MaterialFormComponent.widget(element.querySelector(".mdl-form"));
 
@@ -164,6 +165,9 @@ class NameEditComponent extends MdlTemplateComponent {
     MaterialTextfield get _bio => MaterialTextfield.widget(element.querySelector("#bio"));
     dom.HtmlElement get _title => element.querySelector(".${_cssClasses.TITLE}");
 
+    /// Something has changed - visualize it
+    ///
+    /// Usually this function is called if we get an onChange-event from our store
     void _updateView(final Person person) {
         _firstname?.value = person.firstname;
         _lastname?.value = person.lastname;
@@ -279,7 +283,7 @@ class NameEditComponent extends MdlTemplateComponent {
 
                     <div class="mdl-textfield mdl-js-textfield" id="bio-textfield">
                         <textarea class="mdl-textfield__input" type="text" maxrows="5" rows="5" id="bio">{{bio}}</textarea>
-                        <label class="mdl-textfield__label" for="sample8">Bio</label>
+                        <label class="mdl-textfield__label" for="bio">Bio</label>
                     </div>
 
                 </form>
