@@ -9,14 +9,18 @@ template: none
         {{#_data.samples}}
         <li class="mdl-list__item">
             <span class="mdl-list__item-primary-content">
-                <i class="mdl-icon material-icons mdl-color-text--200" style="padding-top: 32px">extension</i>
+              <i class="material-icons mdl-list__item-avatar mdl-color-text--200 mdl-color--white">extension</i>
+              <span>
+                  <a href="http://samples.material-design-lite.pub/{{prefix}}{{name}}/index.html"
+                        target="_blank" class="mdl-color-text--700">{{name}}</a>
 
-                <a href="http://samples.material-design-lite.pub/{{prefix}}{{name}}/index.html" target="_blank" class="mdl-color-text--700">
-                {{name}}</a> |
-                <a href="https://github.com/MikeMitterer/dart-material-design-lite-site/tree/master/samples/{{prefix}}{{name}}/web"
-                    class="mdl-color-text--400 github" target="_blank">
-                    Source on GitHub
-                </a>
+                  <div style="font-size: 14px; font-weight: 200; margin-top: 4px;">
+                      <a href="https://github.com/MikeMitterer/dart-material-design-lite-site/tree/master/samples/{{prefix}}{{name}}"
+                         class="mdl-color-text--400 github" target="_blank">
+                          Source on GitHub
+                      </a>
+                  </div>
+              </span>
             </span>
         </li>
 
