@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2016, Michael Mitterer (office@mikemitterer.at),
+ * Copyright (c) 2015, Michael Mitterer (office@mikemitterer.at),
  * IT-Consulting and Development Limited.
  * 
  * All Rights Reserved.
@@ -16,13 +16,18 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+     
+library mdl_inplace_edit_sample.test.unit.config;
 
-library mdl_inplace_edit_sample.model;
+import 'package:logging/logging.dart';
+import 'package:logging_handlers/logging_handlers_shared.dart';
 
-import 'package:uuid/uuid.dart';
-import 'package:validate/validate.dart';
+void configLogging() {
+    //hierarchicalLoggingEnabled = false; // set this to true - its part of Logging SDK
 
-import 'package:mdl/src/core/annotations.dart';
-
-part 'model/Person.dart';
+    // now control the logging.
+    // Turn off all logging first
+    Logger.root.level = Level.INFO;
+    Logger.root.onRecord.listen(new LogPrintHandler());
+}
 
