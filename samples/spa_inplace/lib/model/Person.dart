@@ -35,13 +35,13 @@ class Person {
     Person.from(final Person person) : firstname = person.firstname, lastname = person.lastname,
         age = person.age, bio = person.bio, id = person.id;
 
-    bool operator==(final Person otherPerson) {
-        return id == otherPerson.id
-            && firstname == otherPerson.firstname
-            && lastname == otherPerson.lastname
-            && age == otherPerson.age
-            && bio == otherPerson.bio;
-    }
+//    bool operator==(final Person otherPerson) {
+//        return id == otherPerson.id
+//            && firstname == otherPerson.firstname
+//            && lastname == otherPerson.lastname
+//            && age == otherPerson.age
+//            && bio == otherPerson.bio;
+//    }
 
     /// Updates the current person with the incoming [Person] data.
     ///
