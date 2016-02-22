@@ -5,7 +5,8 @@
 
     .firstblock {
         clear : both;
-        height: 400px;
+        min-height: 320px;
+        margin-bottom: 12px;
 
         p:first-of-type {
             // background-color: green;
@@ -19,6 +20,25 @@
     form {
         max-width     : 512px;
         margin-bottom : 24px;
+
+        background-color: rgba(63, 81, 181, 0.09);
+
+        .three-cols {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: flex-start; // ⇾
+            align-content: space-between; // ||
+            align-items: flex-start; // ↓
+
+            .col {
+                &:first-child {
+                    width: 120px;
+                }
+                max-width: 150px;
+            }
+
+        }
     }
 
     .demo-registration {
@@ -27,3 +47,10 @@
         max-width : 320px;
     }
 }
+
+
+
+
+
+
+

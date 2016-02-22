@@ -134,29 +134,25 @@ class NameEditComponent extends MdlTemplateComponent {
     /// Form is only available in the active (open) template
     /// so this function is called if we render the active (expanded) template
     void _bindFormActions() {
-        //final MaterialFormComponent form = MaterialFormComponent.widget(element.querySelector(".mdl-form"));
+        final MaterialFormComponent form = MaterialFormComponent.widget(element.querySelector(".mdl-form"));
 
-        _updateStore() {
-            // Create new Person - we don't want to edit the "Store person"!
-            final Person person = _store.byId(id);
+        eventStreams.add(
+            form.onChange.listen((_) {
+                // Create new Person - we don't want to edit the "Store person"!
+                final Person person = _store.byId(id);
 
-            person.firstname = _firstname.value;
-            person.lastname = _lastname.value;
+                person.firstname = _firstname.value;
+                person.lastname = _lastname.value;
 
-            try {
-                person.age = int.parse(_age.value);
-            } on FormatException {
-                person.age = 0;
-            }
-            person.bio = _bio.value;
+                try {
+                    person.age = int.parse(_age.value);
+                } on FormatException {
+                    person.age = 0;
+                }
+                person.bio = _bio.value;
 
-            _store.fire(new PersonChangedAction(person));
-        }
-
-        _firstname.hub.onChange.listen((_) => _updateStore());
-        _lastname.hub.onChange.listen((_) => _updateStore());
-        _age.hub.onChange.listen((_) => _updateStore());
-        _bio.hub.onChange.listen((_) => _updateStore());
+                _store.fire(new PersonChangedAction(person));
+            }));
     }
 
     MaterialTextfield get _firstname => MaterialTextfield.widget(element.querySelector("#firstname"));
