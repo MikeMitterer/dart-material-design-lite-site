@@ -389,6 +389,7 @@ class FormatterController extends DemoController {
         final Application app = componentFactory().application;
 
         cancelTimer = false;
+        int counter = 0;
         new Timer.periodic(new Duration(milliseconds: 500),(final Timer timer) {
             if(cancelTimer) {
                 timer.cancel();
@@ -398,7 +399,28 @@ class FormatterController extends DemoController {
             app.name.value = xmen[index];
 
             app.checkStatus.value = index % 2;
-            app.checkStatus.value = index % 2;
+
+            _labelfield1.value = xmen[index];
+            _labelfield2.value = xmen[index];
+            _textfield.value = xmen[index];
+            _labelfield3.value = (index * 3.14159265359).toString();
+            _badge.value = xmen[index].substring(0,1);
+            _button.value = xmen[index];
+
+            _checkbox.label = "Name #$index";;
+
+            _labelfield4.label = "Name #$index";
+            _labelfield4.value = xmen[index];
+
+            _radioWifi1.label = "wifi I #$index";
+            _radioWifi1.label = "wifi II #$index";
+
+            _switch.label = "Name #$index";
+
+            if(counter > 10) {
+                // cancelTimer = true;
+            }
+            counter++;
         });
     }
 
@@ -408,6 +430,18 @@ class FormatterController extends DemoController {
     }
 
     // - private ------------------------------------------------------------------------------------------------------
+    dom.HtmlElement get _demosection => dom.querySelector(".demo-section--formatter");
+
+    MaterialLabelfield get _labelfield1 => MaterialLabelfield.widget(_demosection.querySelector("#labelfield1"));
+    MaterialLabelfield get _labelfield2 => MaterialLabelfield.widget(_demosection.querySelector("#labelfield2"));
+    MaterialTextfield get _textfield => MaterialTextfield.widget(_demosection.querySelector("#textfield"));
+    MaterialLabelfield get _labelfield3 => MaterialLabelfield.widget(_demosection.querySelector("#labelfield3"));
+    MaterialLabelfield get _labelfield4 => MaterialLabelfield.widget(_demosection.querySelector("#labelfield4"));
+    MaterialBadge get _badge => MaterialBadge.widget(_demosection.querySelector(".mdl-badge"));
+    MaterialButton get _button => MaterialButton.widget(_demosection.querySelector(".mdl-button"));
+    MaterialCheckbox get _checkbox => MaterialCheckbox.widget(_demosection.querySelector("#checkbox-1"));
+    MaterialRadio get _radioWifi1 => MaterialRadio.widget(_demosection.querySelector("#wifi1"));
+    MaterialSwitch get _switch => MaterialSwitch.widget(_demosection.querySelector(".mdl-switch"));
 }
 
 class IconToggleController extends DemoController {

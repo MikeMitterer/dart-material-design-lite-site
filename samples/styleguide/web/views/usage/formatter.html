@@ -47,11 +47,38 @@ class Application extends MaterialApplication &#123;
             name.value = xmen[index];
 
             checkStatus.value = index % 2;
+
+            _labelfield1.value = xmen[index];
+            _labelfield2.value = xmen[index];
+            _textfield.value = xmen[index];
+            _labelfield3.value = (index * pi.value).toString();
+            _badge.value = xmen[index].substring(0,1);
+            _button.value = xmen[index];
+
+            _checkbox.label = &quot;Name #$index&quot;;;
+
+            _labelfield4.label = &quot;Name #$index&quot;;
+            _labelfield4.value = xmen[index];
+
+            _radioWifi1.label = &quot;wifi I #$index&quot;;
+            _radioWifi1.label = &quot;wifi II #$index&quot;;
+
+            _switch.label = &quot;Name #$index&quot;;
         &#125;);
     &#125;
 
     &#47;&#47;- private -----------------------------------------------------------------------------------
 
+    MaterialLabelfield get _labelfield1 =&gt; MaterialLabelfield.widget(dom.querySelector(&quot;#labelfield1&quot;));
+    MaterialLabelfield get _labelfield2 =&gt; MaterialLabelfield.widget(dom.querySelector(&quot;#labelfield2&quot;));
+    MaterialTextfield get _textfield =&gt; MaterialTextfield.widget(dom.querySelector(&quot;#textfield&quot;));
+    MaterialLabelfield get _labelfield3 =&gt; MaterialLabelfield.widget(dom.querySelector(&quot;#labelfield3&quot;));
+    MaterialLabelfield get _labelfield4 =&gt; MaterialLabelfield.widget(dom.querySelector(&quot;#labelfield4&quot;));
+    MaterialBadge get _badge =&gt; MaterialBadge.widget(dom.querySelector(&quot;.mdl-badge&quot;));
+    MaterialButton get _button =&gt; MaterialButton.widget(dom.querySelector(&quot;.mdl-button&quot;));
+    MaterialCheckbox get _checkbox =&gt; MaterialCheckbox.widget(dom.querySelector(&quot;#checkbox-1&quot;));
+    MaterialRadio get _radioWifi1 =&gt; MaterialRadio.widget(dom.querySelector(&quot;#wifi1&quot;));
+    MaterialSwitch get _switch =&gt; MaterialSwitch.widget(dom.querySelector(&quot;.mdl-switch&quot;));
 &#125;
 
 main() async &#123;
@@ -78,18 +105,65 @@ main() async &#123;
                 </div>
                 <pre class="prettyprint linenums lang-html">
 &lt;div class=&quot;demo-preview-block&quot;&gt;
-    &lt;h5&gt;Number-Formatter&lt;&#47;h5&gt;
-    PI: &lt;span mdl-observe=&quot;pi&quot;&gt;&lt;&#47;span&gt;&lt;br&gt;
-    PI with formatter: &lt;span mdl-observe=&quot;pi | number(value,2)&quot;&gt;&lt;&#47;span&gt;&lt;br&gt;
-    &lt;br&gt;
-    &lt;h5&gt;Uppercase &#47; Lowercase&lt;&#47;h5&gt;
-    Name: &lt;span mdl-observe=&quot;name&quot;&gt;&lt;&#47;span&gt;&lt;br&gt;
-    Name with formatter: &lt;span mdl-observe=&quot;name | uppercase(value)&quot;&gt;&lt;&#47;span&gt; (UpperCaseFormatter)&lt;br&gt;
-    Name with formatter: &lt;span mdl-observe=&quot;name | lowercase(value)&quot;&gt;&lt;&#47;span&gt; (LowerCaseFormatter)&lt;br&gt;
-    &lt;br&gt;
-    &lt;h5&gt;Choose-Formatter&lt;&#47;h5&gt;
-    Status is: &lt;span mdl-observe=&quot;checkStatus | choose(value, &#39;Valid!&#39;,&#39;OFF&#39;)&quot;
-                     mdl-class=&quot;!checkStatus : &#39;status-off&#39;&quot;&gt;&lt;&#47;span&gt;
+    &lt;div class=&quot;formatter-component&quot;&gt;
+        &lt;h5&gt;&lt;div class=&quot;mdl-badge&quot; data-badge=&quot;1&quot; mdl-formatter=&quot;uppercase(value)&quot;&gt;&lt;&#47;div&gt;via mdl-formatter&lt;&#47;h5&gt;
+        &lt;div id=&quot;labelfield1&quot; class=&quot;mdl-labelfield&quot; mdl-formatter=&quot;uppercase(value)&quot;&gt;
+            &lt;label class=&quot;mdl-labelfield__label &quot;&gt;Name (uppercase)&lt;&#47;label&gt;
+            &lt;div class=&quot;mdl-labelfield__text&quot;&gt;&lt;&#47;div&gt;
+        &lt;&#47;div&gt;
+        &lt;div id=&quot;labelfield2&quot; class=&quot;mdl-labelfield&quot;&gt;
+            &lt;label class=&quot;mdl-labelfield__label &quot;&gt;Name (dummy-formatter)&lt;&#47;label&gt;
+            &lt;div class=&quot;mdl-labelfield__text&quot;&gt;&lt;&#47;div&gt;
+        &lt;&#47;div&gt;
+        &lt;div class=&quot;mdl-textfield mdl-js-textfield mdl-textfield--floating-label&quot; mdl-formatter=&quot;lowercase(value)&quot;&gt;
+            &lt;input class=&quot;mdl-textfield__input&quot; type=&quot;text&quot; id=&quot;textfield&quot;&gt;
+            &lt;label class=&quot;mdl-textfield__label&quot; for=&quot;textfield&quot;&gt;X-Men (lowercase)&lt;&#47;label&gt;
+        &lt;&#47;div&gt;
+        &lt;div id=&quot;labelfield3&quot; class=&quot;mdl-labelfield&quot; mdl-formatter=&quot;number(value,3)&quot;&gt;
+            &lt;label class=&quot;mdl-labelfield__label &quot;&gt;Random value (number, 3 decimal)&lt;&#47;label&gt;
+            &lt;div class=&quot;mdl-labelfield__text&quot;&gt;&lt;&#47;div&gt;
+        &lt;&#47;div&gt;
+        &lt;div id=&quot;labelfield4&quot; class=&quot;mdl-labelfield&quot;&gt;
+            &lt;label class=&quot;mdl-labelfield__label&quot; mdl-formatter=&quot;uppercase(value)&quot;&gt;Name (dummy-formatter)&lt;&#47;label&gt;
+            &lt;div class=&quot;mdl-labelfield__text&quot;&gt;&lt;&#47;div&gt;
+            &lt;span class=&quot;hint mdl-color-text--accent&quot;&gt;Format label&lt;&#47;span&gt;
+        &lt;&#47;div&gt;
+        &lt;button class=&quot;mdl-button mdl-js-ripple-effect mdl-button--colored mdl-button--primary mdl-button--raised&quot;
+                mdl-formatter=&quot;uppercase(value)&quot;&gt;NOT SET&lt;&#47;button&gt;
+        &lt;label class=&quot;mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect&quot; for=&quot;checkbox-1&quot;&gt;
+            &lt;input type=&quot;checkbox&quot; id=&quot;checkbox-1&quot; class=&quot;mdl-checkbox__input&quot; &gt;
+            &lt;span class=&quot;mdl-checkbox__label&quot; mdl-formatter=&quot;uppercase(value)&quot;&gt;NOT SET&lt;&#47;span&gt;
+        &lt;&#47;label&gt;
+        &lt;div id=&quot;wifi&quot; class=&quot;mdl-radio-group&quot;&gt;
+            &lt;label class=&quot;mdl-radio mdl-js-radio mdl-js-ripple-effect&quot; for=&quot;wifi1&quot;&gt;
+                &lt;input type=&quot;radio&quot; id=&quot;wifi1&quot; class=&quot;mdl-radio__button&quot; name=&quot;wifi[]&quot; value=&quot;1&quot; checked&gt;
+                &lt;span class=&quot;mdl-radio__label&quot; mdl-formatter=&quot;uppercase(value)&quot;&gt;Always&lt;&#47;span&gt;
+            &lt;&#47;label&gt;
+            &lt;label class=&quot;mdl-radio mdl-js-radio mdl-js-ripple-effect&quot; for=&quot;wifi2&quot;&gt;
+                &lt;input type=&quot;radio&quot; id=&quot;wifi2&quot; class=&quot;mdl-radio__button&quot; name=&quot;wifi[]&quot; value=&quot;2&quot;&gt;
+                &lt;span class=&quot;mdl-radio__label&quot; mdl-formatter=&quot;uppercase(value)&quot;&gt;Only when plugged in&lt;&#47;span&gt;
+            &lt;&#47;label&gt;
+        &lt;&#47;div&gt;
+        &lt;label class=&quot;mdl-switch mdl-js-switch mdl-js-ripple-effect&quot; for=&quot;switch-1&quot; mdl-formatter=&quot;uppercase(value)&quot;&gt;
+            &lt;input type=&quot;checkbox&quot; id=&quot;switch-1&quot; class=&quot;mdl-switch__input&quot; mdl-formatter=&quot;number(value,4)&quot;&gt;
+            &lt;span class=&quot;mdl-switch__label&quot;&gt;Switch me&lt;&#47;span&gt;
+        &lt;&#47;label&gt;
+    &lt;&#47;div&gt;
+    &lt;div class=&quot;observe&quot;&gt;
+        &lt;h5&gt;via mdl-observe&lt;&#47;h5&gt;
+        &lt;h6&gt;Number-Formatter&lt;&#47;h6&gt;
+        PI: &lt;span mdl-observe=&quot;pi&quot;&gt;&lt;&#47;span&gt;&lt;br&gt;
+        PI with formatter: &lt;span mdl-observe=&quot;pi | number(value,2)&quot;&gt;&lt;&#47;span&gt;&lt;br&gt;
+        &lt;br&gt;
+        &lt;h6&gt;Uppercase &#47; Lowercase&lt;&#47;h6&gt;
+        Name: &lt;span mdl-observe=&quot;name&quot;&gt;&lt;&#47;span&gt;&lt;br&gt;
+        Name with formatter: &lt;span mdl-observe=&quot;name | uppercase(value)&quot;&gt;&lt;&#47;span&gt; (UpperCaseFormatter)&lt;br&gt;
+        Name with formatter: &lt;span mdl-observe=&quot;name | lowercase(value)&quot;&gt;&lt;&#47;span&gt; (LowerCaseFormatter)&lt;br&gt;
+        &lt;br&gt;
+        &lt;h6&gt;Choose-Formatter&lt;&#47;h6&gt;
+        Status is: &lt;span mdl-observe=&quot;checkStatus | choose(value, &#39;Valid!&#39;,&#39;OFF&#39;)&quot;
+                         mdl-class=&quot;!checkStatus : &#39;status-off&#39;&quot;&gt;&lt;&#47;span&gt;
+    &lt;&#47;div&gt;
 &lt;&#47;div&gt;
 </pre>
                 </div>

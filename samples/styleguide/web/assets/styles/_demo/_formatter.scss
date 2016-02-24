@@ -1,6 +1,39 @@
 .demo-page--formatter, .demo-section--formatter {
-    .status-off {
-        color: red;
-        font-weight: bold;
+    .demo-preview-block {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: flex-start; // ⇾
+        align-content: space-between; // ||
+        align-items: flex-start; // ↓
+
+        > div {
+            width: 50%;
+            @include max-screen(630px) {
+                width: initial;
+            }
+        }
+        .hint {
+            font-size: 12px;
+        }
+
+        .status-off {
+            color: red;
+            font-weight: bold;
+        }
+
+        .mdl-badge {
+            margin-right: 48px;
+        }
+
+        .mdl-checkbox {
+            margin: 12px 0;
+        }
+
+        .mdl-radio {
+            width: 100%;
+            margin-bottom: 12px;
+        }
+
     }
 }

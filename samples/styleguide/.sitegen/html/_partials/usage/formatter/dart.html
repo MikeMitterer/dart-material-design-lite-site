@@ -25,11 +25,38 @@ class Application extends MaterialApplication &#123;
             name.value = xmen[index];
 
             checkStatus.value = index % 2;
+
+            _labelfield1.value = xmen[index];
+            _labelfield2.value = xmen[index];
+            _textfield.value = xmen[index];
+            _labelfield3.value = (index * pi.value).toString();
+            _badge.value = xmen[index].substring(0,1);
+            _button.value = xmen[index];
+
+            _checkbox.label = &quot;Name #$index&quot;;;
+
+            _labelfield4.label = &quot;Name #$index&quot;;
+            _labelfield4.value = xmen[index];
+
+            _radioWifi1.label = &quot;wifi I #$index&quot;;
+            _radioWifi1.label = &quot;wifi II #$index&quot;;
+
+            _switch.label = &quot;Name #$index&quot;;
         &#125;);
     &#125;
 
     &#47;&#47;- private -----------------------------------------------------------------------------------
 
+    MaterialLabelfield get _labelfield1 =&gt; MaterialLabelfield.widget(dom.querySelector(&quot;#labelfield1&quot;));
+    MaterialLabelfield get _labelfield2 =&gt; MaterialLabelfield.widget(dom.querySelector(&quot;#labelfield2&quot;));
+    MaterialTextfield get _textfield =&gt; MaterialTextfield.widget(dom.querySelector(&quot;#textfield&quot;));
+    MaterialLabelfield get _labelfield3 =&gt; MaterialLabelfield.widget(dom.querySelector(&quot;#labelfield3&quot;));
+    MaterialLabelfield get _labelfield4 =&gt; MaterialLabelfield.widget(dom.querySelector(&quot;#labelfield4&quot;));
+    MaterialBadge get _badge =&gt; MaterialBadge.widget(dom.querySelector(&quot;.mdl-badge&quot;));
+    MaterialButton get _button =&gt; MaterialButton.widget(dom.querySelector(&quot;.mdl-button&quot;));
+    MaterialCheckbox get _checkbox =&gt; MaterialCheckbox.widget(dom.querySelector(&quot;#checkbox-1&quot;));
+    MaterialRadio get _radioWifi1 =&gt; MaterialRadio.widget(dom.querySelector(&quot;#wifi1&quot;));
+    MaterialSwitch get _switch =&gt; MaterialSwitch.widget(dom.querySelector(&quot;.mdl-switch&quot;));
 &#125;
 
 main() async &#123;
