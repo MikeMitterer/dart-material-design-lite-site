@@ -65,20 +65,76 @@
             <div class="content mdl-color--white mdl-shadow--4dp content mdl-color-text--grey-800 mdl-cell mdl-cell--8-col">
                 <section class="demo-section demo-section--formatter">
                     <div class="demo-preview-block">
-    <h5>Number-Formatter</h5>
-    PI: <span mdl-observe="pi"></span><br>
-    PI with formatter: <span mdl-observe="pi | number(value,2)"></span><br>
-    <br>
+    <div class="formatter-component">
+        <h5><div class="mdl-badge" data-badge="1" mdl-formatter="uppercase(value)"></div>via mdl-formatter</h5>
+        <div id="labelfield1" class="mdl-labelfield" mdl-formatter="uppercase(value)">
+            <label class="mdl-labelfield__label ">Name (uppercase)</label>
+            <div class="mdl-labelfield__text"></div>
+        </div>
 
-    <h5>Uppercase / Lowercase</h5>
-    Name: <span mdl-observe="name"></span><br>
-    Name with formatter: <span mdl-observe="name | uppercase(value)"></span> (UpperCaseFormatter)<br>
-    Name with formatter: <span mdl-observe="name | lowercase(value)"></span> (LowerCaseFormatter)<br>
-    <br>
+        <div id="labelfield2" class="mdl-labelfield">
+            <label class="mdl-labelfield__label ">Name (dummy-formatter)</label>
+            <div class="mdl-labelfield__text"></div>
+        </div>
 
-    <h5>Choose-Formatter</h5>
-    Status is: <span mdl-observe="checkStatus | choose(value, 'Valid!','OFF')"
-                     mdl-class="!checkStatus : 'status-off'"></span>
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" mdl-formatter="lowercase(value)">
+            <input class="mdl-textfield__input" type="text" id="textfield">
+            <label class="mdl-textfield__label" for="textfield">X-Men (lowercase)</label>
+        </div>
+
+        <div id="labelfield3" class="mdl-labelfield" mdl-formatter="number(value,3)">
+            <label class="mdl-labelfield__label ">Random value (number, 3 decimal)</label>
+            <div class="mdl-labelfield__text"></div>
+        </div>
+
+        <div id="labelfield4" class="mdl-labelfield">
+            <label class="mdl-labelfield__label" mdl-formatter="uppercase(value)">Name (dummy-formatter)</label>
+            <div class="mdl-labelfield__text"></div>
+            <span class="hint mdl-color-text--accent">Format label</span>
+        </div>
+
+        <button class="mdl-button mdl-js-ripple-effect mdl-button--colored mdl-button--primary mdl-button--raised"
+                mdl-formatter="uppercase(value)">NOT SET</button>
+
+        <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox-1">
+            <input type="checkbox" id="checkbox-1" class="mdl-checkbox__input" >
+            <span class="mdl-checkbox__label" mdl-formatter="uppercase(value)">NOT SET</span>
+        </label>
+
+        <div id="wifi" class="mdl-radio-group">
+            <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="wifi1">
+                <input type="radio" id="wifi1" class="mdl-radio__button" name="wifi[]" value="1" checked>
+                <span class="mdl-radio__label" mdl-formatter="uppercase(value)">Always</span>
+            </label>
+
+            <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="wifi2">
+                <input type="radio" id="wifi2" class="mdl-radio__button" name="wifi[]" value="2">
+                <span class="mdl-radio__label" mdl-formatter="uppercase(value)">Only when plugged in</span>
+            </label>
+        </div>
+
+        <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="switch-1" mdl-formatter="uppercase(value)">
+            <input type="checkbox" id="switch-1" class="mdl-switch__input" mdl-formatter="number(value,4)">
+            <span class="mdl-switch__label">Switch me</span>
+        </label>
+    </div>
+    <div class="observe">
+        <h5>via mdl-observe</h5>
+        <h6>Number-Formatter</h6>
+        PI: <span mdl-observe="pi"></span><br>
+        PI with formatter: <span mdl-observe="pi | number(value,2)"></span><br>
+        <br>
+
+        <h6>Uppercase / Lowercase</h6>
+        Name: <span mdl-observe="name"></span><br>
+        Name with formatter: <span mdl-observe="name | uppercase(value)"></span> (UpperCaseFormatter)<br>
+        Name with formatter: <span mdl-observe="name | lowercase(value)"></span> (LowerCaseFormatter)<br>
+        <br>
+
+        <h6>Choose-Formatter</h6>
+        Status is: <span mdl-observe="checkStatus | choose(value, 'Valid!','OFF')"
+                         mdl-class="!checkStatus : 'status-off'"></span>
+    </div>
 </div>
                 </section>
             </div>

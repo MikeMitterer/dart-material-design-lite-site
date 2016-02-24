@@ -9,7 +9,7 @@ main() {
     registerMdl();
 
     componentFactory().run().then((_) {
-        //final MaterialButton button = MaterialButton()
+
     });
 }
 

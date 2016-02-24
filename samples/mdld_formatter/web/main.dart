@@ -1,3 +1,5 @@
+import 'dart:html' as dom;
+
 import "dart:async";
 import "dart:math" as Math;
 
@@ -32,11 +34,38 @@ class Application extends MaterialApplication {
             name.value = xmen[index];
 
             checkStatus.value = index % 2;
+
+            _labelfield1.value = xmen[index];
+            _labelfield2.value = xmen[index];
+            _textfield.value = xmen[index];
+            _labelfield3.value = (index * pi.value).toString();
+            _badge.value = xmen[index].substring(0,1);
+            _button.value = xmen[index];
+
+            _checkbox.label = "Name #$index";;
+
+            _labelfield4.label = "Name #$index";
+            _labelfield4.value = xmen[index];
+
+            _radioWifi1.label = "wifi I #$index";
+            _radioWifi1.label = "wifi II #$index";
+
+            _switch.label = "Name #$index";
         });
     }
 
     //- private -----------------------------------------------------------------------------------
 
+    MaterialLabelfield get _labelfield1 => MaterialLabelfield.widget(dom.querySelector("#labelfield1"));
+    MaterialLabelfield get _labelfield2 => MaterialLabelfield.widget(dom.querySelector("#labelfield2"));
+    MaterialTextfield get _textfield => MaterialTextfield.widget(dom.querySelector("#textfield"));
+    MaterialLabelfield get _labelfield3 => MaterialLabelfield.widget(dom.querySelector("#labelfield3"));
+    MaterialLabelfield get _labelfield4 => MaterialLabelfield.widget(dom.querySelector("#labelfield4"));
+    MaterialBadge get _badge => MaterialBadge.widget(dom.querySelector(".mdl-badge"));
+    MaterialButton get _button => MaterialButton.widget(dom.querySelector(".mdl-button"));
+    MaterialCheckbox get _checkbox => MaterialCheckbox.widget(dom.querySelector("#checkbox-1"));
+    MaterialRadio get _radioWifi1 => MaterialRadio.widget(dom.querySelector("#wifi1"));
+    MaterialSwitch get _switch => MaterialSwitch.widget(dom.querySelector(".mdl-switch"));
 }
 
 main() async {
