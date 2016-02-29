@@ -16,6 +16,8 @@ class HackintoshComponent {
     final int quantity;
     final double price;
 
+    bool checked = false;
+
     HackintoshComponent(this.id,this.name, this.quantity, this.price);
 }
 
@@ -58,6 +60,9 @@ class Application implements MaterialApplication {
 
     void _removeItems() {
         components.clear();
+        //components.resetFilter(restoreData: false);
+
+        MaterialTextfield.widget(dom.querySelector("#filter")).value = "";
     }
 
     void _addListeners() {
@@ -68,14 +73,29 @@ class Application implements MaterialApplication {
 
         table.onChange.listen((_) {
             final List<MaterialDivDataTableRow> rows = table.selectedRows;
-            _logger.info("DataTable changed! ${rows.length} items are selected...");
+            _logger.info("DataTable changed! - ${rows.length} items are selected...");
 
             total.value = 0;
+            components.forEach((final HackintoshComponent component) => component.checked = false);
             rows.forEach((final MaterialDivDataTableRow row) {
                 final String id = row.hub.dataset["id"];
                 _logger.info("   Row with ID: ${id}");
-                total.value = total.value + _getComponent(id).price;
+
+                final HackintoshComponent component = _getComponent(id);
+                component.checked = true;
+                total.value = total.value + component.price;
             });
+        });
+
+        final MaterialTextfield filter = MaterialTextfield.widget(dom.querySelector("#filter"));
+        filter.hub.onInput.listen( (_) {
+            final String text = filter.value.trim();
+
+            if(text.isNotEmpty) {
+                components.filter((final HackintoshComponent element) => element.name.contains(text));
+            } else {
+                components.resetFilter();
+            }
         });
     }
 
