@@ -3,23 +3,36 @@
         Loading...
     </div>
     <div class="demo-preview-block">
-        <h5>Build your "CustomMac Pro"</h5>
-        <div mdl-repeat="component in components"
-             class="mdl-data-tableex mdl-js-data-tableex mdl-data-tableex--selectable mdl-shadow--2dp">
-            <div class="mdl-div-data-tableex__row mdl-div-data-tableex__head mdl-repeat__keep_this_element">
+        <div class="headline">
+            <h5>Build your "CustomMac Pro"</h5>
+            <div class="mdl-textfield mdl-js-textfield">
+                <input class="mdl-textfield__input" type="text" id="filter">
+                <label class="mdl-textfield__label" for="filter">Filter...</label>
+            </div>
+        </div>
+        <div class="mdl-data-tableex mdl-js-data-tableex mdl-data-tableex--selectable mdl-shadow--2dp">
+            <div class="mdl-div-data-tableex__row mdl-div-data-tableex__head mdl-color--500 mdl-color-text--white">
                 <div class="mdl-data-tableex__cell--non-numeric mdl-data-tableex__cell--grow">Component</div>
                 <div class="mdl-data-tableex__cell--numeric">Quantity</div>
                 <div class="mdl-data-tableex__cell--numeric">Unit price</div>
             </div>
-            {{! ----- Turn off default mustache interpretation (sitegen) ---- }} {{= | | =}}
-            <template>
-                <div class="mdl-div-data-tableex__row" data-id="{{component.id}}">
-                    <div class="mdl-data-tableex__cell--grow">{{component.name}}</div>
-                    <div class="mdl-data-tableex__cell--numeric">{{component.quantity}}</div>
-                    <div class="mdl-data-tableex__cell--numeric">{{component.price}}</div>
-                </div>
-            </template>
-            |= {{ }} =| {{! ----- Turn on mustache ---- }}
+            <div class="mdl-div-data-tableex__data" mdl-repeat="component in components">
+                {{! ----- Turn off default mustache interpretation (sitegen) ---- }} {{= | | =}}
+                <template>
+                    <div class="mdl-div-data-tableex__row" data-id="{{component.id}}">
+                        <div class="mdl-data-tableex__cell--checkbox">
+                            <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect mdl-data-tableex__select
+                                {{#component.checked}} is-checked {{/component.checked}}">
+                                <input type="checkbox" class="mdl-checkbox__input" {{#component.checked}} checked {{/component.checked}} >
+                            </label>
+                        </div>
+                        <div class="mdl-data-tableex__cell--grow">{{component.name}}</div>
+                        <div class="mdl-data-tableex__cell--numeric">{{component.quantity}}</div>
+                        <div class="mdl-data-tableex__cell--numeric">{{component.price}}</div>
+                    </div>
+                </template>
+                |= {{ }} =| {{! ----- Turn on mustache ---- }}
+            </div>
         </div>
         <div class="total">
             <h6>Total: <span mdl-observe="total | number(value,2)" class="mdl-color-text--accent"></span></h6>
@@ -28,7 +41,7 @@
         </div>
         <div class="buttons">
             <button id="addComponents"
-                    class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-js-ripple-effect">
+                    class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-js-ripple-effect" disabled>
                 Add components
             </button>
             <button id="removeComponents"

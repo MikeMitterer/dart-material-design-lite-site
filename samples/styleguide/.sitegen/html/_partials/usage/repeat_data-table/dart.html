@@ -10,6 +10,8 @@ class HackintoshComponent &#123;
     final int quantity;
     final double price;
 
+    bool checked = false;
+
     HackintoshComponent(this.id,this.name, this.quantity, this.price);
 &#125;
 
@@ -52,6 +54,9 @@ class Application implements MaterialApplication &#123;
 
     void _removeItems() &#123;
         components.clear();
+        &#47;&#47;components.resetFilter(restoreData: false);
+
+        MaterialTextfield.widget(dom.querySelector(&quot;#filter&quot;)).value = &quot;&quot;;
     &#125;
 
     void _addListeners() &#123;
@@ -62,14 +67,29 @@ class Application implements MaterialApplication &#123;
 
         table.onChange.listen((_) &#123;
             final List&lt;MaterialDivDataTableRow&gt; rows = table.selectedRows;
-            _logger.info(&quot;DataTable changed! $&#123;rows.length&#125; items are selected...&quot;);
+            _logger.info(&quot;DataTable changed! - $&#123;rows.length&#125; items are selected...&quot;);
 
             total.value = 0;
+            components.forEach((final HackintoshComponent component) =&gt; component.checked = false);
             rows.forEach((final MaterialDivDataTableRow row) &#123;
                 final String id = row.hub.dataset[&quot;id&quot;];
                 _logger.info(&quot;   Row with ID: $&#123;id&#125;&quot;);
-                total.value = total.value + _getComponent(id).price;
+
+                final HackintoshComponent component = _getComponent(id);
+                component.checked = true;
+                total.value = total.value + component.price;
             &#125;);
+        &#125;);
+
+        final MaterialTextfield filter = MaterialTextfield.widget(dom.querySelector(&quot;#filter&quot;));
+        filter.hub.onInput.listen( (_) &#123;
+            final String text = filter.value.trim();
+
+            if(text.isNotEmpty) &#123;
+                components.filter((final HackintoshComponent element) =&gt; element.name.contains(text));
+            &#125; else &#123;
+                components.resetFilter();
+            &#125;
         &#125;);
     &#125;
 
