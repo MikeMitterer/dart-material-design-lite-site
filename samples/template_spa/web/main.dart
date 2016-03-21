@@ -95,9 +95,13 @@ class Application extends MaterialApplication {
             final dom.Element body = dom.querySelector("body");
             body.classes.toggle("show-properties");
 
+            final dom.Element properties = dom.querySelector(".mdl-properties");
+            AnimationState.removeAllStatesFrom(properties);
+
             if(body.classes.contains("show-properties")) {
 
-                bounceInRight(dom.querySelector(".mdl-properties")).then((_) {
+                bounceInRight(properties).then((_) {
+                    AnimationState.setState(properties,AnimationState.last);
                     _logger.info("Animation completed!");
                 });
             }
