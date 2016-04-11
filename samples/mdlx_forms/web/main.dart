@@ -7,7 +7,7 @@ import 'package:mdl/mdl.dart';
 import "package:mdl/mdldialog.dart";
 
 main() async {
-    final Logger _logger = new Logger('mdlx_form.main');
+    // final Logger _logger = new Logger('mdlx_form.main');
 
     configLogging();
 
