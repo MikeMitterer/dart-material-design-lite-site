@@ -1,10 +1,23 @@
 import &#39;package:mdl&#47;mdl.dart&#39;;
 
 
-main() &#123;
+main() async &#123;
+    final Logger _logger = new Logger(&#39;mdl_tabs_sample.main&#39;);
+
     registerMdl();
 
-    componentFactory().run().then((_) &#123;
+    await componentFactory().run();
 
+    final MaterialSnackbar snackbar = new MaterialSnackbar();
+    final MaterialTabs tabs = MaterialTabs.widget(dom.querySelector(&quot;.mdl-tabs&quot;));
+
+    _logger.info(&quot;$&#123;tabs.activePanel&#125; is active!&quot;);
+    snackbar(&quot;$&#123;tabs.activePanel&#125; is active!&quot;).show();
+
+    tabs.onChange.listen((final MaterialTabsChangedEvent event) &#123;
+        _logger.info(&quot;$&#123;event.targetID&#125; is active!&quot;);
+
+        snackbar(&quot;$&#123;event.targetID&#125; is active!&quot;).show();
     &#125;);
+
 &#125;

@@ -64,6 +64,7 @@ class CustomDialog1 extends MaterialDialog {
     // - template ----------------------------------------------------------------------------------
 
     @override
+    // language=HTML
     String template = """
         <div class="mdl-dialog custom-dialog1">
           <div class="mdl-dialog__content">
