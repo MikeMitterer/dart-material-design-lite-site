@@ -24,7 +24,8 @@ $_application-footer-padding : 4px;
 $_application-shadow-opacity: 0.4;
 
 @mixin bgimage($margin-left: 0) {
-    background : url(assets/images/pattern.png) repeat $margin-left 0;
+    background-image : url(assets/images/pattern.png);
+    background-repeat: repeat;
 }
 
 @mixin shadow-drawer-2dp() {
