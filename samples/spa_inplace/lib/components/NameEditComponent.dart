@@ -264,20 +264,20 @@ class NameEditComponent extends MdlTemplateComponent {
             <section class="sample-inplace-edit__content">
                 <span class="sample-inplace-edit__content-icon {{iconcolor}}">{{firstCharacter}}</span>
                 <form action="#" class="mdl-form">
-                    <div class="mdl-textfield mdl-js-textfield">
+                    <div class="mdl-textfield">
                         <input class="mdl-textfield__input" type="text" id="firstname" value="{{firstname}}" autofocus>
                         <label class="mdl-textfield__label" for="firstname">First name</label>
                     </div>
-                    <div class="mdl-textfield mdl-js-textfield">
+                    <div class="mdl-textfield">
                         <input class="mdl-textfield__input" type="text" id="lastname" value="{{lastname}}">
                         <label class="mdl-textfield__label" for="lastname">Last name</label>
                     </div>
-                    <div class="mdl-textfield mdl-js-textfield">
+                    <div class="mdl-textfield">
                         <input class="mdl-textfield__input" type="text" id="age" value="{{age}}">
                         <label class="mdl-textfield__label" for="age">Age</label>
                     </div>
 
-                    <div class="mdl-textfield mdl-js-textfield" id="bio-textfield">
+                    <div class="mdl-textfield" id="bio-textfield">
                         <textarea class="mdl-textfield__input" type="text" maxrows="5" rows="5" id="bio">{{bio}}</textarea>
                         <label class="mdl-textfield__label" for="bio">Bio</label>
                     </div>

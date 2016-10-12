@@ -64,13 +64,13 @@ class LoginDialog extends MaterialDialog {
             <form method="post" class="right mdl-form mdl-form-registration demo-registration">
                 <h5 class="mdl-form__title">Sign in</h5>
                 <div class="mdl-form__content">
-                    <div class="mdl-textfield mdl-js-textfield">
+                    <div class="mdl-textfield">
                         <input class="mdl-textfield__input" type="email" id="email" mdl-model="username"
                             required autofocus>
                         <label class="mdl-textfield__label" for="email">Email</label>
                         <span class="mdl-textfield__error">This is not a valid eMail-Address</span>
                     </div>
-                    <div class="mdl-textfield mdl-js-textfield">
+                    <div class="mdl-textfield">
                         <input class="mdl-textfield__input" type=password id="password" mdl-model="password"
                                pattern="((?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#\$%?]).{8,15})" required>
                         <label class="mdl-textfield__label" for="password">Password</label>
@@ -81,8 +81,8 @@ class LoginDialog extends MaterialDialog {
                     </div>
                 </div>
                 <div class="mdl-form__actions">
-                    <button id="submit" class="mdl-button mdl-js-button mdl-button--submit
-                        mdl-button--raised mdl-button--primary mdl-js-ripple-effect"
+                    <button id="submit" class="mdl-button mdl-button--submit
+                        mdl-button--raised mdl-button--primary mdl-ripple-effect"
                         data-mdl-click="onLogin(\$event)">
                         Sign in
                     </button>

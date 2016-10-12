@@ -16,7 +16,7 @@ To use any MDL component, you must include the minified CSS and JavaScript files
 ```
 &nbsp;2. Add one or more MDL classes, separated by spaces, to the container using the `class` attribute.
 ```html
-<div class="mdl-spinner mdl-js-spinner is-active"></div>
+<div class="mdl-spinner is-active"></div>
 ```
 
 The spinner component is ready for use.
@@ -26,13 +26,13 @@ The spinner component is ready for use.
 A default spinner in a div.
 
 ```html
-<div class="mdl-spinner mdl-js-spinner is-active"></div>
+<div class="mdl-spinner is-active"></div>
 ```
 
 A single-color spinner in a paragraph.
 
 ```html
-<p class="mdl-spinner mdl-js-spinner mdl-spinner--single-color is-active"></p>
+<p class="mdl-spinner mdl-spinner--single-color is-active"></p>
 ```
 
 ## Configuration options

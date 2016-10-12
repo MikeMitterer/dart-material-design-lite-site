@@ -16,7 +16,7 @@ To use any MDL component, you must include the minified CSS and JavaScript files
 ```
 &nbsp;2. Add one or more MDL classes, separated by spaces, to the button using the `class` attribute.
 ```html
-<button class="mdl-button mdl-js-button mdl-button--raised">Save</button>
+<button class="mdl-button mdl-button--raised">Save</button>
 ```
 
 The button component is ready for use.
@@ -24,17 +24,17 @@ The button component is ready for use.
 #### Examples
 A button with the "raised" effect.
 ```html
-<button class="mdl-button mdl-js-button mdl-button--raised">Save</button>
+<button class="mdl-button mdl-button--raised">Save</button>
 ```
 
 A button with the "fab" effect.
 ```html
-<button class="mdl-button mdl-js-button mdl-button--fab">OK</button>
+<button class="mdl-button mdl-button--fab">OK</button>
 ```
 
 A button with the "icon" and "colored" effects.
 ```html
-<button class="mdl-button mdl-js-button mdl-button--icon mdl-button--colored">?</button>
+<button class="mdl-button mdl-button--icon mdl-button--colored">?</button>
 ```
 
 
@@ -53,7 +53,7 @@ The MDL CSS classes apply various predefined visual and behavioral enhancements 
 | `mdl-button--colored` | Applies *colored* display effect (primary or accent color, depending on the type of button) | Colors are defined in `material.min.css` |
 | `mdl-button--primary` | Applies *primary* color display effect | Colors are defined in `material.min.css` |
 | `mdl-button--accent` | Applies *accent* color display effect | Colors are defined in `material.min.css` |
-| `mdl-js-ripple-effect` | Applies *ripple* click effect | May be used in combination with any other classes |
+| `mdl-ripple-effect` | Applies *ripple* click effect | May be used in combination with any other classes |
 
->**Note:** Disabled versions of all the available button types are provided, and are invoked with the standard HTML boolean attribute `disabled`. `<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" disabled>Raised Ripples Disabled</button>`. Alternatively, the `mdl-button--disabled` class can be used to achieve the same result.
+>**Note:** Disabled versions of all the available button types are provided, and are invoked with the standard HTML boolean attribute `disabled`. `<button class="mdl-button mdl-button--raised mdl-ripple-effect" disabled>Raised Ripples Disabled</button>`. Alternatively, the `mdl-button--disabled` class can be used to achieve the same result.
 >This attribute may be added or removed programmatically via scripting.

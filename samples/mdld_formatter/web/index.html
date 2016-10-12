@@ -50,7 +50,7 @@
 
 </head>
 <body class="demo-page demo-page--formatter mdl-upgrading" >  <div class="loading">Loading...</div>
-<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-color--grey-100">
+<div class="mdl-layout mdl-layout--fixed-header mdl-color--grey-100">
     <header class="mdl-layout__header mdl-layout__header--scroll mdl-color--grey-100 mdl-color-text--grey-800">
         <div class="mdl-layout__header-row">
             <span class="mdl-layout-title">FORMATTER-Sample</span>
@@ -77,7 +77,7 @@
             <div class="mdl-labelfield__text"></div>
         </div>
 
-        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" mdl-formatter="lowercase(value)">
+        <div class="mdl-textfield mdl-textfield--floating-label" mdl-formatter="lowercase(value)">
             <input class="mdl-textfield__input" type="text" id="textfield">
             <label class="mdl-textfield__label" for="textfield">X-Men (lowercase)</label>
         </div>
@@ -93,27 +93,27 @@
             <span class="hint mdl-color-text--accent">Format label</span>
         </div>
 
-        <button class="mdl-button mdl-js-ripple-effect mdl-button--colored mdl-button--primary mdl-button--raised"
+        <button class="mdl-button mdl-ripple-effect mdl-button--colored mdl-button--primary mdl-button--raised"
                 mdl-formatter="uppercase(value)">NOT SET</button>
 
-        <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox-1">
+        <label class="mdl-checkbox mdl-ripple-effect" for="checkbox-1">
             <input type="checkbox" id="checkbox-1" class="mdl-checkbox__input" >
             <span class="mdl-checkbox__label" mdl-formatter="uppercase(value)">NOT SET</span>
         </label>
 
         <div id="wifi" class="mdl-radio-group">
-            <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="wifi1">
+            <label class="mdl-radio mdl-ripple-effect" for="wifi1">
                 <input type="radio" id="wifi1" class="mdl-radio__button" name="wifi[]" value="1" checked>
                 <span class="mdl-radio__label" mdl-formatter="uppercase(value)">Always</span>
             </label>
 
-            <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="wifi2">
+            <label class="mdl-radio mdl-ripple-effect" for="wifi2">
                 <input type="radio" id="wifi2" class="mdl-radio__button" name="wifi[]" value="2">
                 <span class="mdl-radio__label" mdl-formatter="uppercase(value)">Only when plugged in</span>
             </label>
         </div>
 
-        <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="switch-1" mdl-formatter="uppercase(value)">
+        <label class="mdl-switch mdl-ripple-effect" for="switch-1" mdl-formatter="uppercase(value)">
             <input type="checkbox" id="switch-1" class="mdl-switch__input" mdl-formatter="number(value,4)">
             <span class="mdl-switch__label">Switch me</span>
         </label>
@@ -154,7 +154,7 @@
     </footer>
 </div>
 <a href="https://github.com/MikeMitterer/dart-material-design-lite-site/tree/master/samples/mdld_formatter/web" target="_blank" id="view-source">
-    <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--accent"><i class="material-icons">pageview</i></button>
+    <button class="mdl-button mdl-button--fab mdl-ripple-effect mdl-button--accent"><i class="material-icons">pageview</i></button>
 </a>
 <script type="application/dart" src="main.dart"></script>
 <script data-pub-inline src="packages/browser/dart.js"></script>

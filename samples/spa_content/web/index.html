@@ -50,7 +50,7 @@
 
 </head>
 <body class="demo-page demo-page--content mdl-upgrading" >  <div class="loading">Loading...</div>
-<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-color--grey-100">
+<div class="mdl-layout mdl-layout--fixed-header mdl-color--grey-100">
     <header class="mdl-layout__header mdl-layout__header--scroll mdl-color--grey-100 mdl-color-text--grey-800">
         <div class="mdl-layout__header-row">
             <span class="mdl-layout-title">CONTENT-Sample</span>
@@ -68,7 +68,7 @@
     <a href="#/test">Test</a> | <a href="#/test2">Test II</a> | <a href="#/slider">Slider</a> | <a href="#/error">Error</a>
 </div>
 <div class="demo-preview-block demo-content">
-    <div id="main" class="mdl-content mdl-js-content">
+    <div id="main" class="mdl-content">
         Temp
     </div>
 </div>
@@ -76,22 +76,22 @@
 <div class="demo-preview-block">
     <p>I am your main content - I live in index.html</p>
     <p>
-        <input class="mdl-slider mdl-js-slider" type="range"
+        <input class="mdl-slider" type="range"
                min="0" max="100" value="0" tabindex="0" id="mainslider1"/>
     </p>
 
     <p>
-        <input class="mdl-slider mdl-js-slider" type="range"
+        <input class="mdl-slider" type="range"
                min="0" max="100" value="10" tabindex="0" id="mainslider2" step="1"/>
     </p>
 
     <p>
-        <input class="mdl-slider mdl-js-slider" type="range"
+        <input class="mdl-slider" type="range"
                min="0" max="100" value="0" tabindex="0" disabled id="mainslider3"/>
     </p>
 
     <p>
-        <input class="mdl-slider mdl-js-slider" type="range"
+        <input class="mdl-slider" type="range"
                min="0" max="100" value="10" tabindex="0" disabled id="mainslider4"/>
     </p>
     <p>Try to drag the second slider. Click on <a href="#/slider">Slider</a> and you'll see how the dynamically loaded
@@ -101,13 +101,13 @@
     <div class="cols">
         <div class="col">
             <h5 class="mdl-color-text--primary-dark">Mustache-Template</h5>
-            <div id="mustache" class="mdl-mustache mdl-js-mustache">
+            <div id="mustache" class="mdl-mustache">
                 Waiting for action...
             </div>
         </div>
         <div class="col">
             <h5 class="mdl-color-text--primary-dark">List</h5>
-            <div id="list" class="mdl-content mdl-js-content">
+            <div id="list" class="mdl-content">
                 Waiting for action...
             </div>
         </div>
@@ -131,7 +131,7 @@
     </footer>
 </div>
 <a href="https://github.com/MikeMitterer/dart-material-design-lite-site/tree/master/samples/spa_content/web" target="_blank" id="view-source">
-    <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--accent"><i class="material-icons">pageview</i></button>
+    <button class="mdl-button mdl-button--fab mdl-ripple-effect mdl-button--accent"><i class="material-icons">pageview</i></button>
 </a>
 <script type="application/dart" src="main.dart"></script>
 <script data-pub-inline src="packages/browser/dart.js"></script>

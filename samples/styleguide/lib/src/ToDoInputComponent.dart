@@ -90,12 +90,12 @@ class ToDoInputComponent extends MdlTemplateComponent {
     @override
     final String template = """
         <div>
-            <div class="mdl-textfield mdl-js-textfield">
+            <div class="mdl-textfield">
                 <input id="item" class="mdl-textfield__input" type="text" autofocus />
                 <label class="mdl-textfield__label" for="item">Type Something...</label>
             </div>
             <button id="add"
-                class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-js-ripple-effect"
+                class="mdl-button mdl-button--raised mdl-button--colored mdl-ripple-effect"
                 data-mdl-click="onAdd()">Add</button>
 
             <span mdl-observe="nrOfItemsDone"></span> /

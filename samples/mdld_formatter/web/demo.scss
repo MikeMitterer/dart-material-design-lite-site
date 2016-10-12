@@ -1,5 +1,5 @@
 //@import "../../../lib/assets/styles/material-design-lite";
-@import "packages/mdl/assets/styles/mixins/mixins";
+//@import "packages/mdl/assets/styles/mixins/mixins";
 
 .demo-page--formatter, .demo-section--formatter {
     .demo-preview-block {
@@ -12,7 +12,7 @@
 
         > div {
             width: 50%;
-            @include max-screen(630px) {
+            @media only screen and (max-width: 630px)  {
                 width: initial;
             }
         }

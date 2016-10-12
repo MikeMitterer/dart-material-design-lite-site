@@ -1,12 +1,12 @@
 &lt;div class=&quot;demo-preview-block&quot;&gt;
     &lt;div class=&quot;headline&quot;&gt;
         &lt;h5 class=&quot;mdl-color-text--primary-dark&quot;&gt;Build your &quot;CustomMac Pro&quot;&lt;&#47;h5&gt;
-        &lt;div class=&quot;mdl-textfield mdl-js-textfield&quot;&gt;
+        &lt;div class=&quot;mdl-textfield&quot;&gt;
             &lt;input class=&quot;mdl-textfield__input&quot; type=&quot;text&quot; id=&quot;filter&quot;&gt;
             &lt;label class=&quot;mdl-textfield__label&quot; for=&quot;filter&quot;&gt;Filter...&lt;&#47;label&gt;
         &lt;&#47;div&gt;
     &lt;&#47;div&gt;
-    &lt;div class=&quot;mdl-data-tableex mdl-js-data-tableex mdl-data-tableex--selectable mdl-shadow--2dp&quot;&gt;
+    &lt;div class=&quot;mdl-data-tableex mdl-data-tableex--selectable mdl-shadow--2dp&quot;&gt;
         &lt;div class=&quot;mdl-div-data-tableex__row mdl-div-data-tableex__head mdl-color--500 mdl-color-text--white&quot;&gt;
             &lt;div class=&quot;mdl-data-tableex__cell--non-numeric mdl-data-tableex__cell--grow&quot;&gt;Component&lt;&#47;div&gt;
             &lt;div class=&quot;mdl-data-tableex__cell--numeric&quot;&gt;Quantity&lt;&#47;div&gt;
@@ -17,7 +17,7 @@
             &lt;template&gt;
                 &lt;div class=&quot;mdl-div-data-tableex__row&quot; data-id=&quot;{{component.id}}&quot;&gt;
                     &lt;div class=&quot;mdl-data-tableex__cell--checkbox&quot;&gt;
-                        &lt;label class=&quot;mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect mdl-data-tableex__select
+                        &lt;label class=&quot;mdl-checkbox mdl-ripple-effect mdl-data-tableex__select
                             {{#component.checked}} is-checked {{&#47;component.checked}}&quot;&gt;
                             &lt;input type=&quot;checkbox&quot; class=&quot;mdl-checkbox__input&quot; {{#component.checked}} checked {{&#47;component.checked}} &gt;
                         &lt;&#47;label&gt;
@@ -37,11 +37,11 @@
     &lt;&#47;div&gt;
     &lt;div class=&quot;buttons&quot;&gt;
         &lt;button id=&quot;addComponents&quot;
-                class=&quot;mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-js-ripple-effect&quot; disabled&gt;
+                class=&quot;mdl-button mdl-button--raised mdl-button--colored mdl-ripple-effect&quot; disabled&gt;
             Add components
         &lt;&#47;button&gt;
         &lt;button id=&quot;removeComponents&quot;
-                class=&quot;mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-js-ripple-effect&quot;&gt;
+                class=&quot;mdl-button mdl-button--raised mdl-button--colored mdl-ripple-effect&quot;&gt;
             Remove components
         &lt;&#47;button&gt;
     &lt;&#47;div&gt;

@@ -5,12 +5,12 @@ sampleurl: https://github.com/MikeMitterer/dart-material-design-lite-site/tree/m
 <div class="demo-preview-block">
     <div class="headline">
         <h5 class="mdl-color-text--primary-dark">Build your "CustomMac Pro"</h5>
-        <div class="mdl-textfield mdl-js-textfield">
+        <div class="mdl-textfield">
             <input class="mdl-textfield__input" type="text" id="filter">
             <label class="mdl-textfield__label" for="filter">Filter...</label>
         </div>
     </div>
-    <div class="mdl-data-tableex mdl-js-data-tableex mdl-data-tableex--selectable mdl-shadow--2dp">
+    <div class="mdl-data-tableex mdl-data-tableex--selectable mdl-shadow--2dp">
         <div class="mdl-div-data-tableex__row mdl-div-data-tableex__head mdl-color--500 mdl-color-text--white">
 
             <div class="mdl-data-tableex__cell--non-numeric mdl-data-tableex__cell--grow">Component</div>
@@ -22,7 +22,7 @@ sampleurl: https://github.com/MikeMitterer/dart-material-design-lite-site/tree/m
             <template>
                 <div class="mdl-div-data-tableex__row" data-id="{{component.id}}">
                     <div class="mdl-data-tableex__cell--checkbox">
-                        <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect mdl-data-tableex__select
+                        <label class="mdl-checkbox mdl-ripple-effect mdl-data-tableex__select
                             {{#component.checked}} is-checked {{/component.checked}}">
                             <input type="checkbox" class="mdl-checkbox__input" {{#component.checked}} checked {{/component.checked}} >
                         </label>
@@ -42,11 +42,11 @@ sampleurl: https://github.com/MikeMitterer/dart-material-design-lite-site/tree/m
     </div>
     <div class="buttons">
         <button id="addComponents"
-                class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-js-ripple-effect" disabled>
+                class="mdl-button mdl-button--raised mdl-button--colored mdl-ripple-effect" disabled>
             Add components
         </button>
         <button id="removeComponents"
-                class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-js-ripple-effect">
+                class="mdl-button mdl-button--raised mdl-button--colored mdl-ripple-effect">
             Remove components
         </button>
     </div>

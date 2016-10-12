@@ -1,4 +1,4 @@
-<div class="mdl-accordion-group mdl-js-accordion mdl-js-ripple-effect usage usage-content">
+<div class="mdl-accordion-group mdl-ripple-effect usage usage-content">
 
     <!-- Panel 1 -->
     <div class="mdl-accordion">
@@ -9,7 +9,7 @@
         </label>
         <div class="mdl-accordion--content">
 
-            <div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
+            <div class="mdl-tabs mdl-ripple-effect">
                 <!-- TabBar -->
                 <div class="mdl-tabs__tab-bar">
                     <a href="#dart" class="mdl-tabs__tab is-active">Dart</a>
@@ -98,7 +98,7 @@ main() &#123;
 
                     line.write(&quot;&lt;li&gt;&quot;);
                     line.write(&quot;Item #$&#123;id&#125;&quot;);
-                    line.write(&#39;&lt;button id=&quot;btn$id&quot; class=&quot;mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-js-ripple-effect&quot;&gt;Button #$&#123;id&#125;&lt;&#47;button&gt;&#39;);
+                    line.write(&#39;&lt;button id=&quot;btn$id&quot; class=&quot;mdl-button mdl-button--raised mdl-button--colored mdl-ripple-effect&quot;&gt;Button #$&#123;id&#125;&lt;&#47;button&gt;&#39;);
                     line.write(&quot;&lt;&#47;li&gt;&quot;);
                 &#125;
                 return line.toString();
@@ -207,26 +207,26 @@ void configRouter(final ViewFactory view) &#123;
     &lt;a href=&quot;#&#47;test&quot;&gt;Test&lt;&#47;a&gt; | &lt;a href=&quot;#&#47;test2&quot;&gt;Test II&lt;&#47;a&gt; | &lt;a href=&quot;#&#47;slider&quot;&gt;Slider&lt;&#47;a&gt; | &lt;a href=&quot;#&#47;error&quot;&gt;Error&lt;&#47;a&gt;
 &lt;&#47;div&gt;
 &lt;div class=&quot;demo-preview-block demo-content&quot;&gt;
-    &lt;div id=&quot;main&quot; class=&quot;mdl-content mdl-js-content&quot;&gt;
+    &lt;div id=&quot;main&quot; class=&quot;mdl-content&quot;&gt;
         Temp
     &lt;&#47;div&gt;
 &lt;&#47;div&gt;
 &lt;div class=&quot;demo-preview-block&quot;&gt;
     &lt;p&gt;I am your main content - I live in index.html&lt;&#47;p&gt;
     &lt;p&gt;
-        &lt;input class=&quot;mdl-slider mdl-js-slider&quot; type=&quot;range&quot;
+        &lt;input class=&quot;mdl-slider&quot; type=&quot;range&quot;
                min=&quot;0&quot; max=&quot;100&quot; value=&quot;0&quot; tabindex=&quot;0&quot; id=&quot;mainslider1&quot;&#47;&gt;
     &lt;&#47;p&gt;
     &lt;p&gt;
-        &lt;input class=&quot;mdl-slider mdl-js-slider&quot; type=&quot;range&quot;
+        &lt;input class=&quot;mdl-slider&quot; type=&quot;range&quot;
                min=&quot;0&quot; max=&quot;100&quot; value=&quot;10&quot; tabindex=&quot;0&quot; id=&quot;mainslider2&quot; step=&quot;1&quot;&#47;&gt;
     &lt;&#47;p&gt;
     &lt;p&gt;
-        &lt;input class=&quot;mdl-slider mdl-js-slider&quot; type=&quot;range&quot;
+        &lt;input class=&quot;mdl-slider&quot; type=&quot;range&quot;
                min=&quot;0&quot; max=&quot;100&quot; value=&quot;0&quot; tabindex=&quot;0&quot; disabled id=&quot;mainslider3&quot;&#47;&gt;
     &lt;&#47;p&gt;
     &lt;p&gt;
-        &lt;input class=&quot;mdl-slider mdl-js-slider&quot; type=&quot;range&quot;
+        &lt;input class=&quot;mdl-slider&quot; type=&quot;range&quot;
                min=&quot;0&quot; max=&quot;100&quot; value=&quot;10&quot; tabindex=&quot;0&quot; disabled id=&quot;mainslider4&quot;&#47;&gt;
     &lt;&#47;p&gt;
     &lt;p&gt;Try to drag the second slider. Click on &lt;a href=&quot;#&#47;slider&quot;&gt;Slider&lt;&#47;a&gt; and you&#39;ll see how the dynamically loaded
@@ -235,13 +235,13 @@ void configRouter(final ViewFactory view) &#123;
     &lt;div class=&quot;cols&quot;&gt;
         &lt;div class=&quot;col&quot;&gt;
             &lt;h5 class=&quot;mdl-color-text--primary-dark&quot;&gt;Mustache-Template&lt;&#47;h5&gt;
-            &lt;div id=&quot;mustache&quot; class=&quot;mdl-mustache mdl-js-mustache&quot;&gt;
+            &lt;div id=&quot;mustache&quot; class=&quot;mdl-mustache&quot;&gt;
                 Waiting for action...
             &lt;&#47;div&gt;
         &lt;&#47;div&gt;
         &lt;div class=&quot;col&quot;&gt;
             &lt;h5 class=&quot;mdl-color-text--primary-dark&quot;&gt;List&lt;&#47;h5&gt;
-            &lt;div id=&quot;list&quot; class=&quot;mdl-content mdl-js-content&quot;&gt;
+            &lt;div id=&quot;list&quot; class=&quot;mdl-content&quot;&gt;
                 Waiting for action...
             &lt;&#47;div&gt;
         &lt;&#47;div&gt;

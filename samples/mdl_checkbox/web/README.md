@@ -31,7 +31,7 @@ To use any MDL component, you must include the minified CSS and JavaScript files
 ```
 &nbsp;4. Add one or more MDL classes, separated by spaces, to the label, checkbox, and caption using the `class` attribute.
 ```html
-<label for="chkbox1" class="mdl-checkbox mdl-js-checkbox">
+<label for="chkbox1" class="mdl-checkbox">
   <input type="checkbox" id="chkbox1" class="mdl-checkbox__input">
   <span class="mdl-checkbox__label">Enable AutoSave</span>
 </label>
@@ -44,7 +44,7 @@ The checkbox component is ready for use.
 A checkbox with a ripple click effect.
 
 ```html
-<label for="chkbox1" class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect">
+<label for="chkbox1" class="mdl-checkbox mdl-ripple-effect">
   <input type="checkbox" id="chkbox1" class="mdl-checkbox__input">
   <span class="mdl-checkbox__label">Enable AutoSave</span>
 </label>
@@ -59,7 +59,7 @@ The MDL CSS classes apply various predefined visual and behavioral enhancements 
 | `mdl-js-checkbox` | Assigns basic MDL behavior to label | Required on label element |
 | `mdl-checkbox__input` | Applies basic MDL behavior to checkbox | Required on input element (checkbox) |
 | `mdl-checkbox__label` | Applies basic MDL behavior to caption | Required on span element (caption) |
-| `mdl-js-ripple-effect` | Applies *ripple* click effect | Optional; goes on label element, not input element (checkbox) |
+| `mdl-ripple-effect` | Applies *ripple* click effect | Optional; goes on label element, not input element (checkbox) |
 
 >**Note:** Disabled versions of all the available checkbox types are provided, and are invoked with the standard HTML boolean attribute `disabled`. `<input type="checkbox" id="checkbox-5" class="mdl-checkbox__input" disabled>`
 >This attribute may be added or removed programmatically via scripting.

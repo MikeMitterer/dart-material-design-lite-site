@@ -31,7 +31,7 @@ To use any MDL component, you must include the minified CSS and JavaScript files
 ```
 &nbsp;4. Add one or more MDL classes, separated by spaces, to the label and input elements, using the `class` attribute.
 ```html
-<label class="mdl-icon-toggle mdl-js-icon-toggle mdl-js-ripple-effect" for="icon-toggle-1">
+<label class="mdl-icon-toggle mdl-js-icon-toggle mdl-ripple-effect" for="icon-toggle-1">
   <input type="checkbox" id="icon-toggle-1" class="mdl-icon-toggle__input">
   <i class="mdl-icon-toggle__label material-icons">format_bold</i>
 </label>
@@ -44,7 +44,7 @@ The icon-toggle component is ready for use.
 An icon-toggle with a ripple click effect.
 
 ```html
-<label class="mdl-icon-toggle mdl-js-icon-toggle mdl-js-ripple-effect" for="icon-toggle-1">
+<label class="mdl-icon-toggle mdl-js-icon-toggle mdl-ripple-effect" for="icon-toggle-1">
   <input type="checkbox" id="icon-toggle-1" class="mdl-icon-toggle__input">
   <i class="mdl-icon-toggle__label material-icons">format_bold</i>
 </label>
@@ -59,7 +59,7 @@ The MDL CSS classes apply various predefined visual and behavioral enhancements 
 | `mdl-js-icon-toggle` | Assigns basic MDL behavior to label | Required on label element |
 | `mdl-icon-toggle__input` | Applies basic MDL behavior to icon-toggle | Required on input element (icon-toggle) |
 | `mdl-icon-toggle__label` | Applies basic MDL behavior to caption | Required on i element (icon) |
-| `mdl-js-ripple-effect` | Applies *ripple* click effect | Optional; goes on label element, not input element (icon-toggle) |
+| `mdl-ripple-effect` | Applies *ripple* click effect | Optional; goes on label element, not input element (icon-toggle) |
 
 >**Note:** Disabled versions of all available input types are provided, and are invoked with the standard HTML boolean attribute `disabled`. `<input type="checkbox" id="icon-toggle-5" class="mdl-icon-toggle__input" disabled>`
 >This attribute may be added or removed programmatically via scripting.

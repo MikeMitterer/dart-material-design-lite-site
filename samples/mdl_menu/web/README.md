@@ -29,7 +29,7 @@ To use any MDL component, you must include the minified CSS and JavaScript files
 ```
 &nbsp;4. Add one or more MDL classes, separated by spaces, to the button and span elements using the `class` attribute.
 ```html
-<button id="menu1" class="mdl-button mdl-js-button mdl-button--icon">
+<button id="menu1" class="mdl-button mdl-button--icon">
   <i class="material-icons">more_vert</i>
 </button>
 ```
@@ -47,7 +47,7 @@ The menu component is ready for use.
 #### Examples
 A menu with three options.
 ```html
-<button id="menu-speed" class="mdl-button mdl-js-button mdl-button--icon">
+<button id="menu-speed" class="mdl-button mdl-button--icon">
   <i class="material-icons">more_vert</i>
 </button>
 <ul class="mdl-menu mdl-js-menu" for="menu-speed">
@@ -58,10 +58,10 @@ A menu with three options.
 ```
 A menu with three options, with ripple effect on button and option links.
 ```html
-<button id="menu-speed" class="mdl-button mdl-js-button mdl-button--icon">
+<button id="menu-speed" class="mdl-button mdl-button--icon">
   <i class="material-icons">more_vert</i>
 </button>
-<ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect" for="menu-speed">
+<ul class="mdl-menu mdl-js-menu mdl-ripple-effect" for="menu-speed">
   <li class="mdl-menu__item">Fast</li>
   <li class="mdl-menu__item">Medium</li>
   <li class="mdl-menu__item">Slow</li>
@@ -69,7 +69,7 @@ A menu with three options, with ripple effect on button and option links.
 ```
 A menu with three options, the second of which is disabled by default.
 ```html
-<button id="menu-speed" class="mdl-button mdl-js-button mdl-button--icon">
+<button id="menu-speed" class="mdl-button mdl-button--icon">
   <i class="material-icons">more_vert</i>
 </button>
 <ul class="mdl-menu mdl-js-menu" for="menu-speed">
@@ -92,7 +92,7 @@ The MDL CSS classes apply various predefined visual and behavioral enhancements 
 | `mdl-js-menu` | Assigns basic MDL behavior to menu | Required on ul element |
 | `mdl-menu__item` | Defines buttons as MDL menu options and assigns basic MDL behavior | Required on list item elements |
 | `mdl-menu__item--full-bleed-divider` | Modifies an item to have a full bleed divider between it and the next list item. | Optional on list item elements |
-| `mdl-js-ripple-effect` | Applies *ripple* click effect to option links | Optional; goes on unordered list element |
+| `mdl-ripple-effect` | Applies *ripple* click effect to option links | Optional; goes on unordered list element |
 | `mdl-menu--top-left` | Positions menu above button, aligns left edge of menu with button  | Optional; goes on unordered list element |
 | (none) | Positions menu below button, aligns left edge of menu with button | Default |
 | `mdl-menu--top-right` | Positions menu above button, aligns right edge of menu with button | Optional; goes on unordered list element |

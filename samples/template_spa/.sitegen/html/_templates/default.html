@@ -54,7 +54,7 @@
 </head>
 <body class="mdl-upgrading" mdl-class="checkDebug : 'debug', keepProperties : 'show-properties--permanent'">{{>splashscreen}}
 <!-- No header, and the drawer stays open on larger screens (fixed drawer). -->
-<div class="application mdl-layout mdl-js-layout mdl-layout--fixed-header" mdl-class="fixDrawer : 'mdl-layout--fixed-drawer'">
+<div class="application mdl-layout mdl-layout--fixed-header" mdl-class="fixDrawer : 'mdl-layout--fixed-drawer'">
     <header class="mdl-layout__header mdl-color--primary-dark">
         <div class="mdl-layout__header-row">
             <span mdl-observe="title" class="mdl-layout-title">Fixed drawer and header</span>
@@ -66,27 +66,27 @@
                 <a href="#/view1" class="mdl-color-text--100"><i class="material-icons">info</i></a>
                 <a href="#/view2" class="mdl-color-text--100"><i class="material-icons">settings</i></a>
 
-                <button class="mdl-button mdl-js-button mdl-button--icon mdl-js-ripple-effect mdl-color-text--100"
+                <button class="mdl-button mdl-button--icon mdl-ripple-effect mdl-color-text--100"
                         id="showprops" mdl-attribute="keepProperties : 'disabled'">
                     <i class="material-icons">view_list</i>
                 </button>
-                <button class="mdl-button mdl-js-button mdl-button--icon mdl-js-ripple-effect" id="login">
+                <button class="mdl-button mdl-button--icon mdl-ripple-effect" id="login">
                     <i class="material-icons">exit_to_app</i>
                 </button>
             </div>
 
             <!-- 3-dots menu on the right -->
-            <button class="mdl-button mdl-js-button mdl-button--icon mdl-js-ripple-effect" id="more-button">
+            <button class="mdl-button mdl-button--icon mdl-ripple-effect" id="more-button">
                 <i class="material-icons">more_vert</i>
             </button>
-            <ul class="mdl-menu mdl-js-menu mdl-menu--bottom-right mdl-js-ripple-effect" for="more-button">
+            <ul class="mdl-menu mdl-menu--bottom-right mdl-ripple-effect" for="more-button">
                 <li class="mdl-menu__item"><a class="mdl-color-text--black" href="#/view1">View 1</a></li>
                 <li class="mdl-menu__item"><a class="mdl-color-text--black" href="#/view2">View 2</a></li>
-                <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="fixDrawer">
+                <label class="mdl-switch mdl-ripple-effect" for="fixDrawer">
                     <input type="checkbox" id="fixDrawer" class="mdl-switch__input" mdl-model="fixDrawer">
                     <span class="mdl-switch__label mdl-color-text--primary">Fix Drawer</span>
                 </label>
-                <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="debug">
+                <label class="mdl-switch mdl-ripple-effect" for="debug">
                     <input type="checkbox" id="debug" class="mdl-switch__input" mdl-model="checkDebug">
                     <span class="mdl-switch__label mdl-color-text--primary">Debug CSS</span>
                 </label>
@@ -98,10 +98,10 @@
             <a href="/" class="mdl-color-text--white"><img src="packages/mdl/assets/images/mdl-dart-logo.gif"></a>
         </span>
         <nav class="mdl-navigation">
-            <div class="mdl-accordion-group mdl-accordion--navigation mdl-accordion--radio-type mdl-js-ripple-effect">
+            <div class="mdl-accordion-group mdl-accordion--navigation mdl-accordion--radio-type mdl-ripple-effect">
 
                 <!-- Panel 1 -->
-                <div class="mdl-accordion mdl-js-accordion">
+                <div class="mdl-accordion">
                     <label class="mdl-accordion__label">
                         <i class="material-icons indicator mdl-color-text--accent">chevron_right</i>
                         <i class="material-icons symbol mdl-color-text--accent-600">explore</i>
@@ -113,7 +113,7 @@
                 </div>
 
                 <!-- Panel 2 -->
-                <div class="mdl-accordion mdl-js-accordion">
+                <div class="mdl-accordion">
                     <label class="mdl-accordion__label">
                         <i class="material-icons indicator mdl-color-text--accent">chevron_right</i>
                         <i class="material-icons symbol mdl-color-text--accent-600">receipt</i>
@@ -127,7 +127,7 @@
         </nav>
     </div>
     <main class="mdl-layout__content mdl-color--grey-100">
-        <div id="main" class="mdl-content mdl-js-content mdl-properties__container">Loading...</div>
+        <div id="main" class="mdl-content mdl-properties__container">Loading...</div>
     </main>
     <footer class="mdl-sticky-mini-footer mdl-color--primary-dark mdl-color-text--white">
         <div class="mdl-mini-footer--left-section">

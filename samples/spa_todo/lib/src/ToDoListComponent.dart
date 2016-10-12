@@ -127,7 +127,7 @@ class ToDoListComponent extends MdlTemplateComponent implements ScopeAware {
             {{! ----- Turn off default mustache interpretation ---- }} {{= | | =}}
             <template>
                 <div class="row">
-                    <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="check{{item.id}}">
+                    <label class="mdl-checkbox mdl-ripple-effect" for="check{{item.id}}">
                         {{#item.checked}}
                             <input type="checkbox" id="check{{item.id}}" class="mdl-checkbox__input" checked data-mdl-click="check({{item.id}})"/>
                         {{/item.checked}}
@@ -136,7 +136,7 @@ class ToDoListComponent extends MdlTemplateComponent implements ScopeAware {
                         {{/item.checked}}
                         <span class="mdl-checkbox__label">{{item.name}}</span>
                     </label>
-                    <button class="mdl-button mdl-js-button mdl-button--colored mdl-js-ripple-effect"
+                    <button class="mdl-button mdl-button--colored mdl-ripple-effect"
                         data-mdl-click="onRemove({{item.id}})">
                         Remove
                     </button>

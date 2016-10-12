@@ -86,10 +86,10 @@ class CustomDialog1 extends MaterialDialog {
             </p>
           </div>
           <div class="mdl-dialog__actions" layout="row">
-              <button class="mdl-button mdl-js-button" data-mdl-click="onNo()">
+              <button class="mdl-button" data-mdl-click="onNo()">
                   {{noButton}}
               </button>
-              <button class="mdl-button mdl-js-button mdl-button--colored" data-mdl-click="onYes()">
+              <button class="mdl-button mdl-button--colored" data-mdl-click="onYes()">
                   {{yesButton}}
               </button>
           </div>

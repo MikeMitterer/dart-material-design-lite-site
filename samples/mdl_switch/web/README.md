@@ -31,7 +31,7 @@ To use any MDL component, you must include the minified CSS and JavaScript files
 ```
 &nbsp;4. Add one or more MDL classes, separated by spaces, to the label, switch, and caption using the `class` attribute.
 ```html
-<label for="switch1" class="mdl-switch mdl-js-switch">
+<label for="switch1" class="mdl-switch">
   <input type="checkbox" id="switch1" class="mdl-switch__input">
   <span class="mdl-switch__label">Sound off/on</span>
 </label>
@@ -44,7 +44,7 @@ The switch component is ready for use.
 A switch with a ripple click effect.
 
 ```html
-<label for="switch1" class="mdl-switch mdl-js-switch mdl-js-ripple-effect">
+<label for="switch1" class="mdl-switch mdl-ripple-effect">
   <input type="checkbox" id="switch1" class="mdl-switch__input">
   <span class="mdl-switch__label">Sound off/on</span>
 </label>
@@ -59,7 +59,7 @@ The MDL CSS classes apply various predefined visual and behavioral enhancements 
 | `mdl-js-switch` | Assigns basic MDL behavior to label | Required on label element |
 | `mdl-switch__input` | Applies basic MDL behavior to switch | Required on input element (switch) |
 | `mdl-switch__label` | Applies basic MDL behavior to caption | Required on span element (caption) |
-| `mdl-js-ripple-effect` | Applies *ripple* click effect | Optional; goes on label element, not input element (switch) |
+| `mdl-ripple-effect` | Applies *ripple* click effect | Optional; goes on label element, not input element (switch) |
 
 >**Note:** Disabled versions of all available switch types are provided, and are invoked with the standard HTML boolean attribute `disabled`. `<input type="checkbox" id="switch5" class="mdl-switch__input" disabled>`
 >This attribute may be added or removed programmatically via scripting.

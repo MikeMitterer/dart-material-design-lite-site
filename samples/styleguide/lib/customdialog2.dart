@@ -70,20 +70,20 @@ class CustomDialog2 extends MaterialDialog {
         <div class="mdl-dialog custom-dialog2">
           <div class="mdl-dialog__content">
             {{#hasTitle}}<h5 class="mdl-color-text--primary-dark">{{title}}</h5>{{/hasTitle}}
-              <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+              <div class="mdl-textfield mdl-textfield--floating-label">
                   <input class="mdl-textfield__input" type="text" id="name" mdl-model="name" autofocus/>
                   <label class="mdl-textfield__label" for="name">Name</label>
             </div>
-              <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+              <div class="mdl-textfield mdl-textfield--floating-label">
                   <input class="mdl-textfield__input" type="text" id="address"/>
                   <label class="mdl-textfield__label" for="address">Address</label>
             </div>
           </div>
           <div class="mdl-dialog__actions">
-            <button class="mdl-button mdl-js-button" data-mdl-click="onCancel()">
+            <button class="mdl-button" data-mdl-click="onCancel()">
               {{noButton}}
             </button>
-            <button class="mdl-button mdl-js-button mdl-button--colored" data-mdl-click="onSubmit()">
+            <button class="mdl-button mdl-button--colored" data-mdl-click="onSubmit()">
               {{yesButton}}
             </button>
           </div>

@@ -6,7 +6,7 @@ With the Material Design Lite (MDL) **model** component you can automatically ob
 &nbsp;1. Code one of the supported elements for example a checkbox:
 
 ```html
-<label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox-1">
+<label class="mdl-checkbox mdl-ripple-effect" for="checkbox-1">
     <input type="checkbox" id="checkbox-1" class="mdl-checkbox__input" value="android"/>
     <span class="mdl-checkbox__label">Android</span>
 </label>
@@ -16,7 +16,7 @@ With the Material Design Lite (MDL) **model** component you can automatically ob
 case "myModel"
 
 ```html
-<label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox-1">
+<label class="mdl-checkbox mdl-ripple-effect" for="checkbox-1">
     <input type="checkbox" id="checkbox-1" class="mdl-checkbox__input" value="android"
            mdl-model="myModel"/>
     <span class="mdl-checkbox__label">Android</span>

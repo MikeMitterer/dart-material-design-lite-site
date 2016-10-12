@@ -88,7 +88,7 @@ main() {
 
                     line.write("<li>");
                     line.write("Item #${id}");
-                    line.write('<button id="btn$id" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-js-ripple-effect">Button #${id}</button>');
+                    line.write('<button id="btn$id" class="mdl-button mdl-button--raised mdl-button--colored mdl-ripple-effect">Button #${id}</button>');
                     line.write("</li>");
                 }
                 return line.toString();

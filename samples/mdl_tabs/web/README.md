@@ -70,7 +70,7 @@ To use any MDL component, you must include the minified CSS and JavaScript files
 ```
 &nbsp;5. Add one or more MDL classes, separated by spaces, to the "outer" and "inner" divs using the `class` attribute; be sure to include the `is-active` class on the tab you want to be displayed by default.
 ```html
-<div class="mdl-tabs mdl-js-tabs">
+<div class="mdl-tabs">
   <div class="mdl-tabs__tab-bar">
     <a href="#tab1" class="mdl-tabs__tab">Tab One</a>
     <a href="#tab2" class="mdl-tabs__tab">Tab Two</a>
@@ -94,7 +94,7 @@ The tab components are ready for use.
 Three tabs, with ripple effect on tab links.
 
 ```html
-<div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
+<div class="mdl-tabs mdl-ripple-effect">
   <div class="mdl-tabs__tab-bar">
     <a href="#about-panel" class="mdl-tabs__tab is-active">About the Beatles</a>
     <a href="#members-panel" class="mdl-tabs__tab">Members</a>
@@ -143,7 +143,7 @@ The MDL CSS classes apply various predefined visual and behavioral enhancements 
 |-----------|--------|---------|
 | `mdl-tabs` | Defines a tabs container as an MDL component | Required on "outer" div element |
 | `mdl-js-tabs` | Assigns basic MDL behavior to tabs container | Required on "outer" div element|
-| `mdl-js-ripple-effect` | Applies *ripple* click effect to tab links | Optional; goes on "outer" div element|
+| `mdl-ripple-effect` | Applies *ripple* click effect to tab links | Optional; goes on "outer" div element|
 | `mdl-tabs__tab-bar` | Defines a container as an MDL tabs link bar | Required on first "inner" div element |
 | `mdl-tabs__tab` | Defines an anchor (link) as an MDL tab activator | Required on all links in first "inner" div element |
 | `is-active` | Defines a tab as the default display tab | Required on one (and only one) of the "inner" div (tab) elements |
