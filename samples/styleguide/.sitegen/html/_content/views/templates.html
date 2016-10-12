@@ -3,22 +3,25 @@
     <div class="mdl-list--styled-view"><ul class="mdl-list">
         {{#_data.templates}}
         <li class="mdl-list--inline">
-            <div>
-                <a href="http://samples.material-design-lite.pub/{{name}}/index.html" target="_blank"
-                   class="mdl-color-text--700">
-                    <div class="mdl-list__item__preview mdl-color--700">
-                        <img src="assets/images/{{preview}}">
-                    </div>
-                    <h5 class="mdl-color-text--primary-dark">{{description}}</h5>
-                </a>
-                <div style="font-size: 14px; font-weight: 200; margin-top: 4px;">
-                    <a href="https://github.com/MikeMitterer/dart-material-design-lite/tree/master/samples/{{name}}"
-                       class="mdl-color-text--400 github" target="_blank">
+
+            <div class="mdl-card mdl-shadow--2dp">
+                <div class="mdl-card__title mdl-card--expand mdl-color--primary-dark">
+                    <h4 class="mdl-card__title-text  mdl-color-text--white">{{description}}</h4>
+                </div>
+                <div class="mdl-card__supporting-text">
+                    <a href="http://samples.material-design-lite.pub/{{name}}/index.html" target="_blank"
+                       class="mdl-color-text--700">
+                        <div class="mdl-list__item__preview">
+                            <img src="assets/images/{{preview}}">
+                        </div>
+
+                    </a>                </div>
+                <div class="mdl-card__actions mdl-card--border">
+                    <a href="https://github.com/MikeMitterer/dart-material-design-lite-site/tree/master/samples/{{name}}" target="_blank"
+                       class="mdl-button mdl-button--colored mdl-ripple-effect">
                         Source on GitHub
                     </a>
                 </div>
-
-
             </div>
         </li>
         {{/_data.templates}}

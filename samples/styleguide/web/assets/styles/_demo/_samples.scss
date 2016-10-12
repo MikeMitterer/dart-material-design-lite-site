@@ -24,4 +24,17 @@
     .mdl-list-view--name {
         text-transform: uppercase;
     }
+
+    .mdl-list {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: flex-start; // ⇾
+        align-content: stretch; // ||
+        align-items: flex-start; // ↓
+
+        .mdl-list__item {
+            width: 250px;
+        }
+    }
 }

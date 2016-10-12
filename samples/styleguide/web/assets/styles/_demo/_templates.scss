@@ -1,17 +1,41 @@
 .demo-section--templates {
+
+    .mdl-list {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: flex-start; // ⇾
+        align-content: stretch; // ||
+        align-items: flex-start; // ↓
+
+        .mdl-list--inline {
+            //border: 1px solid gray;
+            border-radius: 3px;
+            min-width: 200px;
+            padding: 12px;
+            margin-right: 12px;
+            margin-bottom: 24px;
+
+            h6 {
+                margin-top: inherit;
+                margin-bottom: inherit;
+            }
+        }
+    }
+
     .mdl-list--styled-view li {
-        height : 120px;
-        margin-bottom: 120px;
+        //height : 120px;
+        //margin-bottom: 120px;
 
         a {
             text-decoration : none;
 
-            display: flex;
-            flex-direction: row;
-            flex-wrap: wrap;
-            justify-content: flex-start; // ⇾
-            align-content: space-between; // ||
-            align-items: center; // ↓
+            //display: flex;
+            //flex-direction: row;
+            //flex-wrap: wrap;
+            //justify-content: flex-start; // ⇾
+            //align-content: space-between; // ||
+            //align-items: center; // ↓
 
             .mdl-list-view--name {
                 font-size: 24px;
