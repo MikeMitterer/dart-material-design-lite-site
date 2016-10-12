@@ -52,19 +52,16 @@
 
     .demo-layout__content-red {
         height     : 1000px;
-        background : linear-gradient(($palette-red-50), ($palette-red-100));
         padding    : 8px;
     }
 
     .demo-layout__content-green {
         height     : 1000px;
-        background : linear-gradient(($palette-green-50), ($palette-green-100));
         padding    : 8px;
     }
 
     .demo-layout__content-blue {
         height     : 1000px;
-        background : linear-gradient(($palette-blue-50), ($palette-blue-100));
         padding    : 8px;
     }
 }

@@ -1,9 +1,9 @@
-@import "config";
-@import "packages/mdl/assets/themes/grey-orange/material-design-lite";
+//@import "config";
+//@import "packages/mdl/assets/themes/grey-orange/material-design-lite";
 //@import "packages/mdl/assets/styles/material-design-lite";
-@import "packages/mdl/assets/styles/_config/show_config";
+//@import "packages/mdl/assets/styles/_config/show_config";
 
-$_demo-data-tableex-table-height: ($data-table-row-height * 4);
+$_demo-data-tableex-table-height: (48px * 4); // $data-table-row-height = 48px
 
 .demo-page--data-table2, .demo-section--data-table2 {
 

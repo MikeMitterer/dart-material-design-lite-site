@@ -15,8 +15,8 @@
  */
 
 // Colors + Theming
-@import "packages/mdl/assets/styles/palette/color-definitions";
-@import "packages/mdl/assets/styles/palette/palette";
+@import "packages/mdl/assets/styles/theme/color-definitions";
+@import "packages/mdl/assets/styles/theme/palette";
 
 .demo-page--layout, .demo-section--layout {
     .demo-layout {
@@ -55,19 +55,16 @@
 
     .demo-layout__content-red {
         height     : 1000px;
-        background : linear-gradient(($palette-red-50), ($palette-red-100));
         padding    : 8px;
     }
 
     .demo-layout__content-green {
         height     : 1000px;
-        background : linear-gradient(($palette-green-50), ($palette-green-100));
         padding    : 8px;
     }
 
     .demo-layout__content-blue {
         height     : 1000px;
-        background : linear-gradient(($palette-blue-50), ($palette-blue-100));
         padding    : 8px;
     }
 }

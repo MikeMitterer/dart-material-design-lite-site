@@ -19,6 +19,11 @@
 
 $application-footer-height: 30px !default;
 
+// mdl/packages/styles/layout/_variables
+$layout-drawer-width: 240px;
+$layout-header-desktop-row-height: 64px;
+$layout-nav-color: rgb(250, 250, 250); // $palette-grey-50
+
 // private settings
 $_application-footer-padding : 4px;
 $_application-shadow-opacity: 0.4;
