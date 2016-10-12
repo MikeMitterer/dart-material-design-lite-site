@@ -19,8 +19,6 @@
 
 @import "assets/styles/layout";
 
-$color-headline: rgb(26, 35, 126); // palette-indigo-900
-
 html, body {
     height     : 100%;
     box-sizing : border-box;
@@ -94,6 +92,5 @@ body {
     h1, h2, h3, h4, h5 {
         font-size   : 24px;
         line-height : 1.3;
-        color       : $color-headline;
     }
 }

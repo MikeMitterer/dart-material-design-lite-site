@@ -68,7 +68,7 @@ class CustomDialog1 extends MaterialDialog {
         <div class="mdl-dialog custom-dialog1">
           <div class="mdl-dialog__content">
             {{#hasTitle}}
-            <h5>{{title}}</h5>
+            <h5 class="mdl-color-text--primary-dark">{{title}}</h5>
             {{/hasTitle}}
             <p>
               The mango is a juicy stone fruit belonging to the genus Mangifera, consisting of numerous tropical fruiting trees,

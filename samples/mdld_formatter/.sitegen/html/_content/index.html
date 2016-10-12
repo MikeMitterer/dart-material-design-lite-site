@@ -4,7 +4,7 @@ sampleurl: https://github.com/MikeMitterer/dart-material-design-lite-site/tree/m
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 <div class="demo-preview-block">
     <div class="formatter-component">
-        <h5><div class="mdl-badge" data-badge="1" mdl-formatter="uppercase(value)"></div>via mdl-formatter</h5>
+        <h5 class="mdl-color-text--primary-dark"><div class="mdl-badge" data-badge="1" mdl-formatter="uppercase(value)"></div>via mdl-formatter</h5>
         <div id="labelfield1" class="mdl-labelfield" mdl-formatter="uppercase(value)">
             <label class="mdl-labelfield__label ">Name (uppercase)</label>
             <div class="mdl-labelfield__text"></div>
@@ -57,19 +57,19 @@ sampleurl: https://github.com/MikeMitterer/dart-material-design-lite-site/tree/m
         </label>
     </div>
     <div class="observe">
-        <h5>via mdl-observe</h5>
-        <h6>Number-Formatter</h6>
+        <h5 class="mdl-color-text--primary-dark">via mdl-observe</h5>
+        <h6 class="mdl-color-text--primary-dark">Number-Formatter</h6>
         PI: <span mdl-observe="pi"></span><br>
         PI with formatter: <span mdl-observe="pi | number(value,2)"></span><br>
         <br>
 
-        <h6>Uppercase / Lowercase</h6>
+        <h6 class="mdl-color-text--primary-dark">Uppercase / Lowercase</h6>
         Name: <span mdl-observe="name"></span><br>
         Name with formatter: <span mdl-observe="name | uppercase(value)"></span> (UpperCaseFormatter)<br>
         Name with formatter: <span mdl-observe="name | lowercase(value)"></span> (LowerCaseFormatter)<br>
         <br>
 
-        <h6>Choose-Formatter</h6>
+        <h6 class="mdl-color-text--primary-dark">Choose-Formatter</h6>
         Status is: <span mdl-observe="checkStatus | choose(value, 'Valid!','OFF')"
                          mdl-class="!checkStatus : 'status-off'"></span>
     </div>

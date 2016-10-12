@@ -69,7 +69,7 @@ class CustomDialog2 extends MaterialDialog {
     String template = """
         <div class="mdl-dialog custom-dialog2">
           <div class="mdl-dialog__content">
-            {{#hasTitle}}<h5>{{title}}</h5>{{/hasTitle}}
+            {{#hasTitle}}<h5 class="mdl-color-text--primary-dark">{{title}}</h5>{{/hasTitle}}
               <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                   <input class="mdl-textfield__input" type="text" id="name" mdl-model="name" autofocus/>
                   <label class="mdl-textfield__label" for="name">Name</label>

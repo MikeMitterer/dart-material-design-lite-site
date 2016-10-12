@@ -66,12 +66,12 @@
                 <section class="demo-section demo-section--dnd">
                     <div class="demo-preview-block">
 
-    <h2>Drag & Drop (experimental)</h2>
+    <h2 class="mdl-color-text--primary-dark">Drag & Drop (experimental)</h2>
 
     <div class="danddcontainer">
         <div class="choose ">
 
-            <h6>Choose language</h6>
+            <h6 class="mdl-color-text--primary-dark">Choose language</h6>
                 <div mdl-repeat="language in languages" class="source langbox mdl-dnd__drag-container" >
                      
                     <template>
@@ -86,7 +86,7 @@
         <div class="accept">
             <div class="langbox">
 
-                <h6>Programming languages</h6>
+                <h6 class="mdl-color-text--primary-dark">Programming languages</h6>
                 <mdl-dropzone class="programming" name="programming"
                               on-drop-success="addToProgrammingLanguages(data)">
 
@@ -106,7 +106,7 @@
 
             <div class="langbox">
 
-                <h6>Natural languages</h6>
+                <h6 class="mdl-color-text--primary-dark">Natural languages</h6>
                 <mdl-dropzone class="natural" name="natural"
                               on-drop-success="addToNaturalLanguages(data)">
 
@@ -125,7 +125,7 @@
             </div>
         </div>
         <div class="trash">
-            <h6>Trash</h6>
+            <h6 class="mdl-color-text--primary-dark">Trash</h6>
             <mdl-dropzone class="trashbox" name="trash"
                           on-drop-success="moveToTrash(data)"></mdl-dropzone>
         </div>

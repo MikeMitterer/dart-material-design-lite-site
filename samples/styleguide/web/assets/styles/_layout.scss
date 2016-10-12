@@ -28,6 +28,8 @@ $layout-nav-color: rgb(250, 250, 250); // $palette-grey-50
 $_application-footer-padding : 4px;
 $_application-shadow-opacity: 0.4;
 
+$drawer-color: #FFCE3A;
+
 @mixin bgimage($margin-left: 0) {
     background-image : url(assets/images/pattern.png);
     background-repeat: repeat;
@@ -130,7 +132,7 @@ $_application-shadow-opacity: 0.4;
 
     > .mdl-layout__drawer {
         @include bgimage();
-        background-color: #FFCE3A;
+        background-color: $drawer-color;
 
         overflow: scroll;
         border-right: none;

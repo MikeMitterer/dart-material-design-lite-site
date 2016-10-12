@@ -17,9 +17,25 @@
 // limitations under the License.
 //
 
-@import "packages/mdl/assets/styles/mixins/mixins";
+//@import "packages/mdl/assets/styles/mixins/mixins";
 
 .demo-page--list, .demo-section--list {
+
+    .simple-list-section {
+        width: 100%;
+
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: flex-start; // ⇾
+        align-content: stretch; // ||
+        align-items: flex-start; // ↓
+
+        section {
+            width: 25%;
+            min-width: 125px;
+        }
+    }
 
     .mdl-list-view--avatar {
         background: url("demo-images/avatar.png");
@@ -31,7 +47,7 @@
 
         > .demo-list-three {
             width: 576px;  // ( 640 (Nexus5 horizontally) - 8px left + right) - 48px
-            @include max-screen(639px) {
+            @media only screen and (max-width: 639px)  {
                 width: 300px;
             }
         }

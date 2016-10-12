@@ -1,24 +1,21 @@
 template: view
 sample: theming
 url: http://styleguide.material-design-lite.pub/
+theme_version: v1.17
 #url: http://localhost:8000/
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-<p>Switch themes "on the fly" by clicking on the theme name!</p>
 <p>
     Either download the theme from <a href="https://github.com/MikeMitterer/dart-mdl-theme" target="_blank">GitHub</a>
     or add it to your index.html with:<br>
 
-    <div class="csslink mdl-color-text--accent-500">
-        &lt;link id=&quot;theme&quot; rel=&quot;stylesheet&quot; href=&quot;https://cdn.rawgit.com/MikeMitterer/dart-mdl-theme/master/&lt;theme-name&gt;/material.min.css&quot;&gt;
-    </div>
-
 </p>
-<ol>
+<ul class="mdl-list--no-bullets mdl-list--no-bullets__no-border">
 {{#_data.themes}}
     <li>
-        Theme "<a href="{{url}}?theme={{theme}}#/theming" target="_self" class="mdl-color-text--primary">{{theme}}</a>"
         <div class="color-sample theme-{{theme}} mdl-shadow--z2">
-            <div class="title mdl-color--{{primary}} mdl-color-text--white">Material Design Lite</div>
+            <div class="title mdl-color--{{primary}} mdl-color-text--white">Material Design Lite
+                <span class="mdl-color-text--black">Theme "<strong>{{theme}}</strong>"</span></div>
+
             <div class="content">
                 <p><p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt
                 ut labore et dolore magna aliquyam erat, sed diam voluptua.</p>
@@ -38,6 +35,21 @@ url: http://styleguide.material-design-lite.pub/
                 </div>
             </div>
         </div>
+        <div class="code-sample" >
+            <pre class="prettyprint linenums lang-html">
+&lt;head&gt;
+    &lt;!-- Material fonts --&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;packages/mdl/assets/fonts/fonts.min.css&quot;&gt;
+
+    &lt;!-- Your {{theme}}-theme! --&gt;
+    &lt;link id=&quot;theme&quot; rel=&quot;stylesheet&quot;
+        href=&quot;https://cdn.rawgit.com/MikeMitterer/dart-mdl-theme/{{theme_version}}/<strong>{{theme}}</strong>/material.min.css&quot;&gt;
+&lt;/head&gt;
+&lt;body&gt;
+...
+&lt;/body&gt;
+            </pre>
+        </div>
     </li>
 {{/_data.themes}}
-</ol>
+</ul>

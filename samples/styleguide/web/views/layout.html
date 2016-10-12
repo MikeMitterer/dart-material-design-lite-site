@@ -3,7 +3,7 @@
         Loading...
     </div>
     <div class="demo-preview-block">
-      <h2>Transparent header</h2>
+      <h2 class="mdl-color-text--primary-dark">Transparent header</h2>
       <p>Uses a header that scrolls with the text, rather than staying
           locked at the top</p>
       <div class="demo-layout">
@@ -22,7 +22,7 @@
               }
               .layout-transparent .mdl-layout__content { background-color: rgba(255,255,255,0.60)}
           </style>
-          <div class="layout-transparent mdl-layout mdl-js-layout">
+          <div class="layout-transparent mdl-layout">
               <header class="mdl-layout__header mdl-layout__header--transparent">
                   <div class="mdl-layout__header-row">
                       <span class="mdl-layout-title">Title</span>
@@ -49,7 +49,7 @@
               </main>
           </div>
       </div>
-      <h2>Fixed drawer, no header</h2>
+      <h2 class="mdl-color-text--primary-dark">Fixed drawer, no header</h2>
       <p> No header, and the drawer stays open on larger screens (fixed drawer).</p>
         <style>
             .fixed-drawer-container {
@@ -65,7 +65,7 @@
             }
         </style>
       <div class="demo-layout fixed-drawer-container">
-          <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+          <div class="mdl-layout mdl-layout--fixed-header">
               <header class="mdl-layout__header">
                   <div class="mdl-layout__header-row">
                       <span class="mdl-layout-title">Title</span>
@@ -92,7 +92,7 @@
               </main>
           </div>
       </div>
-      <h2>Fixed header and drawer</h2>
+      <h2 class="mdl-color-text--primary-dark">Fixed header and drawer</h2>
       <p>The drawer is always open in large screens. The header is always shown,
           even in small screens.</p>
         <style>
@@ -110,14 +110,14 @@
         </style>
       <div class="demo-layout fixed-header-drawer-container">
           <div class="demo-layout">
-              <div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer
+              <div class="mdl-layout mdl-layout--fixed-drawer
                 mdl-layout--fixed-header">
                   <header class="mdl-layout__header">
                       <div class="mdl-layout__header-row">
                           <div class="mdl-layout-spacer"></div>
-                          <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable
+                          <div class="mdl-textfield mdl-textfield--expandable
                       mdl-textfield--floating-label mdl-textfield--align-right">
-                              <label class="mdl-button mdl-js-button mdl-button--icon"
+                              <label class="mdl-button mdl-button--icon"
                                      for="fixed-header-drawer-exp">
                                   <i class="material-icons">search</i>
                               </label>
@@ -142,7 +142,7 @@
               </div>
           </div>
       </div>
-      <h2>Scrolling header</h2>
+      <h2 class="mdl-color-text--primary-dark">Scrolling header</h2>
       <p>Uses a header that scrolls with the text, rather than staying
           locked at the top</p>
         <style>
@@ -163,7 +163,7 @@
             }
         </style>
         <div class="demo-layout scrolling-header-container">
-              <div class="mdl-layout mdl-js-layout mdl-layout--overlay-drawer-button">
+              <div class="mdl-layout mdl-layout--overlay-drawer-button">
                   <header class="mdl-layout__header mdl-layout__header--scroll">
                       <div class="mdl-layout__header-row">
                           <span class="mdl-layout-title">Title</span>
@@ -190,7 +190,7 @@
                   </main>
               </div>
       </div>
-      <h2>Waterfall header</h2>
+      <h2 class="mdl-color-text--primary-dark">Waterfall header</h2>
       <p>Uses a header that contracts as the page scrolls down.</p>
       <div class="demo-layout">
           <style>
@@ -213,14 +213,14 @@
                   padding-right: 0;
               }
           </style>
-              <div class="mdl-layout mdl-js-layout mdl-layout--overlay-drawer-button">
+              <div class="mdl-layout mdl-layout--overlay-drawer-button">
                   <header class="mdl-layout__header mdl-layout__header--waterfall">
                       <div class="mdl-layout__header-row">
                           <span class="mdl-layout-title">Title</span>
                           <div class="mdl-layout-spacer"></div>
-                          <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable
+                          <div class="mdl-textfield mdl-textfield--expandable
                           mdl-textfield--floating-label mdl-textfield--align-right">
-                              <label class="mdl-button mdl-js-button mdl-button--icon"
+                              <label class="mdl-button mdl-button--icon"
                                      for="waterfall-exp">
                                   <i class="material-icons">search</i>
                               </label>
@@ -255,7 +255,7 @@
               </div>
           </div>
       </div>
-      <h2>Scrollable tabs</h2>
+      <h2 class="mdl-color-text--primary-dark">Scrollable tabs</h2>
       <p>Simple header with scrollable tabs.</p>
       <div class="demo-layout scrollable-tabs-container">
           <style>
@@ -271,12 +271,12 @@
                   background: white;
               }
           </style>
-          <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+          <div class="mdl-layout mdl-layout--fixed-header">
               <header class="mdl-layout__header">
                   <div class="mdl-layout__header-row">
                       <span class="mdl-layout-title">Title</span>
                   </div>
-                  <div class="mdl-layout__tab-bar mdl-js-ripple-effect">
+                  <div class="mdl-layout__tab-bar mdl-ripple-effect">
                       <a href="#scroll-tab-1" class="mdl-layout__tab is-active">Tab 1</a>
                       <a href="#scroll-tab-2" class="mdl-layout__tab">Tab 2</a>
                       <a href="#scroll-tab-3" class="mdl-layout__tab">Tab 3</a>
@@ -289,28 +289,28 @@
                   <span class="mdl-layout-title">Title</span>
               </div>
               <main class="mdl-layout__content">
-                  <section class="mdl-layout__tab-panel is-active demo-layout__content-red" id="scroll-tab-1">
+                  <section class="mdl-layout__tab-panel is-active demo-layout__content-red mdl-color--red-100" id="scroll-tab-1">
                       <div class="page-content"></div>
                   </section>
-                  <section class="mdl-layout__tab-panel demo-layout__content-green" id="scroll-tab-2">
+                  <section class="mdl-layout__tab-panel demo-layout__content-green mdl-color--green-100" id="scroll-tab-2">
                       <div class="page-content"></div>
                   </section>
-                  <section class="mdl-layout__tab-panel demo-layout__content-blue" id="scroll-tab-3">
+                  <section class="mdl-layout__tab-panel demo-layout__content-blue mdl-color--blue-100" id="scroll-tab-3">
                       <div class="page-content"></div>
                   </section>
-                  <section class="mdl-layout__tab-panel demo-layout__content-red" id="scroll-tab-4">
+                  <section class="mdl-layout__tab-panel demo-layout__content-red mdl-color--red-100" id="scroll-tab-4">
                       <div class="page-content"></div>
                   </section>
-                  <section class="mdl-layout__tab-panel  demo-layout__content-green" id="scroll-tab-5">
+                  <section class="mdl-layout__tab-panel  demo-layout__content-green mdl-color--green-100" id="scroll-tab-5">
                       <div class="page-content"></div>
                   </section>
-                  <section class="mdl-layout__tab-panel demo-layout__content-blue" id="scroll-tab-6">
+                  <section class="mdl-layout__tab-panel demo-layout__content-blue mdl-color--blue-100" id="scroll-tab-6">
                       <div class="page-content"></div>
                   </section>
               </main>
           </div>
       </div>
-      <h2>Fixed tabs</h2>
+      <h2 class="mdl-color-text--primary-dark">Fixed tabs</h2>
       <p>Simple header with fixed tabs.</p>
       <div class="demo-layout fixed-tabs-container">
           <style>
@@ -326,13 +326,13 @@
                   background: white;
               }
           </style>
-          <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header
+          <div class="mdl-layout mdl-layout--fixed-header
                 mdl-layout--fixed-tabs">
               <header class="mdl-layout__header">
                   <div class="mdl-layout__header-row">
                       <span class="mdl-layout-title">Title</span>
                   </div>
-                  <div class="mdl-layout__tab-bar mdl-js-ripple-effect">
+                  <div class="mdl-layout__tab-bar mdl-ripple-effect">
                       <a href="#fixed-tab-1" class="mdl-layout__tab is-active">Tab 1</a>
                       <a href="#fixed-tab-2" class="mdl-layout__tab">Tab 2</a>
                       <a href="#fixed-tab-3" class="mdl-layout__tab">Tab 3</a>
@@ -342,13 +342,13 @@
                   <span class="mdl-layout-title">Title</span>
               </div>
               <main class="mdl-layout__content">
-                  <section class="mdl-layout__tab-panel is-active demo-layout__content-red" id="fixed-tab-1">
+                  <section class="mdl-layout__tab-panel is-active demo-layout__content-red mdl-color--red-100" id="fixed-tab-1">
                       <div class="page-content"></div>
                   </section>
-                  <section class="mdl-layout__tab-panel demo-layout__content-green" id="fixed-tab-2">
+                  <section class="mdl-layout__tab-panel demo-layout__content-green mdl-color--green-100" id="fixed-tab-2">
                       <div class="page-content"></div>
                   </section>
-                  <section class="mdl-layout__tab-panel demo-layout__content-blue" id="fixed-tab-3">
+                  <section class="mdl-layout__tab-panel demo-layout__content-blue mdl-color--blue-100" id="fixed-tab-3">
                       <div class="page-content"></div>
                   </section>
               </main>
