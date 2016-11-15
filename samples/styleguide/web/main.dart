@@ -38,7 +38,7 @@ import "package:mdl/mdldialog.dart";
 import "package:mdl_styleguide/customdialog1.dart";
 import "package:mdl_styleguide/customdialog2.dart";
 
-// ToDo - Sample
+// ToDo-Sample
 import "package:mdl_styleguide/src/interfaces.dart";
 import "package:mdl_styleguide/components.dart";
 import "package:mdl_styleguide/datastore.dart";
@@ -224,7 +224,7 @@ main() {
 
 /// Default Controller!!! PrettyPrints the source that comes within the "Usage" block
 class DemoController extends MaterialController {
-    final Logger _logger = new Logger('main.DemoController');
+    static final Logger _logger = new Logger('main.DemoController');
 
     @override
     void loaded(final Route route) {
@@ -249,7 +249,7 @@ class DemoController extends MaterialController {
 }
 
 class BadgeController extends DemoController {
-    final Logger _logger = new Logger('main.BadgeController');
+    static final Logger _logger = new Logger('main.BadgeController');
 
     bool stopTimer = false;
 
@@ -280,7 +280,7 @@ class BadgeController extends DemoController {
 }
 
 class DialogController extends DemoController {
-    final Logger _logger = new Logger('main.DialogController');
+    static final Logger _logger = new Logger('main.DialogController');
 
     @override
     void loaded(final Route route) {
@@ -336,7 +336,7 @@ class DialogController extends DemoController {
 }
 
 class DNDController extends DemoController {
-    final Logger _logger = new Logger('main.DNDController');
+    static final Logger _logger = new Logger('main.DNDController');
 
     @override
     void loaded(final Route route) {
@@ -370,7 +370,7 @@ class DNDController extends DemoController {
 }
 
 class FormatterController extends DemoController {
-    final Logger _logger = new Logger('main.FormatterController');
+    static final Logger _logger = new Logger('main.FormatterController');
 
     final List<String> xmen = ['Angel/Archangel', 'Apocalypse', 'Bishop', 'Beast','Caliban','Colossus',
     'Cyclops','Firestar','Emma Frost','Gambit','High Evolutionary','Dark Phoenix',
@@ -445,7 +445,7 @@ class FormatterController extends DemoController {
 }
 
 class IconToggleController extends DemoController {
-    final Logger _logger = new Logger('main.IconToggleController');
+    static final Logger _logger = new Logger('main.IconToggleController');
 
     @override
     void loaded(final Route route) {
@@ -460,7 +460,7 @@ class IconToggleController extends DemoController {
 }
 
 class MenuController extends DemoController {
-    final Logger _logger = new Logger('main.MenuController');
+    static final Logger _logger = new Logger('main.MenuController');
 
     static const int TIMEOUT_IN_SECS = 5;
 
@@ -504,7 +504,7 @@ class MenuController extends DemoController {
 }
 
 class NotificationController extends DemoController {
-    final Logger _logger = new Logger('main.NotificationController');
+    static final Logger _logger = new Logger('main.NotificationController');
 
     @override
     void loaded(final Route route) {
@@ -591,7 +591,7 @@ class _Name {
 }
 
 class ObserverController extends DemoController {
-    final Logger _logger = new Logger('main.ObserverController');
+    static final Logger _logger = new Logger('main.ObserverController');
     bool stopTimer = false;
 
     @override
@@ -656,7 +656,7 @@ class ObserverController extends DemoController {
 }
 
 class ProgressController extends DemoController {
-    final Logger _logger = new Logger('main.ProgressController');
+    static final Logger _logger = new Logger('main.ProgressController');
 
     @override
     void loaded(final Route route) {
@@ -682,7 +682,7 @@ class ProgressController extends DemoController {
 }
 
 class RadioController extends DemoController {
-    final Logger _logger = new Logger('main.RadioController');
+    static final Logger _logger = new Logger('main.RadioController');
 
     @override
     void loaded(final Route route) {
@@ -732,7 +732,7 @@ class Name {
 }
 
 class RepeatController extends DemoController {
-    final Logger _logger = new Logger('main.RepeatController');
+    static final Logger _logger = new Logger('main.RepeatController');
 
     bool stop = false;
 
@@ -830,7 +830,7 @@ class RepeatController extends DemoController {
 }
 
 class SliderController extends DemoController {
-    final Logger _logger = new Logger('main.SliderController');
+    static final Logger _logger = new Logger('main.SliderController');
 
     @override
     void loaded(final Route route) {
@@ -847,7 +847,7 @@ class SliderController extends DemoController {
 
 
 class SpinnerController extends DemoController {
-    final Logger _logger = new Logger('main.SpinnerController');
+    static final Logger _logger = new Logger('main.SpinnerController');
 
     @override
     void loaded(final Route route) {
@@ -863,7 +863,7 @@ class SpinnerController extends DemoController {
 }
 
 class SnackbarController extends DemoController {
-    final Logger _logger = new Logger('main.SnackbarController');
+    static final Logger _logger = new Logger('main.SnackbarController');
 
     @override
     void loaded(final Route route) {
@@ -909,7 +909,7 @@ class SnackbarController extends DemoController {
 }
 
 class ToDoController extends DemoController {
-    final Logger _logger = new Logger('main.ToDoController');
+    static final Logger _logger = new Logger('main.ToDoController');
 
     @override
     void loaded(final Route route) {
@@ -926,7 +926,7 @@ class ToDoController extends DemoController {
 }
 
 class LablefieldController extends DemoController {
-    final Logger _logger = new Logger('main.LablefieldController');
+    static final Logger _logger = new Logger('main.LablefieldController');
 
     @override
     void loaded(final Route route) {
@@ -957,7 +957,7 @@ class LablefieldController extends DemoController {
 }
 
 class DataTable2Controller extends DemoController {
-    final Logger _logger = new Logger('main.DataTable2Controller');
+    static final Logger _logger = new Logger('main.DataTable2Controller');
 
     @override
     void loaded(final Route route) {

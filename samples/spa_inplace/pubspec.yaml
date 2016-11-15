@@ -20,15 +20,18 @@ dependencies:
   mdl:
     path: /Volumes/Daten/DevLocal/DevDart/MaterialDesignLite
 
-  di: any
+  di: ^3.3.0
 
   uuid: ^0.5.0
+
+  dart_to_js_script_rewriter: ^0.1.0
 
 dev_dependencies:
   test: any
 
 transformers:
   - di
+  - dart_to_js_script_rewriter
 
 #  - $dart2js:
 #      minify: false

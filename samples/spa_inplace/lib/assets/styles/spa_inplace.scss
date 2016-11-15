@@ -5,6 +5,10 @@
 //
 
 // ----------------------------------------------------------------------------
+// 0 - other frameworks where this one relays on
+@import "frameworks/mdl";
+
+// ----------------------------------------------------------------------------
 // 1 - utils (variables, functions, mixin, placeholders...)
 
 @import "utils/variables";

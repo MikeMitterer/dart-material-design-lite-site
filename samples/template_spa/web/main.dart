@@ -161,7 +161,7 @@ main() async {
 
 /// Default Controller!!!
 class DefaultController extends MaterialController {
-    final Logger _logger = new Logger('main.DefaultController');
+    static final Logger _logger = new Logger('main.DefaultController');
 
     @override
     void loaded(final Route route) {
@@ -175,7 +175,7 @@ class DefaultController extends MaterialController {
 }
 
 class ControllerView1 extends DefaultController {
-    final Logger _logger = new Logger('main.ControllerView1');
+    static final Logger _logger = new Logger('main.ControllerView1');
 
     @override
     void loaded(final Route route) {
@@ -192,7 +192,7 @@ class ControllerView1 extends DefaultController {
 }
 
 class ControllerView2 extends DefaultController {
-    final Logger _logger = new Logger('main.ControllerView2');
+    static final Logger _logger = new Logger('main.ControllerView2');
 
     bool keepPropertiesState;
 
@@ -217,7 +217,7 @@ class ControllerView2 extends DefaultController {
 }
 
 class ControllerView3 extends DefaultController {
-    final Logger _logger = new Logger('main.ControllerView3');
+    static final Logger _logger = new Logger('main.ControllerView3');
 
     @override
     void loaded(final Route route) {

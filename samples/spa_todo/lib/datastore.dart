@@ -45,12 +45,14 @@ class ToDoDataStore extends Dispatcher implements ToDoInputStoreInterface, ToDoL
     // - private -------------------------------------------------------------------------------------------------------
 
     void _bindSignals() {
-        on(AddItemAction.NAME).listen((final AddItemAction action) {
+        on(AddItemAction.NAME)
+            .map((final Action action) => action as AddItemAction).listen((final AddItemAction action) {
             _items.add(action.data);
             emitChange();
         });
 
-        on(ItemCheckedAction.NAME).listen((final ItemCheckedAction action) {
+        on(ItemCheckedAction.NAME)
+            .map((final Action action) => action as ItemCheckedAction).listen((final ItemCheckedAction action) {
             _items.forEach((final ToDoItem item) {
                 if(item.id == action.data.id) {
                     item.checked = action.data.checked;
@@ -59,7 +61,8 @@ class ToDoDataStore extends Dispatcher implements ToDoInputStoreInterface, ToDoL
             emitChange();
         });
 
-        on(RemoveItemAction.NAME).listen((final RemoveItemAction action) {
+        on(RemoveItemAction.NAME)
+            .map((final Action action) => action as RemoveItemAction).listen((final RemoveItemAction action) {
             _items.removeWhere((final ToDoItem item) => item.id == action.data.id);
             emitChange();
         });

@@ -5,7 +5,7 @@ import 'package:mdl/src/grinder/grinder.dart' as mdl;
 import 'dart:io';
 
 /// No @DefaultTask() here - we will what time brings...
-main(args) => grind(args);
+main(final List<String> args) => grind(args);
 
 @Task()
 @Depends(buildSamples, buildSite )

@@ -48,7 +48,7 @@ class NameEditComponent extends MdlTemplateComponent {
     final PersonStore _store;
 
     NameEditComponent.fromElement(final dom.HtmlElement element,final di.Injector injector)
-        : super(element,injector), _store = injector.get(PersonStore) {
+        : _store = injector.get(PersonStore), super(element,injector) {
         
         _init();
     }

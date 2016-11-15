@@ -57,7 +57,9 @@ class PersonsStoreImpl extends Dispatcher implements PersonsStore, PersonStore {
     //- private -----------------------------------------------------------------------------------
 
     void _bindActions() {
-        on(PersonChangedAction.NAME).listen((final PersonChangedAction action) {
+        on(PersonChangedAction.NAME)
+            .map((final Action action) => action as PersonChangedAction).listen((final PersonChangedAction action) {
+
             final Person newPerson = action.data;
             final Person oldPerson = _byId(newPerson.id);
 

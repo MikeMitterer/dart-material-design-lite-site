@@ -16,7 +16,7 @@ class ModelChangedEvent { }
 class Model {
     static Model _model;
 
-    final StreamController _controller = new StreamController<ModelChangedEvent>.broadcast();
+    final StreamController<ModelChangedEvent> _controller = new StreamController<ModelChangedEvent>.broadcast();
 
     Stream<ModelChangedEvent> onChange;
 

@@ -35,7 +35,7 @@ class PersonsComponent extends MdlComponent implements ScopeAware {
     Scope scope;
 
     PersonsComponent.fromElement(final dom.HtmlElement element,final di.Injector injector)
-        : super(element,injector),_store = injector.get(PersonsStore) {
+        : _store = injector.get(PersonsStore), super(element,injector) {
 
         scope = new Scope(this,mdlParentScope(this));
         _init();

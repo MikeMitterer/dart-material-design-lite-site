@@ -104,31 +104,28 @@ class Application implements MaterialApplication {
     }
 }
 
-main() {
+main() async {
     configLogging();
 
     registerMdl();
 
-    componentFactory().rootContext(Application).run()
-    .then( (final Application application) {
+    final Application application = await componentFactory().rootContext(Application).run();
 
-        final MaterialButton add = MaterialButton.widget(dom.querySelector("#addComponents"));
-        add.onClick.listen((_) => application._addItems());
+    final MaterialButton add = MaterialButton.widget(dom.querySelector("#addComponents"));
+    add.onClick.listen((_) => application._addItems());
 
-        final MaterialButton remove = MaterialButton.widget(dom.querySelector("#removeComponents"));
-        remove.onClick.listen((_) => application._removeItems());
+    final MaterialButton remove = MaterialButton.widget(dom.querySelector("#removeComponents"));
+    remove.onClick.listen((_) => application._removeItems());
 
-        application.isListEmpty.onChange.listen((final PropertyChangeEvent<bool> property) {
-            add.enabled = property.value;
-            remove.enabled = !property.value;
-            application.total.value = 0.0;
-            final MaterialDivDataTable table = MaterialDivDataTable.widget(dom.querySelector(".mdl-data-tableex"));
-            table.select = false;
-        });
-
-        application.run();
-
+    application.isListEmpty.onChange.listen((final PropertyChangeEvent<bool> property) {
+        add.enabled = property.value;
+        remove.enabled = !property.value;
+        application.total.value = 0.0;
+        final MaterialDivDataTable table = MaterialDivDataTable.widget(dom.querySelector(".mdl-data-tableex"));
+        table.select = false;
     });
+
+    application.run();
 
 }
 

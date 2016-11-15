@@ -1,2 +1,9 @@
 template_dir: ../_templates
 assets_dir: ../_assets
+
+# SASS_PATH wird nur durch "sass" unterstützt
+# Usage: sitegen -c
+sasscompiler: sass
+sass_path:
+  - "package:mdl_inplace_edit_sample"
+  - "package:mdl"
