@@ -27,7 +27,7 @@ import &#39;package:mdl&#47;mdlobservable.dart&#39;;
 class Model &#123;
     static Model _model;
 
-    final StreamController _controller = new StreamController&lt;ModelChangedEvent&gt;.broadcast();
+    final StreamController&lt;ModelChangedEvent&gt; _controller = new StreamController&lt;ModelChangedEvent&gt;.broadcast();
 
     Stream&lt;ModelChangedEvent&gt; onChange;
 

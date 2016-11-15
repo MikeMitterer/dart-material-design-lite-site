@@ -98,29 +98,26 @@ class Application implements MaterialApplication &#123;
     &#125;
 &#125;
 
-main() &#123;
+main() async &#123;
     registerMdl();
 
-    componentFactory().rootContext(Application).run()
-    .then( (final Application application) &#123;
+    final Application application = await componentFactory().rootContext(Application).run();
 
-        final MaterialButton add = MaterialButton.widget(dom.querySelector(&quot;#addComponents&quot;));
-        add.onClick.listen((_) =&gt; application._addItems());
+    final MaterialButton add = MaterialButton.widget(dom.querySelector(&quot;#addComponents&quot;));
+    add.onClick.listen((_) =&gt; application._addItems());
 
-        final MaterialButton remove = MaterialButton.widget(dom.querySelector(&quot;#removeComponents&quot;));
-        remove.onClick.listen((_) =&gt; application._removeItems());
+    final MaterialButton remove = MaterialButton.widget(dom.querySelector(&quot;#removeComponents&quot;));
+    remove.onClick.listen((_) =&gt; application._removeItems());
 
-        application.isListEmpty.onChange.listen((final PropertyChangeEvent&lt;bool&gt; property) &#123;
-            add.enabled = property.value;
-            remove.enabled = !property.value;
-            application.total.value = 0.0;
-            final MaterialDivDataTable table = MaterialDivDataTable.widget(dom.querySelector(&quot;.mdl-data-tableex&quot;));
-            table.select = false;
-        &#125;);
-
-        application.run();
-
+    application.isListEmpty.onChange.listen((final PropertyChangeEvent&lt;bool&gt; property) &#123;
+        add.enabled = property.value;
+        remove.enabled = !property.value;
+        application.total.value = 0.0;
+        final MaterialDivDataTable table = MaterialDivDataTable.widget(dom.querySelector(&quot;.mdl-data-tableex&quot;));
+        table.select = false;
     &#125;);
+
+    application.run();
 
 &#125;
 

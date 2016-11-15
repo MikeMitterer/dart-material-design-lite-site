@@ -35,22 +35,22 @@ class Application extends MaterialApplication &#123;
 
     &#125;
 
-    &#47;&#47;- private -----------------------------------------------------------------------------------
+&#47;&#47;- private -----------------------------------------------------------------------------------
 
 &#125;
 
-main() async &#123;
+Future main() async &#123;
     &#47;&#47; final Logger _logger = new Logger(&#39;main.Inplace edit&#39;);
 
     registerMdl();
     registerInplaceSampleComponents();
 
-    final MaterialApplication application = await componentFactory()
-        .rootContext(Application)
-        .addModule(new SampleModule())
-        .run(enableVisualDebugging: true);
+        final MaterialApplication application = await componentFactory()
+            .rootContext(Application)
+            .addModule(new SampleModule())
+            .run();
 
-    application.run();
+        application.run();
 &#125;
 
 &#47;**

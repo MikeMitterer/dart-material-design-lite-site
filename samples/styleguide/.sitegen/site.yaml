@@ -1,0 +1,5 @@
+# SASS_PATH wird nur durch "sass" unterstützt
+# Usage: sitegen -c
+sasscompiler: sass
+sass_path:
+  - "package:mdl"
