@@ -8,16 +8,19 @@ main() &#123;
 
     componentFactory().run().then((_) &#123;
         final MaterialButton btnNotification = MaterialButton.widget(dom.querySelector(&quot;#notification&quot;));
+        final MaterialButton btnDialog = MaterialButton.widget(dom.querySelector(&quot;#dialog&quot;));
         final MaterialTextfield title = MaterialTextfield.widget(dom.querySelector(&quot;#notification-title&quot;));
         final MaterialTextfield subtitle = MaterialTextfield.widget(dom.querySelector(&quot;#notification-subtitle&quot;));
         final MaterialTextfield content = MaterialTextfield.widget(dom.querySelector(&quot;#notification-content&quot;));
         final MaterialRadioGroup notificationtype = MaterialRadioGroup.widget(dom.querySelector(&quot;#notification-type&quot;));
+        final MaterialSwitch autoclose = MaterialSwitch.widget(dom.querySelector(&quot;#auto-close&quot;));
 
         void _checkIfButtonShouldBeEnabled(_) &#123; btnNotification.enabled = (title.value.isNotEmpty || content.value.isNotEmpty); &#125;
 
         title.hub.onKeyUp.listen( _checkIfButtonShouldBeEnabled);
         content.hub.onKeyUp.listen( _checkIfButtonShouldBeEnabled);
 
+        autoclose.checked = true;
         int counter = 0;
         btnNotification.onClick.listen( (_) &#123;
             _logger.info(&quot;Click on Notification&quot;);
@@ -35,7 +38,9 @@ main() &#123;
 
             _logger.info(&quot;NT $&#123;notificationtype.value&#125; - $&#123;notificationtype.hasValue&#125;&quot;);
 
-            final MaterialNotification notification = new MaterialNotification();
+            final MaterialNotification notification = new MaterialNotification()
+                ..autoClose = autoclose.checked;
+
             final String titleToShow = title.value.isNotEmpty ? &quot;$&#123;title.value&#125; (#$&#123;counter&#125;)&quot; : &quot;&quot;;
 
             notification(content.value, type: type,title: titleToShow, subtitle: subtitle.value)
@@ -44,6 +49,12 @@ main() &#123;
                 _logger.info(status);
             &#125;);
             counter++;
+        &#125;);
+
+        btnDialog.onClick.listen((_) &#123;
+            new MaterialAlertDialog()(&quot;Testmessage&quot;).show().then((final MdlDialogStatus status) &#123;
+                _logger.info(status);
+            &#125;);
         &#125;);
     &#125;);
 &#125;

@@ -30,12 +30,26 @@
                 &lt;span class=&quot;mdl-radio__label&quot;&gt;Error&lt;&#47;span&gt;
             &lt;&#47;label&gt;
         &lt;&#47;div&gt;
-        &lt;button id=&quot;notification&quot;
-                class=&quot;mdl-button mdl-button--raised mdl-button--colored mdl-ripple-effect&quot; disabled&gt;
-            Add notification
-        &lt;&#47;button&gt;
+        &lt;div class=&quot;buttons&quot;&gt;
+            &lt;button id=&quot;notification&quot;
+                    class=&quot;mdl-button mdl-button--raised mdl-button--colored mdl-ripple-effect&quot; disabled&gt;
+                Add notification
+            &lt;&#47;button&gt;
+            &lt;button id=&quot;dialog&quot;
+                    class=&quot;mdl-button mdl-button--raised mdl-ripple-effect&quot;&gt;
+                Sample dialog
+            &lt;&#47;button&gt;
+        &lt;&#47;div&gt;
+        &lt;label class=&quot;mdl-switch mdl-ripple-effect&quot; for=&quot;auto-close&quot;&gt;
+            &lt;input type=&quot;checkbox&quot; id=&quot;auto-close&quot; class=&quot;mdl-switch__input&quot; &gt;
+            &lt;span class=&quot;mdl-switch__label&quot;&gt;Auto-Close&lt;&#47;span&gt;
+        &lt;&#47;label&gt;
         &lt;p class=&quot;info&quot;&gt;
+            Auto-Close is enabled by default but if it makes sense for you - turn it off&lt;br&gt;
             Warning + Error have a delay of 10secs, Debug + Info have a delay of 6.5secs.
+        &lt;&#47;p&gt;
+        &lt;p class=&quot;info&quot;&gt;
+            &lt;strong&gt;Sample Dialog&lt;&#47;strong&gt; only makes sense here for testing the the UI behavior.
         &lt;&#47;p&gt;
     &lt;&#47;div&gt;
 &lt;&#47;div&gt;

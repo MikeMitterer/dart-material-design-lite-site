@@ -511,10 +511,12 @@ class NotificationController extends DemoController {
         super.loaded(route);
 
         final MaterialButton btnNotification = MaterialButton.widget(dom.querySelector("#notification"));
+        final MaterialButton btnDialog = MaterialButton.widget(dom.querySelector("#dialog"));
         final MaterialTextfield title = MaterialTextfield.widget(dom.querySelector("#notification-title"));
         final MaterialTextfield subtitle = MaterialTextfield.widget(dom.querySelector("#notification-subtitle"));
         final MaterialTextfield content = MaterialTextfield.widget(dom.querySelector("#notification-content"));
         final MaterialRadioGroup notificationtype = MaterialRadioGroup.widget(dom.querySelector("#notification-type"));
+        final MaterialSwitch autoclose = MaterialSwitch.widget(dom.querySelector("#auto-close"));
 
         void _checkIfButtonShouldBeEnabled(_) {
             btnNotification.enabled = (title.value.isNotEmpty || content.value.isNotEmpty);
@@ -522,6 +524,8 @@ class NotificationController extends DemoController {
 
         title.hub.onKeyUp.listen(_checkIfButtonShouldBeEnabled);
         content.hub.onKeyUp.listen(_checkIfButtonShouldBeEnabled);
+
+        autoclose.checked = true;
 
         int counter = 0;
         btnNotification.onClick.listen((_) {
@@ -548,7 +552,9 @@ class NotificationController extends DemoController {
             }
             _logger.info("NT ${notificationtype.value} - ${notificationtype.hasValue}");
 
-            final MaterialNotification notification = new MaterialNotification();
+            final MaterialNotification notification = new MaterialNotification()
+                ..autoClose = autoclose.checked;
+
             final String titleToShow = title.value.isNotEmpty ? "${title.value} (#${counter})" : "";
 
             notification(content.value, type: type, title: titleToShow, subtitle: subtitle.value)
@@ -556,6 +562,12 @@ class NotificationController extends DemoController {
                 _logger.info(status);
             });
             counter++;
+        });
+
+        btnDialog.onClick.listen((_) {
+            new MaterialAlertDialog()("Testmessage").show().then((final MdlDialogStatus status) {
+                _logger.info(status);
+            });
         });
     }
 

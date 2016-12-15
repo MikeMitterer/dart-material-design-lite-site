@@ -98,12 +98,30 @@
                 <span class="mdl-radio__label">Error</span>
             </label>
         </div>
-        <button id="notification"
-                class="mdl-button mdl-button--raised mdl-button--colored mdl-ripple-effect" disabled>
-            Add notification
-        </button>
+        <div class="buttons">
+            <button id="notification"
+                    class="mdl-button mdl-button--raised mdl-button--colored mdl-ripple-effect" disabled>
+                Add notification
+            </button>
+
+            <button id="dialog"
+                    class="mdl-button mdl-button--raised mdl-ripple-effect">
+                Sample dialog
+            </button>
+
+        </div>
+        <label class="mdl-switch mdl-ripple-effect" for="auto-close">
+            <input type="checkbox" id="auto-close" class="mdl-switch__input" >
+            <span class="mdl-switch__label">Auto-Close</span>
+        </label>
+
         <p class="info">
+            Auto-Close is enabled by default but if it makes sense for you - turn it off<br>
             Warning + Error have a delay of 10secs, Debug + Info have a delay of 6.5secs.
+        </p>
+
+        <p class="info">
+            <strong>Sample Dialog</strong> only makes sense here for testing the the UI behavior.
         </p>
     </div>
 </div>

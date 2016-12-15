@@ -96,7 +96,9 @@ class Application extends MaterialApplication {
             body.classes.toggle("show-properties");
 
             final dom.Element properties = dom.querySelector(".mdl-properties");
-            AnimationState.removeAllStatesFrom(properties);
+            if(properties != null) {
+                AnimationState.removeAllStatesFrom(properties);
+            }
 
             if(body.classes.contains("show-properties")) {
 
