@@ -10,9 +10,11 @@
 // for layout
 // @import "packages/mdl/assets/styles/icons/icons";
 //@import "packages/mdl/assets/styles/animation/mixins";
-@import "assets/styles/media-queries/mixins";
 //@import "packages/mdl/assets/styles/variables/variables";
 //@import "packages/mdl/assets/styles/layout/layout";
+
+@import "assets/styles/media-queries/mixins";
+@import "assets/styles/scrollbars/mixins";
 
 // Style for samples
 @import "assets/styles/demo";
@@ -47,6 +49,17 @@ body {
     }
 
 }
+
+.styleguide div, main, pre.prettyprint {
+    @include hide_scrollbar();
+}
+
+html, body, body > div,
+    .mdl-splashscreen, .styleguide.mdl-layout,
+    .styleguide > div.mdl-layout__drawer {
+    @include hide_scrollbar($show_on_hover: false);
+}
+
 
 .usage {
 

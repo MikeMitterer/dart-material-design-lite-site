@@ -16,3 +16,10 @@ site_options:
   # Usage: <img class="logo" src="{{_site.mdl-dart-logo}}">
   mdl-dart-logo: packages/mdl/assets/images/mdl-dart-logo.svg
 
+
+# SASS_PATH wird nur durch "sass" unterstützt
+# Usage: sitegen -c
+sasscompiler: sass
+sass_path:
+  - "package:mdl"
+
