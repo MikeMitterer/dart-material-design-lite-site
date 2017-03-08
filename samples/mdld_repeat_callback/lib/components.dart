@@ -20,7 +20,6 @@
 library mdl_repeat_callback_sample.components;
 
 import "dart:html" as dom;
-import "dart:async";
 
 import 'package:intl/intl.dart';
 import 'package:logging/logging.dart';

@@ -19,7 +19,6 @@
 
 library mdl_repeat_callback_sample.datastore;
 
-import 'dart:collection';
 
 import 'package:mdl/mdl.dart';
 import 'package:mdl_repeat_callback_sample/components/interfaces.dart';
