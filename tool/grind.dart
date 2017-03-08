@@ -69,6 +69,7 @@ analyzeSamples() {
         "mdld_observe/web/main.dart",
         "mdld_repeat/web/main.dart",
         "mdld_repeat_data-table/web/main.dart",
+        "mdld_repeat_callback/web/main.dart",
         "mdlo_icons/web/main.dart",
         "mdlo_list/web/main.dart",
         "mdlx_accordion/web/main.dart",
