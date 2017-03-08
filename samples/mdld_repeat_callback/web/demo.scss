@@ -1,0 +1,23 @@
+//@import "../../../lib/assets/styles/material-design-lite";
+
+.demo-page--repeat_callback {
+    .with-callback {
+        display: block;
+    }
+    .without-callback {
+        display: block;
+    }
+
+    .demo-preview-block {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: flex-start; // ⇾
+        align-content: space-between; // ||
+        align-items: flex-start; // ↓
+
+        > * {
+            width: 50%;
+        }
+    }
+}
