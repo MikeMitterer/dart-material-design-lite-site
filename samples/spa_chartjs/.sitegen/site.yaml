@@ -1,0 +1,9 @@
+template_dir: ../_templates
+assets_dir: ../_assets
+
+# Usage: _site.<var name>
+# Sample: _site.site_name
+site_options:
+  # Script-Tag necessary for ChartJS
+  js1: <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.js"></script>
+

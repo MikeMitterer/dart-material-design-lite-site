@@ -1,0 +1,57 @@
+import &#39;package:mdl&#47;mdl.dart&#39;;
+import &#39;package:mdl&#47;mdlobservable.dart&#39;;
+
+@MdlComponentModel @di.Injectable()
+class Application extends MaterialApplication &#123;
+    final Logger _logger = new Logger(&#39;main.Application&#39;);
+
+    Application() &#123;
+    &#125;
+
+    @override
+    void run() &#123;
+        _initStats();
+    &#125;
+
+    &#47;&#47;- private -----------------------------------------------------------------------------------
+
+    void _initStats() &#123;
+        var rnd = new math.Random();
+        var months = &lt;String&gt;[&quot;January&quot;, &quot;February&quot;, &quot;March&quot;, &quot;April&quot;, &quot;May&quot;, &quot;June&quot;];
+
+        final LinearChartData data = new LinearChartData(labels: months, datasets: &lt;ChartDataSets&gt;[
+            new ChartDataSets(
+                label: &quot;My First dataset&quot;,
+                backgroundColor: &quot;rgba(220,220,220,0.2)&quot;,
+                data: months.map((_) =&gt; rnd.nextInt(100)).toList()),
+            new ChartDataSets(
+                label: &quot;My Second dataset&quot;,
+                backgroundColor: &quot;rgba(151,187,205,0.2)&quot;,
+                data: months.map((_) =&gt; rnd.nextInt(100)).toList())
+        ]);
+
+        final ChartConfiguration config = new ChartConfiguration(
+            type: &#39;line&#39;, data: data, options: new ChartOptions(responsive: true));
+
+        final Chart chart = new Chart(dom.querySelector(&#39;#canvas&#39;) as dom.CanvasElement, config);
+
+        new Timer.periodic(new Duration(milliseconds: 500),(_) &#123;
+            data.datasets.first.data[1] = rnd.nextInt(100);
+            data.datasets.first.data[2] = rnd.nextInt(100);
+            chart.update();
+        &#125;);
+    &#125;
+&#125;
+
+main() async &#123;
+    final Logger _logger = new Logger(&#39;main.Shows Plotly in action&#39;);
+
+    registerMdl();
+
+    final MaterialApplication application = await componentFactory().
+        rootContext(Application).run(enableVisualDebugging: true);
+
+    application.run();
+&#125;
+
+

@@ -1,0 +1,9 @@
+template_dir: ../_templates
+assets_dir: ../_assets
+
+# Usage: _site.<var name>
+# Sample: _site.site_name
+site_options:
+  # Script-Tag necessary for Plotly
+  js1: <script src="packages/plotly/plotly-latest.min.js"></script>
+
