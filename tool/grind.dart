@@ -39,6 +39,8 @@ analyze() { }
 
 @Task()
 analyzeSamples() {
+    // Es ist auch noch notwendig die
+    // Samples-Liste in ./sitegen/html/_data/downloads.json upzudaten!
     final List<String> samples = [
         "mdl_animation/web/main.dart",
         "mdl_badge/web/main.dart",

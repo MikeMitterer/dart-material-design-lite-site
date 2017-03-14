@@ -40,6 +40,8 @@
   { "name" : "mdlx_notification" },
   { "name" : "mdlx_panel" },
   { "name" : "mdlx_snackbar" },
+  { "name" : "spa_chartjs" },
+  { "name" : "spa_plotly" },
   { "name" : "spa_content" },
   { "name" : "spa_include" },
   { "name" : "spa_inplace" },
