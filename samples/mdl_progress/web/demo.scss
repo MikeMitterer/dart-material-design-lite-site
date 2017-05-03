@@ -15,6 +15,55 @@
  */
 
 .demo-page--progress, .demo-section--progress {
+    .bars {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: flex-start; // ⇾
+        align-content: space-between; // ||
+        align-items: stretch; // ↓
 
+        > div {
+            width: 50%;
+            max-width: 50%;
+            
+            &:first-child { padding-right: 10px; }
+            &:last-child { padding-left: 10px; }
+            
+            &.horizontal {
+                display: flex;
+                flex-direction: column;
+                flex-wrap: wrap;
+                justify-content: space-between; // ↓
+                align-content: stretch; // =
+                align-items: stretch; // ⇾
+
+                > div {
+                    min-height: 30%;
+                }
+            }
+
+            &.vertical {
+                display: flex;
+                flex-direction: row;
+                flex-wrap: nowrap;
+                justify-content: center; // ⇾
+                align-content: space-between; // ||
+                align-items: flex-start; // ↓
+
+                > div {
+                    width: 30%;
+
+                    display: flex;
+                    flex-direction: column;
+                    flex-wrap: wrap;
+                    justify-content: flex-start; // ↓
+                    align-content: space-between; // =
+                    align-items: center; // ⇾
+
+                }
+            }
+        }
+    }
 }
 

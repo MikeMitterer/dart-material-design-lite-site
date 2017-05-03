@@ -16,10 +16,14 @@ main() {
 
         // 1
         MaterialProgress.widget(dom.querySelector("#p1")).progress = 44;
+        MaterialProgressVertical.widget(dom.querySelector("#p1v")).progress = 44;
 
         // 2
         MaterialProgress.widget(dom.querySelector("#p3")).progress = 33;
+        MaterialProgressVertical.widget(dom.querySelector("#p3v")).progress = 33;
+
         MaterialProgress.widget(dom.querySelector("#p3")).buffer = 87;
+        MaterialProgressVertical.widget(dom.querySelector("#p3v")).buffer = 87;
 
         (dom.querySelector("#slider") as dom.RangeInputElement).onInput.listen((final dom.Event event) {
             final int value = int.parse((event.target as dom.RangeInputElement).value);
@@ -28,7 +32,16 @@ main() {
                 ..progress = value
                 ..classes.toggle("test");
 
-            _logger.info("Value: ${component.progress}");
+            MaterialProgress.widget(dom.querySelector("#p3")).progress = value;
+
+            final component2 = MaterialProgressVertical.widget(dom.querySelector("#p1v"))
+                ..progress = value
+                ..classes.toggle("test");
+
+            MaterialProgressVertical.widget(dom.querySelector("#p3v")).progress = value;
+
+            _logger.info("Value1: ${component.progress}");
+            _logger.info("Value2: ${component2.progress}");
         });
 
     });

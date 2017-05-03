@@ -3,24 +3,45 @@ samplename: progress
 sampleurl: https://github.com/MikeMitterer/dart-material-design-lite-site/tree/master/samples/mdl_progress/web
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 <div class="demo-preview-block">
+    <div class="bars">
 
-    <p>
-        Default:
-    <div id="p1" class="mdl-progress"></div>
-    </p>
+        <div class="horizontal">
+            <div>
+                Default:
+                <div id="p1" class="mdl-progress"></div>
+            </div>
 
-    <p>
-        Indeterminate:
-    <div id="p2" class="mdl-progress mdl-progress__indeterminate"></div>
-    </p>
+            <div>
+                Indeterminate:
+                <div id="p2" class="mdl-progress mdl-progress__indeterminate"></div>
+            </div>
 
-    <p>
-        Buffering:
-    <div id="p3" class="mdl-progress"></div>
-    </p>
+            <div>
+                Buffering:
+                <div id="p3" class="mdl-progress"></div>
+            </div>
+        </div>
+        <div class="vertical">
+            <div>
+                Default
+                <div id="p1v" class="mdl-vprogress"></div>
+            </div>
+
+            <div>
+                Indeterminate
+                <div id="p2v" class="mdl-vprogress mdl-vprogress__indeterminate"></div>
+            </div>
+
+            <div>
+                Buffering
+                <div id="p3v" class="mdl-vprogress"></div>
+            </div>
+
+        </div>
+    </div>
 
     <h5 class="mdl-color-text--primary-dark">Data binding</h5>
-    <div>Drag me and check how the "Default" bar reacts...</div>
+    <div>Drag me and check how the bar reacts...</div>
     <p>
         <input class="mdl-slider" type="range" min="0" max="100" value="44" tabindex="0" step="1"
                id="slider"/>
