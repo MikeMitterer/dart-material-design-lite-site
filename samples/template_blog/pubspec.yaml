@@ -17,7 +17,7 @@ dependencies:
   logging_handlers: any
   console_log_handler: any
 
-  di: any
+  di: ^3.3.9
 
 transformers:
   - di

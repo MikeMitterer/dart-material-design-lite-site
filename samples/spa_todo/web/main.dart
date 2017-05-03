@@ -33,7 +33,6 @@ class Application implements MaterialApplication {
             _logger.info("User clicked on 'Add'!");
         });
     }
-
 }
 
 Future main() async {

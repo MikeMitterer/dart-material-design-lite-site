@@ -1,7 +1,5 @@
-# android.com sample
-
-##Why this sample
-The goal of this sample is to illustrate implementing a real-world-looking site with **Material Design Lite**.
+# SITE for MaterialDesignLite
+> The goal is to illustrate implementing a real-world-looking site with **Material Design Lite**.
 
 ###License###
 

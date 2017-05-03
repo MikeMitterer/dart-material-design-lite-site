@@ -97,7 +97,7 @@ class Application extends MaterialApplication {
             _logger.fine("W: ${div.clientWidth}");
 
             debounce ?.cancel();
-            debounce = new Timer(new Duration(milliseconds: 500),() {
+            debounce = new Timer(new Duration(milliseconds: 100),() {
                 layout["width"] = div.clientWidth;
                 layout["height"] = div.clientWidth  / 2;
                 plot.relayout(layout);

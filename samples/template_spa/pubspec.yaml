@@ -22,7 +22,7 @@ dependencies:
   mdl:
     path: /Volumes/Daten/DevLocal/DevDart/MaterialDesignLite
 
-  di: ^3.3.0
+  di: ^3.3.9
 
   dart_to_js_script_rewriter: ^0.1.0
 

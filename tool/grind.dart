@@ -1,7 +1,7 @@
 library gensamples;
 
 import 'package:grinder/grinder.dart';
-import 'package:mdl/src/grinder/grinder.dart' as mdl;
+import 'package:mdl_grinder/grinder.dart' as mdl;
 import 'dart:io';
 
 /// No @DefaultTask() here - we will what time brings...

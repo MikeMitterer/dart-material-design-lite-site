@@ -19,14 +19,14 @@ dependencies:
 
   prettify: ^0.1.0
 
-  di: ^3.3.0
-
-#dependency_overrides:
-#  analyzer: ">=0.23.0 <0.26.0"
+  di: ^3.3.9
 
 dev_dependencies:
   test: any
   grinder: any
+  mdl_grinder:
+    # git: https://github.com/MikeMitterer/dart-mdl-grinder
+    path: /Volumes/Daten/DevLocal/DevDart/MaterialGrinder
 
 transformers:
   - di
