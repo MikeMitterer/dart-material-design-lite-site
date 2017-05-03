@@ -20,9 +20,9 @@ main() {
 
         // 2
         MaterialProgress.widget(dom.querySelector("#p3")).progress = 33;
-        MaterialProgressVertical.widget(dom.querySelector("#p3v")).progress = 33;
-
         MaterialProgress.widget(dom.querySelector("#p3")).buffer = 87;
+
+        MaterialProgressVertical.widget(dom.querySelector("#p3v")).progress = 33;
         MaterialProgressVertical.widget(dom.querySelector("#p3v")).buffer = 87;
 
         (dom.querySelector("#slider") as dom.RangeInputElement).onInput.listen((final dom.Event event) {

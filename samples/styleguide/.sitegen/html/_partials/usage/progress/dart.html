@@ -10,10 +10,14 @@ main() &#123;
 
         &#47;&#47; 1
         MaterialProgress.widget(dom.querySelector(&quot;#p1&quot;)).progress = 44;
+        MaterialProgressVertical.widget(dom.querySelector(&quot;#p1v&quot;)).progress = 44;
 
         &#47;&#47; 2
         MaterialProgress.widget(dom.querySelector(&quot;#p3&quot;)).progress = 33;
         MaterialProgress.widget(dom.querySelector(&quot;#p3&quot;)).buffer = 87;
+
+        MaterialProgressVertical.widget(dom.querySelector(&quot;#p3v&quot;)).progress = 33;
+        MaterialProgressVertical.widget(dom.querySelector(&quot;#p3v&quot;)).buffer = 87;
 
         (dom.querySelector(&quot;#slider&quot;) as dom.RangeInputElement).onInput.listen((final dom.Event event) &#123;
             final int value = int.parse((event.target as dom.RangeInputElement).value);
@@ -22,7 +26,16 @@ main() &#123;
                 ..progress = value
                 ..classes.toggle(&quot;test&quot;);
 
-            _logger.info(&quot;Value: $&#123;component.progress&#125;&quot;);
+            MaterialProgress.widget(dom.querySelector(&quot;#p3&quot;)).progress = value;
+
+            final component2 = MaterialProgressVertical.widget(dom.querySelector(&quot;#p1v&quot;))
+                ..progress = value
+                ..classes.toggle(&quot;test&quot;);
+
+            MaterialProgressVertical.widget(dom.querySelector(&quot;#p3v&quot;)).progress = value;
+
+            _logger.info(&quot;Value1: $&#123;component.progress&#125;&quot;);
+            _logger.info(&quot;Value2: $&#123;component2.progress&#125;&quot;);
         &#125;);
 
     &#125;);
