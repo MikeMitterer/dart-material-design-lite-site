@@ -14,6 +14,13 @@
  * limitations under the License.
  */
 
+//@import "assets/styles/theme/theme";
+
+// Progressbar
+//@import "assets/styles/animation/variables";
+//@import "assets/styles/progress/variables";
+//@import "assets/styles/progress/mixin";
+
 .demo-page--progress, .demo-section--progress {
     .bars {
         display: flex;
@@ -62,6 +69,8 @@
                     align-items: center; // ⇾
 
                 }
+
+                // @include progress_3color_indicator();
             }
         }
     }

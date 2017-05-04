@@ -17,6 +17,7 @@ main() {
         // 1
         MaterialProgress.widget(dom.querySelector("#p1")).progress = 44;
         MaterialProgressVertical.widget(dom.querySelector("#p1v")).progress = 44;
+        MaterialProgressVertical.widget(dom.querySelector("#p11v")).progress = 44;
 
         // 2
         MaterialProgress.widget(dom.querySelector("#p3")).progress = 33;
@@ -38,6 +39,7 @@ main() {
                 ..progress = value
                 ..classes.toggle("test");
 
+            MaterialProgressVertical.widget(dom.querySelector("#p11v")).progress = value;
             MaterialProgressVertical.widget(dom.querySelector("#p3v")).progress = value;
 
             _logger.info("Value1: ${component.progress}");

@@ -1,2 +1,7 @@
 template_dir: ../_templates
 assets_dir: ../_assets
+
+sasscompiler: sass
+sass_path:
+  - "package:mdl"
+

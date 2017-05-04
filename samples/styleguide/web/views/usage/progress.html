@@ -33,6 +33,7 @@ main() &#123;
         &#47;&#47; 1
         MaterialProgress.widget(dom.querySelector(&quot;#p1&quot;)).progress = 44;
         MaterialProgressVertical.widget(dom.querySelector(&quot;#p1v&quot;)).progress = 44;
+        MaterialProgressVertical.widget(dom.querySelector(&quot;#p11v&quot;)).progress = 44;
 
         &#47;&#47; 2
         MaterialProgress.widget(dom.querySelector(&quot;#p3&quot;)).progress = 33;
@@ -54,6 +55,7 @@ main() &#123;
                 ..progress = value
                 ..classes.toggle(&quot;test&quot;);
 
+            MaterialProgressVertical.widget(dom.querySelector(&quot;#p11v&quot;)).progress = value;
             MaterialProgressVertical.widget(dom.querySelector(&quot;#p3v&quot;)).progress = value;
 
             _logger.info(&quot;Value1: $&#123;component.progress&#125;&quot;);
@@ -94,6 +96,10 @@ main() &#123;
             &lt;div&gt;
                 Default
                 &lt;div id=&quot;p1v&quot; class=&quot;mdl-vprogress&quot;&gt;&lt;&#47;div&gt;
+            &lt;&#47;div&gt;
+            &lt;div&gt;
+                Sections
+                &lt;div id=&quot;p11v&quot; class=&quot;mdl-vprogress&quot; data-sections=&quot;10&quot;&gt;&lt;&#47;div&gt;
             &lt;&#47;div&gt;
             &lt;div&gt;
                 Indeterminate

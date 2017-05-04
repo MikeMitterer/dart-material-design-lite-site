@@ -14,6 +14,7 @@
  * limitations under the License.
  */
 
+// Progressbar
 .demo-page--progress, .demo-section--progress {
     .bars {
         display: flex;
@@ -62,6 +63,8 @@
                     align-items: center; // ⇾
 
                 }
+
+                // @include progress_3color_indicator();
             }
         }
     }
