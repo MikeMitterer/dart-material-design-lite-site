@@ -21,7 +21,7 @@ import "dart:async";
 import "dart:html" as dom;
 
 import 'package:console_log_handler/console_log_handler.dart';
-import 'package:di/di.dart' as di;
+import 'package:dice/dice.dart' as di;
 import 'package:logging/logging.dart';
 import 'package:mdl/mdl.dart';
 import 'package:mdl/mdlanimation.dart';
@@ -29,7 +29,6 @@ import "package:mdl/mdldialog.dart";
 import 'package:mdl/mdlobservable.dart';
 import 'package:route_hierarchical/client.dart';
 import "package:spa_template/dialogs.dart";
-
 
 final MdlAnimation bounceInRight = new MdlAnimation.fromStock(StockAnimation.BounceInRight);
 final MdlAnimation fadeIn = new MdlAnimation.fromStock(StockAnimation.FadeIn);
@@ -39,7 +38,7 @@ final MdlAnimation fadeIn = new MdlAnimation.fromStock(StockAnimation.FadeIn);
  * Sample:
  *      final Application app = componentFactory().application;
  */
-@MdlComponentModel @di.Injectable()
+@MdlComponentModel
 class Application extends MaterialApplication {
     final Logger _logger = new Logger('main.Application');
     final Router _router = new Router(useFragment: true);
@@ -65,23 +64,22 @@ class Application extends MaterialApplication {
 
     @override
     void run() {
-//        _login().then((final MdlDialogStatus status) {
-//            _checkStatus(status);
-//        });
+        //        _login().then((final MdlDialogStatus status) {
+        //            _checkStatus(status);
+        //        });
         isUserLoggedIn = true;
         _checkStatus(MdlDialogStatus.OK);
-
     }
 
     void go(final String routePath, final Map params) {
-        _router.go(routePath,params);
+        _router.go(routePath, params);
     }
 
     //- private -----------------------------------------------------------------------------------
 
     void _bindSignals() {
         final MaterialButton login = MaterialButton.widget(dom.querySelector("#login"));
-        login.onClick.listen( (final dom.Event event) async {
+        login.onClick.listen((final dom.Event event) async {
             event.preventDefault();
 
             final MdlDialogStatus status = await _login();
@@ -89,21 +87,20 @@ class Application extends MaterialApplication {
         });
 
         final MaterialButton properties = MaterialButton.widget(dom.querySelector("#showprops"));
-        properties.onClick.listen( (final dom.Event event) async {
+        properties.onClick.listen((final dom.Event event) async {
             event.preventDefault();
 
             final dom.Element body = dom.querySelector("body");
             body.classes.toggle("show-properties");
 
             final dom.Element properties = dom.querySelector(".mdl-properties");
-            if(properties != null) {
+            if (properties != null) {
                 AnimationState.removeAllStatesFrom(properties);
             }
 
-            if(body.classes.contains("show-properties")) {
-
+            if (body.classes.contains("show-properties")) {
                 bounceInRight(properties).then((_) {
-                    AnimationState.setState(properties,AnimationState.last);
+                    AnimationState.setState(properties, AnimationState.last);
                     _logger.info("Animation completed!");
                 });
             }
@@ -114,7 +111,7 @@ class Application extends MaterialApplication {
         final LoginDialog dialog = new LoginDialog();
         final MdlDialogStatus status = await dialog(title: "Login").show();
 
-        if(status == MdlDialogStatus.OK) {
+        if (status == MdlDialogStatus.OK) {
             _logger.info("You entered - username: ${dialog.username.value}, password: ${dialog.password.value}");
         }
 
@@ -125,17 +122,19 @@ class Application extends MaterialApplication {
         _logger.info("Status: ${status}");
         isUserLoggedIn = (status == MdlDialogStatus.OK);
 
-        if(isUserLoggedIn) {
-            go("view1", {} );
-        } else {
-            go("home", {} );
+        if (isUserLoggedIn) {
+            go("view1", {});
+        }
+        else {
+            go("home", {});
         }
     }
 }
 
 class ApplicationModule extends di.Module {
-    ApplicationModule() {
-       // Nothing interesting here - just a reminder how to use a Module
+    @override
+    configure() {
+        // TODO: implement configure
     }
 }
 
@@ -150,14 +149,13 @@ main() async {
     final Application application = await componentFactory().rootContext(Application)
         .addModule(new ApplicationModule()).run();
 
-    configRouter(application._router,(final RoutePreEnterEvent event) {
+    configRouter(application._router, (final RoutePreEnterEvent event) {
         event.allowEnter(new Future<bool>(() => application.isUserLoggedIn));
     });
 
     application.run();
 
     //- private -----------------------------------------------------------------------------------
-
 
 }
 
@@ -167,7 +165,6 @@ class DefaultController extends MaterialController {
 
     @override
     void loaded(final Route route) {
-
         final Application app = componentFactory().application;
         app.title.value = route.name;
 
@@ -188,9 +185,8 @@ class ControllerView1 extends DefaultController {
     @override
     void unload() {
         _logger.info("ControllerView1 unloaded!");
-
     }
-    // - private ------------------------------------------------------------------------------------------------------
+// - private ------------------------------------------------------------------------------------------------------
 }
 
 class ControllerView2 extends DefaultController {
@@ -215,7 +211,7 @@ class ControllerView2 extends DefaultController {
         app.keepProperties.value = keepPropertiesState;
         _logger.info("ControllerView2 unloaded!");
     }
-    // - private ------------------------------------------------------------------------------------------------------
+// - private ------------------------------------------------------------------------------------------------------
 }
 
 class ControllerView3 extends DefaultController {
@@ -230,31 +226,22 @@ class ControllerView3 extends DefaultController {
     @override
     void unload() {
         _logger.info("ControllerView3 unloaded!");
-
     }
-    // - private ------------------------------------------------------------------------------------------------------
+// - private ------------------------------------------------------------------------------------------------------
 }
 
-
-
-void configRouter(final Router router,final RoutePreEnterEventHandler routeChecker) {
+void configRouter(final Router router, final RoutePreEnterEventHandler routeChecker) {
     final ViewFactory view = new ViewFactory();
 
-    router.root
+    router.root..addRoute(name: 'view1', path: '/view1',
+        enter: view("views/view1.html", new ControllerView1()),
+        preEnter: routeChecker)..addRoute(name: 'view2', path: '/view2',
+        enter: view("views/view2.html", new ControllerView2()),
+        preEnter: routeChecker)..addRoute(name: 'view3', path: '/view3',
+        enter: view("views/view3.html", new ControllerView2()),
+        preEnter: routeChecker)
 
-        ..addRoute(name: 'view1', path: '/view1',
-            enter: view("views/view1.html", new ControllerView1()),
-            preEnter: routeChecker)
-
-        ..addRoute(name: 'view2', path: '/view2',
-            enter: view("views/view2.html", new ControllerView2()),
-            preEnter: routeChecker)
-
-        ..addRoute(name: 'view3', path: '/view3',
-            enter: view("views/view3.html", new ControllerView2()),
-            preEnter: routeChecker)
-
-        /// Leave default-route as the last one
+    /// Leave default-route as the last one
         ..addRoute(name: 'home', defaultRoute: true, path: '/',
             enter: view("views/home.html", new DefaultController()))
 

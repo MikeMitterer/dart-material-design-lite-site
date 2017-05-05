@@ -54,7 +54,7 @@ class WithCallbackComponent extends MdlTemplateComponent {
 
     
     WithCallbackComponent.fromElement(final dom.HtmlElement element,final di.Injector injector)
-        : _store = injector.get(SampleStore), super(element,injector) {
+        : _store = injector.getInstance(SampleStore), super(element,injector) {
         _init();
     }
     

@@ -22,10 +22,10 @@ library mdl_styleguide.customdialog2;
 import 'package:mdl/mdl.dart';
 import "package:mdl/mdldialog.dart";
 
-import 'package:di/di.dart' as di;
+import 'package:dice/dice.dart' as di;
 
 
-@MdlComponentModel  @di.Injectable()
+@MdlComponentModel
 class CustomDialog2 extends MaterialDialog {
 
     static const String _DEFAULT_SUBMIT_BUTTON = "Submit";

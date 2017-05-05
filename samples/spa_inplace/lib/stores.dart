@@ -21,7 +21,7 @@ library mdl_inplace_edit_sample.stores;
 
 import 'dart:async';
 
-import 'package:di/di.dart' as di;
+import 'package:dice/dice.dart' as di;
 import 'package:logging/logging.dart';
 import 'package:validate/validate.dart';
 import 'package:intl/intl.dart';
@@ -46,17 +46,16 @@ PersonsStore _singletonStore = null;
 ///         }
 ///     }
 class StoreModule  extends di.Module {
-    StoreModule() {
-
-        bind(PersonsStore,toFactory: _singletonFactory);
-        bind(PersonStore,toFactory: _singletonFactory);
+    configure() {
+        register(PersonsStore).toInstance(_singletonFactory());
+        register(PersonStore).toInstance(_singletonFactory());
     }
 }
 
 /// Ugly hack because DI does not support "asSingleton" like Guice does!!!!
 _singletonFactory() {
     if(_singletonStore == null) {
-        _singletonStore = new PersonsStoreImpl(componentFactory().injector.get(ActionBus));
+        _singletonStore = new PersonsStoreImpl(new ActionBus());
     }
     return _singletonStore;
 }

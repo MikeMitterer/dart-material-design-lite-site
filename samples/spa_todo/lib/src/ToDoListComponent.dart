@@ -47,7 +47,7 @@ class ToDoListComponent extends MdlTemplateComponent implements ScopeAware {
     final ToDoListStoreInterface _datastore;
 
     ToDoListComponent.fromElement(final dom.HtmlElement element,final di.Injector injector)
-        : _datastore = injector.get(ToDoListStoreInterface), super(element,injector) {
+        : _datastore = injector.getInstance(ToDoListStoreInterface), super(element,injector) {
         _init();
     }
 

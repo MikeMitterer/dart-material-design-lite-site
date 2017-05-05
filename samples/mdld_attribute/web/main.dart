@@ -1,13 +1,13 @@
 import 'package:logging/logging.dart';
 import 'package:console_log_handler/console_log_handler.dart';
-import 'package:di/di.dart' as di;
+import 'package:dice/dice.dart' as di;
 
 import 'package:mdl/mdl.dart';
 import 'package:mdl/mdlobservable.dart';
 
-@MdlComponentModel @di.Injectable()
+@MdlComponentModel
 class Application extends MaterialApplication {
-    // final Logger _logger = new Logger('main.Application');
+    final Logger _logger = new Logger('main.Application');
 
     final ObservableProperty<bool> checkAttribute = new ObservableProperty<bool>(false);
 

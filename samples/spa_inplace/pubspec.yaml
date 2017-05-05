@@ -20,7 +20,9 @@ dependencies:
   mdl:
     path: /Volumes/Daten/DevLocal/DevDart/MaterialDesignLite
 
-  di: ^3.3.0
+  dice:
+    # 1.6.5
+    path: /Volumes/Daten/DevLocal/DevDart/dice
 
   uuid: ^0.5.0
 
@@ -30,7 +32,6 @@ dev_dependencies:
   test: any
 
 transformers:
-  - di
   - dart_to_js_script_rewriter
 
 #  - $dart2js:

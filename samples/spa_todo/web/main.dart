@@ -2,7 +2,7 @@ import "dart:async";
 
 import 'package:logging/logging.dart';
 import 'package:console_log_handler/console_log_handler.dart';
-import 'package:di/di.dart' as di;
+import 'package:dice/dice.dart' as di;
 
 import 'package:mdl/mdl.dart';
 
@@ -10,13 +10,14 @@ import "package:mdl_todo_sample/src/interfaces.dart";
 import "package:mdl_todo_sample/components.dart";
 import "package:mdl_todo_sample/datastore.dart";
 
-@MdlComponentModel @di.Injectable()
+@MdlComponentModel @di.inject
 class Application implements MaterialApplication {
     final Logger _logger = new Logger('main.Application');
 
     /// Added by the MDL/Dart-Framework (mdlapplication.dart)
     final ActionBus _actionbus;
 
+    @di.inject
     Application(this._actionbus) {
     }
 
@@ -55,10 +56,10 @@ Future main() async {
  * Application-Config via DI
  */
 class SampleModule extends di.Module {
-    SampleModule() {
-
-        bind(ToDoInputStoreInterface, toImplementation: ToDoDataStore);
-        bind(ToDoListStoreInterface, toImplementation: ToDoDataStore);
+    configure() {
+        final store = new ToDoDataStore(new ActionBus());
+        register(ToDoInputStoreInterface).toInstance(store);
+        register(ToDoListStoreInterface).toInstance(store);
     }
 }
 

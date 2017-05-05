@@ -2,11 +2,11 @@ import "dart:html" as dom;
 
 import 'package:logging/logging.dart';
 import 'package:console_log_handler/console_log_handler.dart';
-import 'package:di/di.dart' as di;
+import 'package:dice/dice.dart' as di;
 
 import 'package:mdl/mdl.dart';
 
-@MdlComponentModel @di.Injectable()
+@MdlComponentModel
 class Application implements MaterialApplication {
     // final Logger _logger = new Logger('main.Application');
 
@@ -58,7 +58,7 @@ main() async {
  * Application-Config via DI
  */
 class SampleModule extends di.Module {
-    SampleModule() {
+    configure() {
     }
 }
 

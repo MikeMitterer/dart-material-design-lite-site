@@ -23,12 +23,14 @@ import 'package:mdl/mdl.dart';
 
 import 'package:mdl_inplace_edit_sample/model.dart';
 
+@MdlComponentModel
 abstract class PersonsStore extends DataStore {
 
     /// Holds the persons for this sample!
     ObservableList<Person> get persons;
 }
 
+@MdlComponentModel
 abstract class PersonStore extends DataStore {
 
     /// This is returns the Person we want to edit

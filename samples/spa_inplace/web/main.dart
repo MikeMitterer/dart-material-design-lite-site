@@ -2,14 +2,14 @@ import "dart:async";
 
 import 'package:logging/logging.dart';
 import 'package:console_log_handler/console_log_handler.dart';
-import 'package:di/di.dart' as di;
+import 'package:dice/dice.dart' as di;
 
 import 'package:mdl/mdl.dart';
 
 import 'package:mdl_inplace_edit_sample/components.dart';
 import 'package:mdl_inplace_edit_sample/stores.dart';
 
-@MdlComponentModel @di.Injectable()
+@MdlComponentModel
 class Application extends MaterialApplication {
     //final Logger _logger = new Logger('main.Application');
 
@@ -35,7 +35,7 @@ Future main() async {
 
         final MaterialApplication application = await componentFactory()
             .rootContext(Application)
-            .addModule(new SampleModule())
+            .addModule(new SampleModule1())
             .run();
 
         application.run();
@@ -44,8 +44,8 @@ Future main() async {
 /**
  * Demo Module
  */
-class SampleModule extends di.Module {
-    SampleModule() {
+class SampleModule1 extends di.Module {
+    configure() {
         install(new StoreModule());
 
         // -- services

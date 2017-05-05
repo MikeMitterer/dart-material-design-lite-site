@@ -2,7 +2,7 @@ import "dart:html" as dom;
 
 import 'package:logging/logging.dart';
 import 'package:console_log_handler/console_log_handler.dart';
-import 'package:di/di.dart' as di;
+import 'package:dice/dice.dart' as di;
 
 import 'package:mdl/mdl.dart';
 import 'package:mdl/mdlobservable.dart';
@@ -21,7 +21,7 @@ class HackintoshComponent {
     HackintoshComponent(this.id,this.name, this.quantity, this.price);
 }
 
-@MdlComponentModel @di.Injectable()
+@MdlComponentModel
 class Application implements MaterialApplication {
     final Logger _logger = new Logger('main.Application');
 

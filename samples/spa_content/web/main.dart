@@ -56,7 +56,7 @@ main() {
     registerMdl();
 
     componentFactory().run().then((_) {
-        configRouter(componentFactory().injector.get(ViewFactory));
+        configRouter(componentFactory().injector.getInstance(ViewFactory));
 
         final MaterialSlider mainslider = MaterialSlider.widget(dom.querySelector("#mainslider2"));
         final MaterialContent list = MaterialContent.widget(dom.querySelector("#list"));

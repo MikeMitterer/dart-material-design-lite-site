@@ -25,11 +25,13 @@ import 'dart:collection';
 
 // - DataStores for our components -------------------------------------------------------------------------------------
 
+@MdlComponentModel
 abstract class ToDoInputStoreInterface extends DataStore {
     int get nrOfItemsDone;
     int get nrOfItems;
 }
 
+@MdlComponentModel
 abstract class ToDoListStoreInterface extends DataStore {
     UnmodifiableListView<ToDoItem> get items;
 }

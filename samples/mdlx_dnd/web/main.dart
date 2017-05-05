@@ -1,6 +1,6 @@
 import 'package:logging/logging.dart';
 import 'package:console_log_handler/console_log_handler.dart';
-import 'package:di/di.dart' as di;
+import 'package:dice/dice.dart' as di;
 
 import 'package:mdl/mdl.dart';
 
@@ -19,7 +19,7 @@ class _Natural extends _Language {
     _Natural(final String name) : super(name,"natural");
 }
 
-@MdlComponentModel @di.Injectable()
+@MdlComponentModel
 class Application extends MaterialApplication {
     // final _logger = new Logger('dnd.Application');
 

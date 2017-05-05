@@ -22,13 +22,14 @@ library mdl_repeat_callback_sample.datastore;
 
 import 'package:mdl/mdl.dart';
 import 'package:mdl_repeat_callback_sample/components/interfaces.dart';
-import 'package:di/di.dart' as di;
+import 'package:dice/dice.dart' as di;
 
-@di.Injectable()
+@MdlComponentModel
 class SampleStoreImpl extends Dispatcher implements SampleStore {
 
     final List<RandomItem> _items = new List<RandomItem>();
 
+    @di.inject
     SampleStoreImpl(final ActionBus actionbus) : super(actionbus) {
         _bindActions();
     }

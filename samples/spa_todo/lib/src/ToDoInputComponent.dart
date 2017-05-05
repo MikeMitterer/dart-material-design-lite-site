@@ -32,7 +32,7 @@ class ToDoInputComponent extends MdlTemplateComponent {
     final ToDoInputStoreInterface _datastore;
 
     ToDoInputComponent.fromElement(final dom.HtmlElement element,final di.Injector injector)
-        : _datastore = injector.get(ToDoInputStoreInterface), super(element,injector) {
+        : _datastore = injector.getInstance(ToDoInputStoreInterface), super(element,injector) {
         
         _init();
         

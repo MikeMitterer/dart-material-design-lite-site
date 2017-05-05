@@ -19,7 +19,7 @@
 
 part of spa_template.dialogs;
 
-@MdlComponentModel  @di.Injectable()
+@MdlComponentModel
 class LoginDialog extends MaterialDialog {
 
     static const String _DEFAULT_SUBMIT_BUTTON = "Submit";

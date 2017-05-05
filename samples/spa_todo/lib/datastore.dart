@@ -21,16 +21,21 @@ library mdl_todo_sample.datastore;
 
 import 'dart:collection';
 
+import 'package:logging/logging.dart';
 import 'package:mdl/mdl.dart';
 import 'package:mdl_todo_sample/src/interfaces.dart';
-import 'package:di/di.dart' as di;
+import 'package:dice/dice.dart' as di;
 
-@di.Injectable()
+@MdlComponentModel
 class ToDoDataStore extends Dispatcher implements ToDoInputStoreInterface, ToDoListStoreInterface {
+    final Logger _logger = new Logger('mdl_todo_sample.datastore.ToDoDataStore');
 
     final List<ToDoItem> _items = new List<ToDoItem>();
 
-    ToDoDataStore(final ActionBus actionbus) : super(actionbus) { _bindSignals(); }
+    @di.inject
+    ToDoDataStore(final ActionBus actionbus) : super(actionbus) {
+        _bindSignals();
+    }
 
     @override
     int get nrOfItems => _items.length;

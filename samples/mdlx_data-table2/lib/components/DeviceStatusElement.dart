@@ -43,7 +43,7 @@ class _DeviceStatusElementConstant {
 ///         }     
 ///     }
 class DeviceStatusElementModule  extends di.Module {
-    DeviceStatusElementModule() {
+    configure() {
         // bind(DeviceProxy);
     }
 }

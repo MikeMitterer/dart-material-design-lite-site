@@ -27,7 +27,7 @@ part of mdl_inplace_edit_sample.components;
 ///         }     
 ///     }
 class NameEditComponentModule  extends di.Module {
-    NameEditComponentModule() {
+    configure() {
         // bind(DeviceProxy);
     }
 } 
@@ -48,7 +48,7 @@ class NameEditComponent extends MdlTemplateComponent {
     final PersonStore _store;
 
     NameEditComponent.fromElement(final dom.HtmlElement element,final di.Injector injector)
-        : _store = injector.get(PersonStore), super(element,injector) {
+        : _store = injector.getInstance(PersonStore), super(element,injector) {
         
         _init();
     }

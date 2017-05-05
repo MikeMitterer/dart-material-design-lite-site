@@ -1,5 +1,5 @@
 import "dart:html" as dom;
-import 'package:di/di.dart' as di;
+import 'package:dice/dice.dart' as di;
 
 import 'package:logging/logging.dart';
 import 'package:console_log_handler/console_log_handler.dart';
@@ -11,7 +11,7 @@ import "package:mdl_dialog_sample/customdialog1.dart";
 import "package:mdl_dialog_sample/customdialog2.dart";
 
 
-@MdlComponentModel @di.Injectable()
+@MdlComponentModel
 class Application extends MaterialApplication {
     final Logger _logger = new Logger('dialog.Application');
 

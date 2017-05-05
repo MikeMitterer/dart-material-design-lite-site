@@ -31,7 +31,7 @@ import 'package:mdl/mdlobservable.dart';
 import 'package:route_hierarchical/client.dart';
 
 import 'package:prettify/prettify.dart';
-import 'package:di/di.dart' as di;
+import 'package:dice/dice.dart' as di;
 
 import "package:mdl/mdldialog.dart";
 
@@ -55,7 +55,8 @@ class ModelTest {
 
     final ObservableProperty<String> wifi = new ObservableProperty<String>("never");
 
-    final List<ObservableProperty<String>> lights = [ new ObservableProperty<String>(""), new ObservableProperty<String>("") ];
+    final List<ObservableProperty<String>> lights = [
+        new ObservableProperty<String>(""), new ObservableProperty<String>("")];
 
     final ObservableProperty<int> intensity = new ObservableProperty<int>(90);
 }
@@ -63,24 +64,24 @@ class ModelTest {
 /**
  * Application - you can get the Application via injector.getByKey(MDLROOTCONTEXT)
  */
-@MdlComponentModel @di.Injectable()
+@MdlComponentModel
 class Application extends MaterialApplication {
     final Logger _logger = new Logger('main.Application');
 
     // Observe-Sample + DND
-    final ObservableList<_Language>  languages = new ObservableList<_Language>();
+    final ObservableList<_Language> languages = new ObservableList<_Language>();
     final ObservableProperty<String> time = new ObservableProperty<String>("", interval: new Duration(seconds: 1));
     final ObservableProperty<String> records = new ObservableProperty<String>("");
-    final ObservableProperty<_Name>  nameObject = new ObservableProperty<_Name>(null);
-    final ObservableProperty<bool>   isNameNull = new ObservableProperty<bool>(true);
+    final ObservableProperty<_Name> nameObject = new ObservableProperty<_Name>(null);
+    final ObservableProperty<bool> isNameNull = new ObservableProperty<bool>(true);
 
-    final List<_Name>                names = new List<_Name>();
+    final List<_Name> names = new List<_Name>();
 
     // To-Do-Sample
     final ObservableProperty<int> nrOfItems = new ObservableProperty<int>(0);
     final ObservableProperty<int> nrOfItemsDone = new ObservableProperty<int>(0,
         interval: new Duration(milliseconds: 500));
-    
+
     // DND-Sample
     final ObservableList<_Language> natural = new ObservableList<_Language>();
     final ObservableList<_Language> programming = new ObservableList<_Language>();
@@ -105,6 +106,7 @@ class Application extends MaterialApplication {
     /// Added by the MDL/Dart-Framework (mdlapplication.dart)
     final ActionBus _actionbus;
 
+    @di.inject
     Application(this._actionbus) {
         _logger.info("Application created");
 
@@ -117,7 +119,7 @@ class Application extends MaterialApplication {
         _bindSignals();
 
         // Redirect to 'home'
-        if(!dom.window.location.href.contains("#")) {
+        if (!dom.window.location.href.contains("#")) {
             dom.window.location.href = "/#/";
         }
     }
@@ -149,8 +151,8 @@ class Application extends MaterialApplication {
 
     /// DND-Sample
     void addToProgrammingLanguages(final _Language language) {
-        if(language.type == "programming") {
-            if(!programming.contains(language)) {
+        if (language.type == "programming") {
+            if (!programming.contains(language)) {
                 programming.add(language);
             }
         }
@@ -158,8 +160,8 @@ class Application extends MaterialApplication {
 
     /// DND-Sample
     void addToNaturalLanguages(final _Language language) {
-        if(language.type == "natural") {
-            if(!natural.contains(language)) {
+        if (language.type == "natural") {
+            if (!natural.contains(language)) {
                 natural.add(language);
             }
         }
@@ -167,14 +169,14 @@ class Application extends MaterialApplication {
 
     /// DND-Sample
     void moveToTrash(final _Language language) {
-        if(language.type == "programming" && programming.contains(language)) {
+        if (language.type == "programming" && programming.contains(language)) {
             programming.remove(language);
-
-        } else if(language.type == "natural" && natural.contains(language)) {
+        }
+        else if (language.type == "natural" && natural.contains(language)) {
             natural.remove(language);
         }
     }
-    
+
     //- private -----------------------------------------------------------------------------------
 
     String _getTime() {
@@ -192,10 +194,12 @@ class Application extends MaterialApplication {
 }
 
 class StyleguideModule extends di.Module {
-    StyleguideModule() {
 
-        bind(ToDoInputStoreInterface, toImplementation: ToDoDataStore);
-        bind(ToDoListStoreInterface, toImplementation: ToDoDataStore);
+    @override
+    configure() {
+        final store = new ToDoDataStore(new ActionBus());
+        register(ToDoInputStoreInterface).toInstance(store);
+        register(ToDoListStoreInterface).toInstance(store);
     }
 }
 
@@ -213,9 +217,8 @@ main() {
     registerToDoComponents();
 
     componentFactory().rootContext(Application)
-    .addModule(new StyleguideModule()).run()
-    .then((final MaterialApplication application) {
-
+        .addModule(new StyleguideModule()).run()
+        .then((final MaterialApplication application) {
         configRouter();
 
         application.run();
@@ -228,7 +231,6 @@ class DemoController extends MaterialController {
 
     @override
     void loaded(final Route route) {
-
         final Application app = componentFactory().application;
         app.title.value = route.name;
 
@@ -276,7 +278,7 @@ class BadgeController extends DemoController {
     void unload() {
         stopTimer = true;
     }
-    // - private ------------------------------------------------------------------------------------------------------
+// - private ------------------------------------------------------------------------------------------------------
 }
 
 class DialogController extends DemoController {
@@ -316,7 +318,6 @@ class DialogController extends DemoController {
             _logger.info("Click on ConfirmButton");
             customDialog1(title: "Mango #${mangoCounter} (Fruit)",
                 yesButton: "I buy it!", noButton: "Not now").show().then((final MdlDialogStatus status) {
-
                 _logger.info(status);
                 mangoCounter++;
             });
@@ -325,9 +326,8 @@ class DialogController extends DemoController {
         btnCustomDialog2.onClick.listen((_) {
             _logger.info("Click on ConfirmButton");
             customDialog2(title: "Form-Sample").show().then((final MdlDialogStatus status) {
-
                 _logger.info(status);
-                if(status == MdlDialogStatus.OK) {
+                if (status == MdlDialogStatus.OK) {
                     _logger.info("You entered: ${customDialog2.name.value}");
                 }
             });
@@ -341,13 +341,13 @@ class DNDController extends DemoController {
     @override
     void loaded(final Route route) {
         super.loaded(route);
-        
+
         _addLanguages();
     }
 
     @override
     void unload() {
-        final Application  app = componentFactory().application;
+        final Application app = componentFactory().application;
         app.languages.clear();
         app.programming.clear();
         app.natural.clear();
@@ -356,7 +356,7 @@ class DNDController extends DemoController {
     // - private ------------------------------------------------------------------------------------------------------
 
     _addLanguages() {
-        final Application  app = componentFactory().application;
+        final Application app = componentFactory().application;
         app.languages.add(new _Natural("English"));
         app.languages.add(new _Natural("German"));
         app.languages.add(new _Natural("Italian"));
@@ -372,11 +372,12 @@ class DNDController extends DemoController {
 class FormatterController extends DemoController {
     static final Logger _logger = new Logger('main.FormatterController');
 
-    final List<String> xmen = ['Angel/Archangel', 'Apocalypse', 'Bishop', 'Beast','Caliban','Colossus',
-    'Cyclops','Firestar','Emma Frost','Gambit','High Evolutionary','Dark Phoenix',
-    'Marvel Girl','Iceman','Juggernaut','Magneto','Minos','Mr. Sinister','Mystique',
-    'Nightcrawler','Professor X','Pyro','Psylocke','Rogue','Sabretooth','Shadowcat','Storm',
-    'Talker','Wolverine','X-23' ];
+    final List<String> xmen = ['Angel/Archangel', 'Apocalypse', 'Bishop', 'Beast', 'Caliban', 'Colossus',
+    'Cyclops', 'Firestar', 'Emma Frost', 'Gambit', 'High Evolutionary', 'Dark Phoenix',
+    'Marvel Girl', 'Iceman', 'Juggernaut', 'Magneto', 'Minos', 'Mr. Sinister', 'Mystique',
+    'Nightcrawler', 'Professor X', 'Pyro', 'Psylocke', 'Rogue', 'Sabretooth', 'Shadowcat', 'Storm',
+    'Talker', 'Wolverine', 'X-23'
+    ];
 
     final Math.Random rnd = new Math.Random();
 
@@ -390,8 +391,8 @@ class FormatterController extends DemoController {
 
         cancelTimer = false;
         int counter = 0;
-        new Timer.periodic(new Duration(milliseconds: 500),(final Timer timer) {
-            if(cancelTimer) {
+        new Timer.periodic(new Duration(milliseconds: 500), (final Timer timer) {
+            if (cancelTimer) {
                 timer.cancel();
                 return;
             }
@@ -404,10 +405,11 @@ class FormatterController extends DemoController {
             _labelfield2.value = xmen[index];
             _textfield.value = xmen[index];
             _labelfield3.value = (index * 3.14159265359).toString();
-            _badge.value = xmen[index].substring(0,1);
+            _badge.value = xmen[index].substring(0, 1);
             _button.value = xmen[index];
 
-            _checkbox.label = "Name #$index";;
+            _checkbox.label = "Name #$index";
+            ;
 
             _labelfield4.label = "Name #$index";
             _labelfield4.value = xmen[index];
@@ -417,7 +419,7 @@ class FormatterController extends DemoController {
 
             _switch.label = "Name #$index";
 
-            if(counter > 10) {
+            if (counter > 10) {
                 // cancelTimer = true;
             }
             counter++;
@@ -433,14 +435,23 @@ class FormatterController extends DemoController {
     dom.HtmlElement get _demosection => dom.querySelector(".demo-section--formatter");
 
     MaterialLabelfield get _labelfield1 => MaterialLabelfield.widget(_demosection.querySelector("#labelfield1"));
+
     MaterialLabelfield get _labelfield2 => MaterialLabelfield.widget(_demosection.querySelector("#labelfield2"));
+
     MaterialTextfield get _textfield => MaterialTextfield.widget(_demosection.querySelector("#textfield"));
+
     MaterialLabelfield get _labelfield3 => MaterialLabelfield.widget(_demosection.querySelector("#labelfield3"));
+
     MaterialLabelfield get _labelfield4 => MaterialLabelfield.widget(_demosection.querySelector("#labelfield4"));
+
     MaterialBadge get _badge => MaterialBadge.widget(_demosection.querySelector(".mdl-badge"));
+
     MaterialButton get _button => MaterialButton.widget(_demosection.querySelector(".mdl-button"));
+
     MaterialCheckbox get _checkbox => MaterialCheckbox.widget(_demosection.querySelector("#checkbox-1"));
+
     MaterialRadio get _radioWifi1 => MaterialRadio.widget(_demosection.querySelector("#wifi1"));
+
     MaterialSwitch get _switch => MaterialSwitch.widget(_demosection.querySelector(".mdl-switch"));
 }
 
@@ -471,13 +482,13 @@ class MenuController extends DemoController {
         final dom.HtmlElement element = dom.querySelector(".mdl-menu"); // first menu
         final MaterialMenu menu1 = MaterialMenu.widget(element);
 
-//        void _addMessageDiv() {
-//            final dom.HtmlElement element = dom.querySelectorAll(".mdl-menu__container").last.parent;
-//            final dom.DivElement message = new dom.DivElement();
-//
-//            message.id = "message";
-//            element.insertAdjacentElement("beforeEnd", message);
-//        }
+        //        void _addMessageDiv() {
+        //            final dom.HtmlElement element = dom.querySelectorAll(".mdl-menu__container").last.parent;
+        //            final dom.DivElement message = new dom.DivElement();
+        //
+        //            message.id = "message";
+        //            element.insertAdjacentElement("beforeEnd", message);
+        //        }
 
         void _showMessage(final int secsToClose) {
             final dom.DivElement message = dom.querySelector("#message");
@@ -488,7 +499,7 @@ class MenuController extends DemoController {
         }
 
         menu1.show();
-//        _addMessageDiv();
+        //        _addMessageDiv();
         _showMessage(TIMEOUT_IN_SECS);
         int tick = 0;
         new Timer.periodic(new Duration(milliseconds: 1000), (final Timer timer) {
@@ -558,7 +569,7 @@ class NotificationController extends DemoController {
             final String titleToShow = title.value.isNotEmpty ? "${title.value} (#${counter})" : "";
 
             notification(content.value, type: type, title: titleToShow, subtitle: subtitle.value)
-            .show().then((final MdlDialogStatus status) {
+                .show().then((final MdlDialogStatus status) {
                 _logger.info(status);
             });
             counter++;
@@ -571,7 +582,7 @@ class NotificationController extends DemoController {
         });
     }
 
-    // - private ------------------------------------------------------------------------------------------------------
+// - private ------------------------------------------------------------------------------------------------------
 }
 
 @MdlComponentModel
@@ -587,13 +598,14 @@ class _Natural extends _Language {
 }
 
 class _Programming extends _Language {
-    _Programming(final String name) : super(name,"programming");
+    _Programming(final String name) : super(name, "programming");
 }
 
 @MdlComponentModel
 class _Name {
     final String first;
     final String last;
+
     _Name(this.first, this.last);
 
     @override
@@ -615,7 +627,6 @@ class ObserverController extends DemoController {
         _addNames();
     }
 
-
     // - private ------------------------------------------------------------------------------------------------------
 
     void unload() {
@@ -624,7 +635,6 @@ class ObserverController extends DemoController {
 
         app.languages.clear();
         app.names.clear();
-
     }
 
     void _addLanguages() {
@@ -646,14 +656,14 @@ class ObserverController extends DemoController {
     void _addNames() {
         final Application app = componentFactory().application;
 
-        app.names.add(new _Name("Bill","Gates"));
-        app.names.add(new _Name("Steven","Jobs"));
-        app.names.add(new _Name("Larry","Page"));
+        app.names.add(new _Name("Bill", "Gates"));
+        app.names.add(new _Name("Steven", "Jobs"));
+        app.names.add(new _Name("Larry", "Page"));
         app.names.add(null);
 
         int counter = 0;
-        new Timer.periodic(new Duration(milliseconds: 1000),(final Timer timer) {
-            if(stopTimer) {
+        new Timer.periodic(new Duration(milliseconds: 1000), (final Timer timer) {
+            if (stopTimer) {
                 timer.cancel();
                 return;
             }
@@ -675,17 +685,30 @@ class ProgressController extends DemoController {
         super.loaded(route);
 
         // 1
-        MaterialProgress.widget(dom.querySelector("#p1")).progress = 44;
-        MaterialProgressVertical.widget(dom.querySelector("#p1v")).progress = 44;
-        MaterialProgressVertical.widget(dom.querySelector("#p11v")).progress = 44;
+        MaterialProgress
+            .widget(dom.querySelector("#p1"))
+            .progress = 44;
+        MaterialProgressVertical
+            .widget(dom.querySelector("#p1v"))
+            .progress = 44;
+        MaterialProgressVertical
+            .widget(dom.querySelector("#p11v"))
+            .progress = 44;
 
         // 2
-        MaterialProgress.widget(dom.querySelector("#p3")).progress = 33;
-        MaterialProgress.widget(dom.querySelector("#p3")).buffer = 87;
+        MaterialProgress
+            .widget(dom.querySelector("#p3"))
+            .progress = 33;
+        MaterialProgress
+            .widget(dom.querySelector("#p3"))
+            .buffer = 87;
 
-        MaterialProgressVertical.widget(dom.querySelector("#p3v")).progress = 33;
-        MaterialProgressVertical.widget(dom.querySelector("#p3v")).buffer = 87;
-
+        MaterialProgressVertical
+            .widget(dom.querySelector("#p3v"))
+            .progress = 33;
+        MaterialProgressVertical
+            .widget(dom.querySelector("#p3v"))
+            .buffer = 87;
 
         (dom.querySelector("#slider") as dom.RangeInputElement).onInput.listen((final dom.Event event) {
             final int value = int.parse((event.target as dom.RangeInputElement).value);
@@ -694,15 +717,20 @@ class ProgressController extends DemoController {
                 ..progress = value
                 ..classes.toggle("test");
 
-            MaterialProgress.widget(dom.querySelector("#p3")).progress = value;
+            MaterialProgress
+                .widget(dom.querySelector("#p3"))
+                .progress = value;
 
             final component2 = MaterialProgressVertical.widget(dom.querySelector("#p1v"))
                 ..progress = value
                 ..classes.toggle("test");
 
-
-            MaterialProgressVertical.widget(dom.querySelector("#p11v")).progress = value;
-            MaterialProgressVertical.widget(dom.querySelector("#p3v")).progress = value;
+            MaterialProgressVertical
+                .widget(dom.querySelector("#p11v"))
+                .progress = value;
+            MaterialProgressVertical
+                .widget(dom.querySelector("#p3v"))
+                .progress = value;
 
             _logger.info("Value1: ${component.progress}");
             _logger.info("Value2: ${component2.progress}");
@@ -719,7 +747,10 @@ class RadioController extends DemoController {
 
         MaterialRadio.widget(dom.querySelector("#wifi2")).disable();
 
-        MaterialButton.widget(dom.querySelector("#show-wifi-value")).onClick.listen((_) {
+        MaterialButton
+            .widget(dom.querySelector("#show-wifi-value"))
+            .onClick
+            .listen((_) {
             final MaterialRadioGroup group = MaterialRadioGroup.widget(dom.querySelector("#wifi"));
             final MaterialAlertDialog alertDialog = new MaterialAlertDialog();
 
@@ -748,7 +779,6 @@ class Name {
     Name(this.name, this._callback) {
         _id = _counter++;
     }
-
 
     void clicked(final String value) {
         _logger.info("Clicked on $value");
@@ -874,7 +904,6 @@ class SliderController extends DemoController {
     }
 }
 
-
 class SpinnerController extends DemoController {
     static final Logger _logger = new Logger('main.SpinnerController');
 
@@ -906,13 +935,26 @@ class SnackbarController extends DemoController {
         int counter = 0;
 
         void _makeSettings() {
-            snackbar.position.left = MaterialCheckbox.widget(dom.querySelector("#checkbox-left")).checked;
-            snackbar.position.top = MaterialCheckbox.widget(dom.querySelector("#checkbox-top")).checked;
-            snackbar.position.right = MaterialCheckbox.widget(dom.querySelector("#checkbox-right")).checked;
-            snackbar.position.bottom = MaterialCheckbox.widget(dom.querySelector("#checkbox-bottom")).checked;
+            snackbar.position.left = MaterialCheckbox
+                .widget(dom.querySelector("#checkbox-left"))
+                .checked;
+            snackbar.position.top = MaterialCheckbox
+                .widget(dom.querySelector("#checkbox-top"))
+                .checked;
+            snackbar.position.right = MaterialCheckbox
+                .widget(dom.querySelector("#checkbox-right"))
+                .checked;
+            snackbar.position.bottom = MaterialCheckbox
+                .widget(dom.querySelector("#checkbox-bottom"))
+                .checked;
 
-            dom.querySelector("#container").classes.toggle("mdl-snackbar-container",
-                MaterialCheckbox.widget(dom.querySelector("#checkbox-use-container")).checked);
+            dom
+                .querySelector("#container")
+                .classes
+                .toggle("mdl-snackbar-container",
+                MaterialCheckbox
+                    .widget(dom.querySelector("#checkbox-use-container"))
+                    .checked);
         }
 
         btnToast.onClick.listen((_) {
@@ -943,7 +985,6 @@ class ToDoController extends DemoController {
     @override
     void loaded(final Route route) {
         super.loaded(route);
-
     }
 
     @override
@@ -951,7 +992,7 @@ class ToDoController extends DemoController {
 
     }
 
-    //- private -----------------------------------------------------------------------------------
+//- private -----------------------------------------------------------------------------------
 }
 
 class LablefieldController extends DemoController {
@@ -982,7 +1023,7 @@ class LablefieldController extends DemoController {
 
     }
 
-    //- private -----------------------------------------------------------------------------------
+//- private -----------------------------------------------------------------------------------
 }
 
 class DataTable2Controller extends DemoController {
@@ -999,7 +1040,7 @@ class DataTable2Controller extends DemoController {
             final dom.DivElement div = event.row.element;
             final dom.HtmlElement child = div.querySelector(".material");
 
-            label.value = child.text.replaceAll(new RegExp(r"\s{2,}"),"");
+            label.value = child.text.replaceAll(new RegExp(r"\s{2,}"), "");
         });
     }
 
@@ -1015,161 +1056,67 @@ void configRouter() {
     final Router router = new Router(useFragment: true);
     final ViewFactory view = new ViewFactory();
 
-    router.root
+    router.root..addRoute(name: 'accordion', path: '/accordion',
+        enter: view("views/accordion.html", new DemoController()))..addRoute(name: 'animation', path: '/animation',
+        enter: view("views/animation.html", new DemoController()))..addRoute(name: 'attribute', path: '/attribute',
+        enter: view("views/attribute.html", new DemoController()))..addRoute(name: 'badge', path: '/badge',
+        enter: view("views/badge.html", new BadgeController()))..addRoute(name: 'button', path: '/button',
+        enter: view("views/button.html", new DemoController()))..addRoute(name: 'card', path: '/card',
+        enter: view("views/card.html", new DemoController()))..addRoute(name: 'contribute', path: '/contribute',
+        enter: view("views/contribute.html", new DemoController()))..addRoute(name: 'checkbox', path: '/checkbox',
+        enter: view("views/checkbox.html", new DemoController()))..addRoute(name: 'class', path: '/class',
+        enter: view("views/class.html", new DemoController()))..addRoute(name: 'data-table', path: '/data-table',
+        enter: view("views/data-table.html", new DemoController()))..addRoute(name: 'data-table2', path: '/data-table2',
+        enter: view("views/data-table2.html", new DataTable2Controller()))..addRoute(name: 'dialog', path: '/dialog',
+        enter: view("views/dialog.html", new DialogController()))..addRoute(name: 'dnd', path: '/dnd',
+        enter: view("views/dnd.html", new DNDController()))..addRoute(name: 'footer', path: '/footer',
+        enter: view("views/footer.html", new DemoController()))..addRoute(name: 'formatter', path: '/formatter',
+        enter: view("views/formatter.html", new FormatterController()))..addRoute(
+        name: 'getting started', path: '/gettingstarted',
+        enter: view("views/gettingstarted.html", new DemoController()))..addRoute(name: 'grid', path: '/grid',
+        enter: view("views/grid.html", new DemoController()))..addRoute(name: 'icons', path: '/icons',
+        enter: view("views/icons.html", new DemoController()))..addRoute(name: 'icon-toggle', path: '/icon-toggle',
+        enter: view("views/icon-toggle.html", new IconToggleController()))..addRoute(name: 'layout', path: '/layout',
+        enter: view("views/layout.html", new DemoController()))..addRoute(name: 'lablefield', path: '/lablefield',
+        enter: view("views/lablefield.html", new LablefieldController()))..addRoute(name: 'list', path: '/list',
+        enter: view("views/list.html", new DemoController()))..addRoute(name: 'materialdesign', path: '/materialdesign',
+        enter: view("views/materialdesign.html", new DemoController()))..addRoute(name: 'mdlflux', path: '/mdlflux',
+        enter: view("views/mdlflux.html", new DemoController()))..addRoute(name: 'menu', path: '/menu',
+        enter: view("views/menu.html", new MenuController()))..addRoute(name: 'model', path: '/model',
+        enter: view("views/model.html", new DemoController()))..addRoute(name: 'nav-pills', path: '/nav-pills',
+        enter: view("views/nav-pills.html", new DemoController()))..addRoute(
+        name: 'notification', path: '/notification',
+        enter: view("views/notification.html", new NotificationController()))..addRoute(
+        name: 'observe', path: '/observe',
+        enter: view("views/observe.html", new ObserverController()))..addRoute(name: 'palette', path: '/palette',
+        enter: view("views/palette.html", new DemoController()))..addRoute(name: 'panel', path: '/panel',
+        enter: view("views/panel.html", new DemoController()))..addRoute(name: 'progress', path: '/progress',
+        enter: view("views/progress.html", new ProgressController()))..addRoute(name: 'radio', path: '/radio',
+        enter: view("views/radio.html", new RadioController()))..addRoute(name: 'repeat', path: '/repeat',
+        enter: view("views/repeat.html", new RepeatController()))..addRoute(name: 'shadow', path: '/shadow',
+        enter: view("views/shadow.html", new DemoController()))..addRoute(name: 'samples', path: '/samples',
+        enter: view("views/samples.html", new DemoController()))..addRoute(name: 'slider', path: '/slider',
+        enter: view("views/slider.html", new SliderController()))..addRoute(name: 'snackbar', path: '/snackbar',
+        enter: view("views/snackbar.html", new SnackbarController()))..addRoute(name: 'spinner', path: '/spinner',
+        enter: view("views/spinner.html", new SpinnerController()))..addRoute(name: 'stagedive', path: '/stagedive',
+        enter: view("views/stagedive.html", new DemoController()))..addRoute(name: 'switch', path: '/switch',
+        enter: view("views/switch.html", new DemoController()))..addRoute(name: 'tabs', path: '/tabs',
+        enter: view("views/tabs.html", new DemoController()))..addRoute(name: 'templates', path: '/templates',
+        enter: view("views/templates.html", new DemoController()))..addRoute(name: 'textfield', path: '/textfield',
+        enter: view("views/textfield.html", new DemoController()))..addRoute(name: 'theming', path: '/theming',
+        enter: view("views/theming.html", new DemoController()))..addRoute(name: 'tooltip', path: '/tooltip',
+        enter: view("views/tooltip.html", new DemoController()))..addRoute(name: 'todo', path: '/todo',
+        enter: view("views/todo.html", new ToDoController()))..addRoute(name: 'typography', path: '/typography',
+        enter: view("views/typography.html", new DemoController()))
 
-        ..addRoute(name: 'accordion', path: '/accordion',
-            enter: view("views/accordion.html", new DemoController()))
-
-        ..addRoute(name: 'animation', path: '/animation',
-            enter: view("views/animation.html", new DemoController()))
-
-        ..addRoute(name: 'attribute', path: '/attribute',
-            enter: view("views/attribute.html", new DemoController()))
-
-        ..addRoute(name: 'badge', path: '/badge',
-            enter: view("views/badge.html", new BadgeController()))
-
-        ..addRoute(name: 'button', path: '/button',
-            enter: view("views/button.html", new DemoController()))
-
-        ..addRoute(name: 'card', path: '/card',
-            enter: view("views/card.html", new DemoController()))
-
-        ..addRoute(name: 'contribute', path: '/contribute',
-            enter: view("views/contribute.html", new DemoController()))
-
-        ..addRoute(name: 'checkbox', path: '/checkbox',
-            enter: view("views/checkbox.html", new DemoController()))
-
-        ..addRoute(name: 'class', path: '/class',
-            enter: view("views/class.html", new DemoController()))
-
-        ..addRoute(name: 'data-table', path: '/data-table',
-            enter: view("views/data-table.html", new DemoController()))
-
-        ..addRoute(name: 'data-table2', path: '/data-table2',
-            enter: view("views/data-table2.html", new DataTable2Controller()))
-
-        ..addRoute(name: 'dialog', path: '/dialog',
-            enter: view("views/dialog.html", new DialogController()))
-
-        ..addRoute(name: 'dnd', path: '/dnd',
-            enter: view("views/dnd.html", new DNDController()))
-
-        ..addRoute(name: 'footer', path: '/footer',
-            enter: view("views/footer.html", new DemoController()))
-
-        ..addRoute(name: 'formatter', path: '/formatter',
-            enter: view("views/formatter.html", new FormatterController()))
-
-        ..addRoute(name: 'getting started', path: '/gettingstarted',
-            enter: view("views/gettingstarted.html", new DemoController()))
-
-        ..addRoute(name: 'grid', path: '/grid',
-            enter: view("views/grid.html", new DemoController()))
-
-        ..addRoute(name: 'icons', path: '/icons',
-            enter: view("views/icons.html", new DemoController()))
-
-        ..addRoute(name: 'icon-toggle', path: '/icon-toggle',
-            enter: view("views/icon-toggle.html", new IconToggleController()))
-
-        ..addRoute(name: 'layout', path: '/layout',
-            enter: view("views/layout.html", new DemoController()))
-
-        ..addRoute(name: 'lablefield', path: '/lablefield',
-            enter: view("views/lablefield.html", new LablefieldController()))
-
-        ..addRoute(name: 'list', path: '/list',
-            enter: view("views/list.html", new DemoController()))
-
-        ..addRoute(name: 'materialdesign', path: '/materialdesign',
-            enter: view("views/materialdesign.html", new DemoController()))
-
-        ..addRoute(name: 'mdlflux', path: '/mdlflux',
-            enter: view("views/mdlflux.html", new DemoController()))
-
-        ..addRoute(name: 'menu', path: '/menu',
-            enter: view("views/menu.html", new MenuController()))
-
-        ..addRoute(name: 'model', path: '/model',
-            enter: view("views/model.html", new DemoController()))
-
-        ..addRoute(name: 'nav-pills', path: '/nav-pills',
-            enter: view("views/nav-pills.html", new DemoController()))
-
-        ..addRoute(name: 'notification', path: '/notification',
-            enter: view("views/notification.html", new NotificationController()))
-
-        ..addRoute(name: 'observe', path: '/observe',
-            enter: view("views/observe.html", new ObserverController()))
-
-        ..addRoute(name: 'palette', path: '/palette',
-            enter: view("views/palette.html", new DemoController()))
-
-        ..addRoute(name: 'panel', path: '/panel',
-            enter: view("views/panel.html", new DemoController()))
-
-        ..addRoute(name: 'progress', path: '/progress',
-            enter: view("views/progress.html", new ProgressController()))
-
-        ..addRoute(name: 'radio', path: '/radio',
-            enter: view("views/radio.html", new RadioController()))
-
-        ..addRoute(name: 'repeat', path: '/repeat',
-            enter: view("views/repeat.html", new RepeatController()))
-
-        ..addRoute(name: 'shadow', path: '/shadow',
-            enter: view("views/shadow.html", new DemoController()))
-
-        ..addRoute(name: 'samples', path: '/samples',
-            enter: view("views/samples.html", new DemoController()))
-
-        ..addRoute(name: 'slider', path: '/slider',
-            enter: view("views/slider.html", new SliderController()))
-
-        ..addRoute(name: 'snackbar', path: '/snackbar',
-            enter: view("views/snackbar.html", new SnackbarController()))
-
-        ..addRoute(name: 'spinner', path: '/spinner',
-            enter: view("views/spinner.html", new SpinnerController()))
-
-        ..addRoute(name: 'stagedive', path: '/stagedive',
-            enter: view("views/stagedive.html", new DemoController()))
-
-        ..addRoute(name: 'switch', path: '/switch',
-            enter: view("views/switch.html", new DemoController()))
-
-        ..addRoute(name: 'tabs', path: '/tabs',
-            enter: view("views/tabs.html", new DemoController()))
-
-        ..addRoute(name: 'templates', path: '/templates',
-            enter: view("views/templates.html", new DemoController()))
-
-        ..addRoute(name: 'textfield', path: '/textfield',
-            enter: view("views/textfield.html", new DemoController()))
-
-        ..addRoute(name: 'theming', path: '/theming',
-            enter: view("views/theming.html", new DemoController()))
-
-        ..addRoute(name: 'tooltip', path: '/tooltip',
-            enter: view("views/tooltip.html", new DemoController()))
-
-        ..addRoute(name: 'todo', path: '/todo',
-            enter: view("views/todo.html", new ToDoController()))
-
-        ..addRoute(name: 'typography', path: '/typography',
-            enter: view("views/typography.html", new DemoController()))
-
-
-        // No 'defaultRoute' - Application#run redirects to '/#/'
-        // Makes it possible to use in-page-links
+    // No 'defaultRoute' - Application#run redirects to '/#/'
+    // Makes it possible to use in-page-links
         ..addRoute(name: 'home', path: '/',
             enter: view("views/home.html", new DemoController()))
 
-        // ..addRoute(name: 'default', defaultRoute: true, path: '/',
-        //    enter: view("views/home.html", new DemoController()))
-    ;
+    // ..addRoute(name: 'default', defaultRoute: true, path: '/',
+    //    enter: view("views/home.html", new DemoController()))
+        ;
 
     router.listen();
 }
