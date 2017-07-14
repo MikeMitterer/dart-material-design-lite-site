@@ -17,7 +17,8 @@ dependencies:
   logging_handlers: any
   console_log_handler: any
 
-  di: ^3.3.9
+  dice: ^1.7.0
+    # path: /Volumes/Daten/DevLocal/DevDart/dice
 
-transformers:
-  - di
+#transformers:
+#  - di
