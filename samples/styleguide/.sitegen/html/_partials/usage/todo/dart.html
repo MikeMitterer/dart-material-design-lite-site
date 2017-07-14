@@ -1,13 +1,14 @@
 import &#39;package:mdl&#47;mdl.dart&#39;;
 import &#39;package:mdl&#47;mdlobservable.dart&#39;;
 
-@MdlComponentModel @di.Injectable()
+@MdlComponentModel @di.inject
 class Application implements MaterialApplication &#123;
     final Logger _logger = new Logger(&#39;main.Application&#39;);
 
     &#47;&#47;&#47; Added by the MDL&#47;Dart-Framework (mdlapplication.dart)
     final ActionBus _actionbus;
 
+    @di.inject
     Application(this._actionbus) &#123;
     &#125;
 
@@ -44,10 +45,10 @@ Future main() async &#123;
  * Application-Config via DI
  *&#47;
 class SampleModule extends di.Module &#123;
-    SampleModule() &#123;
-
-        bind(ToDoInputStoreInterface, toImplementation: ToDoDataStore);
-        bind(ToDoListStoreInterface, toImplementation: ToDoDataStore);
+    configure() &#123;
+        final store = new ToDoDataStore(new ActionBus());
+        register(ToDoInputStoreInterface).toInstance(store);
+        register(ToDoListStoreInterface).toInstance(store);
     &#125;
 &#125;
 
