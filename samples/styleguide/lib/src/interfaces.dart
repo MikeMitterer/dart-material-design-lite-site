@@ -19,19 +19,20 @@
 
 library mdl_todo_sample.components.interfaces;
 
+import 'package:dice/dice.dart' as di;
 import "package:mdl/mdlcore.dart";
 import "package:mdl/mdlflux.dart";
 import 'dart:collection';
 
 // - DataStores for our components -------------------------------------------------------------------------------------
 
-@MdlComponentModel
+@di.injectable
 abstract class ToDoInputStoreInterface extends DataStore {
     int get nrOfItemsDone;
     int get nrOfItems;
 }
 
-@MdlComponentModel
+@di.injectable
 abstract class ToDoListStoreInterface extends DataStore {
     UnmodifiableListView<ToDoItem> get items;
 }

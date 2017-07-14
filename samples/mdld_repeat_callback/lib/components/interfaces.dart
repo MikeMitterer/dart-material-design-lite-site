@@ -19,10 +19,10 @@
 
 library mdld_repeat_callback_sample.components.interfaces;
 
+import 'package:dice/dice.dart' as di;
 import "package:mdl/mdlcore.dart";
 import "package:mdl/mdlflux.dart";
 
-@MdlComponentModel
 class RandomItem {
     final DateTime date;
     final int value;
@@ -32,6 +32,7 @@ class RandomItem {
 
 // - DataStores for our components -------------------------------------------------------------------------------------
 
+@di.injectable
 abstract class SampleStore extends DataStore {
     List<RandomItem> get items;
 }

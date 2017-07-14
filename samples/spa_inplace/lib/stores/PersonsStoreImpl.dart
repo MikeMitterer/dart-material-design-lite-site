@@ -23,7 +23,7 @@ part of mdl_inplace_edit_sample.stores;
 ///
 /// We could use two separate implementations for each store but as you can see here,
 /// for simplicity we use one store for the whole Application
-@MdlComponentModel
+@di.injectable
 class PersonsStoreImpl extends Dispatcher implements PersonsStore, PersonStore {
     final Logger _logger = new Logger('mdl_inplace_edit_sample.stores.PersonsStoreImpl');
 

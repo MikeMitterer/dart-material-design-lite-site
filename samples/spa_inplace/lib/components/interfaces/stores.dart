@@ -19,18 +19,19 @@
 
 library mdl_inplace_edit_sample.components.interfaces.stores;
 
+import 'package:dice/dice.dart' as di;
 import 'package:mdl/mdl.dart';
 
 import 'package:mdl_inplace_edit_sample/model.dart';
 
-@MdlComponentModel
+@di.injectable
 abstract class PersonsStore extends DataStore {
 
     /// Holds the persons for this sample!
     ObservableList<Person> get persons;
 }
 
-@MdlComponentModel
+@di.injectable
 abstract class PersonStore extends DataStore {
 
     /// This is returns the Person we want to edit

@@ -10,7 +10,7 @@ import 'package:mdl_repeat_callback_sample/components/interfaces.dart';
 import 'package:mdl_repeat_callback_sample/components.dart';
 import 'package:mdl_repeat_callback_sample/datastore.dart';
 
-@MdlComponentModel
+@di.injectable
 class Application implements MaterialApplication {
     //final Logger _logger = new Logger('main.Application');
 

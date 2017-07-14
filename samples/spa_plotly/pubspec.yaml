@@ -23,7 +23,7 @@ dependencies:
   dice: ^1.7.0
     # path: /Volumes/Daten/DevLocal/DevDart/dice
 
-  plotly: any
+  plotly: ^0.7.0
 
   dart_to_js_script_rewriter: ^0.1.0
 

@@ -25,7 +25,7 @@ import 'package:mdl/mdl.dart';
 import 'package:mdl_styleguide/src/interfaces.dart';
 import 'package:dice/dice.dart' as di;
 
-@MdlComponentModel
+@di.injectable
 class ToDoDataStore extends Dispatcher implements ToDoInputStoreInterface, ToDoListStoreInterface {
 
     final List<ToDoItem> _items = new List<ToDoItem>();
