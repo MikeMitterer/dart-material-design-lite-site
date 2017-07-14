@@ -12,7 +12,7 @@ import 'package:plotly/plotly.dart';
 
 final Logger _logger = new Logger('mdl_plotly_sample.main');
 
-@MdlComponentModel
+@di.injectable
 class Application extends MaterialApplication {
     final Logger _logger = new Logger('main.Application');
 

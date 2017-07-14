@@ -5,14 +5,14 @@ import "dart:math" as Math;
 import 'package:logging/logging.dart';
 import 'package:console_log_handler/console_log_handler.dart';
 
-import 'package:mdl/mdl.dart';
+import 'package:mdl/mdl.dart' as mdl;
 
 import 'package:route_hierarchical/client.dart';
 
 class ModelChangedEvent { }
 
 /// Model is a Singleton
-@MdlComponentModel
+@mdl.Model
 class Model {
     static Model _model;
 
@@ -53,14 +53,14 @@ main() {
     final Model model = new Model();
 
     configLogging();
-    registerMdl();
+    mdl.registerMdl();
 
-    componentFactory().run().then((_) {
-        configRouter(componentFactory().injector.getInstance(ViewFactory));
+    mdl.componentFactory().run().then((_) {
+        configRouter(mdl.componentFactory().injector.getInstance(mdl.ViewFactory));
 
-        final MaterialSlider mainslider = MaterialSlider.widget(dom.querySelector("#mainslider2"));
-        final MaterialContent list = MaterialContent.widget(dom.querySelector("#list"));
-        final MaterialMustache mustache = MaterialMustache.widget(dom.querySelector("#mustache"));
+        final mdl.MaterialSlider mainslider = mdl.MaterialSlider.widget(dom.querySelector("#mainslider2"));
+        final mdl.MaterialContent list = mdl.MaterialContent.widget(dom.querySelector("#list"));
+        final mdl.MaterialMustache mustache = mdl.MaterialMustache.widget(dom.querySelector("#mustache"));
 
         mustache.template = """
             <div>
@@ -120,16 +120,16 @@ main() {
     });
 }
 
-class DemoController extends MaterialController {
+class DemoController extends mdl.MaterialController {
     final Model _model = new Model();
 
-    MaterialSlider _slider5;
-    MaterialSlider _slider2;
+    mdl.MaterialSlider _slider5;
+    mdl.MaterialSlider _slider2;
 
     @override
     void loaded(final Route route) {
-        _slider5 = MaterialSlider.widget(dom.querySelector("#slider5"));
-        _slider2 = MaterialSlider.widget(dom.querySelector("#slider2"));
+        _slider5 = mdl.MaterialSlider.widget(dom.querySelector("#slider5"));
+        _slider2 = mdl.MaterialSlider.widget(dom.querySelector("#slider2"));
 
         if(_slider5 == null) {
             // ERROR-PAGE not slider 5
@@ -155,16 +155,16 @@ class DemoController extends MaterialController {
 
 }
 
-void configRouter(final ViewFactory view) {
+void configRouter(final mdl.ViewFactory view) {
     final Router router = new Router(useFragment: true);
 
     router.root
 
         ..addRoute(name: 'test', path: '/test',
-            enter: view("views/test.html", new DummyController()))
+            enter: view("views/test.html", new mdl.DummyController()))
 
         ..addRoute(name: 'test2', path: '/test2',
-            enter: view("views/test2.html", new DummyController()))
+            enter: view("views/test2.html", new mdl.DummyController()))
 
         ..addRoute(name: 'slider', path: '/slider',
             enter: view("views/slider.html", new DemoController()))
@@ -173,7 +173,7 @@ void configRouter(final ViewFactory view) {
             enter: view("views/doesnotexist.html", new DemoController()))
 
         ..addRoute(name: 'home', defaultRoute: true, path: '/',
-            enter: view("views/home.html" ,new DummyController()))
+            enter: view("views/home.html" ,new mdl.DummyController()))
 
     ;
 

@@ -20,11 +20,15 @@ dependencies:
   mdl:
     path: /Volumes/Daten/DevLocal/DevDart/MaterialDesignLite
 
-  di: any
+  dice:
+    # 1.6.5
+    path: /Volumes/Daten/DevLocal/DevDart/dice
 
   prettify: any
 
+  dart_to_js_script_rewriter: ^0.1.0
+
 transformers:
-  - di
+  - dart_to_js_script_rewriter
 
 
