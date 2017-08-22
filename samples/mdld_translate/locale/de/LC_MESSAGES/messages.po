@@ -1,0 +1,4 @@
+#. Comment added from HTML-File
+#: .sitegen/html/_content/index.html:8
+msgid "Translate me"
+msgstr "Übersetze mich"
