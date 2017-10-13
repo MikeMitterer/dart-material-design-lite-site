@@ -1,0 +1,113 @@
+$_datepicker_width: 330px;
+
+$_datepicker_line_height: 40px;
+$_datepicker_day_font-size: 12px;
+
+.mdl-datepicker {
+    display: block;
+    width: $_datepicker_width;
+
+    .mdl-datepicker__year, .mdl-datepicker__date {
+        opacity: 0.8;
+        &.is-active {
+            opacity: 1;
+        }
+    }
+    .mdl-datepicker__month_selection {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: flex-start; // ⇾
+        align-content: space-between; // ||
+        align-items: center; // ↓
+
+        margin-bottom: 8px;
+
+        .mdl-datepicker__month_selection--month {
+            flex-grow: 1;
+            text-align: center;
+        }
+    }
+
+    .mdl-datepicker__dow {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: space-between; // ⇾
+        align-content: space-around; // ||
+        align-items: center; // ↓
+
+        height: $_datepicker_line_height;
+        font-size: $_datepicker_day_font-size;
+
+        opacity: 0.6;
+
+        > * {
+            text-align: center;
+            width: calc(100% / 7);
+        }
+    }
+
+    .mdl-datepicker__dom {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        justify-content: flex-start; // ↓
+        align-content: space-between; // =
+        align-items: stretch; // ⇾
+
+        .mdl-datepicker__dom__row {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: space-between; // ⇾
+            align-content: space-around; // ||
+            align-items: center; // ↓
+            height: $_datepicker_line_height;
+
+            > .mdl-datepicker__dom--day {
+                display: flex;
+                flex-direction: column;
+                flex-wrap: wrap;
+                justify-content: center; // ↓
+                align-content: space-around; // =
+                align-items: center; // ⇾
+
+                text-align: center;
+                width: calc(100% / 7);
+                font-size: $_datepicker_day_font-size;
+
+                line-height: $_datepicker_line_height;
+
+                // Selection
+                &.mdl-color--accent {
+                    border-radius: 100%;
+                    vertical-align: middle;
+                }
+            }
+
+        }
+    }
+}
+
+// Special Date-Picker-Dialog settings
+.mdl-dialog.mdl-datepicker {
+    .mdl-dialog-container & {
+        max-height: 90%;
+    }
+
+    .mdl-dialog__toolbar {
+        min-height: 60px; // Padding top+bottom 18px x 2 + 60 = 96
+    }
+    
+    .mdl-dialog__content {
+        padding: 18px 18px 0 18px;
+    }
+    .mdl-dialog__actions {
+        padding-top: 0;
+        padding-right: 0;
+        margin-right: -8px;
+        margin-bottom: 2px;
+    }
+
+}

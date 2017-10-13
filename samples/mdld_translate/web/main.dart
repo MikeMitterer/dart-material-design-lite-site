@@ -9,8 +9,10 @@ import 'package:l10n/l10n.dart';
 import 'package:mdl/mdl.dart';
 import 'package:mdl/mdlobservable.dart';
 
+// 1.) Add the generated messages-File
 import 'package:mdl_translate_sample/locale/messages.dart';
 
+// Simple Translation-Table for testing
 //final L10NTranslate translate = new L10NTranslate.withTranslations( {
 //    "de": {
 //        "Translate me": "Übersetze mich"
@@ -21,7 +23,7 @@ import 'package:mdl_translate_sample/locale/messages.dart';
 //    }
 //});
 
-@Component
+@di.injectable
 class Application extends MaterialApplication {
     //final Logger _logger = new Logger('main.Application');
 
@@ -44,6 +46,7 @@ main() async {
 
     configLogging();
 
+    // 2.) Set your language (en,de,fr...)
     final String locale = await findSystemLocale();
     translate.locale = Intl.shortLocale(locale);
 
