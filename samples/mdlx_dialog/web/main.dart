@@ -11,7 +11,7 @@ import "package:mdl_dialog_sample/customdialog1.dart";
 import "package:mdl_dialog_sample/customdialog2.dart";
 
 
-@MdlComponentModel
+@di.injectable
 class Application extends MaterialApplication {
     final Logger _logger = new Logger('dialog.Application');
 

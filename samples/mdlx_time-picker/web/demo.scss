@@ -1,0 +1,54 @@
+//---
+// Copyright (c) 2015, Michael Mitterer (office@mikemitterer.at),
+// IT-Consulting and Development Limited.
+//
+// All Rights Reserved.
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//    http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+//
+
+@import "mixin";
+@import "timepicker";
+
+.demo-page--time_picker, .demo-section--time_picker {
+    .demo-preview-block {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: flex-start; // ⇾
+        align-content: space-between; // ||
+        align-items: flex-start; // ↓
+
+        // UI-Development
+
+        .mdl-dialog-container.demo-container-off {
+            visibility : visible;
+            position: inherit;
+            width: 340px;
+
+            .mdl-timepicker {
+                max-width: inherit !important;
+            }
+
+            .mdl-dialog {
+                opacity : 1;
+            }
+
+        }
+
+        margin-bottom : 24px;
+    }
+}
+
+
+

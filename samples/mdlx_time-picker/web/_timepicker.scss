@@ -5,8 +5,6 @@ $_timepicker_radius-13-24: 160px;
 $_timepicker_radius-item: 36px;
 $_timepicker_inner_circle-top-margin: 3px;
 
-
-
 .mdl-timepicker {
     .mdl-timepicker__time {
         display: flex;
@@ -17,14 +15,22 @@ $_timepicker_inner_circle-top-margin: 3px;
         align-items: flex-start; // ↓
 
         .mdl-timepicker__time--hour, .mdl-timepicker__time--minute {
-            opacity: 0.8;
+            opacity : 0.8;
+            cursor  : pointer;
+
             &.is-active {
-                opacity: 1;
+                opacity : 1;
             }
         }
     }
 
     .mdl-timepicker__hours {
+        @at-root .mdl-timepicker.show-minute-view {
+            .mdl-timepicker__hours {
+                display: none;
+            }
+        }
+
         width: $_timepicker_radius;
         height: $_timepicker_radius;
         border-radius: 100%;
@@ -58,12 +64,49 @@ $_timepicker_inner_circle-top-margin: 3px;
 
         li {
             border-radius: 100%;
+            cursor: pointer;
 
             .debug & {
                 border : 1px solid blueviolet;
             }
         }
     }
+
+    .mdl-timepicker__minutes {
+        display: none;
+        @at-root .mdl-timepicker.show-minute-view {
+            .mdl-timepicker__minutes {
+                display: block;
+            }
+        }
+
+        width: $_timepicker_radius;
+        height: $_timepicker_radius;
+        border-radius: 100%;
+
+        position: relative;
+
+        &__circle {
+            top: (($_timepicker_radius - $_timepicker_radius-1-12) / 2);
+            left: (($_timepicker_radius - $_timepicker_radius-1-12) / 2);
+            @include distribute-on-circle(12, -60deg, $_timepicker_radius-1-12, $_timepicker_radius-item);
+
+            .debug & {
+                border: solid 1px tomato;
+            }
+        }
+
+        li {
+            border-radius: 100%;
+            cursor: pointer;
+            
+            .debug & {
+                border : 1px solid blueviolet;
+            }
+        }
+    }
+
+
 }
 
 // Special Time-Picker-Dialog settings

@@ -1,5 +1,5 @@
-name: mdl_date_time_picker_sample
-description: Material Design Lite 'date-time-picker' Sample
+name: mdl_date_picker_sample
+description: Material Design Lite 'date-picker' Sample
 version: 0.1.0
 author: Mike Mitterer <office@mikemitterer.at>
 homepage: https://github.com/MikeMitterer/dart-material-design-lite
@@ -32,3 +32,7 @@ transformers:
 #      commandLineOptions: [--enable-experimental-mirrors]
 #      minify: false
 #      sourceMaps: true
+
+#web:
+#  compiler:
+#      debug: dartdevc

@@ -16,12 +16,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
-@import "mixin";
 
-@import "datepicker";
-@import "timepicker";
-
-.demo-page--date_time_picker, .demo-section--date_time_picker {
+.demo-page--date_picker, .demo-section--date_picker {
     .demo-preview-block {
         display: flex;
         flex-direction: row;
@@ -36,7 +32,7 @@
             position: inherit;
             width: 340px;
 
-            .mdl-datepicker, .mdl-timepicker {
+            .mdl-datepicker {
                 max-width: inherit !important;
             }
 
