@@ -61,7 +61,7 @@ main() async {
     Intl.defaultLocale = locale;
     initializeDateFormatting(locale);
     
-    _logger.info("Locale: $locale");
+    _logger.info("Locale: $locale / (Short) ${Intl.shortLocale(locale)}");
 
     //translate.locale = Intl.shortLocale(locale);
 
