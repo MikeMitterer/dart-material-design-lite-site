@@ -49,7 +49,7 @@ class DeviceStatusElementModule  extends di.Module {
 }
 
 
-@MdlComponentModel
+@Model
 class DeviceStatus {
     final Logger _logger = new Logger('devicestatus.DeviceStatus');
 
@@ -69,7 +69,7 @@ class DeviceStatus {
 }
 
 
-@MdlComponentModel
+@Component
 class DeviceStatusElement extends MdlTemplateComponent {
     final Logger _logger = new Logger('devicestatus.DeviceStatusElement');
 

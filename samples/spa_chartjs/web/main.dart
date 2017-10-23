@@ -7,14 +7,13 @@ import 'package:console_log_handler/console_log_handler.dart';
 import 'package:dice/dice.dart' as di;
 
 import 'package:mdl/mdl.dart';
-import 'package:mdl/mdlobservable.dart';
 import 'package:chartjs/chartjs.dart';
 
 final Logger _logger = new Logger('mdl_plotly_sample.main');
 
 @di.injectable
 class Application extends MaterialApplication {
-    final Logger _logger = new Logger('main.Application');
+    //final Logger _logger = new Logger('main.Application');
 
     Application() {
     }
@@ -55,7 +54,7 @@ class Application extends MaterialApplication {
 }
 
 main() async {
-    final Logger _logger = new Logger('main.Shows Plotly in action');
+    //final Logger _logger = new Logger('main.Shows Plotly in action');
 
     configLogging();
 

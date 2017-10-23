@@ -24,7 +24,7 @@ import "package:mdl/mdldialog.dart";
 
 import 'package:dice/dice.dart' as di;
 
-@MdlComponentModel
+@di.injectable
 class CustomDialog2 extends MaterialDialog {
 
     static const String _DEFAULT_SUBMIT_BUTTON = "Submit";

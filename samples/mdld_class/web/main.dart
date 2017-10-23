@@ -5,7 +5,7 @@ import 'package:dice/dice.dart' as di;
 import 'package:mdl/mdl.dart';
 import 'package:mdl/mdlobservable.dart';
 
-@MdlComponentModel
+@di.injectable
 class Application extends MaterialApplication {
     final Logger _logger = new Logger('main.Application');
 

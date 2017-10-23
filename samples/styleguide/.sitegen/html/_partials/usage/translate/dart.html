@@ -1,0 +1,21 @@
+import &#39;package:mdl&#47;mdl.dart&#39;;
+
+
+main() async &#123;
+    final Logger _logger = new Logger(&#39;main.Application&#39;);
+
+    &#47;&#47; 2.) Set your language (en,de,fr...)
+    final String locale = await findSystemLocale();
+    translate.locale = Intl.shortLocale(locale);
+
+    registerMdl();
+
+    _logger.info(&quot;Locale: $&#123;locale&#125;&quot;);
+    
+    final MaterialApplication application = await componentFactory().
+        rootContext(Application)
+        .addModule(new SampleModule())
+        .run();
+
+    application.run();
+&#125;

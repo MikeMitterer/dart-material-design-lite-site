@@ -4,7 +4,7 @@ import 'package:dice/dice.dart' as di;
 
 import 'package:mdl/mdl.dart';
 
-@MdlComponentModel
+@Model
 class _Language {
     final String name;
     final String type;
@@ -19,7 +19,7 @@ class _Natural extends _Language {
     _Natural(final String name) : super(name,"natural");
 }
 
-@MdlComponentModel
+@di.injectable
 class Application extends MaterialApplication {
     // final _logger = new Logger('dnd.Application');
 

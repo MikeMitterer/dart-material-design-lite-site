@@ -20,5 +20,7 @@ dependencies:
   dice: ^1.7.0
     # path: /Volumes/Daten/DevLocal/DevDart/dice
 
-#transformers:
-#  - di
+  dart_to_js_script_rewriter: ^0.1.0
+
+transformers:
+  - dart_to_js_script_rewriter

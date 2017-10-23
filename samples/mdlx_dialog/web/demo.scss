@@ -31,6 +31,8 @@
 
         margin: 0 20px 0px 0;
 
+
+
         .mdl-button {
             margin-top: 12px;
             margin-right: 12px;
@@ -40,6 +42,23 @@
             }
         }
     }
+
+    // UI-Development (only testing!!!)
+    .mdl-dialog-container.demo-container {
+        visibility : visible;
+        position: inherit;
+        width: 340px;
+
+        .mdl-datepicker {
+            max-width: inherit !important;
+        }
+
+        .mdl-dialog {
+            opacity : 1;
+        }
+
+    }
+
 }
 
 // Defined outside of .demo-page--dialog, .demo-section--dialog because

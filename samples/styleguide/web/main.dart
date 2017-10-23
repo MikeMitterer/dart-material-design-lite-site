@@ -21,6 +21,11 @@ import "dart:html" as dom;
 import "dart:async";
 import "dart:math" as Math;
 
+// For Date- and TimePicker
+import 'package:intl/intl.dart';
+import 'package:intl/intl_browser.dart';
+import 'package:intl/date_symbol_data_local.dart';
+
 import 'package:logging/logging.dart';
 import 'package:console_log_handler/console_log_handler.dart';
 
@@ -46,7 +51,7 @@ import "package:mdl_styleguide/datastore.dart";
 /**
  * Used for mdl-model sample
  */
-@MdlComponentModel
+@Model
 class ModelTest {
     final ObservableProperty<String> minimodel = new ObservableProperty<String>("test");
 
@@ -64,7 +69,7 @@ class ModelTest {
 /**
  * Application - you can get the Application via injector.getByKey(MDLROOTCONTEXT)
  */
-@MdlComponentModel
+@di.injectable
 class Application extends MaterialApplication {
     final Logger _logger = new Logger('main.Application');
 
@@ -203,7 +208,9 @@ class StyleguideModule extends di.Module {
     }
 }
 
-main() {
+main() async {
+    final Logger _logger = new Logger('styleguide.main');
+
     configLogging();
     enableTheming();
 
@@ -216,13 +223,20 @@ main() {
     // register this Demo-Specific Component
     registerToDoComponents();
 
-    componentFactory().rootContext(Application)
-        .addModule(new StyleguideModule()).run()
-        .then((final MaterialApplication application) {
-        configRouter();
+    // Date + TimePicker
+    // Determine your locale automatically:
+    final String locale = await findSystemLocale();
 
-        application.run();
-    });
+    Intl.defaultLocale = locale;
+    initializeDateFormatting(locale);
+
+    _logger.info("Locale: $locale / (Short) ${Intl.shortLocale(locale)}");
+
+    final MaterialApplication application = await componentFactory().rootContext(Application)
+        .addModule(new StyleguideModule()).run();
+
+    configRouter();
+    application.run();
 }
 
 /// Default Controller!!! PrettyPrints the source that comes within the "Usage" block
@@ -292,11 +306,15 @@ class DialogController extends DemoController {
         final MaterialButton btnConfirmDialog = MaterialButton.widget(dom.querySelector("#confirmdialog"));
         final MaterialButton btnCustomDialog1 = MaterialButton.widget(dom.querySelector("#customdialog1"));
         final MaterialButton btnCustomDialog2 = MaterialButton.widget(dom.querySelector("#customdialog2"));
+        final MaterialButton btnShowDatePicker = MaterialButton.widget(dom.querySelector("#date-picker"));
+        final MaterialButton btnShowTimePicker = MaterialButton.widget(dom.querySelector("#time-picker"));
 
         final MaterialAlertDialog alertDialog = new MaterialAlertDialog();
         final MdlConfirmDialog confirmDialog = new MdlConfirmDialog();
         final CustomDialog1 customDialog1 = new CustomDialog1();
         final CustomDialog2 customDialog2 = new CustomDialog2();
+        final MaterialTimePicker timePicker = new MaterialTimePicker();
+        final MaterialDatePicker datePicker = new MaterialDatePicker();
 
         int mangoCounter = 0;
 
@@ -329,6 +347,38 @@ class DialogController extends DemoController {
                 _logger.info(status);
                 if (status == MdlDialogStatus.OK) {
                     _logger.info("You entered: ${customDialog2.name.value}");
+                }
+            });
+        });
+
+        btnShowDatePicker.onClick.listen((_) {
+
+            // Not necessary but makes sense if you reuse the dialog
+            datePicker.dateTime = new DateTime.now();
+
+            datePicker.show().then((final MdlDialogStatus status) {
+                if(status == MdlDialogStatus.OK) {
+                    final MaterialSnackbar snackbar = new MaterialSnackbar();
+                    final String date = new DateFormat.yMd().format(datePicker.dateTime);
+
+                    snackbar(date).show();
+                    _logger.info("Seleted date: ${date}");
+                }
+            });
+        });
+
+        btnShowTimePicker.onClick.listen((_) {
+
+            // Not necessary but makes sense if you reuse the dialog
+            timePicker.dateTime = new DateTime.now();
+
+            timePicker.show().then((final MdlDialogStatus status) {
+                if(status == MdlDialogStatus.OK) {
+                    final MaterialSnackbar snackbar = new MaterialSnackbar();
+                    final String date = new DateFormat.Hm().format(timePicker.dateTime);
+
+                    snackbar(date).show();
+                    _logger.info("Seleted date: ${date}");
                 }
             });
         });
@@ -585,7 +635,7 @@ class NotificationController extends DemoController {
 // - private ------------------------------------------------------------------------------------------------------
 }
 
-@MdlComponentModel
+@Model
 class _Language {
     final String name;
     final String type;
@@ -601,7 +651,7 @@ class _Programming extends _Language {
     _Programming(final String name) : super(name, "programming");
 }
 
-@MdlComponentModel
+@Model
 class _Name {
     final String first;
     final String last;
@@ -763,7 +813,7 @@ class RadioController extends DemoController {
 typedef void RemoveCallback(final Name name);
 
 /// For Repeat-Sample
-@MdlComponentModel
+@Model
 class Name {
     final Logger _logger = new Logger('main.Name');
 

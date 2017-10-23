@@ -10,6 +10,11 @@ import "package:mdl/mdldialog.dart";
 import "package:mdl_dialog_sample/customdialog1.dart";
 import "package:mdl_dialog_sample/customdialog2.dart";
 
+// For Date- and TimePicker
+import 'package:intl/intl.dart';
+import 'package:intl/intl_browser.dart';
+import 'package:intl/date_symbol_data_local.dart';
+
 
 @di.injectable
 class Application extends MaterialApplication {
@@ -23,10 +28,17 @@ class Application extends MaterialApplication {
     final MaterialButton btnCustomDialog1;
     final MaterialButton btnCustomDialog2;
 
+    final MaterialButton _btnShowTimePicker;
+    final MaterialButton _btnShowDatePicker;
+
+
     final MaterialAlertDialog alertDialog;
     final MdlConfirmDialog confirmDialog;
     final CustomDialog1 customDialog1;
     final CustomDialog2 customDialog2;
+
+    final MaterialTimePicker timePicker = new MaterialTimePicker();
+    final MaterialDatePicker datePicker = new MaterialDatePicker();
 
     Application() :
 
@@ -35,6 +47,9 @@ class Application extends MaterialApplication {
 
         btnCustomDialog1 = MaterialButton.widget(dom.querySelector("#customdialog1")),
         btnCustomDialog2 = MaterialButton.widget(dom.querySelector("#customdialog2")),
+
+        _btnShowDatePicker = MaterialButton.widget(dom.querySelector("#date-picker")),
+        _btnShowTimePicker = MaterialButton.widget(dom.querySelector("#time-picker")),
 
         alertDialog = new MaterialAlertDialog(),
         confirmDialog = new MdlConfirmDialog(),
@@ -85,14 +100,54 @@ class Application extends MaterialApplication {
                 }
             });
         });
-    }
 
+        _btnShowDatePicker.onClick.listen((_) {
+
+            // Not necessary but makes sense if you reuse the dialog
+            datePicker.dateTime = new DateTime.now();
+
+            datePicker.show().then((final MdlDialogStatus status) {
+                if(status == MdlDialogStatus.OK) {
+                    final MaterialSnackbar snackbar = new MaterialSnackbar();
+                    final String date = new DateFormat.yMd().format(datePicker.dateTime);
+
+                    snackbar(date).show();
+                    _logger.info("Seleted date: ${date}");
+                }
+            });
+        });
+
+        _btnShowTimePicker.onClick.listen((_) {
+
+            // Not necessary but makes sense if you reuse the dialog
+            timePicker.dateTime = new DateTime.now();
+
+            timePicker.show().then((final MdlDialogStatus status) {
+                if(status == MdlDialogStatus.OK) {
+                    final MaterialSnackbar snackbar = new MaterialSnackbar();
+                    final String date = new DateFormat.Hm().format(timePicker.dateTime);
+
+                    snackbar(date).show();
+                    _logger.info("Seleted date: ${date}");
+                }
+            });
+        });
+    }
 }
 
 main() async {
+    final Logger _logger = new Logger('dialog.main');
     configLogging();
 
     registerMdl();
+
+    // Determine your locale automatically:
+    final String locale = await findSystemLocale();
+
+    Intl.defaultLocale = locale;
+    initializeDateFormatting(locale);
+
+    _logger.info("Locale: $locale / (Short) ${Intl.shortLocale(locale)}");
 
     await componentFactory().rootContext(Application).run();
 }

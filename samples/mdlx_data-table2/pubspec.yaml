@@ -7,7 +7,7 @@ homepage: https://github.com/MikeMitterer/dart-material-design-lite
 dependencies:
   browser: any
 
-  intl: ^0.14.0
+  intl: ^0.15.0
   args: any
   validate: ^1.0.0
   browser_detect: ^1.0.0
