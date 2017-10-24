@@ -10,6 +10,16 @@ sampleurl: https://github.com/MikeMitterer/dart-material-design-lite-site/tree/m
         </div>
 
         <div class="mdl-textfield">
+            <!-- HTML5-Pattern: http://html5pattern.com/Dates -->
+            <input class="mdl-textfield__input" type="text" id="sample-with-icon"
+                pattern="(0[1-9]|1[0-9]|2[0-9]|3[01]).(0[1-9]|1[012]).[0-9]{4}">
+            <label class="mdl-textfield__label mdl-textfield__label--icon-right" for="sample-with-icon">
+                DD.MM.YYYY
+                <i class="material-icons">event</i>
+            </label>
+        </div>
+
+        <div class="mdl-textfield">
             <input class="mdl-textfield__input" type="text" pattern="[0-9]*" id="sample2">
             <label class="mdl-textfield__label" for="sample2">Number...</label>
             <span class="mdl-textfield__error">Input is not a number!</span>

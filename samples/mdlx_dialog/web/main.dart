@@ -31,6 +31,10 @@ class Application extends MaterialApplication {
     final MaterialButton _btnShowTimePicker;
     final MaterialButton _btnShowDatePicker;
 
+    final MaterialButton _btnClear;
+
+    final MaterialTextfield _dateInput;
+    final MaterialTextfield _timeInput;
 
     final MaterialAlertDialog alertDialog;
     final MdlConfirmDialog confirmDialog;
@@ -48,8 +52,13 @@ class Application extends MaterialApplication {
         btnCustomDialog1 = MaterialButton.widget(dom.querySelector("#customdialog1")),
         btnCustomDialog2 = MaterialButton.widget(dom.querySelector("#customdialog2")),
 
+        _dateInput = MaterialTextfield.widget(dom.querySelector("#date_input")),
+        _timeInput = MaterialTextfield.widget(dom.querySelector("#time_input")),
+
         _btnShowDatePicker = MaterialButton.widget(dom.querySelector("#date-picker")),
         _btnShowTimePicker = MaterialButton.widget(dom.querySelector("#time-picker")),
+
+        _btnClear = MaterialButton.widget(dom.querySelector("#clear")),
 
         alertDialog = new MaterialAlertDialog(),
         confirmDialog = new MdlConfirmDialog(),
@@ -125,12 +134,49 @@ class Application extends MaterialApplication {
             timePicker.show().then((final MdlDialogStatus status) {
                 if(status == MdlDialogStatus.OK) {
                     final MaterialSnackbar snackbar = new MaterialSnackbar();
-                    final String date = new DateFormat.Hm().format(timePicker.dateTime);
+                    final String time = new DateFormat.Hm().format(timePicker.dateTime);
 
-                    snackbar(date).show();
+                    snackbar(time).show();
+                    _logger.info("Seleted time: ${time}");
+                }
+            });
+        });
+
+        _dateInput.onClick.listen((_) {
+            // Not necessary but makes sense if you reuse the dialog
+            datePicker.dateTime = new DateTime.now();
+
+            datePicker.show().then((final MdlDialogStatus status) {
+                if(status == MdlDialogStatus.OK) {
+                    final String date = new DateFormat("dd.MM.yyyy").format(datePicker.dateTime);
+
+                    _dateInput.value = date;
+                    
                     _logger.info("Seleted date: ${date}");
                 }
             });
+        });
+
+        _timeInput.onClick.listen((_) {
+            // Not necessary but makes sense if you reuse the dialog
+            timePicker.dateTime = new DateTime.now();
+
+            timePicker.show().then((final MdlDialogStatus status) {
+                if(status == MdlDialogStatus.OK) {
+                    final String time = new DateFormat("HH:mm").format(timePicker.dateTime);
+
+                    _timeInput.value = time;
+                    _logger.info("Seleted time: ${time}");
+                }
+            });
+
+        });
+
+        _btnClear.onClick.listen((final dom.Event event) {
+            event.preventDefault();
+            
+            _dateInput.value = "";
+            _timeInput.value = "";
         });
     }
 }
