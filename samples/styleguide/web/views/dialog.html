@@ -31,5 +31,35 @@
                 Time picker
             </button>
         </div>
+        <form class="input-fields mdl-form mdl-color--50">
+            <div class="mdl-form__content">
+            <div class="mdl-form__group">
+                <div class="mdl-labelfield">
+                    <label class="mdl-labelfield__label">Schedule:</label>
+                </div>
+                <div class="mdl-textfield">
+                    <input class="mdl-textfield__input" type="text" id="date_input"
+                           pattern="(0[1-9]|1[0-9]|2[0-9]|3[01]).(0[1-9]|1[012]).[0-9]{4}">
+                    <label class="mdl-textfield__label mdl-textfield__label--icon-right"
+                           for="date_input">
+                        DD.MM.YYYY
+                        <i class="material-icons">event</i>
+                    </label>
+                </div>
+                <div class="mdl-textfield">
+                    <input class="mdl-textfield__input" type="text" id="time_input"
+                           pattern="([01]?[0-9]{1}|2[0-3]{1}):[0-5]{1}[0-9]{1}">
+                    <label class="mdl-textfield__label mdl-textfield__label--icon-right"
+                           for="time_input">
+                        HH:MM
+                        <i class="material-icons">schedule</i>
+                    </label>
+                </div>
+                <button id="clear" class="mdl-button mdl-button--icon">
+                    <i class="material-icons mdl-icon mdl-color-text--grey-600">highlight_off</i>
+                </button>
+            </div>
+            </div>
+        </form>
     </div>
 </section>

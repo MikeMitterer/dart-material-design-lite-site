@@ -309,6 +309,10 @@ class DialogController extends DemoController {
         final MaterialButton btnShowDatePicker = MaterialButton.widget(dom.querySelector("#date-picker"));
         final MaterialButton btnShowTimePicker = MaterialButton.widget(dom.querySelector("#time-picker"));
 
+        final MaterialTextfield dateInput = MaterialTextfield.widget(dom.querySelector("#date_input"));
+        final MaterialTextfield timeInput = MaterialTextfield.widget(dom.querySelector("#time_input"));
+        final MaterialButton btnClear = MaterialButton.widget(dom.querySelector("#clear"));
+
         final MaterialAlertDialog alertDialog = new MaterialAlertDialog();
         final MdlConfirmDialog confirmDialog = new MdlConfirmDialog();
         final CustomDialog1 customDialog1 = new CustomDialog1();
@@ -382,6 +386,44 @@ class DialogController extends DemoController {
                 }
             });
         });
+
+        dateInput.onClick.listen((_) {
+            // Not necessary but makes sense if you reuse the dialog
+            datePicker.dateTime = new DateTime.now();
+
+            datePicker.show().then((final MdlDialogStatus status) {
+                if(status == MdlDialogStatus.OK) {
+                    final String date = new DateFormat("dd.MM.yyyy").format(datePicker.dateTime);
+
+                    dateInput.value = date;
+
+                    _logger.info("Seleted date: ${date}");
+                }
+            });
+        });
+
+        timeInput.onClick.listen((_) {
+            // Not necessary but makes sense if you reuse the dialog
+            timePicker.dateTime = new DateTime.now();
+
+            timePicker.show().then((final MdlDialogStatus status) {
+                if(status == MdlDialogStatus.OK) {
+                    final String time = new DateFormat("HH:mm").format(timePicker.dateTime);
+
+                    timeInput.value = time;
+                    _logger.info("Seleted time: ${time}");
+                }
+            });
+
+        });
+
+        btnClear.onClick.listen((final dom.Event event) {
+            event.preventDefault();
+
+            dateInput.value = "";
+            timeInput.value = "";
+        });
+
     }
 }
 

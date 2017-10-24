@@ -57,6 +57,17 @@
 
     }
 
+    .input-fields {
+        margin-top: 48px;
+
+        .mdl-form__group {
+            #clear {
+                margin-left: 24px;
+                min-width: 32px;
+            }
+        }
+
+    }
 }
 
 // Defined outside of .demo-page--dialog, .demo-section--dialog because

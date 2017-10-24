@@ -78,6 +78,36 @@ main() async &#123;
             Time picker
         &lt;&#47;button&gt;
     &lt;&#47;div&gt;
+    &lt;form class=&quot;input-fields mdl-form mdl-color--50&quot;&gt;
+        &lt;div class=&quot;mdl-form__content&quot;&gt;
+        &lt;div class=&quot;mdl-form__group&quot;&gt;
+            &lt;div class=&quot;mdl-labelfield&quot;&gt;
+                &lt;label class=&quot;mdl-labelfield__label&quot;&gt;Schedule:&lt;&#47;label&gt;
+            &lt;&#47;div&gt;
+            &lt;div class=&quot;mdl-textfield&quot;&gt;
+                &lt;input class=&quot;mdl-textfield__input&quot; type=&quot;text&quot; id=&quot;date_input&quot;
+                       pattern=&quot;(0[1-9]|1[0-9]|2[0-9]|3[01]).(0[1-9]|1[012]).[0-9]{4}&quot;&gt;
+                &lt;label class=&quot;mdl-textfield__label mdl-textfield__label--icon-right&quot;
+                       for=&quot;date_input&quot;&gt;
+                    DD.MM.YYYY
+                    &lt;i class=&quot;material-icons&quot;&gt;event&lt;&#47;i&gt;
+                &lt;&#47;label&gt;
+            &lt;&#47;div&gt;
+            &lt;div class=&quot;mdl-textfield&quot;&gt;
+                &lt;input class=&quot;mdl-textfield__input&quot; type=&quot;text&quot; id=&quot;time_input&quot;
+                       pattern=&quot;([01]?[0-9]{1}|2[0-3]{1}):[0-5]{1}[0-9]{1}&quot;&gt;
+                &lt;label class=&quot;mdl-textfield__label mdl-textfield__label--icon-right&quot;
+                       for=&quot;time_input&quot;&gt;
+                    HH:MM
+                    &lt;i class=&quot;material-icons&quot;&gt;schedule&lt;&#47;i&gt;
+                &lt;&#47;label&gt;
+            &lt;&#47;div&gt;
+            &lt;button id=&quot;clear&quot; class=&quot;mdl-button mdl-button--icon&quot;&gt;
+                &lt;i class=&quot;material-icons mdl-icon mdl-color-text--grey-600&quot;&gt;highlight_off&lt;&#47;i&gt;
+            &lt;&#47;button&gt;
+        &lt;&#47;div&gt;
+        &lt;&#47;div&gt;
+    &lt;&#47;form&gt;
 &lt;&#47;div&gt;
 </pre>
                 </div>
