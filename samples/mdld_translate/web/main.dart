@@ -68,6 +68,7 @@ main() async {
  */
 class SampleModule extends di.Module {
     configure() {
+        // 3.) Configure Translator
         bind(Translator).toInstance(translate);
     }
 }
