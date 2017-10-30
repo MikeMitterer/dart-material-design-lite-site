@@ -19,6 +19,10 @@
 
 library mdl_dialog_sample.customdialog2;
 
+import 'dart:async';
+import 'dart:html' as dom;
+
+import 'package:intl/intl.dart';
 import 'package:mdl/mdl.dart';
 import "package:mdl/mdldialog.dart";
 
@@ -61,7 +65,20 @@ class CustomDialog2 extends MaterialDialog {
         close(MdlDialogStatus.CANCEL);
     }
 
+    Future onClickDate(final dom.Event event) async {
+        event.preventDefault();
+        final MaterialDatePicker datePicker = new MaterialDatePicker();
+
+        final MdlDialogStatus status = await datePicker.show();
+        if(status == MdlDialogStatus.OK) {
+            _startDate.value = new DateFormat("dd.MM.yyyy").format(datePicker.dateTime);
+
+        }
+    }
+    
     // - private ----------------------------------------------------------------------------------
+
+    MaterialTextfield get _startDate => MaterialTextfield.widget(dialog.querySelector("#start_date"));
 
     // - template ----------------------------------------------------------------------------------
 
@@ -70,13 +87,21 @@ class CustomDialog2 extends MaterialDialog {
         <div class="mdl-dialog custom-dialog2">
           <div class="mdl-dialog__content">
             {{#hasTitle}}<h5 class="mdl-color-text--primary-dark">{{title}}</h5>{{/hasTitle}}
-              <div class="mdl-textfield mdl-textfield--floating-label">
+            <div class="mdl-textfield mdl-textfield--floating-label">
                   <input class="mdl-textfield__input" type="text" id="name" mdl-model="name" autofocus>
                   <label class="mdl-textfield__label" for="name">Name</label>
             </div>
-              <div class="mdl-textfield mdl-textfield--floating-label">
+            <div class="mdl-textfield mdl-textfield--floating-label">
                   <input class="mdl-textfield__input" type="text" id="address" >
                   <label class="mdl-textfield__label" for="address">Address</label>
+            </div>
+            <div class="mdl-textfield" 
+                       data-mdl-click='onClickDate(\$event)'>
+                <!-- HTML5-Pattern: http://html5pattern.com/Dates -->
+                <input class="mdl-textfield__input" type="text" id='start_date'
+                       pattern="(0[1-9]|1[0-9]|2[0-9]|3[01]).(0[1-9]|1[012]).[0-9]{4}">
+                <label class="mdl-textfield__label mdl-textfield__label--icon-right"
+                       for="timeframe_end_date">DD.MM.YYYY</label>
             </div>
           </div>
           <div class="mdl-dialog__actions">

@@ -119,9 +119,10 @@ class Application extends MaterialApplication {
                 if(status == MdlDialogStatus.OK) {
                     final MaterialSnackbar snackbar = new MaterialSnackbar();
                     final String date = new DateFormat.yMd().format(datePicker.dateTime);
+                    final String time = new DateFormat("HH:mm:ss").format(timePicker.dateTime);
 
                     snackbar(date).show();
-                    _logger.info("Seleted date: ${date}");
+                    _logger.info("Seleted date: ${date} / ${time}");
                 }
             });
         });
@@ -129,15 +130,16 @@ class Application extends MaterialApplication {
         _btnShowTimePicker.onClick.listen((_) {
 
             // Not necessary but makes sense if you reuse the dialog
-            timePicker.dateTime = new DateTime.now();
+            timePicker.dateTime = (new DateTime.now().add(new Duration(days: 1)));
 
             timePicker.show().then((final MdlDialogStatus status) {
                 if(status == MdlDialogStatus.OK) {
                     final MaterialSnackbar snackbar = new MaterialSnackbar();
+                    final String date = new DateFormat("dd.MM.yyyy").format(timePicker.dateTime);
                     final String time = new DateFormat.Hm().format(timePicker.dateTime);
 
                     snackbar(time).show();
-                    _logger.info("Seleted time: ${time}");
+                    _logger.info("Seleted time: ${time} / ${date} (Today + one additional day)");
                 }
             });
         });
@@ -149,10 +151,11 @@ class Application extends MaterialApplication {
             datePicker.show().then((final MdlDialogStatus status) {
                 if(status == MdlDialogStatus.OK) {
                     final String date = new DateFormat("dd.MM.yyyy").format(datePicker.dateTime);
+                    final String time = new DateFormat("HH:mm:ss").format(timePicker.dateTime);
 
                     _dateInput.value = date;
                     
-                    _logger.info("Seleted date: ${date}");
+                    _logger.info("Seleted date: ${date} / ${time}");
                 }
             });
         });

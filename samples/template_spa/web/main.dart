@@ -38,7 +38,7 @@ final MdlAnimation fadeIn = new MdlAnimation.fromStock(StockAnimation.FadeIn);
  * Sample:
  *      final Application app = componentFactory().application;
  */
-@MdlComponentModel
+@di.injectable
 class Application extends MaterialApplication {
     final Logger _logger = new Logger('main.Application');
     final Router _router = new Router(useFragment: true);
