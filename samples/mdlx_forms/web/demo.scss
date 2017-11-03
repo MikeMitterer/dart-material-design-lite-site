@@ -3,49 +3,89 @@
 .demo-page--forms {
     //background-color : linen;
 
-    .firstblock {
-        clear : both;
-        min-height: 320px;
-        margin-bottom: 12px;
-
-        p:first-of-type {
-            // background-color: green;
-        }
-
-        .mdl-form {
-            margin-left: 12px;
-        }
-    }
-
-    form {
-        max-width     : 512px;
-        margin-bottom : 24px;
-
-        background-color: rgba(63, 81, 181, 0.09);
-
-        .three-cols {
+    .demo-preview-block {
+        .menu {
             display: flex;
             flex-direction: row;
             flex-wrap: wrap;
-            justify-content: flex-start; // ⇾
+            justify-content: center; // ⇾
             align-content: space-between; // ||
             align-items: flex-start; // ↓
 
-            .col {
-                &:first-child {
-                    width: 120px;
+            li {
+                display: inline;
+
+                > a {
+                    padding: 5px 12px;
+                    text-decoration: none;
+
+                    &:after {
+                        content: " | ";
+                        padding: 5px 12px;
+                    }
+                    &:last-of-type:after {
+                        content: "";
+                    }
                 }
-                max-width: 150px;
+            }
+            margin-top: 5px;
+            margin-bottom : 15px;
+        }
+
+        .firstblock {
+            min-height: 320px;
+            margin-bottom: 12px;
+
+            p:last-of-type {
+                margin-top: 16px;
             }
 
+            .mdl-form {
+                margin-left: 12px;
+            }
+
+            .text-block {
+                display: flex;
+                flex-direction: column;
+                flex-wrap: nowrap;
+                justify-content: flex-start; // ⇾
+                align-content: space-between; // ||
+                align-items: center; // ↓
+            }
+        }
+
+        form {
+            clear: both;
+            max-width     : 512px;
+            margin-bottom : 24px;
+
+            background-color: rgba(63, 81, 181, 0.09);
+
+            .three-cols {
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: flex-start; // ⇾
+                align-content: space-between; // ||
+                align-items: flex-start; // ↓
+
+                .col {
+                    &:first-child {
+                        width: 120px;
+                    }
+                    max-width: 150px;
+                }
+
+            }
+        }
+
+        .demo-registration {
+            float     : right;
+            clear     : both;
+            max-width : 320px;
         }
     }
 
-    .demo-registration {
-        float     : right;
-        clear     : both;
-        max-width : 320px;
-    }
 }
 
 

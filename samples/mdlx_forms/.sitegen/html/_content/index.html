@@ -7,7 +7,16 @@ sampleurl: https://github.com/MikeMitterer/dart-material-design-lite-site/tree/m
 
     <div class="firstblock">
         <h5 class="mdl-color-text--primary-dark">Form validation</h5>
-        <form method="post" class="right mdl-form mdl-form-registration demo-registration">
+        <ul class="menu">
+            <li><a href="#multicontrol">Multi-Control</a></li>
+            <li><a href="#define-your-colors-hor">Define your colors (hor)</a></li>
+            <li><a href="#define-your-colors-radio">Define your colors (radio)</a></li>
+            <li><a href="#settings-with-border">Settings with border</a></li>
+            <li><a href="#settings-without-border">Settings without border</a></li>
+            <li><a href="#labels">With labels</a></li>
+        </ul>
+        <form id="register_for_launch"
+              method="post" class="right mdl-form mdl-form-registration demo-registration">
             <h5 class="mdl-form__title">Register for launch</h5>
             <div class="mdl-form__content">
                 <div class="mdl-textfield">
@@ -16,8 +25,8 @@ sampleurl: https://github.com/MikeMitterer/dart-material-design-lite-site/tree/m
                     <span class="mdl-textfield__error">This field must not be empty</span>
                 </div>
                 <div class="mdl-textfield">
-                    <input class="mdl-textfield__input" type="email" id="email" required />
-                    <label class="mdl-textfield__label" for="email">Email</label>
+                    <input class="mdl-textfield__input" type="email" id="email1" required />
+                    <label class="mdl-textfield__label" for="email1">Email</label>
                     <span class="mdl-textfield__error">This is not a valid email-address</span>
                 </div>
                 <label class="mdl-checkbox mdl-ripple-effect" for="remember_me">
@@ -33,29 +42,34 @@ sampleurl: https://github.com/MikeMitterer/dart-material-design-lite-site/tree/m
             </div>
         </form>
 
+        <div class="text-block">
         <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et
         dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet
-        clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet,
+            clita kasd gubergren, no sea takimata sanctus est</p>
+
+            <button id="open-dialog" class="mdl-button mdl-button--raised mdl-ripple-effect mdl-button--primary">Open Dialog</button>
+        
+        <p>Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet,
         consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
         sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no
         sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
-
+        </div>
     </div>
 
-    <form method="post" class="mdl-form" id="multicontrol">
+    <form id="multicontrol" method="post" class="mdl-form" >
         <h5 class="mdl-form__title">Multi-Control</h5>
         <div class="mdl-form__content">
             <div class="mdl-textfield">
-                <input class="mdl-textfield__input" type="text" id="sample1" />
-                <label class="mdl-textfield__label" for="sample1">Name</label>
+                <input class="mdl-textfield__input" type="text" id="sample2" />
+                <label class="mdl-textfield__label" for="sample2">Name</label>
             </div>
             <div class="mdl-textfield">
-                <input class="mdl-textfield__input" type="email" id="email" />
-                <label class="mdl-textfield__label" for="email">Email</label>
+                <input class="mdl-textfield__input" type="email" id="email2" />
+                <label class="mdl-textfield__label" for="email2">Email</label>
             </div>
             <div class="mdl-textfield">
-                <input class="mdl-textfield__input" type="tel" id="tel"/>
-                <label class="mdl-textfield__label" for="tel">Telephone, (555) 555 5555</label>
+                <input class="mdl-textfield__input" type="tel" id="tel2"/>
+                <label class="mdl-textfield__label" for="tel2">Telephone, (555) 555 5555</label>
             </div>
             <div class="three-cols">
                 <div class="col">
@@ -138,20 +152,20 @@ sampleurl: https://github.com/MikeMitterer/dart-material-design-lite-site/tree/m
     </form>
     <p>The "Multi-Control-Form" emits "FormChangedEvents"</p>
 
-    <form method="post" class="mdl-form">
+    <form id="define-your-colors-hor" method="post" class="mdl-form">
         <h5 class="mdl-form__title">Define your colors (hor)</h5>
         <div class="mdl-form__content">
             <div class="mdl-textfield">
-                <input class="mdl-textfield__input" type="text" id="sample1" />
-                <label class="mdl-textfield__label" for="sample1">Name</label>
+                <input class="mdl-textfield__input" type="text" id="sample3" />
+                <label class="mdl-textfield__label" for="sample3">Name</label>
             </div>
             <div class="mdl-textfield">
-                <input class="mdl-textfield__input" type="email" id="email" />
-                <label class="mdl-textfield__label" for="email">Email</label>
+                <input class="mdl-textfield__input" type="email" id="email3" />
+                <label class="mdl-textfield__label" for="email3">Email</label>
             </div>
             <div class="mdl-textfield">
-                <input class="mdl-textfield__input" type="tel" id="tel"/>
-                <label class="mdl-textfield__label" for="tel">Telephone, (555) 555 5555</label>
+                <input class="mdl-textfield__input" type="tel" id="tel3"/>
+                <label class="mdl-textfield__label" for="tel3">Telephone, (555) 555 5555</label>
             </div>
             <div class="mdl-form__group">
                 <label class="mdl-checkbox mdl-ripple-effect" for="red2">
@@ -174,20 +188,20 @@ sampleurl: https://github.com/MikeMitterer/dart-material-design-lite-site/tree/m
         </div>
     </form>
 
-    <form method="post" class="mdl-form">
+    <form id="define-your-colors-radio" method="post" class="mdl-form">
         <h5 class="mdl-form__title">Define your colors (radio)</h5>
         <div class="mdl-form__content">
             <div class="mdl-textfield">
-                <input class="mdl-textfield__input" type="text" id="sample1" />
-                <label class="mdl-textfield__label" for="sample1">Name</label>
+                <input class="mdl-textfield__input" type="text" id="sample4" />
+                <label class="mdl-textfield__label" for="sample4">Name</label>
             </div>
             <div class="mdl-textfield">
-                <input class="mdl-textfield__input" type="email" id="email" />
-                <label class="mdl-textfield__label" for="email">Email</label>
+                <input class="mdl-textfield__input" type="email" id="email4" />
+                <label class="mdl-textfield__label" for="email4">Email</label>
             </div>
             <div class="mdl-textfield">
-                <input class="mdl-textfield__input" type="tel" id="tel"/>
-                <label class="mdl-textfield__label" for="tel">Telephone, (555) 555 5555</label>
+                <input class="mdl-textfield__input" type="tel" id="tel4"/>
+                <label class="mdl-textfield__label" for="tel4">Telephone, (555) 555 5555</label>
             </div>
             <div class="mdl-form__group">
                 <label class="mdl-radio mdl-ripple-effect" for="red3">
@@ -210,7 +224,7 @@ sampleurl: https://github.com/MikeMitterer/dart-material-design-lite-site/tree/m
         </div>
     </form>
 
-    <form method="post" class="mdl-form demo-slider">
+    <form id="settings-with-border" method="post" class="mdl-form demo-slider">
         <h5 class="mdl-form__title">Settings (with border)</h5>
         <div class="mdl-form__content">
             <div class="mdl-form__group mdl-form__group--with-border mdl-form__group--slider">
@@ -242,7 +256,7 @@ sampleurl: https://github.com/MikeMitterer/dart-material-design-lite-site/tree/m
         </div>
     </form>
 
-    <form method="post" class="mdl-form demo-slider">
+    <form id="settings-without-border" method="post" class="mdl-form demo-slider">
         <h5 class="mdl-form__title">Settings (without border)</h5>
         <div class="mdl-form__content">
             <div class="mdl-form__group mdl-form__group--slider">
@@ -274,7 +288,7 @@ sampleurl: https://github.com/MikeMitterer/dart-material-design-lite-site/tree/m
         </div>
     </form>
 
-    <form method="post" class="mdl-form demo-slider">
+    <form id="labels" method="post" class="mdl-form demo-slider">
         <h5 class="mdl-form__title">Labels</h5>
         <div class="mdl-form__content">
             <div class="mdl-labelfield mdl-labelfield--with-border">

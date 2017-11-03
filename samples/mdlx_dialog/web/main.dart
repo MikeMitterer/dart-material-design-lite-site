@@ -14,7 +14,18 @@ import "package:mdl_dialog_sample/customdialog2.dart";
 import 'package:intl/intl.dart';
 import 'package:intl/intl_browser.dart';
 import 'package:intl/date_symbol_data_local.dart';
+import 'package:l10n/l10n.dart';
 
+/// Simple Translation-Table for testing (see L10N for more)
+final L10NTranslate translate = new L10NTranslate.withTranslations( {
+    "de": {
+        "Cancel": "Abbrechen"
+    },
+
+    "en": {
+        "Must not be empty": ""
+    }
+});
 
 @di.injectable
 class Application extends MaterialApplication {
@@ -188,17 +199,31 @@ main() async {
     final Logger _logger = new Logger('dialog.main');
     configLogging();
 
-    registerMdl();
-
     // Determine your locale automatically:
     final String locale = await findSystemLocale();
+    translate.locale = Intl.shortLocale(locale);
 
     Intl.defaultLocale = locale;
     initializeDateFormatting(locale);
 
+    registerMdl();
+
     _logger.info("Locale: $locale / (Short) ${Intl.shortLocale(locale)}");
 
-    await componentFactory().rootContext(Application).run();
+    await componentFactory()
+        .rootContext(Application)
+        .addModule(new SampleModule())
+        .run();
+}
+
+/**
+ * Demo Module
+ */
+class SampleModule extends di.Module {
+    configure() {
+        // Configure Translator
+        bind(Translator).toInstance(translate);
+    }
 }
 
 void configLogging() {

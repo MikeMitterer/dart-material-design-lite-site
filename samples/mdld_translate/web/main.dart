@@ -4,6 +4,7 @@ import 'package:dice/dice.dart' as di;
 
 import 'package:intl/intl.dart';
 import 'package:intl/intl_browser.dart';
+import 'package:intl/date_symbol_data_local.dart';
 import 'package:l10n/l10n.dart';
 
 import 'package:mdl/mdl.dart';
@@ -13,6 +14,7 @@ import 'package:mdl/mdlobservable.dart';
 import 'package:mdl_translate_sample/locale/messages.dart';
 
 // Simple Translation-Table for testing
+// Make sure that each language has at least one element
 //final L10NTranslate translate = new L10NTranslate.withTranslations( {
 //    "de": {
 //        "Translate me": "Übersetze mich"
@@ -49,6 +51,9 @@ main() async {
     // 2.) Set your language (en,de,fr...)
     final String locale = await findSystemLocale();
     translate.locale = Intl.shortLocale(locale);
+
+    Intl.defaultLocale = locale;
+    initializeDateFormatting(locale);
 
     registerMdl();
 
