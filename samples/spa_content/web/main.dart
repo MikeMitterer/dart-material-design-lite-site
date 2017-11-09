@@ -7,6 +7,7 @@ import 'package:console_log_handler/console_log_handler.dart';
 
 import 'package:mdl/mdl.dart' as mdl;
 
+import 'package:mdl/mdlapplication.dart';
 import 'package:route_hierarchical/client.dart';
 
 class ModelChangedEvent { }
@@ -56,7 +57,7 @@ main() {
     mdl.registerMdl();
 
     mdl.componentFactory().run().then((_) {
-        configRouter(mdl.componentFactory().injector.getInstance(mdl.ViewFactory));
+        configRouter();
 
         final mdl.MaterialSlider mainslider = mdl.MaterialSlider.widget(dom.querySelector("#mainslider2"));
         final mdl.MaterialContent list = mdl.MaterialContent.widget(dom.querySelector("#list"));
@@ -155,8 +156,9 @@ class DemoController extends mdl.MaterialController {
 
 }
 
-void configRouter(final mdl.ViewFactory view) {
-    final Router router = new Router(useFragment: true);
+void configRouter() {
+    final router = new Router(useFragment: true);
+    final view = new ViewFactory();
 
     router.root
 
