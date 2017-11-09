@@ -7,14 +7,14 @@ import 'package:dice/dice.dart' as di;
 import 'package:mdl/mdl.dart';
 import 'package:mdl/mdlobservable.dart';
 
-@MdlComponentModel
+@Model
 class _Language {
     final String name;
     final String type;
     _Language(this.name, this.type);
 }
 
-@MdlComponentModel
+@Model
 class _Name {
     final String first;
     final String last;
@@ -30,7 +30,7 @@ class _Natural extends _Language {
     _Natural(final String name) : super(name,"natural");
 }
 
-@MdlComponentModel
+@Model
 class Application extends MaterialApplication {
     final Logger _logger = new Logger('main.Application');
 

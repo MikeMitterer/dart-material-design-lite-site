@@ -26,6 +26,7 @@ import 'package:intl/intl.dart';
 import 'package:intl/intl_browser.dart';
 import 'package:intl/date_symbol_data_local.dart';
 
+import 'package:l10n/l10n.dart';
 import 'package:logging/logging.dart';
 import 'package:console_log_handler/console_log_handler.dart';
 
@@ -47,6 +48,17 @@ import "package:mdl_styleguide/customdialog2.dart";
 import "package:mdl_styleguide/src/interfaces.dart";
 import "package:mdl_styleguide/components.dart";
 import "package:mdl_styleguide/datastore.dart";
+
+/// Simple Translation-Table for testing (see L10N for more)
+final L10NTranslate translate = new L10NTranslate.withTranslations( {
+    "de": {
+        "Cancel": "Abbrechen"
+    },
+
+    "en": {
+        "Must not be empty": ""
+    }
+});
 
 /**
  * Used for mdl-model sample
@@ -205,6 +217,9 @@ class StyleguideModule extends di.Module {
         final store = new ToDoDataStore(new ActionBus());
         register(ToDoInputStoreInterface).toInstance(store);
         register(ToDoListStoreInterface).toInstance(store);
+
+        // Configure Translator
+        bind(Translator).toInstance(translate);
     }
 }
 

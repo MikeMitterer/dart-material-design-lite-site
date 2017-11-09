@@ -2,12 +2,14 @@ import "dart:html" as dom;
 import "dart:async";
 import "dart:math" as Math;
 
+import 'package:intl/intl.dart';
 import 'package:logging/logging.dart';
 import 'package:console_log_handler/console_log_handler.dart';
 
 import 'package:mdl/mdl.dart' as mdl;
 
 import 'package:mdl/mdlapplication.dart';
+import 'package:mdl/mdlobservable.dart';
 import 'package:route_hierarchical/client.dart';
 
 class ModelChangedEvent { }
@@ -121,6 +123,42 @@ main() {
     });
 }
 
+@mdl.Model
+class _Day {
+    final DateTime _date;
+
+    _Day(this._date);
+
+    String get name => new DateFormat("E").format(_date);
+    String get date => new DateFormat.yMd().format(_date);
+}
+
+/// If you have observable-Properties in your Controller it must be
+/// marked as [@mdl.Model]
+@mdl.Model
+class ObservableController extends mdl.MaterialController implements ScopeAware {
+    final time = new ObservableProperty<String>("",interval: new Duration(seconds: 1));
+    final days = new ObservableList<_Day>();
+
+    @override
+    void loaded(final Route route) {
+        time.observes(() => _getTime());
+        for(int counter = 0; days.length < 7 ;counter++) {
+            days.add(new _Day(new DateTime.now().add(new Duration(days: counter))));
+        }
+    }
+
+    @override
+    mdl.Scope get scope => new mdl.Scope(this);
+
+    // - private ------------------------------------------------------------------------------------------------------
+
+    String _getTime() {
+        final DateTime now = new DateTime.now();
+        return "${now.hour.toString().padLeft(2,"0")}:${now.minute.toString().padLeft(2,"0")}:${now.second.toString().padLeft(2,"0")}";
+    }
+}
+
 class DemoController extends mdl.MaterialController {
     final Model _model = new Model();
 
@@ -166,7 +204,7 @@ void configRouter() {
             enter: view("views/test.html", new mdl.DummyController()))
 
         ..addRoute(name: 'test2', path: '/test2',
-            enter: view("views/test2.html", new mdl.DummyController()))
+            enter: view("views/test2.html", new ObservableController()))
 
         ..addRoute(name: 'slider', path: '/slider',
             enter: view("views/slider.html", new DemoController()))

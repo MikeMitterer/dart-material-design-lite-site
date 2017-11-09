@@ -1,3 +1,14 @@
 <section class="demo-section">
     <p>Magneto - I live in test2.html</p>
+    <p>Time: <span mdl-observe="time"></span></p>
+    <p>
+        <div mdl-repeat="day in days">
+            <template>
+                <div>
+                    <span class='date'>{{day.name}}</span>
+                    <span class='value'>{{day.date}}</span>
+                </div>
+            </template>
+        </div>
+    </p>
 </section>
