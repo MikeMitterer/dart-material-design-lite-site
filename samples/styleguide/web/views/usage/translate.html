@@ -30,6 +30,9 @@ main() async &#123;
     final String locale = await findSystemLocale();
     translate.locale = Intl.shortLocale(locale);
 
+    Intl.defaultLocale = locale;
+    initializeDateFormatting(locale);
+
     registerMdl();
 
     _logger.info(&quot;Locale: $&#123;locale&#125;&quot;);

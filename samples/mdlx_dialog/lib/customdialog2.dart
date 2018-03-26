@@ -26,7 +26,7 @@ import 'package:intl/intl.dart';
 import 'package:mdl/mdl.dart';
 import "package:mdl/mdldialog.dart";
 
-import 'package:dice/dice.dart' as di;
+import 'package:dryice/dryice.dart' as di;
 
 @di.injectable
 class CustomDialog2 extends MaterialDialog {

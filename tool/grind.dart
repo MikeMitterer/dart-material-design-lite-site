@@ -7,6 +7,11 @@ import 'dart:io';
 /// No @DefaultTask() here - we will what time brings...
 main(final List<String> args) => grind(args);
 
+@DefaultTask('Shows this help-info')
+showHelp() {
+    run("grind", arguments: [ "--help"]);
+}
+
 @Task()
 @Depends(buildSamples, buildSite )
 build() {}
@@ -21,16 +26,16 @@ buildSite() {
 }
 
 @Task()
-@Depends(genSamples,genStyleguide, runSiteGenForSamples, checkForPubspecYaml)
+//@Depends(genSamples,genStyleguide, runSiteGenForSamples, checkForPubspecYaml)
 buildSamples() async {
     // Update Sample
-    await runAsync("/Users/mikemitterer/.pub-cache/bin/buildSamples",arguments: [ "-u" ]);
+    await runAsync("buildSamples",arguments: [ "-u" ]);
 
     // Analyze
     analyze();
 
     // Build!
-    await runAsync("/Users/mikemitterer/.pub-cache/bin/buildSamples",arguments: [ "-bcr" ]);
+    await runAsync("buildSamples",arguments: [ "-bcr" ]);
 }
 
 @Task()
@@ -174,7 +179,7 @@ genStyleguide() {
 
 @Task()
 runSiteGen() async {
-    await runAsync("/Users/mikemitterer/.pub-cache/bin/sitegen",arguments: [ "-g" ]);
+    await runAsync("sitegen",arguments: [ "-g" ]);
 }
 
 @Task()
@@ -189,9 +194,9 @@ runSyncSite() {
 }
 
 @Task()
-@Depends(genSamples,genStyleguide)
+//@Depends(genSamples,genStyleguide)
 runSiteGenForSamples() async {
-    await runAsync("/Users/mikemitterer/.pub-cache/bin/buildSamples",arguments: [ "--sitegen" ]);
+    await runAsync("buildSamples",arguments: [ "--sitegen" ]);
 }
 
 @Task()

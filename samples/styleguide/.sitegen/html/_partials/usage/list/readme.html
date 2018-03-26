@@ -1,158 +1,156 @@
-<h2 id="introduction">Introduction</h2>
-<p>The Material Design Lite (MDL) <strong>list</strong> component is an enhanced version of the standard HTML <code>&lt;ul&gt;</code> (unordered list) element. A list consists of a series of related items presented either vertically or horizontally.</p>
+<p>##Introduction The Material Design Lite (MDL) <strong>list</strong> component is an enhanced version of the standard HTML <code>&lt;ul&gt;</code> (unordered list) element. A list consists of a series of related items presented either vertically or horizontally.</p>
 <p>An MDL-enhanced list takes two basic forms: <em>inline</em> and <em>styled-view</em>. An inline list presents the list items horizontally, which saves screen space and facilitates viewing and selecting; a style-view list presents the list items vertically, with accompanying images that help identify or clarify the items, and horizontal rules that separate the items.</p>
 <p>Lists are a common feature in user interfaces, and allow users to view (and sometimes choose) an item from the series. Their design and use is an important factor in the overall user experience. See the list component's <a href="http://www.google.com/design/spec/components/lists.html">Material Design specifications page</a> for details.</p>
-<h3 id="to-include-an-mdl-inline-list-component">To include an MDL <strong>inline list</strong> component:</h3>
+<p>###To include an MDL <strong>inline list</strong> component:</p>
 <p> 1. Code a <code>&lt;ul&gt;</code> element. Inside the unordered list, include one <code>&lt;li&gt;</code> element for each list item to be presented horizontally. That is, for four list items, you would code four <code>&lt;li&gt;</code>s.</p>
-<div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;ul&gt;</span>
-  <span class="kw">&lt;li&gt;&lt;/li&gt;</span>
-  <span class="kw">&lt;li&gt;&lt;/li&gt;</span>
-  <span class="kw">&lt;li&gt;&lt;/li&gt;</span>
-  <span class="kw">&lt;li&gt;&lt;/li&gt;</span>
-<span class="kw">&lt;/ul&gt;</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode html"><code class="sourceCode html"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw">&lt;ul&gt;</span></a>
+<a class="sourceLine" id="cb1-2" data-line-number="2">  <span class="kw">&lt;li&gt;&lt;/li&gt;</span></a>
+<a class="sourceLine" id="cb1-3" data-line-number="3">  <span class="kw">&lt;li&gt;&lt;/li&gt;</span></a>
+<a class="sourceLine" id="cb1-4" data-line-number="4">  <span class="kw">&lt;li&gt;&lt;/li&gt;</span></a>
+<a class="sourceLine" id="cb1-5" data-line-number="5">  <span class="kw">&lt;li&gt;&lt;/li&gt;</span></a>
+<a class="sourceLine" id="cb1-6" data-line-number="6"><span class="kw">&lt;/ul&gt;</span></a></code></pre></div>
 <p> 2. Inside the list item elements, place whatever content you want, in the order you want it to appear. Typically, this will be short text strings, but might include small images, links, or other valid HTML content. Remember that the items will be presented inline (horizontally), without bullets or other intervening marks.</p>
-<div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;ul&gt;</span>
-  <span class="kw">&lt;li&gt;</span>Item1<span class="kw">&lt;/li&gt;</span>
-  <span class="kw">&lt;li&gt;</span>Item2<span class="kw">&lt;/li&gt;</span>
-  <span class="kw">&lt;li&gt;</span>Item3<span class="kw">&lt;/li&gt;</span>
-  <span class="kw">&lt;li&gt;</span>Item4<span class="kw">&lt;/li&gt;</span>
-<span class="kw">&lt;/ul&gt;</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode html"><code class="sourceCode html"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="kw">&lt;ul&gt;</span></a>
+<a class="sourceLine" id="cb2-2" data-line-number="2">  <span class="kw">&lt;li&gt;</span>Item1<span class="kw">&lt;/li&gt;</span></a>
+<a class="sourceLine" id="cb2-3" data-line-number="3">  <span class="kw">&lt;li&gt;</span>Item2<span class="kw">&lt;/li&gt;</span></a>
+<a class="sourceLine" id="cb2-4" data-line-number="4">  <span class="kw">&lt;li&gt;</span>Item3<span class="kw">&lt;/li&gt;</span></a>
+<a class="sourceLine" id="cb2-5" data-line-number="5">  <span class="kw">&lt;li&gt;</span>Item4<span class="kw">&lt;/li&gt;</span></a>
+<a class="sourceLine" id="cb2-6" data-line-number="6"><span class="kw">&lt;/ul&gt;</span></a></code></pre></div>
 <p> 3. Add the MDL class to the list using the <code>class</code> attribute.</p>
-<div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;ul</span><span class="ot"> class=</span><span class="st">&quot;mdl-list--inline&quot;</span><span class="kw">&gt;</span>
-  <span class="kw">&lt;li&gt;</span>Item1<span class="kw">&lt;/li&gt;</span>
-  <span class="kw">&lt;li&gt;</span>Item2<span class="kw">&lt;/li&gt;</span>
-  <span class="kw">&lt;li&gt;</span>Item3<span class="kw">&lt;/li&gt;</span>
-  <span class="kw">&lt;li&gt;</span>Item4<span class="kw">&lt;/li&gt;</span>
-<span class="kw">&lt;/ul&gt;</span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode html"><code class="sourceCode html"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="kw">&lt;ul</span><span class="ot"> class=</span><span class="st">&quot;mdl-list--inline&quot;</span><span class="kw">&gt;</span></a>
+<a class="sourceLine" id="cb3-2" data-line-number="2">  <span class="kw">&lt;li&gt;</span>Item1<span class="kw">&lt;/li&gt;</span></a>
+<a class="sourceLine" id="cb3-3" data-line-number="3">  <span class="kw">&lt;li&gt;</span>Item2<span class="kw">&lt;/li&gt;</span></a>
+<a class="sourceLine" id="cb3-4" data-line-number="4">  <span class="kw">&lt;li&gt;</span>Item3<span class="kw">&lt;/li&gt;</span></a>
+<a class="sourceLine" id="cb3-5" data-line-number="5">  <span class="kw">&lt;li&gt;</span>Item4<span class="kw">&lt;/li&gt;</span></a>
+<a class="sourceLine" id="cb3-6" data-line-number="6"><span class="kw">&lt;/ul&gt;</span></a></code></pre></div>
 <p>The inline list component is ready for use.</p>
-<h4 id="examples">Examples</h4>
+<p>####Examples</p>
 <p>A simple inline list.</p>
-<div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;ul</span><span class="ot"> class=</span><span class="st">&quot;mdl-list--inline&quot;</span><span class="kw">&gt;</span>
-  <span class="kw">&lt;li&gt;</span>Aardvarks<span class="kw">&lt;/li&gt;</span>
-  <span class="kw">&lt;li&gt;</span>Butterflies<span class="kw">&lt;/li&gt;</span>
-  <span class="kw">&lt;li&gt;</span>Canaries<span class="kw">&lt;/li&gt;</span>
-  <span class="kw">&lt;li&gt;</span>Deer<span class="kw">&lt;/li&gt;</span>
-<span class="kw">&lt;/ul&gt;</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode html"><code class="sourceCode html"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="kw">&lt;ul</span><span class="ot"> class=</span><span class="st">&quot;mdl-list--inline&quot;</span><span class="kw">&gt;</span></a>
+<a class="sourceLine" id="cb4-2" data-line-number="2">  <span class="kw">&lt;li&gt;</span>Aardvarks<span class="kw">&lt;/li&gt;</span></a>
+<a class="sourceLine" id="cb4-3" data-line-number="3">  <span class="kw">&lt;li&gt;</span>Butterflies<span class="kw">&lt;/li&gt;</span></a>
+<a class="sourceLine" id="cb4-4" data-line-number="4">  <span class="kw">&lt;li&gt;</span>Canaries<span class="kw">&lt;/li&gt;</span></a>
+<a class="sourceLine" id="cb4-5" data-line-number="5">  <span class="kw">&lt;li&gt;</span>Deer<span class="kw">&lt;/li&gt;</span></a>
+<a class="sourceLine" id="cb4-6" data-line-number="6"><span class="kw">&lt;/ul&gt;</span></a></code></pre></div>
 <p>An inline list with links.</p>
-<div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html">    <span class="kw">&lt;p&gt;</span>Australian animals that might kill you include:<span class="kw">&lt;/p&gt;</span>
-    <span class="kw">&lt;ul</span><span class="ot"> class=</span><span class="st">&quot;mdl-list--inline&quot;</span><span class="kw">&gt;</span>
-      <span class="kw">&lt;li&gt;&lt;a</span><span class="ot"> href=</span><span class="st">&quot;http://www.australiananimals.com/jellies&quot;</span><span class="kw">&gt;</span>Box jellyfish<span class="kw">&lt;/a&gt;&lt;/li&gt;</span>
-      <span class="kw">&lt;li&gt;&lt;a</span><span class="ot"> href=</span><span class="st">&quot;http://www.australiananimals.com/spiders&quot;</span><span class="kw">&gt;</span>Spiders<span class="kw">&lt;/a&gt;&lt;/li&gt;</span>
-      <span class="kw">&lt;li&gt;&lt;a</span><span class="ot"> href=</span><span class="st">&quot;http://www.australiananimals.com/snakes&quot;</span><span class="kw">&gt;</span>Snakes<span class="kw">&lt;/a&gt;&lt;/li&gt;</span>
-      <span class="kw">&lt;li&gt;&lt;a</span><span class="ot"> href=</span><span class="st">&quot;http://www.australiananimals.com/salties&quot;</span><span class="kw">&gt;</span>Saltwater crocodiles<span class="kw">&lt;/a&gt;&lt;/li&gt;</span>
-    <span class="kw">&lt;/ul&gt;</span></code></pre></div>
-<h3 id="to-include-an-mdl-styled-view-list-component">To include an MDL <strong>styled-view list</strong> component:</h3>
+<div class="sourceCode" id="cb5"><pre class="sourceCode html"><code class="sourceCode html"><a class="sourceLine" id="cb5-1" data-line-number="1">    <span class="kw">&lt;p&gt;</span>Australian animals that might kill you include:<span class="kw">&lt;/p&gt;</span></a>
+<a class="sourceLine" id="cb5-2" data-line-number="2">    <span class="kw">&lt;ul</span><span class="ot"> class=</span><span class="st">&quot;mdl-list--inline&quot;</span><span class="kw">&gt;</span></a>
+<a class="sourceLine" id="cb5-3" data-line-number="3">      <span class="kw">&lt;li&gt;&lt;a</span><span class="ot"> href=</span><span class="st">&quot;http://www.australiananimals.com/jellies&quot;</span><span class="kw">&gt;</span>Box jellyfish<span class="kw">&lt;/a&gt;&lt;/li&gt;</span></a>
+<a class="sourceLine" id="cb5-4" data-line-number="4">      <span class="kw">&lt;li&gt;&lt;a</span><span class="ot"> href=</span><span class="st">&quot;http://www.australiananimals.com/spiders&quot;</span><span class="kw">&gt;</span>Spiders<span class="kw">&lt;/a&gt;&lt;/li&gt;</span></a>
+<a class="sourceLine" id="cb5-5" data-line-number="5">      <span class="kw">&lt;li&gt;&lt;a</span><span class="ot"> href=</span><span class="st">&quot;http://www.australiananimals.com/snakes&quot;</span><span class="kw">&gt;</span>Snakes<span class="kw">&lt;/a&gt;&lt;/li&gt;</span></a>
+<a class="sourceLine" id="cb5-6" data-line-number="6">      <span class="kw">&lt;li&gt;&lt;a</span><span class="ot"> href=</span><span class="st">&quot;http://www.australiananimals.com/salties&quot;</span><span class="kw">&gt;</span>Saltwater crocodiles<span class="kw">&lt;/a&gt;&lt;/li&gt;</span></a>
+<a class="sourceLine" id="cb5-7" data-line-number="7">    <span class="kw">&lt;/ul&gt;</span></a></code></pre></div>
+<p>###To include an MDL <strong>styled-view list</strong> component:</p>
 <p> 1. Code a <code>&lt;div&gt;</code> element; this will hold the styled list. Inside the div, code a <code>&lt;ul&gt;</code> element; inside this unordered list, include one <code>&lt;li&gt;</code> element for each styled list item to be presented. That is, for four list items, you would code four <code>&lt;li&gt;</code>s.</p>
-<div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;div&gt;</span>
-  <span class="kw">&lt;ul&gt;</span>
-    <span class="kw">&lt;li&gt;</span>
-    ...
-    <span class="kw">&lt;/li&gt;</span>
-    <span class="kw">&lt;li&gt;</span>
-    ...
-    <span class="kw">&lt;/li&gt;</span>
-    <span class="kw">&lt;li&gt;</span>
-    ...
-    <span class="kw">&lt;/li&gt;</span>
-    <span class="kw">&lt;li&gt;</span>
-    ...
-    <span class="kw">&lt;/li&gt;</span>
-  <span class="kw">&lt;/ul&gt;</span>
-<span class="kw">&lt;/div&gt;</span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode html"><code class="sourceCode html"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="kw">&lt;div&gt;</span></a>
+<a class="sourceLine" id="cb6-2" data-line-number="2">  <span class="kw">&lt;ul&gt;</span></a>
+<a class="sourceLine" id="cb6-3" data-line-number="3">    <span class="kw">&lt;li&gt;</span></a>
+<a class="sourceLine" id="cb6-4" data-line-number="4">    ...</a>
+<a class="sourceLine" id="cb6-5" data-line-number="5">    <span class="kw">&lt;/li&gt;</span></a>
+<a class="sourceLine" id="cb6-6" data-line-number="6">    <span class="kw">&lt;li&gt;</span></a>
+<a class="sourceLine" id="cb6-7" data-line-number="7">    ...</a>
+<a class="sourceLine" id="cb6-8" data-line-number="8">    <span class="kw">&lt;/li&gt;</span></a>
+<a class="sourceLine" id="cb6-9" data-line-number="9">    <span class="kw">&lt;li&gt;</span></a>
+<a class="sourceLine" id="cb6-10" data-line-number="10">    ...</a>
+<a class="sourceLine" id="cb6-11" data-line-number="11">    <span class="kw">&lt;/li&gt;</span></a>
+<a class="sourceLine" id="cb6-12" data-line-number="12">    <span class="kw">&lt;li&gt;</span></a>
+<a class="sourceLine" id="cb6-13" data-line-number="13">    ...</a>
+<a class="sourceLine" id="cb6-14" data-line-number="14">    <span class="kw">&lt;/li&gt;</span></a>
+<a class="sourceLine" id="cb6-15" data-line-number="15">  <span class="kw">&lt;/ul&gt;</span></a>
+<a class="sourceLine" id="cb6-16" data-line-number="16"><span class="kw">&lt;/div&gt;</span></a></code></pre></div>
 <p> 2. Inside each list item, code two <code>&lt;span&gt;</code> elements. The first span should have no content (although it can — see <strong>Examples</strong> below), and the second should contain whatever content you want to display. Typically, this will be short text strings.</p>
-<div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;div&gt;</span>
-  <span class="kw">&lt;ul&gt;</span>
-    <span class="kw">&lt;li&gt;</span>
-      <span class="kw">&lt;span&gt;&lt;/span&gt;</span>
-      <span class="kw">&lt;span&gt;</span>Item1<span class="kw">&lt;/span&gt;</span>
-    <span class="kw">&lt;/li&gt;</span>
-    <span class="kw">&lt;li&gt;</span>
-      <span class="kw">&lt;span&gt;&lt;/span&gt;</span>
-      <span class="kw">&lt;span&gt;</span>Item2<span class="kw">&lt;/span&gt;</span>
-    <span class="kw">&lt;/li&gt;</span>
-    <span class="kw">&lt;li&gt;</span>
-      <span class="kw">&lt;span&gt;&lt;/span&gt;</span>
-      <span class="kw">&lt;span&gt;</span>Item3<span class="kw">&lt;/span&gt;</span>
-    <span class="kw">&lt;/li&gt;</span>
-    <span class="kw">&lt;li&gt;</span>
-      <span class="kw">&lt;span&gt;&lt;/span&gt;</span>
-      <span class="kw">&lt;span&gt;</span>Item4<span class="kw">&lt;/span&gt;</span>
-    <span class="kw">&lt;/li&gt;</span>
-  <span class="kw">&lt;/ul&gt;</span>
-<span class="kw">&lt;/div&gt;</span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode html"><code class="sourceCode html"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="kw">&lt;div&gt;</span></a>
+<a class="sourceLine" id="cb7-2" data-line-number="2">  <span class="kw">&lt;ul&gt;</span></a>
+<a class="sourceLine" id="cb7-3" data-line-number="3">    <span class="kw">&lt;li&gt;</span></a>
+<a class="sourceLine" id="cb7-4" data-line-number="4">      <span class="kw">&lt;span&gt;&lt;/span&gt;</span></a>
+<a class="sourceLine" id="cb7-5" data-line-number="5">      <span class="kw">&lt;span&gt;</span>Item1<span class="kw">&lt;/span&gt;</span></a>
+<a class="sourceLine" id="cb7-6" data-line-number="6">    <span class="kw">&lt;/li&gt;</span></a>
+<a class="sourceLine" id="cb7-7" data-line-number="7">    <span class="kw">&lt;li&gt;</span></a>
+<a class="sourceLine" id="cb7-8" data-line-number="8">      <span class="kw">&lt;span&gt;&lt;/span&gt;</span></a>
+<a class="sourceLine" id="cb7-9" data-line-number="9">      <span class="kw">&lt;span&gt;</span>Item2<span class="kw">&lt;/span&gt;</span></a>
+<a class="sourceLine" id="cb7-10" data-line-number="10">    <span class="kw">&lt;/li&gt;</span></a>
+<a class="sourceLine" id="cb7-11" data-line-number="11">    <span class="kw">&lt;li&gt;</span></a>
+<a class="sourceLine" id="cb7-12" data-line-number="12">      <span class="kw">&lt;span&gt;&lt;/span&gt;</span></a>
+<a class="sourceLine" id="cb7-13" data-line-number="13">      <span class="kw">&lt;span&gt;</span>Item3<span class="kw">&lt;/span&gt;</span></a>
+<a class="sourceLine" id="cb7-14" data-line-number="14">    <span class="kw">&lt;/li&gt;</span></a>
+<a class="sourceLine" id="cb7-15" data-line-number="15">    <span class="kw">&lt;li&gt;</span></a>
+<a class="sourceLine" id="cb7-16" data-line-number="16">      <span class="kw">&lt;span&gt;&lt;/span&gt;</span></a>
+<a class="sourceLine" id="cb7-17" data-line-number="17">      <span class="kw">&lt;span&gt;</span>Item4<span class="kw">&lt;/span&gt;</span></a>
+<a class="sourceLine" id="cb7-18" data-line-number="18">    <span class="kw">&lt;/li&gt;</span></a>
+<a class="sourceLine" id="cb7-19" data-line-number="19">  <span class="kw">&lt;/ul&gt;</span></a>
+<a class="sourceLine" id="cb7-20" data-line-number="20"><span class="kw">&lt;/div&gt;</span></a></code></pre></div>
 <p> 3. Add MDL classes to the div and the spans using the <code>class</code> attribute.</p>
-<div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-list--styled-view&quot;</span><span class="kw">&gt;</span>
-  <span class="kw">&lt;ul&gt;</span>
-    <span class="kw">&lt;li&gt;</span>
-      <span class="kw">&lt;span</span><span class="ot"> class=</span><span class="st">&quot;mdl-list-view--avatar&quot;</span><span class="kw">&gt;&lt;/span&gt;</span>
-      <span class="kw">&lt;span</span><span class="ot"> class=</span><span class="st">&quot;mdl-list-view--name&quot;</span><span class="kw">&gt;</span>Item1<span class="kw">&lt;/span&gt;</span>
-    <span class="kw">&lt;/li&gt;</span>
-    <span class="kw">&lt;li&gt;</span>
-      <span class="kw">&lt;span</span><span class="ot"> class=</span><span class="st">&quot;mdl-list-view--avatar&quot;</span><span class="kw">&gt;&lt;/span&gt;</span>
-      <span class="kw">&lt;span</span><span class="ot"> class=</span><span class="st">&quot;mdl-list-view--name&quot;</span><span class="kw">&gt;</span>Item2<span class="kw">&lt;/span&gt;</span>
-    <span class="kw">&lt;/li&gt;</span>
-    <span class="kw">&lt;li&gt;</span>
-      <span class="kw">&lt;span</span><span class="ot"> class=</span><span class="st">&quot;mdl-list-view--avatar&quot;</span><span class="kw">&gt;&lt;/span&gt;</span>
-      <span class="kw">&lt;span</span><span class="ot"> class=</span><span class="st">&quot;mdl-list-view--name&quot;</span><span class="kw">&gt;</span>Item3<span class="kw">&lt;/span&gt;</span>
-    <span class="kw">&lt;/li&gt;</span>
-    <span class="kw">&lt;li&gt;</span>
-      <span class="kw">&lt;span</span><span class="ot"> class=</span><span class="st">&quot;mdl-list-view--avatar&quot;</span><span class="kw">&gt;&lt;/span&gt;</span>
-      <span class="kw">&lt;span</span><span class="ot"> class=</span><span class="st">&quot;mdl-list-view--name&quot;</span><span class="kw">&gt;</span>Item4<span class="kw">&lt;/span&gt;</span>
-    <span class="kw">&lt;/li&gt;</span>
-  <span class="kw">&lt;/ul&gt;</span>
-<span class="kw">&lt;/div&gt;</span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode html"><code class="sourceCode html"><a class="sourceLine" id="cb8-1" data-line-number="1"><span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-list--styled-view&quot;</span><span class="kw">&gt;</span></a>
+<a class="sourceLine" id="cb8-2" data-line-number="2">  <span class="kw">&lt;ul&gt;</span></a>
+<a class="sourceLine" id="cb8-3" data-line-number="3">    <span class="kw">&lt;li&gt;</span></a>
+<a class="sourceLine" id="cb8-4" data-line-number="4">      <span class="kw">&lt;span</span><span class="ot"> class=</span><span class="st">&quot;mdl-list-view--avatar&quot;</span><span class="kw">&gt;&lt;/span&gt;</span></a>
+<a class="sourceLine" id="cb8-5" data-line-number="5">      <span class="kw">&lt;span</span><span class="ot"> class=</span><span class="st">&quot;mdl-list-view--name&quot;</span><span class="kw">&gt;</span>Item1<span class="kw">&lt;/span&gt;</span></a>
+<a class="sourceLine" id="cb8-6" data-line-number="6">    <span class="kw">&lt;/li&gt;</span></a>
+<a class="sourceLine" id="cb8-7" data-line-number="7">    <span class="kw">&lt;li&gt;</span></a>
+<a class="sourceLine" id="cb8-8" data-line-number="8">      <span class="kw">&lt;span</span><span class="ot"> class=</span><span class="st">&quot;mdl-list-view--avatar&quot;</span><span class="kw">&gt;&lt;/span&gt;</span></a>
+<a class="sourceLine" id="cb8-9" data-line-number="9">      <span class="kw">&lt;span</span><span class="ot"> class=</span><span class="st">&quot;mdl-list-view--name&quot;</span><span class="kw">&gt;</span>Item2<span class="kw">&lt;/span&gt;</span></a>
+<a class="sourceLine" id="cb8-10" data-line-number="10">    <span class="kw">&lt;/li&gt;</span></a>
+<a class="sourceLine" id="cb8-11" data-line-number="11">    <span class="kw">&lt;li&gt;</span></a>
+<a class="sourceLine" id="cb8-12" data-line-number="12">      <span class="kw">&lt;span</span><span class="ot"> class=</span><span class="st">&quot;mdl-list-view--avatar&quot;</span><span class="kw">&gt;&lt;/span&gt;</span></a>
+<a class="sourceLine" id="cb8-13" data-line-number="13">      <span class="kw">&lt;span</span><span class="ot"> class=</span><span class="st">&quot;mdl-list-view--name&quot;</span><span class="kw">&gt;</span>Item3<span class="kw">&lt;/span&gt;</span></a>
+<a class="sourceLine" id="cb8-14" data-line-number="14">    <span class="kw">&lt;/li&gt;</span></a>
+<a class="sourceLine" id="cb8-15" data-line-number="15">    <span class="kw">&lt;li&gt;</span></a>
+<a class="sourceLine" id="cb8-16" data-line-number="16">      <span class="kw">&lt;span</span><span class="ot"> class=</span><span class="st">&quot;mdl-list-view--avatar&quot;</span><span class="kw">&gt;&lt;/span&gt;</span></a>
+<a class="sourceLine" id="cb8-17" data-line-number="17">      <span class="kw">&lt;span</span><span class="ot"> class=</span><span class="st">&quot;mdl-list-view--name&quot;</span><span class="kw">&gt;</span>Item4<span class="kw">&lt;/span&gt;</span></a>
+<a class="sourceLine" id="cb8-18" data-line-number="18">    <span class="kw">&lt;/li&gt;</span></a>
+<a class="sourceLine" id="cb8-19" data-line-number="19">  <span class="kw">&lt;/ul&gt;</span></a>
+<a class="sourceLine" id="cb8-20" data-line-number="20"><span class="kw">&lt;/div&gt;</span></a></code></pre></div>
 <p>The styled-view list component is ready for use.</p>
-<h4 id="examples-1">Examples</h4>
+<p>####Examples</p>
 <p>A styled-view list of people's names, with default &quot;avatar&quot; images.</p>
-<div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-list--styled-view&quot;</span><span class="kw">&gt;</span>
-  <span class="kw">&lt;ul&gt;</span>
-    <span class="kw">&lt;li&gt;</span>
-      <span class="kw">&lt;span</span><span class="ot"> class=</span><span class="st">&quot;mdl-list-view--avatar&quot;</span><span class="kw">&gt;&lt;/span&gt;</span>
-      <span class="kw">&lt;span</span><span class="ot"> class=</span><span class="st">&quot;mdl-list-view--name&quot;</span><span class="kw">&gt;</span>Allen Anderson<span class="kw">&lt;/span&gt;</span>
-    <span class="kw">&lt;/li&gt;</span>
-    <span class="kw">&lt;li&gt;</span>
-      <span class="kw">&lt;span</span><span class="ot"> class=</span><span class="st">&quot;mdl-list-view--avatar&quot;</span><span class="kw">&gt;&lt;/span&gt;</span>
-      <span class="kw">&lt;span</span><span class="ot"> class=</span><span class="st">&quot;mdl-list-view--name&quot;</span><span class="kw">&gt;</span>Barbara Barnes<span class="kw">&lt;/span&gt;</span>
-    <span class="kw">&lt;/li&gt;</span>
-    <span class="kw">&lt;li&gt;</span>
-      <span class="kw">&lt;span</span><span class="ot"> class=</span><span class="st">&quot;mdl-list-view--avatar&quot;</span><span class="kw">&gt;&lt;/span&gt;</span>
-      <span class="kw">&lt;span</span><span class="ot"> class=</span><span class="st">&quot;mdl-list-view--name&quot;</span><span class="kw">&gt;</span>Charlie Connors<span class="kw">&lt;/span&gt;</span>
-    <span class="kw">&lt;/li&gt;</span>
-    <span class="kw">&lt;li&gt;</span>
-      <span class="kw">&lt;span</span><span class="ot"> class=</span><span class="st">&quot;mdl-list-view--avatar&quot;</span><span class="kw">&gt;&lt;/span&gt;</span>
-      <span class="kw">&lt;span</span><span class="ot"> class=</span><span class="st">&quot;mdl-list-view--name&quot;</span><span class="kw">&gt;</span>Darlene Davis<span class="kw">&lt;/span&gt;</span>
-    <span class="kw">&lt;/li&gt;</span>
-  <span class="kw">&lt;/ul&gt;</span>
-<span class="kw">&lt;/div&gt;</span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode html"><code class="sourceCode html"><a class="sourceLine" id="cb9-1" data-line-number="1"><span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-list--styled-view&quot;</span><span class="kw">&gt;</span></a>
+<a class="sourceLine" id="cb9-2" data-line-number="2">  <span class="kw">&lt;ul&gt;</span></a>
+<a class="sourceLine" id="cb9-3" data-line-number="3">    <span class="kw">&lt;li&gt;</span></a>
+<a class="sourceLine" id="cb9-4" data-line-number="4">      <span class="kw">&lt;span</span><span class="ot"> class=</span><span class="st">&quot;mdl-list-view--avatar&quot;</span><span class="kw">&gt;&lt;/span&gt;</span></a>
+<a class="sourceLine" id="cb9-5" data-line-number="5">      <span class="kw">&lt;span</span><span class="ot"> class=</span><span class="st">&quot;mdl-list-view--name&quot;</span><span class="kw">&gt;</span>Allen Anderson<span class="kw">&lt;/span&gt;</span></a>
+<a class="sourceLine" id="cb9-6" data-line-number="6">    <span class="kw">&lt;/li&gt;</span></a>
+<a class="sourceLine" id="cb9-7" data-line-number="7">    <span class="kw">&lt;li&gt;</span></a>
+<a class="sourceLine" id="cb9-8" data-line-number="8">      <span class="kw">&lt;span</span><span class="ot"> class=</span><span class="st">&quot;mdl-list-view--avatar&quot;</span><span class="kw">&gt;&lt;/span&gt;</span></a>
+<a class="sourceLine" id="cb9-9" data-line-number="9">      <span class="kw">&lt;span</span><span class="ot"> class=</span><span class="st">&quot;mdl-list-view--name&quot;</span><span class="kw">&gt;</span>Barbara Barnes<span class="kw">&lt;/span&gt;</span></a>
+<a class="sourceLine" id="cb9-10" data-line-number="10">    <span class="kw">&lt;/li&gt;</span></a>
+<a class="sourceLine" id="cb9-11" data-line-number="11">    <span class="kw">&lt;li&gt;</span></a>
+<a class="sourceLine" id="cb9-12" data-line-number="12">      <span class="kw">&lt;span</span><span class="ot"> class=</span><span class="st">&quot;mdl-list-view--avatar&quot;</span><span class="kw">&gt;&lt;/span&gt;</span></a>
+<a class="sourceLine" id="cb9-13" data-line-number="13">      <span class="kw">&lt;span</span><span class="ot"> class=</span><span class="st">&quot;mdl-list-view--name&quot;</span><span class="kw">&gt;</span>Charlie Connors<span class="kw">&lt;/span&gt;</span></a>
+<a class="sourceLine" id="cb9-14" data-line-number="14">    <span class="kw">&lt;/li&gt;</span></a>
+<a class="sourceLine" id="cb9-15" data-line-number="15">    <span class="kw">&lt;li&gt;</span></a>
+<a class="sourceLine" id="cb9-16" data-line-number="16">      <span class="kw">&lt;span</span><span class="ot"> class=</span><span class="st">&quot;mdl-list-view--avatar&quot;</span><span class="kw">&gt;&lt;/span&gt;</span></a>
+<a class="sourceLine" id="cb9-17" data-line-number="17">      <span class="kw">&lt;span</span><span class="ot"> class=</span><span class="st">&quot;mdl-list-view--name&quot;</span><span class="kw">&gt;</span>Darlene Davis<span class="kw">&lt;/span&gt;</span></a>
+<a class="sourceLine" id="cb9-18" data-line-number="18">    <span class="kw">&lt;/li&gt;</span></a>
+<a class="sourceLine" id="cb9-19" data-line-number="19">  <span class="kw">&lt;/ul&gt;</span></a>
+<a class="sourceLine" id="cb9-20" data-line-number="20"><span class="kw">&lt;/div&gt;</span></a></code></pre></div>
 <p>A styled-view list with custom images.</p>
-<div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-list--styled-view&quot;</span><span class="kw">&gt;</span>
-  <span class="kw">&lt;p&gt;</span>Australian animals that can kill you include:<span class="kw">&lt;/p&gt;</span>  
-  <span class="kw">&lt;ul&gt;</span>
-    <span class="kw">&lt;li&gt;</span>
-      <span class="kw">&lt;span&gt;&lt;img</span><span class="ot"> src=</span><span class="st">&quot;jellies.png&quot;</span><span class="ot"> style=</span><span class="st">&quot;height:50px; width:50px; margin:10px 15px;&quot;</span> <span class="kw">/&gt;&lt;/span&gt;</span>
-      <span class="kw">&lt;span</span><span class="ot"> class=</span><span class="st">&quot;mdl-list-view--name&quot;</span><span class="kw">&gt;</span>Box jellyfish<span class="kw">&lt;/span&gt;</span>
-    <span class="kw">&lt;/li&gt;</span>
-    <span class="kw">&lt;li&gt;</span>
-      <span class="kw">&lt;span&gt;&lt;img</span><span class="ot"> src=</span><span class="st">&quot;spiders.png&quot;</span><span class="ot"> style=</span><span class="st">&quot;height:50px; width:50px; margin:10px 15px;&quot;</span> <span class="kw">/&gt;&lt;/span&gt;</span>
-      <span class="kw">&lt;span</span><span class="ot"> class=</span><span class="st">&quot;mdl-list-view--name&quot;</span><span class="kw">&gt;</span>Spiders<span class="kw">&lt;/span&gt;</span>
-    <span class="kw">&lt;/li&gt;</span>
-    <span class="kw">&lt;li&gt;</span>
-      <span class="kw">&lt;span&gt;&lt;img</span><span class="ot"> src=</span><span class="st">&quot;snakes.png&quot;</span><span class="ot"> style=</span><span class="st">&quot;height:50px; width:50px; margin:10px 15px;&quot;</span> <span class="kw">/&gt;&lt;/span&gt;</span>
-      <span class="kw">&lt;span</span><span class="ot"> class=</span><span class="st">&quot;mdl-list-view--name&quot;</span><span class="kw">&gt;</span>Snakes<span class="kw">&lt;/span&gt;</span>
-    <span class="kw">&lt;/li&gt;</span>
-    <span class="kw">&lt;li&gt;</span>
-      <span class="kw">&lt;span&gt;&lt;img</span><span class="ot"> src=</span><span class="st">&quot;salties.png&quot;</span><span class="ot"> style=</span><span class="st">&quot;height:50px; width:50px; margin:10px 15px;&quot;</span> <span class="kw">/&gt;&lt;/span&gt;</span>
-      <span class="kw">&lt;span</span><span class="ot"> class=</span><span class="st">&quot;mdl-list-view--name&quot;</span><span class="kw">&gt;</span>Saltwater crocodiles<span class="kw">&lt;/span&gt;</span>
-    <span class="kw">&lt;/li&gt;</span>
-  <span class="kw">&lt;/ul&gt;</span>
-<span class="kw">&lt;/div&gt;</span></code></pre></div>
-<h2 id="configuration-options">Configuration options</h2>
-<p>The MDL CSS classes apply various predefined visual enhancements to the list. The table below lists the available classes and their effects.</p>
-<table style="width:43%;">
+<div class="sourceCode" id="cb10"><pre class="sourceCode html"><code class="sourceCode html"><a class="sourceLine" id="cb10-1" data-line-number="1"><span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-list--styled-view&quot;</span><span class="kw">&gt;</span></a>
+<a class="sourceLine" id="cb10-2" data-line-number="2">  <span class="kw">&lt;p&gt;</span>Australian animals that can kill you include:<span class="kw">&lt;/p&gt;</span>  </a>
+<a class="sourceLine" id="cb10-3" data-line-number="3">  <span class="kw">&lt;ul&gt;</span></a>
+<a class="sourceLine" id="cb10-4" data-line-number="4">    <span class="kw">&lt;li&gt;</span></a>
+<a class="sourceLine" id="cb10-5" data-line-number="5">      <span class="kw">&lt;span&gt;&lt;img</span><span class="ot"> src=</span><span class="st">&quot;jellies.png&quot;</span><span class="ot"> style=</span><span class="st">&quot;height:50px; width:50px; margin:10px 15px;&quot;</span> <span class="kw">/&gt;&lt;/span&gt;</span></a>
+<a class="sourceLine" id="cb10-6" data-line-number="6">      <span class="kw">&lt;span</span><span class="ot"> class=</span><span class="st">&quot;mdl-list-view--name&quot;</span><span class="kw">&gt;</span>Box jellyfish<span class="kw">&lt;/span&gt;</span></a>
+<a class="sourceLine" id="cb10-7" data-line-number="7">    <span class="kw">&lt;/li&gt;</span></a>
+<a class="sourceLine" id="cb10-8" data-line-number="8">    <span class="kw">&lt;li&gt;</span></a>
+<a class="sourceLine" id="cb10-9" data-line-number="9">      <span class="kw">&lt;span&gt;&lt;img</span><span class="ot"> src=</span><span class="st">&quot;spiders.png&quot;</span><span class="ot"> style=</span><span class="st">&quot;height:50px; width:50px; margin:10px 15px;&quot;</span> <span class="kw">/&gt;&lt;/span&gt;</span></a>
+<a class="sourceLine" id="cb10-10" data-line-number="10">      <span class="kw">&lt;span</span><span class="ot"> class=</span><span class="st">&quot;mdl-list-view--name&quot;</span><span class="kw">&gt;</span>Spiders<span class="kw">&lt;/span&gt;</span></a>
+<a class="sourceLine" id="cb10-11" data-line-number="11">    <span class="kw">&lt;/li&gt;</span></a>
+<a class="sourceLine" id="cb10-12" data-line-number="12">    <span class="kw">&lt;li&gt;</span></a>
+<a class="sourceLine" id="cb10-13" data-line-number="13">      <span class="kw">&lt;span&gt;&lt;img</span><span class="ot"> src=</span><span class="st">&quot;snakes.png&quot;</span><span class="ot"> style=</span><span class="st">&quot;height:50px; width:50px; margin:10px 15px;&quot;</span> <span class="kw">/&gt;&lt;/span&gt;</span></a>
+<a class="sourceLine" id="cb10-14" data-line-number="14">      <span class="kw">&lt;span</span><span class="ot"> class=</span><span class="st">&quot;mdl-list-view--name&quot;</span><span class="kw">&gt;</span>Snakes<span class="kw">&lt;/span&gt;</span></a>
+<a class="sourceLine" id="cb10-15" data-line-number="15">    <span class="kw">&lt;/li&gt;</span></a>
+<a class="sourceLine" id="cb10-16" data-line-number="16">    <span class="kw">&lt;li&gt;</span></a>
+<a class="sourceLine" id="cb10-17" data-line-number="17">      <span class="kw">&lt;span&gt;&lt;img</span><span class="ot"> src=</span><span class="st">&quot;salties.png&quot;</span><span class="ot"> style=</span><span class="st">&quot;height:50px; width:50px; margin:10px 15px;&quot;</span> <span class="kw">/&gt;&lt;/span&gt;</span></a>
+<a class="sourceLine" id="cb10-18" data-line-number="18">      <span class="kw">&lt;span</span><span class="ot"> class=</span><span class="st">&quot;mdl-list-view--name&quot;</span><span class="kw">&gt;</span>Saltwater crocodiles<span class="kw">&lt;/span&gt;</span></a>
+<a class="sourceLine" id="cb10-19" data-line-number="19">    <span class="kw">&lt;/li&gt;</span></a>
+<a class="sourceLine" id="cb10-20" data-line-number="20">  <span class="kw">&lt;/ul&gt;</span></a>
+<a class="sourceLine" id="cb10-21" data-line-number="21"><span class="kw">&lt;/div&gt;</span></a></code></pre></div>
+<p>##Configuration options The MDL CSS classes apply various predefined visual enhancements to the list. The table below lists the available classes and their effects.</p>
+<table>
 <colgroup>
-<col width="16%" />
-<col width="12%" />
-<col width="13%" />
+<col style="width: 39%" />
+<col style="width: 28%" />
+<col style="width: 32%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -184,5 +182,4 @@
 </tr>
 </tbody>
 </table>
-<h2 id="more-information">More information</h2>
-<p>For working examples of the <strong>list</strong> component, see the MDL <a href="www.github.com/google/material-design-lite/src/lists/demo.html">list demo page</a>.</p>
+<p>##More information For working examples of the <strong>list</strong> component, see the MDL <a href="www.github.com/google/material-design-lite/src/lists/demo.html">list demo page</a>.</p>

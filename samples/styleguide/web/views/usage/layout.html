@@ -400,261 +400,261 @@ main() &#123;
 
                 <!-- CSS-Tab -->
                 <!--<div class="mdl-tabs__panel" id="css">-->
-<!--<h2 id="introduction">Introduction</h2>
+<!--<h2>Introduction</h2>
 <p>The Material Design Lite (MDL) <strong>layout</strong> component is a comprehensive approach to page layout that uses MDL development tenets, allows for efficient use of MDL components, and automatically adapts to different browsers, screen sizes, and devices.</p>
 <p>Appropriate and accessible layout is a critical feature of all user interfaces, regardless of a site's content or function. Page design and presentation is therefore an important factor in the overall user experience. See the layout component's <a href="http://www.google.com/design/spec/layout/principles.html">Material Design specifications page</a> for details.</p>
 <p>Use of MDL layout principles simplifies the creation of scalable pages by providing reusable components and encourages consistency across environments by establishing recognizable visual elements, adhering to logical structural grids, and maintaining appropriate spacing across multiple platforms and screen sizes. MDL layout is extremely powerful and dynamic, allowing for great consistency in outward appearance and behavior while maintaining development flexibility and ease of use.</p>
-<h2 id="basic-use">Basic use</h2>
+<h2>Basic use</h2>
 <p>To use any MDL component, you must include the minified CSS and JavaScript files using standard relative-path references in the <code>&lt;head&gt;</code> section of the page, as described in the MDL Introduction.</p>
-<h3 id="to-include-a-basic-mdl-layout-component">To include a basic MDL <strong>layout</strong> component:</h3>
+<h3>To include a basic MDL <strong>layout</strong> component:</h3>
 <p> 1. Code a <code>&lt;div&gt;</code> element. This is the &quot;outer&quot; div that holds the entire layout. Add MDL classes as indicated, separated by spaces, to the div using the <code>class</code> attribute.</p>
-<div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout&quot;</span><span class="kw">&gt;</span>
-<span class="kw">&lt;/div&gt;</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode html"><code class="sourceCode html"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout&quot;</span><span class="kw">&gt;</span></a>
+<a class="sourceLine" id="cb1-2" data-line-number="2"><span class="kw">&lt;/div&gt;</span></a></code></pre></div>
 <p> 2. Inside the div, code a <code>&lt;header&gt;</code> element. This holds the header row with navigation links that is displayed on large screens, and the menu icon that opens the navigation drawer for smaller screens. Add the MDL class to the header using the <code>class</code> attribute.</p>
-<div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout&quot;</span><span class="kw">&gt;</span>
-  <span class="kw">&lt;header</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout__header&quot;</span><span class="kw">&gt;</span>
-  <span class="kw">&lt;/header&gt;</span>
-<span class="kw">&lt;/div&gt;</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode html"><code class="sourceCode html"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout&quot;</span><span class="kw">&gt;</span></a>
+<a class="sourceLine" id="cb2-2" data-line-number="2">  <span class="kw">&lt;header</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout__header&quot;</span><span class="kw">&gt;</span></a>
+<a class="sourceLine" id="cb2-3" data-line-number="3">  <span class="kw">&lt;/header&gt;</span></a>
+<a class="sourceLine" id="cb2-4" data-line-number="4"><span class="kw">&lt;/div&gt;</span></a></code></pre></div>
 <p> 3. Inside the header, add a <code>&lt;div&gt;</code> to produce the menu icon, and include the MDL class as indicated. The div has no content of its own.</p>
-<div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout&quot;</span><span class="kw">&gt;</span>
-  <span class="kw">&lt;header</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout__header&quot;</span><span class="kw">&gt;</span>
-    <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout-icon&quot;</span><span class="kw">&gt;&lt;/div&gt;</span>
-  <span class="kw">&lt;/header&gt;</span>
-<span class="kw">&lt;/div&gt;</span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode html"><code class="sourceCode html"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout&quot;</span><span class="kw">&gt;</span></a>
+<a class="sourceLine" id="cb3-2" data-line-number="2">  <span class="kw">&lt;header</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout__header&quot;</span><span class="kw">&gt;</span></a>
+<a class="sourceLine" id="cb3-3" data-line-number="3">    <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout-icon&quot;</span><span class="kw">&gt;&lt;/div&gt;</span></a>
+<a class="sourceLine" id="cb3-4" data-line-number="4">  <span class="kw">&lt;/header&gt;</span></a>
+<a class="sourceLine" id="cb3-5" data-line-number="5"><span class="kw">&lt;/div&gt;</span></a></code></pre></div>
 <p> 4. Still inside the header, add another <code>&lt;div&gt;</code> to hold the header row's content, and include the MDL class as indicated.</p>
-<div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout&quot;</span><span class="kw">&gt;</span>
-  <span class="kw">&lt;header</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout__header&quot;</span><span class="kw">&gt;</span>
-    <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout-icon&quot;</span><span class="kw">&gt;&lt;/div&gt;</span>
-    <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout__header-row&quot;</span><span class="kw">&gt;</span>
-    <span class="kw">&lt;/div&gt;</span>
-  <span class="kw">&lt;/header&gt;</span>
-<span class="kw">&lt;/div&gt;</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode html"><code class="sourceCode html"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout&quot;</span><span class="kw">&gt;</span></a>
+<a class="sourceLine" id="cb4-2" data-line-number="2">  <span class="kw">&lt;header</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout__header&quot;</span><span class="kw">&gt;</span></a>
+<a class="sourceLine" id="cb4-3" data-line-number="3">    <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout-icon&quot;</span><span class="kw">&gt;&lt;/div&gt;</span></a>
+<a class="sourceLine" id="cb4-4" data-line-number="4">    <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout__header-row&quot;</span><span class="kw">&gt;</span></a>
+<a class="sourceLine" id="cb4-5" data-line-number="5">    <span class="kw">&lt;/div&gt;</span></a>
+<a class="sourceLine" id="cb4-6" data-line-number="6">  <span class="kw">&lt;/header&gt;</span></a>
+<a class="sourceLine" id="cb4-7" data-line-number="7"><span class="kw">&lt;/div&gt;</span></a></code></pre></div>
 <p> 5. Inside the header row div, add a span containing the layout title, and include the MDL class as indicated.</p>
-<div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout&quot;</span><span class="kw">&gt;</span>
-  <span class="kw">&lt;header</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout__header&quot;</span><span class="kw">&gt;</span>
-    <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout-icon&quot;</span><span class="kw">&gt;&lt;/div&gt;</span>
-    <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout__header-row&quot;</span><span class="kw">&gt;</span>
-      <span class="kw">&lt;span</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout__title&quot;</span><span class="kw">&gt;</span>Simple Layout<span class="kw">&lt;/span&gt;</span>
-    <span class="kw">&lt;/div&gt;</span>
-  <span class="kw">&lt;/header&gt;</span>
-<span class="kw">&lt;/div&gt;</span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode html"><code class="sourceCode html"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout&quot;</span><span class="kw">&gt;</span></a>
+<a class="sourceLine" id="cb5-2" data-line-number="2">  <span class="kw">&lt;header</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout__header&quot;</span><span class="kw">&gt;</span></a>
+<a class="sourceLine" id="cb5-3" data-line-number="3">    <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout-icon&quot;</span><span class="kw">&gt;&lt;/div&gt;</span></a>
+<a class="sourceLine" id="cb5-4" data-line-number="4">    <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout__header-row&quot;</span><span class="kw">&gt;</span></a>
+<a class="sourceLine" id="cb5-5" data-line-number="5">      <span class="kw">&lt;span</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout__title&quot;</span><span class="kw">&gt;</span>Simple Layout<span class="kw">&lt;/span&gt;</span></a>
+<a class="sourceLine" id="cb5-6" data-line-number="6">    <span class="kw">&lt;/div&gt;</span></a>
+<a class="sourceLine" id="cb5-7" data-line-number="7">  <span class="kw">&lt;/header&gt;</span></a>
+<a class="sourceLine" id="cb5-8" data-line-number="8"><span class="kw">&lt;/div&gt;</span></a></code></pre></div>
 <p> 6. Following the span, add a <code>&lt;div&gt;</code> to align the header's navigation links to the right, and include the MDL class as indicated.</p>
-<div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout&quot;</span><span class="kw">&gt;</span>
-  <span class="kw">&lt;header</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout__header&quot;</span><span class="kw">&gt;</span>
-    <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout-icon&quot;</span><span class="kw">&gt;&lt;/div&gt;</span>
-    <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout__header-row&quot;</span><span class="kw">&gt;</span>
-      <span class="kw">&lt;span</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout__title&quot;</span><span class="kw">&gt;</span>Simple Layout<span class="kw">&lt;/span&gt;</span>
-      <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout-spacer&quot;</span><span class="kw">&gt;&lt;/div&gt;</span>
-    <span class="kw">&lt;/div&gt;</span>
-  <span class="kw">&lt;/header&gt;</span>
-<span class="kw">&lt;/div&gt;</span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode html"><code class="sourceCode html"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout&quot;</span><span class="kw">&gt;</span></a>
+<a class="sourceLine" id="cb6-2" data-line-number="2">  <span class="kw">&lt;header</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout__header&quot;</span><span class="kw">&gt;</span></a>
+<a class="sourceLine" id="cb6-3" data-line-number="3">    <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout-icon&quot;</span><span class="kw">&gt;&lt;/div&gt;</span></a>
+<a class="sourceLine" id="cb6-4" data-line-number="4">    <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout__header-row&quot;</span><span class="kw">&gt;</span></a>
+<a class="sourceLine" id="cb6-5" data-line-number="5">      <span class="kw">&lt;span</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout__title&quot;</span><span class="kw">&gt;</span>Simple Layout<span class="kw">&lt;/span&gt;</span></a>
+<a class="sourceLine" id="cb6-6" data-line-number="6">      <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout-spacer&quot;</span><span class="kw">&gt;&lt;/div&gt;</span></a>
+<a class="sourceLine" id="cb6-7" data-line-number="7">    <span class="kw">&lt;/div&gt;</span></a>
+<a class="sourceLine" id="cb6-8" data-line-number="8">  <span class="kw">&lt;/header&gt;</span></a>
+<a class="sourceLine" id="cb6-9" data-line-number="9"><span class="kw">&lt;/div&gt;</span></a></code></pre></div>
 <p> 7. Following the spacer div, add a <code>&lt;nav&gt;</code> element to contain the header's navigation links, and include the MDL class as indicated. Inside the nav, add one anchor <code>&lt;a&gt;</code> element for each header link, and include the MDL class as indicated. This completes the layout's header.</p>
-<div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout&quot;</span><span class="kw">&gt;</span>
-  <span class="kw">&lt;header</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout__header&quot;</span><span class="kw">&gt;</span>
-    <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout-icon&quot;</span><span class="kw">&gt;&lt;/div&gt;</span>
-    <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout__header-row&quot;</span><span class="kw">&gt;</span>
-      <span class="kw">&lt;span</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout__title&quot;</span><span class="kw">&gt;</span>Simple Layout<span class="kw">&lt;/span&gt;</span>
-      <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout-spacer&quot;</span><span class="kw">&gt;&lt;/div&gt;</span>
-      <span class="kw">&lt;nav</span><span class="ot"> class=</span><span class="st">&quot;mdl-navigation&quot;</span><span class="kw">&gt;</span>
-        <span class="kw">&lt;a</span><span class="ot"> class=</span><span class="st">&quot;mdl-navigation__link&quot;</span><span class="ot"> href=</span><span class="st">&quot;#&quot;</span><span class="kw">&gt;</span>Nav link 1<span class="kw">&lt;/a&gt;</span>
-        <span class="kw">&lt;a</span><span class="ot"> class=</span><span class="st">&quot;mdl-navigation__link&quot;</span><span class="ot"> href=</span><span class="st">&quot;#&quot;</span><span class="kw">&gt;</span>Nav link 2<span class="kw">&lt;/a&gt;</span>
-        <span class="kw">&lt;a</span><span class="ot"> class=</span><span class="st">&quot;mdl-navigation__link&quot;</span><span class="ot"> href=</span><span class="st">&quot;#&quot;</span><span class="kw">&gt;</span>Nav link 3<span class="kw">&lt;/a&gt;</span>
-      <span class="kw">&lt;/nav&gt;</span>
-    <span class="kw">&lt;/div&gt;</span>
-  <span class="kw">&lt;/header&gt;</span>
-<span class="kw">&lt;/div&gt;</span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode html"><code class="sourceCode html"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout&quot;</span><span class="kw">&gt;</span></a>
+<a class="sourceLine" id="cb7-2" data-line-number="2">  <span class="kw">&lt;header</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout__header&quot;</span><span class="kw">&gt;</span></a>
+<a class="sourceLine" id="cb7-3" data-line-number="3">    <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout-icon&quot;</span><span class="kw">&gt;&lt;/div&gt;</span></a>
+<a class="sourceLine" id="cb7-4" data-line-number="4">    <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout__header-row&quot;</span><span class="kw">&gt;</span></a>
+<a class="sourceLine" id="cb7-5" data-line-number="5">      <span class="kw">&lt;span</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout__title&quot;</span><span class="kw">&gt;</span>Simple Layout<span class="kw">&lt;/span&gt;</span></a>
+<a class="sourceLine" id="cb7-6" data-line-number="6">      <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout-spacer&quot;</span><span class="kw">&gt;&lt;/div&gt;</span></a>
+<a class="sourceLine" id="cb7-7" data-line-number="7">      <span class="kw">&lt;nav</span><span class="ot"> class=</span><span class="st">&quot;mdl-navigation&quot;</span><span class="kw">&gt;</span></a>
+<a class="sourceLine" id="cb7-8" data-line-number="8">        <span class="kw">&lt;a</span><span class="ot"> class=</span><span class="st">&quot;mdl-navigation__link&quot;</span><span class="ot"> href=</span><span class="st">&quot;#&quot;</span><span class="kw">&gt;</span>Nav link 1<span class="kw">&lt;/a&gt;</span></a>
+<a class="sourceLine" id="cb7-9" data-line-number="9">        <span class="kw">&lt;a</span><span class="ot"> class=</span><span class="st">&quot;mdl-navigation__link&quot;</span><span class="ot"> href=</span><span class="st">&quot;#&quot;</span><span class="kw">&gt;</span>Nav link 2<span class="kw">&lt;/a&gt;</span></a>
+<a class="sourceLine" id="cb7-10" data-line-number="10">        <span class="kw">&lt;a</span><span class="ot"> class=</span><span class="st">&quot;mdl-navigation__link&quot;</span><span class="ot"> href=</span><span class="st">&quot;#&quot;</span><span class="kw">&gt;</span>Nav link 3<span class="kw">&lt;/a&gt;</span></a>
+<a class="sourceLine" id="cb7-11" data-line-number="11">      <span class="kw">&lt;/nav&gt;</span></a>
+<a class="sourceLine" id="cb7-12" data-line-number="12">    <span class="kw">&lt;/div&gt;</span></a>
+<a class="sourceLine" id="cb7-13" data-line-number="13">  <span class="kw">&lt;/header&gt;</span></a>
+<a class="sourceLine" id="cb7-14" data-line-number="14"><span class="kw">&lt;/div&gt;</span></a></code></pre></div>
 <p> 8. Following the header, add a <code>&lt;div&gt;</code> element to hold the slide-out drawer's content, and add the MDL class as indicated. The drawer appears automatically on smaller screens, and may be opened with the menu icon on any screen size.</p>
-<div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout&quot;</span><span class="kw">&gt;</span>
-  <span class="kw">&lt;header</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout__header&quot;</span><span class="kw">&gt;</span>
-    <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout-icon&quot;</span><span class="kw">&gt;&lt;/div&gt;</span>
-    <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout__header-row&quot;</span><span class="kw">&gt;</span>
-      <span class="kw">&lt;span</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout__title&quot;</span><span class="kw">&gt;</span>Simple Layout<span class="kw">&lt;/span&gt;</span>
-      <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout-spacer&quot;</span><span class="kw">&gt;&lt;/div&gt;</span>
-      <span class="kw">&lt;nav</span><span class="ot"> class=</span><span class="st">&quot;mdl-navigation&quot;</span><span class="kw">&gt;</span>
-        <span class="kw">&lt;a</span><span class="ot"> class=</span><span class="st">&quot;mdl-navigation__link&quot;</span><span class="ot"> href=</span><span class="st">&quot;#&quot;</span><span class="kw">&gt;</span>Nav link 1<span class="kw">&lt;/a&gt;</span>
-        <span class="kw">&lt;a</span><span class="ot"> class=</span><span class="st">&quot;mdl-navigation__link&quot;</span><span class="ot"> href=</span><span class="st">&quot;#&quot;</span><span class="kw">&gt;</span>Nav link 2<span class="kw">&lt;/a&gt;</span>
-        <span class="kw">&lt;a</span><span class="ot"> class=</span><span class="st">&quot;mdl-navigation__link&quot;</span><span class="ot"> href=</span><span class="st">&quot;#&quot;</span><span class="kw">&gt;</span>Nav link 3<span class="kw">&lt;/a&gt;</span>
-      <span class="kw">&lt;/nav&gt;</span>
-    <span class="kw">&lt;/div&gt;</span>
-  <span class="kw">&lt;/header&gt;</span>
-  <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout__drawer&quot;</span><span class="kw">&gt;</span>
-  <span class="kw">&lt;/div&gt;</span>
-<span class="kw">&lt;/div&gt;</span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode html"><code class="sourceCode html"><a class="sourceLine" id="cb8-1" data-line-number="1"><span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout&quot;</span><span class="kw">&gt;</span></a>
+<a class="sourceLine" id="cb8-2" data-line-number="2">  <span class="kw">&lt;header</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout__header&quot;</span><span class="kw">&gt;</span></a>
+<a class="sourceLine" id="cb8-3" data-line-number="3">    <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout-icon&quot;</span><span class="kw">&gt;&lt;/div&gt;</span></a>
+<a class="sourceLine" id="cb8-4" data-line-number="4">    <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout__header-row&quot;</span><span class="kw">&gt;</span></a>
+<a class="sourceLine" id="cb8-5" data-line-number="5">      <span class="kw">&lt;span</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout__title&quot;</span><span class="kw">&gt;</span>Simple Layout<span class="kw">&lt;/span&gt;</span></a>
+<a class="sourceLine" id="cb8-6" data-line-number="6">      <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout-spacer&quot;</span><span class="kw">&gt;&lt;/div&gt;</span></a>
+<a class="sourceLine" id="cb8-7" data-line-number="7">      <span class="kw">&lt;nav</span><span class="ot"> class=</span><span class="st">&quot;mdl-navigation&quot;</span><span class="kw">&gt;</span></a>
+<a class="sourceLine" id="cb8-8" data-line-number="8">        <span class="kw">&lt;a</span><span class="ot"> class=</span><span class="st">&quot;mdl-navigation__link&quot;</span><span class="ot"> href=</span><span class="st">&quot;#&quot;</span><span class="kw">&gt;</span>Nav link 1<span class="kw">&lt;/a&gt;</span></a>
+<a class="sourceLine" id="cb8-9" data-line-number="9">        <span class="kw">&lt;a</span><span class="ot"> class=</span><span class="st">&quot;mdl-navigation__link&quot;</span><span class="ot"> href=</span><span class="st">&quot;#&quot;</span><span class="kw">&gt;</span>Nav link 2<span class="kw">&lt;/a&gt;</span></a>
+<a class="sourceLine" id="cb8-10" data-line-number="10">        <span class="kw">&lt;a</span><span class="ot"> class=</span><span class="st">&quot;mdl-navigation__link&quot;</span><span class="ot"> href=</span><span class="st">&quot;#&quot;</span><span class="kw">&gt;</span>Nav link 3<span class="kw">&lt;/a&gt;</span></a>
+<a class="sourceLine" id="cb8-11" data-line-number="11">      <span class="kw">&lt;/nav&gt;</span></a>
+<a class="sourceLine" id="cb8-12" data-line-number="12">    <span class="kw">&lt;/div&gt;</span></a>
+<a class="sourceLine" id="cb8-13" data-line-number="13">  <span class="kw">&lt;/header&gt;</span></a>
+<a class="sourceLine" id="cb8-14" data-line-number="14">  <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout__drawer&quot;</span><span class="kw">&gt;</span></a>
+<a class="sourceLine" id="cb8-15" data-line-number="15">  <span class="kw">&lt;/div&gt;</span></a>
+<a class="sourceLine" id="cb8-16" data-line-number="16"><span class="kw">&lt;/div&gt;</span></a></code></pre></div>
 <p> 9. Inside the drawer div, add a span containing the layout title (this should match the title in step 5), and include the MDL class as indicated.</p>
-<div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout&quot;</span><span class="kw">&gt;</span>
-  <span class="kw">&lt;header</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout__header&quot;</span><span class="kw">&gt;</span>
-    <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout-icon&quot;</span><span class="kw">&gt;&lt;/div&gt;</span>
-    <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout__header-row&quot;</span><span class="kw">&gt;</span>
-      <span class="kw">&lt;span</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout__title&quot;</span><span class="kw">&gt;</span>Simple Layout<span class="kw">&lt;/span&gt;</span>
-      <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout-spacer&quot;</span><span class="kw">&gt;&lt;/div&gt;</span>
-      <span class="kw">&lt;nav</span><span class="ot"> class=</span><span class="st">&quot;mdl-navigation&quot;</span><span class="kw">&gt;</span>
-        <span class="kw">&lt;a</span><span class="ot"> class=</span><span class="st">&quot;mdl-navigation__link&quot;</span><span class="ot"> href=</span><span class="st">&quot;#&quot;</span><span class="kw">&gt;</span>Nav link 1<span class="kw">&lt;/a&gt;</span>
-        <span class="kw">&lt;a</span><span class="ot"> class=</span><span class="st">&quot;mdl-navigation__link&quot;</span><span class="ot"> href=</span><span class="st">&quot;#&quot;</span><span class="kw">&gt;</span>Nav link 2<span class="kw">&lt;/a&gt;</span>
-        <span class="kw">&lt;a</span><span class="ot"> class=</span><span class="st">&quot;mdl-navigation__link&quot;</span><span class="ot"> href=</span><span class="st">&quot;#&quot;</span><span class="kw">&gt;</span>Nav link 3<span class="kw">&lt;/a&gt;</span>
-      <span class="kw">&lt;/nav&gt;</span>
-    <span class="kw">&lt;/div&gt;</span>
-  <span class="kw">&lt;/header&gt;</span>
-  <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout__drawer&quot;</span><span class="kw">&gt;</span>
-    <span class="kw">&lt;span</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout__title&quot;</span><span class="kw">&gt;</span>Simple Layout<span class="kw">&lt;/span&gt;</span>
-  <span class="kw">&lt;/div&gt;</span>
-<span class="kw">&lt;/div&gt;</span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode html"><code class="sourceCode html"><a class="sourceLine" id="cb9-1" data-line-number="1"><span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout&quot;</span><span class="kw">&gt;</span></a>
+<a class="sourceLine" id="cb9-2" data-line-number="2">  <span class="kw">&lt;header</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout__header&quot;</span><span class="kw">&gt;</span></a>
+<a class="sourceLine" id="cb9-3" data-line-number="3">    <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout-icon&quot;</span><span class="kw">&gt;&lt;/div&gt;</span></a>
+<a class="sourceLine" id="cb9-4" data-line-number="4">    <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout__header-row&quot;</span><span class="kw">&gt;</span></a>
+<a class="sourceLine" id="cb9-5" data-line-number="5">      <span class="kw">&lt;span</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout__title&quot;</span><span class="kw">&gt;</span>Simple Layout<span class="kw">&lt;/span&gt;</span></a>
+<a class="sourceLine" id="cb9-6" data-line-number="6">      <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout-spacer&quot;</span><span class="kw">&gt;&lt;/div&gt;</span></a>
+<a class="sourceLine" id="cb9-7" data-line-number="7">      <span class="kw">&lt;nav</span><span class="ot"> class=</span><span class="st">&quot;mdl-navigation&quot;</span><span class="kw">&gt;</span></a>
+<a class="sourceLine" id="cb9-8" data-line-number="8">        <span class="kw">&lt;a</span><span class="ot"> class=</span><span class="st">&quot;mdl-navigation__link&quot;</span><span class="ot"> href=</span><span class="st">&quot;#&quot;</span><span class="kw">&gt;</span>Nav link 1<span class="kw">&lt;/a&gt;</span></a>
+<a class="sourceLine" id="cb9-9" data-line-number="9">        <span class="kw">&lt;a</span><span class="ot"> class=</span><span class="st">&quot;mdl-navigation__link&quot;</span><span class="ot"> href=</span><span class="st">&quot;#&quot;</span><span class="kw">&gt;</span>Nav link 2<span class="kw">&lt;/a&gt;</span></a>
+<a class="sourceLine" id="cb9-10" data-line-number="10">        <span class="kw">&lt;a</span><span class="ot"> class=</span><span class="st">&quot;mdl-navigation__link&quot;</span><span class="ot"> href=</span><span class="st">&quot;#&quot;</span><span class="kw">&gt;</span>Nav link 3<span class="kw">&lt;/a&gt;</span></a>
+<a class="sourceLine" id="cb9-11" data-line-number="11">      <span class="kw">&lt;/nav&gt;</span></a>
+<a class="sourceLine" id="cb9-12" data-line-number="12">    <span class="kw">&lt;/div&gt;</span></a>
+<a class="sourceLine" id="cb9-13" data-line-number="13">  <span class="kw">&lt;/header&gt;</span></a>
+<a class="sourceLine" id="cb9-14" data-line-number="14">  <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout__drawer&quot;</span><span class="kw">&gt;</span></a>
+<a class="sourceLine" id="cb9-15" data-line-number="15">    <span class="kw">&lt;span</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout__title&quot;</span><span class="kw">&gt;</span>Simple Layout<span class="kw">&lt;/span&gt;</span></a>
+<a class="sourceLine" id="cb9-16" data-line-number="16">  <span class="kw">&lt;/div&gt;</span></a>
+<a class="sourceLine" id="cb9-17" data-line-number="17"><span class="kw">&lt;/div&gt;</span></a></code></pre></div>
 <p> 10. Following the span, add a <code>&lt;nav&gt;</code> element to contain the drawer's navigation links, and one anchor <code>&lt;a&gt;</code> element for each drawer link (these should match the links in step 7), and include the MDL classes as indicated. This completes the layout's drawer.</p>
-<div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout&quot;</span><span class="kw">&gt;</span>
-  <span class="kw">&lt;header</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout__header&quot;</span><span class="kw">&gt;</span>
-    <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout-icon&quot;</span><span class="kw">&gt;&lt;/div&gt;</span>
-    <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout__header-row&quot;</span><span class="kw">&gt;</span>
-      <span class="kw">&lt;span</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout__title&quot;</span><span class="kw">&gt;</span>Simple Layout<span class="kw">&lt;/span&gt;</span>
-      <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout-spacer&quot;</span><span class="kw">&gt;&lt;/div&gt;</span>
-      <span class="kw">&lt;nav</span><span class="ot"> class=</span><span class="st">&quot;mdl-navigation&quot;</span><span class="kw">&gt;</span>
-        <span class="kw">&lt;a</span><span class="ot"> class=</span><span class="st">&quot;mdl-navigation__link&quot;</span><span class="ot"> href=</span><span class="st">&quot;#&quot;</span><span class="kw">&gt;</span>Nav link 1<span class="kw">&lt;/a&gt;</span>
-        <span class="kw">&lt;a</span><span class="ot"> class=</span><span class="st">&quot;mdl-navigation__link&quot;</span><span class="ot"> href=</span><span class="st">&quot;#&quot;</span><span class="kw">&gt;</span>Nav link 2<span class="kw">&lt;/a&gt;</span>
-        <span class="kw">&lt;a</span><span class="ot"> class=</span><span class="st">&quot;mdl-navigation__link&quot;</span><span class="ot"> href=</span><span class="st">&quot;#&quot;</span><span class="kw">&gt;</span>Nav link 3<span class="kw">&lt;/a&gt;</span>
-      <span class="kw">&lt;/nav&gt;</span>
-    <span class="kw">&lt;/div&gt;</span>
-  <span class="kw">&lt;/header&gt;</span>
-  <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout__drawer&quot;</span><span class="kw">&gt;</span>
-    <span class="kw">&lt;span</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout__title&quot;</span><span class="kw">&gt;</span>Simple Layout<span class="kw">&lt;/span&gt;</span>
-    <span class="kw">&lt;nav</span><span class="ot"> class=</span><span class="st">&quot;mdl-navigation&quot;</span><span class="kw">&gt;</span>
-      <span class="kw">&lt;a</span><span class="ot"> class=</span><span class="st">&quot;mdl-navigation__link&quot;</span><span class="ot"> href=</span><span class="st">&quot;#&quot;</span><span class="kw">&gt;</span>Nav link 2<span class="kw">&lt;/a&gt;</span>
-      <span class="kw">&lt;a</span><span class="ot"> class=</span><span class="st">&quot;mdl-navigation__link&quot;</span><span class="ot"> href=</span><span class="st">&quot;#&quot;</span><span class="kw">&gt;</span>Nav link 2<span class="kw">&lt;/a&gt;</span>
-      <span class="kw">&lt;a</span><span class="ot"> class=</span><span class="st">&quot;mdl-navigation__link&quot;</span><span class="ot"> href=</span><span class="st">&quot;#&quot;</span><span class="kw">&gt;</span>Nav link 3<span class="kw">&lt;/a&gt;</span>
-    <span class="kw">&lt;/nav&gt;</span>
-  <span class="kw">&lt;/div&gt;</span>
-<span class="kw">&lt;/div&gt;</span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode html"><code class="sourceCode html"><a class="sourceLine" id="cb10-1" data-line-number="1"><span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout&quot;</span><span class="kw">&gt;</span></a>
+<a class="sourceLine" id="cb10-2" data-line-number="2">  <span class="kw">&lt;header</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout__header&quot;</span><span class="kw">&gt;</span></a>
+<a class="sourceLine" id="cb10-3" data-line-number="3">    <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout-icon&quot;</span><span class="kw">&gt;&lt;/div&gt;</span></a>
+<a class="sourceLine" id="cb10-4" data-line-number="4">    <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout__header-row&quot;</span><span class="kw">&gt;</span></a>
+<a class="sourceLine" id="cb10-5" data-line-number="5">      <span class="kw">&lt;span</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout__title&quot;</span><span class="kw">&gt;</span>Simple Layout<span class="kw">&lt;/span&gt;</span></a>
+<a class="sourceLine" id="cb10-6" data-line-number="6">      <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout-spacer&quot;</span><span class="kw">&gt;&lt;/div&gt;</span></a>
+<a class="sourceLine" id="cb10-7" data-line-number="7">      <span class="kw">&lt;nav</span><span class="ot"> class=</span><span class="st">&quot;mdl-navigation&quot;</span><span class="kw">&gt;</span></a>
+<a class="sourceLine" id="cb10-8" data-line-number="8">        <span class="kw">&lt;a</span><span class="ot"> class=</span><span class="st">&quot;mdl-navigation__link&quot;</span><span class="ot"> href=</span><span class="st">&quot;#&quot;</span><span class="kw">&gt;</span>Nav link 1<span class="kw">&lt;/a&gt;</span></a>
+<a class="sourceLine" id="cb10-9" data-line-number="9">        <span class="kw">&lt;a</span><span class="ot"> class=</span><span class="st">&quot;mdl-navigation__link&quot;</span><span class="ot"> href=</span><span class="st">&quot;#&quot;</span><span class="kw">&gt;</span>Nav link 2<span class="kw">&lt;/a&gt;</span></a>
+<a class="sourceLine" id="cb10-10" data-line-number="10">        <span class="kw">&lt;a</span><span class="ot"> class=</span><span class="st">&quot;mdl-navigation__link&quot;</span><span class="ot"> href=</span><span class="st">&quot;#&quot;</span><span class="kw">&gt;</span>Nav link 3<span class="kw">&lt;/a&gt;</span></a>
+<a class="sourceLine" id="cb10-11" data-line-number="11">      <span class="kw">&lt;/nav&gt;</span></a>
+<a class="sourceLine" id="cb10-12" data-line-number="12">    <span class="kw">&lt;/div&gt;</span></a>
+<a class="sourceLine" id="cb10-13" data-line-number="13">  <span class="kw">&lt;/header&gt;</span></a>
+<a class="sourceLine" id="cb10-14" data-line-number="14">  <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout__drawer&quot;</span><span class="kw">&gt;</span></a>
+<a class="sourceLine" id="cb10-15" data-line-number="15">    <span class="kw">&lt;span</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout__title&quot;</span><span class="kw">&gt;</span>Simple Layout<span class="kw">&lt;/span&gt;</span></a>
+<a class="sourceLine" id="cb10-16" data-line-number="16">    <span class="kw">&lt;nav</span><span class="ot"> class=</span><span class="st">&quot;mdl-navigation&quot;</span><span class="kw">&gt;</span></a>
+<a class="sourceLine" id="cb10-17" data-line-number="17">      <span class="kw">&lt;a</span><span class="ot"> class=</span><span class="st">&quot;mdl-navigation__link&quot;</span><span class="ot"> href=</span><span class="st">&quot;#&quot;</span><span class="kw">&gt;</span>Nav link 2<span class="kw">&lt;/a&gt;</span></a>
+<a class="sourceLine" id="cb10-18" data-line-number="18">      <span class="kw">&lt;a</span><span class="ot"> class=</span><span class="st">&quot;mdl-navigation__link&quot;</span><span class="ot"> href=</span><span class="st">&quot;#&quot;</span><span class="kw">&gt;</span>Nav link 2<span class="kw">&lt;/a&gt;</span></a>
+<a class="sourceLine" id="cb10-19" data-line-number="19">      <span class="kw">&lt;a</span><span class="ot"> class=</span><span class="st">&quot;mdl-navigation__link&quot;</span><span class="ot"> href=</span><span class="st">&quot;#&quot;</span><span class="kw">&gt;</span>Nav link 3<span class="kw">&lt;/a&gt;</span></a>
+<a class="sourceLine" id="cb10-20" data-line-number="20">    <span class="kw">&lt;/nav&gt;</span></a>
+<a class="sourceLine" id="cb10-21" data-line-number="21">  <span class="kw">&lt;/div&gt;</span></a>
+<a class="sourceLine" id="cb10-22" data-line-number="22"><span class="kw">&lt;/div&gt;</span></a></code></pre></div>
 <p> 11. Finally, following the drawer div, add a <code>&lt;main&gt;</code> element to hold the layout's primary content, and include the MDL class as indicated. Inside that element, add your desired content.</p>
-<div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout&quot;</span><span class="kw">&gt;</span>
-  <span class="kw">&lt;header</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout__header&quot;</span><span class="kw">&gt;</span>
-    <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout-icon&quot;</span><span class="kw">&gt;&lt;/div&gt;</span>
-    <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout__header-row&quot;</span><span class="kw">&gt;</span>
-      <span class="kw">&lt;span</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout__title&quot;</span><span class="kw">&gt;</span>Simple Layout<span class="kw">&lt;/span&gt;</span>
-      <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout-spacer&quot;</span><span class="kw">&gt;&lt;/div&gt;</span>
-      <span class="kw">&lt;nav</span><span class="ot"> class=</span><span class="st">&quot;mdl-navigation&quot;</span><span class="kw">&gt;</span>
-        <span class="kw">&lt;a</span><span class="ot"> class=</span><span class="st">&quot;mdl-navigation__link&quot;</span><span class="ot"> href=</span><span class="st">&quot;#&quot;</span><span class="kw">&gt;</span>Nav link 1<span class="kw">&lt;/a&gt;</span>
-        <span class="kw">&lt;a</span><span class="ot"> class=</span><span class="st">&quot;mdl-navigation__link&quot;</span><span class="ot"> href=</span><span class="st">&quot;#&quot;</span><span class="kw">&gt;</span>Nav link 2<span class="kw">&lt;/a&gt;</span>
-        <span class="kw">&lt;a</span><span class="ot"> class=</span><span class="st">&quot;mdl-navigation__link&quot;</span><span class="ot"> href=</span><span class="st">&quot;#&quot;</span><span class="kw">&gt;</span>Nav link 3<span class="kw">&lt;/a&gt;</span>
-      <span class="kw">&lt;/nav&gt;</span>
-    <span class="kw">&lt;/div&gt;</span>
-  <span class="kw">&lt;/header&gt;</span>
-  <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout__drawer&quot;</span><span class="kw">&gt;</span>
-    <span class="kw">&lt;span</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout__title&quot;</span><span class="kw">&gt;</span>Simple Layout<span class="kw">&lt;/span&gt;</span>
-    <span class="kw">&lt;nav</span><span class="ot"> class=</span><span class="st">&quot;mdl-navigation&quot;</span><span class="kw">&gt;</span>
-      <span class="kw">&lt;a</span><span class="ot"> class=</span><span class="st">&quot;mdl-navigation__link&quot;</span><span class="ot"> href=</span><span class="st">&quot;#&quot;</span><span class="kw">&gt;</span>Nav link 2<span class="kw">&lt;/a&gt;</span>
-      <span class="kw">&lt;a</span><span class="ot"> class=</span><span class="st">&quot;mdl-navigation__link&quot;</span><span class="ot"> href=</span><span class="st">&quot;#&quot;</span><span class="kw">&gt;</span>Nav link 2<span class="kw">&lt;/a&gt;</span>
-      <span class="kw">&lt;a</span><span class="ot"> class=</span><span class="st">&quot;mdl-navigation__link&quot;</span><span class="ot"> href=</span><span class="st">&quot;#&quot;</span><span class="kw">&gt;</span>Nav link 3<span class="kw">&lt;/a&gt;</span>
-    <span class="kw">&lt;/nav&gt;</span>
-  <span class="kw">&lt;/div&gt;</span>
-  <span class="kw">&lt;main</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout__content&quot;</span><span class="kw">&gt;</span>
-    <span class="kw">&lt;p&gt;</span>Content<span class="kw">&lt;/p&gt;</span>
-    <span class="kw">&lt;p&gt;</span>Goes<span class="kw">&lt;/p&gt;</span>
-    <span class="kw">&lt;p&gt;</span>Here<span class="kw">&lt;/p&gt;</span>
-  <span class="kw">&lt;/main&gt;</span>
-<span class="kw">&lt;/div&gt;</span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode html"><code class="sourceCode html"><a class="sourceLine" id="cb11-1" data-line-number="1"><span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout&quot;</span><span class="kw">&gt;</span></a>
+<a class="sourceLine" id="cb11-2" data-line-number="2">  <span class="kw">&lt;header</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout__header&quot;</span><span class="kw">&gt;</span></a>
+<a class="sourceLine" id="cb11-3" data-line-number="3">    <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout-icon&quot;</span><span class="kw">&gt;&lt;/div&gt;</span></a>
+<a class="sourceLine" id="cb11-4" data-line-number="4">    <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout__header-row&quot;</span><span class="kw">&gt;</span></a>
+<a class="sourceLine" id="cb11-5" data-line-number="5">      <span class="kw">&lt;span</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout__title&quot;</span><span class="kw">&gt;</span>Simple Layout<span class="kw">&lt;/span&gt;</span></a>
+<a class="sourceLine" id="cb11-6" data-line-number="6">      <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout-spacer&quot;</span><span class="kw">&gt;&lt;/div&gt;</span></a>
+<a class="sourceLine" id="cb11-7" data-line-number="7">      <span class="kw">&lt;nav</span><span class="ot"> class=</span><span class="st">&quot;mdl-navigation&quot;</span><span class="kw">&gt;</span></a>
+<a class="sourceLine" id="cb11-8" data-line-number="8">        <span class="kw">&lt;a</span><span class="ot"> class=</span><span class="st">&quot;mdl-navigation__link&quot;</span><span class="ot"> href=</span><span class="st">&quot;#&quot;</span><span class="kw">&gt;</span>Nav link 1<span class="kw">&lt;/a&gt;</span></a>
+<a class="sourceLine" id="cb11-9" data-line-number="9">        <span class="kw">&lt;a</span><span class="ot"> class=</span><span class="st">&quot;mdl-navigation__link&quot;</span><span class="ot"> href=</span><span class="st">&quot;#&quot;</span><span class="kw">&gt;</span>Nav link 2<span class="kw">&lt;/a&gt;</span></a>
+<a class="sourceLine" id="cb11-10" data-line-number="10">        <span class="kw">&lt;a</span><span class="ot"> class=</span><span class="st">&quot;mdl-navigation__link&quot;</span><span class="ot"> href=</span><span class="st">&quot;#&quot;</span><span class="kw">&gt;</span>Nav link 3<span class="kw">&lt;/a&gt;</span></a>
+<a class="sourceLine" id="cb11-11" data-line-number="11">      <span class="kw">&lt;/nav&gt;</span></a>
+<a class="sourceLine" id="cb11-12" data-line-number="12">    <span class="kw">&lt;/div&gt;</span></a>
+<a class="sourceLine" id="cb11-13" data-line-number="13">  <span class="kw">&lt;/header&gt;</span></a>
+<a class="sourceLine" id="cb11-14" data-line-number="14">  <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout__drawer&quot;</span><span class="kw">&gt;</span></a>
+<a class="sourceLine" id="cb11-15" data-line-number="15">    <span class="kw">&lt;span</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout__title&quot;</span><span class="kw">&gt;</span>Simple Layout<span class="kw">&lt;/span&gt;</span></a>
+<a class="sourceLine" id="cb11-16" data-line-number="16">    <span class="kw">&lt;nav</span><span class="ot"> class=</span><span class="st">&quot;mdl-navigation&quot;</span><span class="kw">&gt;</span></a>
+<a class="sourceLine" id="cb11-17" data-line-number="17">      <span class="kw">&lt;a</span><span class="ot"> class=</span><span class="st">&quot;mdl-navigation__link&quot;</span><span class="ot"> href=</span><span class="st">&quot;#&quot;</span><span class="kw">&gt;</span>Nav link 2<span class="kw">&lt;/a&gt;</span></a>
+<a class="sourceLine" id="cb11-18" data-line-number="18">      <span class="kw">&lt;a</span><span class="ot"> class=</span><span class="st">&quot;mdl-navigation__link&quot;</span><span class="ot"> href=</span><span class="st">&quot;#&quot;</span><span class="kw">&gt;</span>Nav link 2<span class="kw">&lt;/a&gt;</span></a>
+<a class="sourceLine" id="cb11-19" data-line-number="19">      <span class="kw">&lt;a</span><span class="ot"> class=</span><span class="st">&quot;mdl-navigation__link&quot;</span><span class="ot"> href=</span><span class="st">&quot;#&quot;</span><span class="kw">&gt;</span>Nav link 3<span class="kw">&lt;/a&gt;</span></a>
+<a class="sourceLine" id="cb11-20" data-line-number="20">    <span class="kw">&lt;/nav&gt;</span></a>
+<a class="sourceLine" id="cb11-21" data-line-number="21">  <span class="kw">&lt;/div&gt;</span></a>
+<a class="sourceLine" id="cb11-22" data-line-number="22">  <span class="kw">&lt;main</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout__content&quot;</span><span class="kw">&gt;</span></a>
+<a class="sourceLine" id="cb11-23" data-line-number="23">    <span class="kw">&lt;p&gt;</span>Content<span class="kw">&lt;/p&gt;</span></a>
+<a class="sourceLine" id="cb11-24" data-line-number="24">    <span class="kw">&lt;p&gt;</span>Goes<span class="kw">&lt;/p&gt;</span></a>
+<a class="sourceLine" id="cb11-25" data-line-number="25">    <span class="kw">&lt;p&gt;</span>Here<span class="kw">&lt;/p&gt;</span></a>
+<a class="sourceLine" id="cb11-26" data-line-number="26">  <span class="kw">&lt;/main&gt;</span></a>
+<a class="sourceLine" id="cb11-27" data-line-number="27"><span class="kw">&lt;/div&gt;</span></a></code></pre></div>
 <p>The layout component is ready for use.</p>
-<h4 id="examples">Examples</h4>
+<h4>Examples</h4>
 <p>A layout with a fixed header for larger screens and a collapsible drawer for smaller screens.</p>
-<div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout&quot;</span><span class="kw">&gt;</span>
-  <span class="kw">&lt;header</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout__header&quot;</span><span class="kw">&gt;</span>
-    <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout-icon&quot;</span><span class="kw">&gt;&lt;/div&gt;</span>
-    <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout__header-row&quot;</span><span class="kw">&gt;</span>
-      <span class="kw">&lt;span</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout__title&quot;</span><span class="kw">&gt;</span>Material Design Lite<span class="kw">&lt;/span&gt;</span>
-      <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout-spacer&quot;</span><span class="kw">&gt;&lt;/div&gt;</span>
-      <span class="kw">&lt;nav</span><span class="ot"> class=</span><span class="st">&quot;mdl-navigation&quot;</span><span class="kw">&gt;</span>
-        <span class="kw">&lt;a</span><span class="ot"> class=</span><span class="st">&quot;mdl-navigation__link&quot;</span><span class="ot"> href=</span><span class="st">&quot;#&quot;</span><span class="kw">&gt;</span>Hello<span class="kw">&lt;/a&gt;</span>
-        <span class="kw">&lt;a</span><span class="ot"> class=</span><span class="st">&quot;mdl-navigation__link&quot;</span><span class="ot"> href=</span><span class="st">&quot;#&quot;</span><span class="kw">&gt;</span>World.<span class="kw">&lt;/a&gt;</span>
-        <span class="kw">&lt;a</span><span class="ot"> class=</span><span class="st">&quot;mdl-navigation__link&quot;</span><span class="ot"> href=</span><span class="st">&quot;#&quot;</span><span class="kw">&gt;</span>How<span class="kw">&lt;/a&gt;</span>
-        <span class="kw">&lt;a</span><span class="ot"> class=</span><span class="st">&quot;mdl-navigation__link&quot;</span><span class="ot"> href=</span><span class="st">&quot;#&quot;</span><span class="kw">&gt;</span>Are<span class="kw">&lt;/a&gt;</span>
-        <span class="kw">&lt;a</span><span class="ot"> class=</span><span class="st">&quot;mdl-navigation__link&quot;</span><span class="ot"> href=</span><span class="st">&quot;#&quot;</span><span class="kw">&gt;</span>You?<span class="kw">&lt;/a&gt;</span>
-      <span class="kw">&lt;/nav&gt;</span>
-    <span class="kw">&lt;/div&gt;</span>
-  <span class="kw">&lt;/header&gt;</span>
-  <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout__drawer&quot;</span><span class="kw">&gt;</span>
-    <span class="kw">&lt;span</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout__title&quot;</span><span class="kw">&gt;</span>Material Design Lite<span class="kw">&lt;/span&gt;</span>
-    <span class="kw">&lt;nav</span><span class="ot"> class=</span><span class="st">&quot;mdl-navigation&quot;</span><span class="kw">&gt;</span>
-      <span class="kw">&lt;a</span><span class="ot"> class=</span><span class="st">&quot;mdl-navigation__link&quot;</span><span class="ot"> href=</span><span class="st">&quot;#&quot;</span><span class="kw">&gt;</span>Hello<span class="kw">&lt;/a&gt;</span>
-      <span class="kw">&lt;a</span><span class="ot"> class=</span><span class="st">&quot;mdl-navigation__link&quot;</span><span class="ot"> href=</span><span class="st">&quot;#&quot;</span><span class="kw">&gt;</span>World.<span class="kw">&lt;/a&gt;</span>
-      <span class="kw">&lt;a</span><span class="ot"> class=</span><span class="st">&quot;mdl-navigation__link&quot;</span><span class="ot"> href=</span><span class="st">&quot;#&quot;</span><span class="kw">&gt;</span>How<span class="kw">&lt;/a&gt;</span>
-      <span class="kw">&lt;a</span><span class="ot"> class=</span><span class="st">&quot;mdl-navigation__link&quot;</span><span class="ot"> href=</span><span class="st">&quot;#&quot;</span><span class="kw">&gt;</span>Are<span class="kw">&lt;/a&gt;</span>
-      <span class="kw">&lt;a</span><span class="ot"> class=</span><span class="st">&quot;mdl-navigation__link&quot;</span><span class="ot"> href=</span><span class="st">&quot;#&quot;</span><span class="kw">&gt;</span>You?<span class="kw">&lt;/a&gt;</span>
-    <span class="kw">&lt;/nav&gt;</span>
-  <span class="kw">&lt;/div&gt;</span>
-  <span class="kw">&lt;main</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout__content&quot;</span><span class="kw">&gt;</span>
-    <span class="kw">&lt;div&gt;</span>Content<span class="kw">&lt;/div&gt;</span>
-  <span class="kw">&lt;/main&gt;</span>
-<span class="kw">&lt;/div&gt;</span></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode html"><code class="sourceCode html"><a class="sourceLine" id="cb12-1" data-line-number="1"><span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout&quot;</span><span class="kw">&gt;</span></a>
+<a class="sourceLine" id="cb12-2" data-line-number="2">  <span class="kw">&lt;header</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout__header&quot;</span><span class="kw">&gt;</span></a>
+<a class="sourceLine" id="cb12-3" data-line-number="3">    <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout-icon&quot;</span><span class="kw">&gt;&lt;/div&gt;</span></a>
+<a class="sourceLine" id="cb12-4" data-line-number="4">    <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout__header-row&quot;</span><span class="kw">&gt;</span></a>
+<a class="sourceLine" id="cb12-5" data-line-number="5">      <span class="kw">&lt;span</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout__title&quot;</span><span class="kw">&gt;</span>Material Design Lite<span class="kw">&lt;/span&gt;</span></a>
+<a class="sourceLine" id="cb12-6" data-line-number="6">      <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout-spacer&quot;</span><span class="kw">&gt;&lt;/div&gt;</span></a>
+<a class="sourceLine" id="cb12-7" data-line-number="7">      <span class="kw">&lt;nav</span><span class="ot"> class=</span><span class="st">&quot;mdl-navigation&quot;</span><span class="kw">&gt;</span></a>
+<a class="sourceLine" id="cb12-8" data-line-number="8">        <span class="kw">&lt;a</span><span class="ot"> class=</span><span class="st">&quot;mdl-navigation__link&quot;</span><span class="ot"> href=</span><span class="st">&quot;#&quot;</span><span class="kw">&gt;</span>Hello<span class="kw">&lt;/a&gt;</span></a>
+<a class="sourceLine" id="cb12-9" data-line-number="9">        <span class="kw">&lt;a</span><span class="ot"> class=</span><span class="st">&quot;mdl-navigation__link&quot;</span><span class="ot"> href=</span><span class="st">&quot;#&quot;</span><span class="kw">&gt;</span>World.<span class="kw">&lt;/a&gt;</span></a>
+<a class="sourceLine" id="cb12-10" data-line-number="10">        <span class="kw">&lt;a</span><span class="ot"> class=</span><span class="st">&quot;mdl-navigation__link&quot;</span><span class="ot"> href=</span><span class="st">&quot;#&quot;</span><span class="kw">&gt;</span>How<span class="kw">&lt;/a&gt;</span></a>
+<a class="sourceLine" id="cb12-11" data-line-number="11">        <span class="kw">&lt;a</span><span class="ot"> class=</span><span class="st">&quot;mdl-navigation__link&quot;</span><span class="ot"> href=</span><span class="st">&quot;#&quot;</span><span class="kw">&gt;</span>Are<span class="kw">&lt;/a&gt;</span></a>
+<a class="sourceLine" id="cb12-12" data-line-number="12">        <span class="kw">&lt;a</span><span class="ot"> class=</span><span class="st">&quot;mdl-navigation__link&quot;</span><span class="ot"> href=</span><span class="st">&quot;#&quot;</span><span class="kw">&gt;</span>You?<span class="kw">&lt;/a&gt;</span></a>
+<a class="sourceLine" id="cb12-13" data-line-number="13">      <span class="kw">&lt;/nav&gt;</span></a>
+<a class="sourceLine" id="cb12-14" data-line-number="14">    <span class="kw">&lt;/div&gt;</span></a>
+<a class="sourceLine" id="cb12-15" data-line-number="15">  <span class="kw">&lt;/header&gt;</span></a>
+<a class="sourceLine" id="cb12-16" data-line-number="16">  <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout__drawer&quot;</span><span class="kw">&gt;</span></a>
+<a class="sourceLine" id="cb12-17" data-line-number="17">    <span class="kw">&lt;span</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout__title&quot;</span><span class="kw">&gt;</span>Material Design Lite<span class="kw">&lt;/span&gt;</span></a>
+<a class="sourceLine" id="cb12-18" data-line-number="18">    <span class="kw">&lt;nav</span><span class="ot"> class=</span><span class="st">&quot;mdl-navigation&quot;</span><span class="kw">&gt;</span></a>
+<a class="sourceLine" id="cb12-19" data-line-number="19">      <span class="kw">&lt;a</span><span class="ot"> class=</span><span class="st">&quot;mdl-navigation__link&quot;</span><span class="ot"> href=</span><span class="st">&quot;#&quot;</span><span class="kw">&gt;</span>Hello<span class="kw">&lt;/a&gt;</span></a>
+<a class="sourceLine" id="cb12-20" data-line-number="20">      <span class="kw">&lt;a</span><span class="ot"> class=</span><span class="st">&quot;mdl-navigation__link&quot;</span><span class="ot"> href=</span><span class="st">&quot;#&quot;</span><span class="kw">&gt;</span>World.<span class="kw">&lt;/a&gt;</span></a>
+<a class="sourceLine" id="cb12-21" data-line-number="21">      <span class="kw">&lt;a</span><span class="ot"> class=</span><span class="st">&quot;mdl-navigation__link&quot;</span><span class="ot"> href=</span><span class="st">&quot;#&quot;</span><span class="kw">&gt;</span>How<span class="kw">&lt;/a&gt;</span></a>
+<a class="sourceLine" id="cb12-22" data-line-number="22">      <span class="kw">&lt;a</span><span class="ot"> class=</span><span class="st">&quot;mdl-navigation__link&quot;</span><span class="ot"> href=</span><span class="st">&quot;#&quot;</span><span class="kw">&gt;</span>Are<span class="kw">&lt;/a&gt;</span></a>
+<a class="sourceLine" id="cb12-23" data-line-number="23">      <span class="kw">&lt;a</span><span class="ot"> class=</span><span class="st">&quot;mdl-navigation__link&quot;</span><span class="ot"> href=</span><span class="st">&quot;#&quot;</span><span class="kw">&gt;</span>You?<span class="kw">&lt;/a&gt;</span></a>
+<a class="sourceLine" id="cb12-24" data-line-number="24">    <span class="kw">&lt;/nav&gt;</span></a>
+<a class="sourceLine" id="cb12-25" data-line-number="25">  <span class="kw">&lt;/div&gt;</span></a>
+<a class="sourceLine" id="cb12-26" data-line-number="26">  <span class="kw">&lt;main</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout__content&quot;</span><span class="kw">&gt;</span></a>
+<a class="sourceLine" id="cb12-27" data-line-number="27">    <span class="kw">&lt;div&gt;</span>Content<span class="kw">&lt;/div&gt;</span></a>
+<a class="sourceLine" id="cb12-28" data-line-number="28">  <span class="kw">&lt;/main&gt;</span></a>
+<a class="sourceLine" id="cb12-29" data-line-number="29"><span class="kw">&lt;/div&gt;</span></a></code></pre></div>
 <p>The same layout with a non-fixed header that scrolls with the content.</p>
-<div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout&quot;</span><span class="kw">&gt;</span>
-  <span class="kw">&lt;header</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout__header mdl-layout__header--scroll&quot;</span><span class="kw">&gt;</span>
-    <span class="kw">&lt;img</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout-icon&quot;</span><span class="kw">&gt;&lt;/img&gt;</span>
-    <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout__header-row&quot;</span><span class="kw">&gt;</span>
-      <span class="kw">&lt;span</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout__title&quot;</span><span class="kw">&gt;</span>Material Design Lite<span class="kw">&lt;/span&gt;</span>
-      <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout-spacer&quot;</span><span class="kw">&gt;&lt;/div&gt;</span>
-      <span class="kw">&lt;nav</span><span class="ot"> class=</span><span class="st">&quot;mdl-navigation&quot;</span><span class="kw">&gt;</span>
-        <span class="kw">&lt;a</span><span class="ot"> class=</span><span class="st">&quot;mdl-navigation__link&quot;</span><span class="ot"> href=</span><span class="st">&quot;#&quot;</span><span class="kw">&gt;</span>Hello<span class="kw">&lt;/a&gt;</span>
-        <span class="kw">&lt;a</span><span class="ot"> class=</span><span class="st">&quot;mdl-navigation__link&quot;</span><span class="ot"> href=</span><span class="st">&quot;#&quot;</span><span class="kw">&gt;</span>World.<span class="kw">&lt;/a&gt;</span>
-        <span class="kw">&lt;a</span><span class="ot"> class=</span><span class="st">&quot;mdl-navigation__link&quot;</span><span class="ot"> href=</span><span class="st">&quot;#&quot;</span><span class="kw">&gt;</span>How<span class="kw">&lt;/a&gt;</span>
-        <span class="kw">&lt;a</span><span class="ot"> class=</span><span class="st">&quot;mdl-navigation__link&quot;</span><span class="ot"> href=</span><span class="st">&quot;#&quot;</span><span class="kw">&gt;</span>Are<span class="kw">&lt;/a&gt;</span>
-        <span class="kw">&lt;a</span><span class="ot"> class=</span><span class="st">&quot;mdl-navigation__link&quot;</span><span class="ot"> href=</span><span class="st">&quot;#&quot;</span><span class="kw">&gt;</span>You?<span class="kw">&lt;/a&gt;</span>
-      <span class="kw">&lt;/nav&gt;</span>
-    <span class="kw">&lt;/div&gt;</span>
-  <span class="kw">&lt;/header&gt;</span>
-  <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout__drawer&quot;</span><span class="kw">&gt;</span>
-    <span class="kw">&lt;span</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout__title&quot;</span><span class="kw">&gt;</span>Material Design Lite<span class="kw">&lt;/span&gt;</span>
-    <span class="kw">&lt;nav</span><span class="ot"> class=</span><span class="st">&quot;mdl-navigation&quot;</span><span class="kw">&gt;</span>
-      <span class="kw">&lt;a</span><span class="ot"> class=</span><span class="st">&quot;mdl-navigation__link&quot;</span><span class="ot"> href=</span><span class="st">&quot;#&quot;</span><span class="kw">&gt;</span>Hello<span class="kw">&lt;/a&gt;</span>
-      <span class="kw">&lt;a</span><span class="ot"> class=</span><span class="st">&quot;mdl-navigation__link&quot;</span><span class="ot"> href=</span><span class="st">&quot;#&quot;</span><span class="kw">&gt;</span>World.<span class="kw">&lt;/a&gt;</span>
-      <span class="kw">&lt;a</span><span class="ot"> class=</span><span class="st">&quot;mdl-navigation__link&quot;</span><span class="ot"> href=</span><span class="st">&quot;#&quot;</span><span class="kw">&gt;</span>How<span class="kw">&lt;/a&gt;</span>
-      <span class="kw">&lt;a</span><span class="ot"> class=</span><span class="st">&quot;mdl-navigation__link&quot;</span><span class="ot"> href=</span><span class="st">&quot;#&quot;</span><span class="kw">&gt;</span>Are<span class="kw">&lt;/a&gt;</span>
-      <span class="kw">&lt;a</span><span class="ot"> class=</span><span class="st">&quot;mdl-navigation__link&quot;</span><span class="ot"> href=</span><span class="st">&quot;#&quot;</span><span class="kw">&gt;</span>You?<span class="kw">&lt;/a&gt;</span>
-    <span class="kw">&lt;/nav&gt;</span>
-  <span class="kw">&lt;/div&gt;</span>
-  <span class="kw">&lt;main</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout__content&quot;</span><span class="kw">&gt;</span>
-    <span class="kw">&lt;div&gt;</span>Content<span class="kw">&lt;/div&gt;</span>
-  <span class="kw">&lt;/main&gt;</span>
-<span class="kw">&lt;/div&gt;</span></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode html"><code class="sourceCode html"><a class="sourceLine" id="cb13-1" data-line-number="1"><span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout&quot;</span><span class="kw">&gt;</span></a>
+<a class="sourceLine" id="cb13-2" data-line-number="2">  <span class="kw">&lt;header</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout__header mdl-layout__header--scroll&quot;</span><span class="kw">&gt;</span></a>
+<a class="sourceLine" id="cb13-3" data-line-number="3">    <span class="kw">&lt;img</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout-icon&quot;</span><span class="kw">&gt;&lt;/img&gt;</span></a>
+<a class="sourceLine" id="cb13-4" data-line-number="4">    <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout__header-row&quot;</span><span class="kw">&gt;</span></a>
+<a class="sourceLine" id="cb13-5" data-line-number="5">      <span class="kw">&lt;span</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout__title&quot;</span><span class="kw">&gt;</span>Material Design Lite<span class="kw">&lt;/span&gt;</span></a>
+<a class="sourceLine" id="cb13-6" data-line-number="6">      <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout-spacer&quot;</span><span class="kw">&gt;&lt;/div&gt;</span></a>
+<a class="sourceLine" id="cb13-7" data-line-number="7">      <span class="kw">&lt;nav</span><span class="ot"> class=</span><span class="st">&quot;mdl-navigation&quot;</span><span class="kw">&gt;</span></a>
+<a class="sourceLine" id="cb13-8" data-line-number="8">        <span class="kw">&lt;a</span><span class="ot"> class=</span><span class="st">&quot;mdl-navigation__link&quot;</span><span class="ot"> href=</span><span class="st">&quot;#&quot;</span><span class="kw">&gt;</span>Hello<span class="kw">&lt;/a&gt;</span></a>
+<a class="sourceLine" id="cb13-9" data-line-number="9">        <span class="kw">&lt;a</span><span class="ot"> class=</span><span class="st">&quot;mdl-navigation__link&quot;</span><span class="ot"> href=</span><span class="st">&quot;#&quot;</span><span class="kw">&gt;</span>World.<span class="kw">&lt;/a&gt;</span></a>
+<a class="sourceLine" id="cb13-10" data-line-number="10">        <span class="kw">&lt;a</span><span class="ot"> class=</span><span class="st">&quot;mdl-navigation__link&quot;</span><span class="ot"> href=</span><span class="st">&quot;#&quot;</span><span class="kw">&gt;</span>How<span class="kw">&lt;/a&gt;</span></a>
+<a class="sourceLine" id="cb13-11" data-line-number="11">        <span class="kw">&lt;a</span><span class="ot"> class=</span><span class="st">&quot;mdl-navigation__link&quot;</span><span class="ot"> href=</span><span class="st">&quot;#&quot;</span><span class="kw">&gt;</span>Are<span class="kw">&lt;/a&gt;</span></a>
+<a class="sourceLine" id="cb13-12" data-line-number="12">        <span class="kw">&lt;a</span><span class="ot"> class=</span><span class="st">&quot;mdl-navigation__link&quot;</span><span class="ot"> href=</span><span class="st">&quot;#&quot;</span><span class="kw">&gt;</span>You?<span class="kw">&lt;/a&gt;</span></a>
+<a class="sourceLine" id="cb13-13" data-line-number="13">      <span class="kw">&lt;/nav&gt;</span></a>
+<a class="sourceLine" id="cb13-14" data-line-number="14">    <span class="kw">&lt;/div&gt;</span></a>
+<a class="sourceLine" id="cb13-15" data-line-number="15">  <span class="kw">&lt;/header&gt;</span></a>
+<a class="sourceLine" id="cb13-16" data-line-number="16">  <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout__drawer&quot;</span><span class="kw">&gt;</span></a>
+<a class="sourceLine" id="cb13-17" data-line-number="17">    <span class="kw">&lt;span</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout__title&quot;</span><span class="kw">&gt;</span>Material Design Lite<span class="kw">&lt;/span&gt;</span></a>
+<a class="sourceLine" id="cb13-18" data-line-number="18">    <span class="kw">&lt;nav</span><span class="ot"> class=</span><span class="st">&quot;mdl-navigation&quot;</span><span class="kw">&gt;</span></a>
+<a class="sourceLine" id="cb13-19" data-line-number="19">      <span class="kw">&lt;a</span><span class="ot"> class=</span><span class="st">&quot;mdl-navigation__link&quot;</span><span class="ot"> href=</span><span class="st">&quot;#&quot;</span><span class="kw">&gt;</span>Hello<span class="kw">&lt;/a&gt;</span></a>
+<a class="sourceLine" id="cb13-20" data-line-number="20">      <span class="kw">&lt;a</span><span class="ot"> class=</span><span class="st">&quot;mdl-navigation__link&quot;</span><span class="ot"> href=</span><span class="st">&quot;#&quot;</span><span class="kw">&gt;</span>World.<span class="kw">&lt;/a&gt;</span></a>
+<a class="sourceLine" id="cb13-21" data-line-number="21">      <span class="kw">&lt;a</span><span class="ot"> class=</span><span class="st">&quot;mdl-navigation__link&quot;</span><span class="ot"> href=</span><span class="st">&quot;#&quot;</span><span class="kw">&gt;</span>How<span class="kw">&lt;/a&gt;</span></a>
+<a class="sourceLine" id="cb13-22" data-line-number="22">      <span class="kw">&lt;a</span><span class="ot"> class=</span><span class="st">&quot;mdl-navigation__link&quot;</span><span class="ot"> href=</span><span class="st">&quot;#&quot;</span><span class="kw">&gt;</span>Are<span class="kw">&lt;/a&gt;</span></a>
+<a class="sourceLine" id="cb13-23" data-line-number="23">      <span class="kw">&lt;a</span><span class="ot"> class=</span><span class="st">&quot;mdl-navigation__link&quot;</span><span class="ot"> href=</span><span class="st">&quot;#&quot;</span><span class="kw">&gt;</span>You?<span class="kw">&lt;/a&gt;</span></a>
+<a class="sourceLine" id="cb13-24" data-line-number="24">    <span class="kw">&lt;/nav&gt;</span></a>
+<a class="sourceLine" id="cb13-25" data-line-number="25">  <span class="kw">&lt;/div&gt;</span></a>
+<a class="sourceLine" id="cb13-26" data-line-number="26">  <span class="kw">&lt;main</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout__content&quot;</span><span class="kw">&gt;</span></a>
+<a class="sourceLine" id="cb13-27" data-line-number="27">    <span class="kw">&lt;div&gt;</span>Content<span class="kw">&lt;/div&gt;</span></a>
+<a class="sourceLine" id="cb13-28" data-line-number="28">  <span class="kw">&lt;/main&gt;</span></a>
+<a class="sourceLine" id="cb13-29" data-line-number="29"><span class="kw">&lt;/div&gt;</span></a></code></pre></div>
 <p>A layout with a fixed drawer that serves as sidebar navigation on larger screens. The drawer collapses and the menu icon is displayed on smaller screens.</p>
-<div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout mdl-layout--fixed-drawer&quot;</span><span class="kw">&gt;</span>
-  <span class="kw">&lt;header</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout__header&quot;</span><span class="kw">&gt;</span>
-    <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout__header-row&quot;</span><span class="kw">&gt;</span>
-      <span class="kw">&lt;span</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout__title&quot;</span><span class="kw">&gt;</span>Fixed drawer layout demo<span class="kw">&lt;/span&gt;</span>
-    <span class="kw">&lt;/div&gt;</span>
-  <span class="kw">&lt;/header&gt;</span>
-  <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout__drawer&quot;</span><span class="kw">&gt;</span>
-    <span class="kw">&lt;span</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout__title&quot;</span><span class="kw">&gt;</span>Material Design Lite<span class="kw">&lt;/span&gt;</span>
-    <span class="kw">&lt;nav</span><span class="ot"> class=</span><span class="st">&quot;mdl-navigation&quot;</span><span class="kw">&gt;</span>
-      <span class="kw">&lt;a</span><span class="ot"> class=</span><span class="st">&quot;mdl-navigation__link&quot;</span><span class="ot"> href=</span><span class="st">&quot;#&quot;</span><span class="kw">&gt;</span>Hello<span class="kw">&lt;/a&gt;</span>
-      <span class="kw">&lt;a</span><span class="ot"> class=</span><span class="st">&quot;mdl-navigation__link&quot;</span><span class="ot"> href=</span><span class="st">&quot;#&quot;</span><span class="kw">&gt;</span>World.<span class="kw">&lt;/a&gt;</span>
-      <span class="kw">&lt;a</span><span class="ot"> class=</span><span class="st">&quot;mdl-navigation__link&quot;</span><span class="ot"> href=</span><span class="st">&quot;#&quot;</span><span class="kw">&gt;</span>How<span class="kw">&lt;/a&gt;</span>
-      <span class="kw">&lt;a</span><span class="ot"> class=</span><span class="st">&quot;mdl-navigation__link&quot;</span><span class="ot"> href=</span><span class="st">&quot;#&quot;</span><span class="kw">&gt;</span>Are<span class="kw">&lt;/a&gt;</span>
-      <span class="kw">&lt;a</span><span class="ot"> class=</span><span class="st">&quot;mdl-navigation__link&quot;</span><span class="ot"> href=</span><span class="st">&quot;#&quot;</span><span class="kw">&gt;</span>You?<span class="kw">&lt;/a&gt;</span>
-    <span class="kw">&lt;/nav&gt;</span>
-  <span class="kw">&lt;/div&gt;</span>
-  <span class="kw">&lt;main</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout__content&quot;</span><span class="kw">&gt;</span>
-    <span class="kw">&lt;div&gt;</span>Content<span class="kw">&lt;/div&gt;</span>
-  <span class="kw">&lt;/main&gt;</span>
-<span class="kw">&lt;/div&gt;</span></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode html"><code class="sourceCode html"><a class="sourceLine" id="cb14-1" data-line-number="1"><span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout mdl-layout--fixed-drawer&quot;</span><span class="kw">&gt;</span></a>
+<a class="sourceLine" id="cb14-2" data-line-number="2">  <span class="kw">&lt;header</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout__header&quot;</span><span class="kw">&gt;</span></a>
+<a class="sourceLine" id="cb14-3" data-line-number="3">    <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout__header-row&quot;</span><span class="kw">&gt;</span></a>
+<a class="sourceLine" id="cb14-4" data-line-number="4">      <span class="kw">&lt;span</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout__title&quot;</span><span class="kw">&gt;</span>Fixed drawer layout demo<span class="kw">&lt;/span&gt;</span></a>
+<a class="sourceLine" id="cb14-5" data-line-number="5">    <span class="kw">&lt;/div&gt;</span></a>
+<a class="sourceLine" id="cb14-6" data-line-number="6">  <span class="kw">&lt;/header&gt;</span></a>
+<a class="sourceLine" id="cb14-7" data-line-number="7">  <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout__drawer&quot;</span><span class="kw">&gt;</span></a>
+<a class="sourceLine" id="cb14-8" data-line-number="8">    <span class="kw">&lt;span</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout__title&quot;</span><span class="kw">&gt;</span>Material Design Lite<span class="kw">&lt;/span&gt;</span></a>
+<a class="sourceLine" id="cb14-9" data-line-number="9">    <span class="kw">&lt;nav</span><span class="ot"> class=</span><span class="st">&quot;mdl-navigation&quot;</span><span class="kw">&gt;</span></a>
+<a class="sourceLine" id="cb14-10" data-line-number="10">      <span class="kw">&lt;a</span><span class="ot"> class=</span><span class="st">&quot;mdl-navigation__link&quot;</span><span class="ot"> href=</span><span class="st">&quot;#&quot;</span><span class="kw">&gt;</span>Hello<span class="kw">&lt;/a&gt;</span></a>
+<a class="sourceLine" id="cb14-11" data-line-number="11">      <span class="kw">&lt;a</span><span class="ot"> class=</span><span class="st">&quot;mdl-navigation__link&quot;</span><span class="ot"> href=</span><span class="st">&quot;#&quot;</span><span class="kw">&gt;</span>World.<span class="kw">&lt;/a&gt;</span></a>
+<a class="sourceLine" id="cb14-12" data-line-number="12">      <span class="kw">&lt;a</span><span class="ot"> class=</span><span class="st">&quot;mdl-navigation__link&quot;</span><span class="ot"> href=</span><span class="st">&quot;#&quot;</span><span class="kw">&gt;</span>How<span class="kw">&lt;/a&gt;</span></a>
+<a class="sourceLine" id="cb14-13" data-line-number="13">      <span class="kw">&lt;a</span><span class="ot"> class=</span><span class="st">&quot;mdl-navigation__link&quot;</span><span class="ot"> href=</span><span class="st">&quot;#&quot;</span><span class="kw">&gt;</span>Are<span class="kw">&lt;/a&gt;</span></a>
+<a class="sourceLine" id="cb14-14" data-line-number="14">      <span class="kw">&lt;a</span><span class="ot"> class=</span><span class="st">&quot;mdl-navigation__link&quot;</span><span class="ot"> href=</span><span class="st">&quot;#&quot;</span><span class="kw">&gt;</span>You?<span class="kw">&lt;/a&gt;</span></a>
+<a class="sourceLine" id="cb14-15" data-line-number="15">    <span class="kw">&lt;/nav&gt;</span></a>
+<a class="sourceLine" id="cb14-16" data-line-number="16">  <span class="kw">&lt;/div&gt;</span></a>
+<a class="sourceLine" id="cb14-17" data-line-number="17">  <span class="kw">&lt;main</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout__content&quot;</span><span class="kw">&gt;</span></a>
+<a class="sourceLine" id="cb14-18" data-line-number="18">    <span class="kw">&lt;div&gt;</span>Content<span class="kw">&lt;/div&gt;</span></a>
+<a class="sourceLine" id="cb14-19" data-line-number="19">  <span class="kw">&lt;/main&gt;</span></a>
+<a class="sourceLine" id="cb14-20" data-line-number="20"><span class="kw">&lt;/div&gt;</span></a></code></pre></div>
 <p>A layout with a fixed drawer but no header.</p>
-<div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout mdl-layout--fixed-drawer&quot;</span><span class="kw">&gt;</span>
-  <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout__drawer&quot;</span><span class="kw">&gt;</span>
-    <span class="kw">&lt;span</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout__title&quot;</span><span class="kw">&gt;</span>Material Design Lite<span class="kw">&lt;/span&gt;</span>
-    <span class="kw">&lt;nav</span><span class="ot"> class=</span><span class="st">&quot;mdl-navigation&quot;</span><span class="kw">&gt;</span>
-      <span class="kw">&lt;a</span><span class="ot"> class=</span><span class="st">&quot;mdl-navigation__link&quot;</span><span class="ot"> href=</span><span class="st">&quot;#&quot;</span><span class="kw">&gt;</span>Hello<span class="kw">&lt;/a&gt;</span>
-      <span class="kw">&lt;a</span><span class="ot"> class=</span><span class="st">&quot;mdl-navigation__link&quot;</span><span class="ot"> href=</span><span class="st">&quot;#&quot;</span><span class="kw">&gt;</span>World.<span class="kw">&lt;/a&gt;</span>
-      <span class="kw">&lt;a</span><span class="ot"> class=</span><span class="st">&quot;mdl-navigation__link&quot;</span><span class="ot"> href=</span><span class="st">&quot;#&quot;</span><span class="kw">&gt;</span>How<span class="kw">&lt;/a&gt;</span>
-      <span class="kw">&lt;a</span><span class="ot"> class=</span><span class="st">&quot;mdl-navigation__link&quot;</span><span class="ot"> href=</span><span class="st">&quot;#&quot;</span><span class="kw">&gt;</span>Are<span class="kw">&lt;/a&gt;</span>
-      <span class="kw">&lt;a</span><span class="ot"> class=</span><span class="st">&quot;mdl-navigation__link&quot;</span><span class="ot"> href=</span><span class="st">&quot;#&quot;</span><span class="kw">&gt;</span>You?<span class="kw">&lt;/a&gt;</span>
-    <span class="kw">&lt;/nav&gt;</span>
-  <span class="kw">&lt;/div&gt;</span>
-  <span class="kw">&lt;main</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout__content&quot;</span><span class="kw">&gt;</span>
-    <span class="kw">&lt;div&gt;</span>Content<span class="kw">&lt;/div&gt;</span>
-  <span class="kw">&lt;/main&gt;</span>
-<span class="kw">&lt;/div&gt;</span></code></pre></div>
-<h2 id="configuration-options">Configuration options</h2>
+<div class="sourceCode" id="cb15"><pre class="sourceCode html"><code class="sourceCode html"><a class="sourceLine" id="cb15-1" data-line-number="1"><span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout mdl-layout--fixed-drawer&quot;</span><span class="kw">&gt;</span></a>
+<a class="sourceLine" id="cb15-2" data-line-number="2">  <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout__drawer&quot;</span><span class="kw">&gt;</span></a>
+<a class="sourceLine" id="cb15-3" data-line-number="3">    <span class="kw">&lt;span</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout__title&quot;</span><span class="kw">&gt;</span>Material Design Lite<span class="kw">&lt;/span&gt;</span></a>
+<a class="sourceLine" id="cb15-4" data-line-number="4">    <span class="kw">&lt;nav</span><span class="ot"> class=</span><span class="st">&quot;mdl-navigation&quot;</span><span class="kw">&gt;</span></a>
+<a class="sourceLine" id="cb15-5" data-line-number="5">      <span class="kw">&lt;a</span><span class="ot"> class=</span><span class="st">&quot;mdl-navigation__link&quot;</span><span class="ot"> href=</span><span class="st">&quot;#&quot;</span><span class="kw">&gt;</span>Hello<span class="kw">&lt;/a&gt;</span></a>
+<a class="sourceLine" id="cb15-6" data-line-number="6">      <span class="kw">&lt;a</span><span class="ot"> class=</span><span class="st">&quot;mdl-navigation__link&quot;</span><span class="ot"> href=</span><span class="st">&quot;#&quot;</span><span class="kw">&gt;</span>World.<span class="kw">&lt;/a&gt;</span></a>
+<a class="sourceLine" id="cb15-7" data-line-number="7">      <span class="kw">&lt;a</span><span class="ot"> class=</span><span class="st">&quot;mdl-navigation__link&quot;</span><span class="ot"> href=</span><span class="st">&quot;#&quot;</span><span class="kw">&gt;</span>How<span class="kw">&lt;/a&gt;</span></a>
+<a class="sourceLine" id="cb15-8" data-line-number="8">      <span class="kw">&lt;a</span><span class="ot"> class=</span><span class="st">&quot;mdl-navigation__link&quot;</span><span class="ot"> href=</span><span class="st">&quot;#&quot;</span><span class="kw">&gt;</span>Are<span class="kw">&lt;/a&gt;</span></a>
+<a class="sourceLine" id="cb15-9" data-line-number="9">      <span class="kw">&lt;a</span><span class="ot"> class=</span><span class="st">&quot;mdl-navigation__link&quot;</span><span class="ot"> href=</span><span class="st">&quot;#&quot;</span><span class="kw">&gt;</span>You?<span class="kw">&lt;/a&gt;</span></a>
+<a class="sourceLine" id="cb15-10" data-line-number="10">    <span class="kw">&lt;/nav&gt;</span></a>
+<a class="sourceLine" id="cb15-11" data-line-number="11">  <span class="kw">&lt;/div&gt;</span></a>
+<a class="sourceLine" id="cb15-12" data-line-number="12">  <span class="kw">&lt;main</span><span class="ot"> class=</span><span class="st">&quot;mdl-layout__content&quot;</span><span class="kw">&gt;</span></a>
+<a class="sourceLine" id="cb15-13" data-line-number="13">    <span class="kw">&lt;div&gt;</span>Content<span class="kw">&lt;/div&gt;</span></a>
+<a class="sourceLine" id="cb15-14" data-line-number="14">  <span class="kw">&lt;/main&gt;</span></a>
+<a class="sourceLine" id="cb15-15" data-line-number="15"><span class="kw">&lt;/div&gt;</span></a></code></pre></div>
+<h2>Configuration options</h2>
 <p>The MDL CSS classes apply various predefined visual and behavioral enhancements to the layout. The table below lists the available classes and their effects.</p>
-<table style="width:43%;">
+<table>
 <colgroup>
-<col width="16%" />
-<col width="12%" />
-<col width="13%" />
+<col style="width: 39%" />
+<col style="width: 28%" />
+<col style="width: 32%" />
 </colgroup>
 <thead>
 <tr class="header">

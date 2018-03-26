@@ -19,7 +19,7 @@
 
 library mdl_inplace_edit_sample.components.interfaces.stores;
 
-import 'package:dice/dice.dart' as di;
+import 'package:dryice/dryice.dart' as di;
 import 'package:mdl/mdl.dart';
 
 import 'package:mdl_inplace_edit_sample/model.dart';

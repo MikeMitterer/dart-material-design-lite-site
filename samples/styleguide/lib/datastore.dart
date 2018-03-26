@@ -23,7 +23,7 @@ import 'dart:collection';
 
 import 'package:mdl/mdl.dart';
 import 'package:mdl_styleguide/src/interfaces.dart';
-import 'package:dice/dice.dart' as di;
+import 'package:dryice/dryice.dart' as di;
 
 @di.injectable
 class ToDoDataStore extends Dispatcher implements ToDoInputStoreInterface, ToDoListStoreInterface {

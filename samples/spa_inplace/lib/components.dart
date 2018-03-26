@@ -22,7 +22,7 @@ library mdl_inplace_edit_sample.components;
 import 'dart:html' as dom;
 import 'dart:async';
 
-import 'package:dice/dice.dart' as di;
+import 'package:dryice/dryice.dart' as di;
 import 'package:logging/logging.dart';
 import 'package:mdl/mdl.dart';
 import 'package:mdl/mdlanimation.dart';

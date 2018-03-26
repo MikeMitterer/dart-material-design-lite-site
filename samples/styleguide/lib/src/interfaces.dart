@@ -19,7 +19,7 @@
 
 library mdl_todo_sample.components.interfaces;
 
-import 'package:dice/dice.dart' as di;
+import 'package:dryice/dryice.dart' as di;
 import "package:mdl/mdlcore.dart";
 import "package:mdl/mdlflux.dart";
 import 'dart:collection';

@@ -1,0 +1,48 @@
+pipeline {
+    agent {
+        label 'linux'
+    }
+    stages {
+        stage('Preparation') {
+            steps {
+                timeout(time: 15, unit: 'MINUTES') {
+                    ansiColor('xterm') {
+                        sh 'pub update'
+                        sh 'pub global activate grinder'
+                    }
+                }
+            }
+        }
+        stage('Analyze') {
+            steps {
+                ansiColor('xterm') {
+                    sh 'grind analyze-site'
+                    sh 'grind analyze-samples'
+                }
+            }
+        }
+
+        stage('Samples') {
+            steps {
+                ansiColor('xterm') {
+                    sh 'grind gen-samples'
+                    sh 'grind gen-styleguide'
+                    sh 'grind run-site-gen-for-samples'
+                    sh 'grind build-samples'
+                }
+            }
+        }
+
+        stage('Site') {
+            steps {
+                ansiColor('xterm') {
+                    sh 'grind run-site-gen'
+                    sh 'grind analyze-site'
+                    sh 'pub build'
+                    sh './tgzsample --genall'
+                }
+            }
+        }
+    }
+}
+                       

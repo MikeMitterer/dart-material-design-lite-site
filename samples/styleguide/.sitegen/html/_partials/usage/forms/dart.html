@@ -4,14 +4,19 @@ import &#39;package:mdl&#47;mdl.dart&#39;;
 main() async &#123;
     &#47;&#47; final Logger _logger = new Logger(&#39;mdlx_form.main&#39;);
 
+    &#47;&#47; Determine your locale automatically:
+    final String locale = await findSystemLocale();
+    translate.locale = Intl.shortLocale(locale);
+
+    Intl.defaultLocale = locale;
+    initializeDateFormatting(locale);
+
     registerMdl();
 
-    await componentFactory().run();
+    final Application app = await componentFactory()
+        .rootContext(Application)
+        .addModule(new SampleModule())
+        .run();
 
-    final MaterialFormComponent form = MaterialFormComponent.widget(dom.querySelector(&quot;#multicontrol&quot;));
-    form.onChange.listen((final FormChangedEvent event) &#123;
-        final MaterialNotification notification = new MaterialNotification();
-        notification(&quot;$&#123;event.currentTarget.runtimeType&#125; changed!&quot;,type: NotificationType.INFO).show();
-        &#47;&#47;_logger.info(&quot;$&#123;event.currentTarget.runtimeType&#125; changed!&quot;);
-    &#125;);
+    app.run();
 &#125;

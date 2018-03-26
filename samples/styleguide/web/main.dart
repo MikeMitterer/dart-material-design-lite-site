@@ -37,7 +37,7 @@ import 'package:mdl/mdlobservable.dart';
 import 'package:route_hierarchical/client.dart';
 
 import 'package:prettify/prettify.dart';
-import 'package:dice/dice.dart' as di;
+import 'package:dryice/dryice.dart' as di;
 
 import "package:mdl/mdldialog.dart";
 

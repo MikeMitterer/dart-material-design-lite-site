@@ -1,6 +1,6 @@
 import 'package:logging/logging.dart';
 import 'package:console_log_handler/console_log_handler.dart';
-import 'package:dice/dice.dart' as di;
+import 'package:dryice/dryice.dart' as di;
 
 import 'package:mdl/mdl.dart';
 

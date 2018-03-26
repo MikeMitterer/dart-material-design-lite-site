@@ -12,18 +12,17 @@ dependencies:
   validate: ^1.0.0
   browser_detect: ^1.0.0
 
-  logging: ^0.11.0
-  logging_handlers: ^0.8.0
-  console_log_handler: ^0.2.0
-  #  path: /Volumes/Daten/DevLocal/DevDart/ConsoleLogHandler
+  logging: '>=0.11.3 <1.0.0'
+  console_log_handler: '>=0.5.0 <1.0.0'
+    # git: git@github.com:MikeMitterer/dart-console_log_handler.git
+    # path: /Volumes/Daten/DevLocal/DevDart/ConsoleLogHandler
 
   mdl:
     path: /Volumes/Daten/DevLocal/DevDart/MaterialDesignLite
 
-  dice: ^1.7.0
-    # path: /Volumes/Daten/DevLocal/DevDart/dice
-
   chartjs: any
+
+dev_dependencies:
 
   dart_to_js_script_rewriter: ^0.1.0
 

@@ -30,7 +30,7 @@ main() &#123;
     mdl.registerMdl();
 
     mdl.componentFactory().run().then((_) &#123;
-        configRouter(mdl.componentFactory().injector.getInstance(mdl.ViewFactory));
+        configRouter();
 
         final mdl.MaterialSlider mainslider = mdl.MaterialSlider.widget(dom.querySelector(&quot;#mainslider2&quot;));
         final mdl.MaterialContent list = mdl.MaterialContent.widget(dom.querySelector(&quot;#list&quot;));
@@ -108,6 +108,7 @@ main() &#123;
 &lt;div class=&quot;menu&quot;&gt;
     &lt;a href=&quot;#&#47;test&quot;&gt;Test&lt;&#47;a&gt; | &lt;a href=&quot;#&#47;test2&quot;&gt;Test II&lt;&#47;a&gt; | &lt;a href=&quot;#&#47;slider&quot;&gt;Slider&lt;&#47;a&gt; | &lt;a href=&quot;#&#47;error&quot;&gt;Error&lt;&#47;a&gt;
 &lt;&#47;div&gt;
+&lt;p&gt;If you click on error - check the console...&lt;&#47;p&gt;
 &lt;div class=&quot;demo-preview-block demo-content&quot;&gt;
     &lt;div id=&quot;main&quot; class=&quot;mdl-content&quot;&gt;
         Temp

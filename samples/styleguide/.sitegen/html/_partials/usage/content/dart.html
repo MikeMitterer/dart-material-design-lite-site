@@ -8,7 +8,7 @@ main() &#123;
     mdl.registerMdl();
 
     mdl.componentFactory().run().then((_) &#123;
-        configRouter(mdl.componentFactory().injector.getInstance(mdl.ViewFactory));
+        configRouter();
 
         final mdl.MaterialSlider mainslider = mdl.MaterialSlider.widget(dom.querySelector(&quot;#mainslider2&quot;));
         final mdl.MaterialContent list = mdl.MaterialContent.widget(dom.querySelector(&quot;#list&quot;));

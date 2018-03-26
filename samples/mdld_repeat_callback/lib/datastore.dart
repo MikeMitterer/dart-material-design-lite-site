@@ -22,7 +22,7 @@ library mdl_repeat_callback_sample.datastore;
 
 import 'package:mdl/mdl.dart';
 import 'package:mdl_repeat_callback_sample/components/interfaces.dart';
-import 'package:dice/dice.dart' as di;
+import 'package:dryice/dryice.dart' as di;
 
 @di.injectable
 class SampleStoreImpl extends Dispatcher implements SampleStore {

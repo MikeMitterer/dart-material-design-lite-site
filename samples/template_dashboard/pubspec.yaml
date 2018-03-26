@@ -13,12 +13,13 @@ dependencies:
   mdl:
     path: /Volumes/Daten/DevLocal/DevDart/MaterialDesignLite
 
-  logging: any
-  logging_handlers: any
-  console_log_handler: any
 
-  dice: ^1.7.0
-    # path: /Volumes/Daten/DevLocal/DevDart/dice
+  logging: '>=0.11.3 <1.0.0'
+  console_log_handler: '>=0.5.0 <1.0.0'
+    # git: git@github.com:MikeMitterer/dart-console_log_handler.git
+    # path: /Volumes/Daten/DevLocal/DevDart/ConsoleLogHandler
+
+dev_dependencies:
 
   dart_to_js_script_rewriter: ^0.1.0
 

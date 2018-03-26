@@ -75,166 +75,166 @@ main() &#123;
 
                 <!-- CSS-Tab -->
                 <!--<div class="mdl-tabs__panel" id="css">-->
-<!--<h2 id="introduction">Introduction</h2>
+<!--<h2>Introduction</h2>
 <p>The Material Design Lite (MDL) <strong>data-table</strong> component is an enhanced version of the standard HTML <code>&lt;table&gt;</code>. A data-table consists of rows and columns of well-formatted data, presented with appropriate user interaction capabilities.</p>
 <p>Tables are a ubiquitous feature of most user interfaces, regardless of a site's content or function. Their design and use is therefore an important factor in the overall user experience. See the data-table component's <a href="http://www.google.com/design/spec/components/data-tables.html">Material Design specifications page</a> for details.</p>
 <p>The available row/column/cell types in a data-table are mostly self-formatting; that is, once the data-table is defined, the individual cells require very little specific attention. For example, the rows exhibit shading behavior on mouseover and selection, numeric values are automatically formatted by default, and the addition of a single class makes the table rows individually or collectively selectable. This makes the data-table component convenient and easy to code for the developer, as well as attractive and intuitive for the user.</p>
-<h2 id="basic-use">Basic use</h2>
+<h2>Basic use</h2>
 <p>To use any MDL component, you must include the minified CSS and JavaScript files using standard relative-path references in the <code>&lt;head&gt;</code> section of the page, as described in the MDL Introduction.</p>
-<h3 id="to-include-an-mdl-data-table-component">To include an MDL <strong>data-table</strong> component:</h3>
+<h3>To include an MDL <strong>data-table</strong> component:</h3>
 <p> 1. Code a <code>&lt;table&gt;</code> element. Include <code>&lt;thead&gt;</code> and <code>&lt;tbody&gt;</code> elements to hold the title and data rows, respectively.</p>
-<div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;table&gt;</span>
-  <span class="kw">&lt;thead&gt;</span>
-  <span class="kw">&lt;/thead&gt;</span>
-  <span class="kw">&lt;tbody&gt;</span>
-  <span class="kw">&lt;/tbody&gt;</span>
-<span class="kw">&lt;/table&gt;</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode html"><code class="sourceCode html"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw">&lt;table&gt;</span></a>
+<a class="sourceLine" id="cb1-2" data-line-number="2">  <span class="kw">&lt;thead&gt;</span></a>
+<a class="sourceLine" id="cb1-3" data-line-number="3">  <span class="kw">&lt;/thead&gt;</span></a>
+<a class="sourceLine" id="cb1-4" data-line-number="4">  <span class="kw">&lt;tbody&gt;</span></a>
+<a class="sourceLine" id="cb1-5" data-line-number="5">  <span class="kw">&lt;/tbody&gt;</span></a>
+<a class="sourceLine" id="cb1-6" data-line-number="6"><span class="kw">&lt;/table&gt;</span></a></code></pre></div>
 <p> 2. Add one or more MDL classes, separated by spaces, to the table using the <code>class</code> attribute.</p>
-<div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;table</span><span class="ot"> class=</span><span class="st">&quot;mdl-data-table mdl-js-data-table&quot;</span><span class="kw">&gt;</span>
-  <span class="kw">&lt;thead&gt;</span>
-  <span class="kw">&lt;/thead&gt;</span>
-  <span class="kw">&lt;tbody&gt;</span>
-  <span class="kw">&lt;/tbody&gt;</span>
-<span class="kw">&lt;/table&gt;</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode html"><code class="sourceCode html"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="kw">&lt;table</span><span class="ot"> class=</span><span class="st">&quot;mdl-data-table mdl-js-data-table&quot;</span><span class="kw">&gt;</span></a>
+<a class="sourceLine" id="cb2-2" data-line-number="2">  <span class="kw">&lt;thead&gt;</span></a>
+<a class="sourceLine" id="cb2-3" data-line-number="3">  <span class="kw">&lt;/thead&gt;</span></a>
+<a class="sourceLine" id="cb2-4" data-line-number="4">  <span class="kw">&lt;tbody&gt;</span></a>
+<a class="sourceLine" id="cb2-5" data-line-number="5">  <span class="kw">&lt;/tbody&gt;</span></a>
+<a class="sourceLine" id="cb2-6" data-line-number="6"><span class="kw">&lt;/table&gt;</span></a></code></pre></div>
 <p> 2. Inside the <code>&lt;thead&gt;</code>, code exactly one table row <code>&lt;tr&gt;</code> containing one table header cell <code>&lt;th&gt;</code> for each column, and include the desired text in the header cells. To ensure proper header alignment, add the &quot;non-numeric&quot; MDL class to the header cell of text-only columns. (Data cells are formatted as numeric by default.)</p>
-<div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;table</span><span class="ot"> class=</span><span class="st">&quot;mdl-data-table mdl-js-data-table&quot;</span><span class="kw">&gt;</span>
-  <span class="kw">&lt;thead&gt;</span>
-    <span class="kw">&lt;tr&gt;</span>
-      <span class="kw">&lt;th</span><span class="ot"> class=</span><span class="st">&quot;mdl-data-table__cell--non-numeric&quot;</span><span class="kw">&gt;</span>Name<span class="kw">&lt;/th&gt;</span>
-      <span class="kw">&lt;th&gt;</span>Age<span class="kw">&lt;/th&gt;</span>
-      <span class="kw">&lt;th&gt;</span>ID Number<span class="kw">&lt;/th&gt;</span>
-    <span class="kw">&lt;/tr&gt;</span>
-  <span class="kw">&lt;/thead&gt;</span>
-  <span class="kw">&lt;tbody&gt;</span>
-  <span class="kw">&lt;/tbody&gt;</span>
-<span class="kw">&lt;/table&gt;</span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode html"><code class="sourceCode html"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="kw">&lt;table</span><span class="ot"> class=</span><span class="st">&quot;mdl-data-table mdl-js-data-table&quot;</span><span class="kw">&gt;</span></a>
+<a class="sourceLine" id="cb3-2" data-line-number="2">  <span class="kw">&lt;thead&gt;</span></a>
+<a class="sourceLine" id="cb3-3" data-line-number="3">    <span class="kw">&lt;tr&gt;</span></a>
+<a class="sourceLine" id="cb3-4" data-line-number="4">      <span class="kw">&lt;th</span><span class="ot"> class=</span><span class="st">&quot;mdl-data-table__cell--non-numeric&quot;</span><span class="kw">&gt;</span>Name<span class="kw">&lt;/th&gt;</span></a>
+<a class="sourceLine" id="cb3-5" data-line-number="5">      <span class="kw">&lt;th&gt;</span>Age<span class="kw">&lt;/th&gt;</span></a>
+<a class="sourceLine" id="cb3-6" data-line-number="6">      <span class="kw">&lt;th&gt;</span>ID Number<span class="kw">&lt;/th&gt;</span></a>
+<a class="sourceLine" id="cb3-7" data-line-number="7">    <span class="kw">&lt;/tr&gt;</span></a>
+<a class="sourceLine" id="cb3-8" data-line-number="8">  <span class="kw">&lt;/thead&gt;</span></a>
+<a class="sourceLine" id="cb3-9" data-line-number="9">  <span class="kw">&lt;tbody&gt;</span></a>
+<a class="sourceLine" id="cb3-10" data-line-number="10">  <span class="kw">&lt;/tbody&gt;</span></a>
+<a class="sourceLine" id="cb3-11" data-line-number="11"><span class="kw">&lt;/table&gt;</span></a></code></pre></div>
 <p> 3. Inside the <code>&lt;tbody&gt;</code>, code one table row <code>&lt;tr&gt;</code> for each data row and one table data cell <code>&lt;td&gt;</code> for each column in the row. As with the header cells, add the &quot;non-numeric&quot; MDL class to text-only data cells to ensure proper alignment.</p>
-<div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;table</span><span class="ot"> class=</span><span class="st">&quot;mdl-data-table mdl-js-data-table&quot;</span><span class="kw">&gt;</span>
-  <span class="kw">&lt;thead&gt;</span>
-    <span class="kw">&lt;tr&gt;</span>
-      <span class="kw">&lt;th</span><span class="ot"> class=</span><span class="st">&quot;mdl-data-table__cell--non-numeric&quot;</span><span class="kw">&gt;</span>Name<span class="kw">&lt;/th&gt;</span>
-      <span class="kw">&lt;th&gt;</span>Age<span class="kw">&lt;/th&gt;</span>
-      <span class="kw">&lt;th&gt;</span>ID Number<span class="kw">&lt;/th&gt;</span>
-    <span class="kw">&lt;/tr&gt;</span>
-  <span class="kw">&lt;/thead&gt;</span>
-  <span class="kw">&lt;tbody&gt;</span>
-    <span class="kw">&lt;tr&gt;</span>
-      <span class="kw">&lt;td</span><span class="ot"> class=</span><span class="st">&quot;mdl-data-table__cell--non-numeric&quot;</span><span class="kw">&gt;</span>Don Aubrey<span class="kw">&lt;/td&gt;</span>
-      <span class="kw">&lt;td&gt;</span>25<span class="kw">&lt;/td&gt;</span>
-      <span class="kw">&lt;td&gt;</span>49021<span class="kw">&lt;/td&gt;</span>
-    <span class="kw">&lt;/tr&gt;</span>
-    <span class="kw">&lt;tr&gt;</span>
-      <span class="kw">&lt;td</span><span class="ot"> class=</span><span class="st">&quot;mdl-data-table__cell--non-numeric&quot;</span><span class="kw">&gt;</span>Sophia Carson<span class="kw">&lt;/td&gt;</span>
-      <span class="kw">&lt;td&gt;</span>32<span class="kw">&lt;/td&gt;</span>
-      <span class="kw">&lt;td&gt;</span>10258<span class="kw">&lt;/td&gt;</span>
-    <span class="kw">&lt;/tr&gt;</span>
-    <span class="kw">&lt;tr&gt;</span>
-      <span class="kw">&lt;td</span><span class="ot"> class=</span><span class="st">&quot;mdl-data-table__cell--non-numeric&quot;</span><span class="kw">&gt;</span>Steve Moreno<span class="kw">&lt;/td&gt;</span>
-      <span class="kw">&lt;td&gt;</span>29<span class="kw">&lt;/td&gt;</span>
-      <span class="kw">&lt;td&gt;</span>12359<span class="kw">&lt;/td&gt;</span>
-    <span class="kw">&lt;/tr&gt;</span>
-  <span class="kw">&lt;/tbody&gt;</span>
-<span class="kw">&lt;/table&gt;</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode html"><code class="sourceCode html"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="kw">&lt;table</span><span class="ot"> class=</span><span class="st">&quot;mdl-data-table mdl-js-data-table&quot;</span><span class="kw">&gt;</span></a>
+<a class="sourceLine" id="cb4-2" data-line-number="2">  <span class="kw">&lt;thead&gt;</span></a>
+<a class="sourceLine" id="cb4-3" data-line-number="3">    <span class="kw">&lt;tr&gt;</span></a>
+<a class="sourceLine" id="cb4-4" data-line-number="4">      <span class="kw">&lt;th</span><span class="ot"> class=</span><span class="st">&quot;mdl-data-table__cell--non-numeric&quot;</span><span class="kw">&gt;</span>Name<span class="kw">&lt;/th&gt;</span></a>
+<a class="sourceLine" id="cb4-5" data-line-number="5">      <span class="kw">&lt;th&gt;</span>Age<span class="kw">&lt;/th&gt;</span></a>
+<a class="sourceLine" id="cb4-6" data-line-number="6">      <span class="kw">&lt;th&gt;</span>ID Number<span class="kw">&lt;/th&gt;</span></a>
+<a class="sourceLine" id="cb4-7" data-line-number="7">    <span class="kw">&lt;/tr&gt;</span></a>
+<a class="sourceLine" id="cb4-8" data-line-number="8">  <span class="kw">&lt;/thead&gt;</span></a>
+<a class="sourceLine" id="cb4-9" data-line-number="9">  <span class="kw">&lt;tbody&gt;</span></a>
+<a class="sourceLine" id="cb4-10" data-line-number="10">    <span class="kw">&lt;tr&gt;</span></a>
+<a class="sourceLine" id="cb4-11" data-line-number="11">      <span class="kw">&lt;td</span><span class="ot"> class=</span><span class="st">&quot;mdl-data-table__cell--non-numeric&quot;</span><span class="kw">&gt;</span>Don Aubrey<span class="kw">&lt;/td&gt;</span></a>
+<a class="sourceLine" id="cb4-12" data-line-number="12">      <span class="kw">&lt;td&gt;</span>25<span class="kw">&lt;/td&gt;</span></a>
+<a class="sourceLine" id="cb4-13" data-line-number="13">      <span class="kw">&lt;td&gt;</span>49021<span class="kw">&lt;/td&gt;</span></a>
+<a class="sourceLine" id="cb4-14" data-line-number="14">    <span class="kw">&lt;/tr&gt;</span></a>
+<a class="sourceLine" id="cb4-15" data-line-number="15">    <span class="kw">&lt;tr&gt;</span></a>
+<a class="sourceLine" id="cb4-16" data-line-number="16">      <span class="kw">&lt;td</span><span class="ot"> class=</span><span class="st">&quot;mdl-data-table__cell--non-numeric&quot;</span><span class="kw">&gt;</span>Sophia Carson<span class="kw">&lt;/td&gt;</span></a>
+<a class="sourceLine" id="cb4-17" data-line-number="17">      <span class="kw">&lt;td&gt;</span>32<span class="kw">&lt;/td&gt;</span></a>
+<a class="sourceLine" id="cb4-18" data-line-number="18">      <span class="kw">&lt;td&gt;</span>10258<span class="kw">&lt;/td&gt;</span></a>
+<a class="sourceLine" id="cb4-19" data-line-number="19">    <span class="kw">&lt;/tr&gt;</span></a>
+<a class="sourceLine" id="cb4-20" data-line-number="20">    <span class="kw">&lt;tr&gt;</span></a>
+<a class="sourceLine" id="cb4-21" data-line-number="21">      <span class="kw">&lt;td</span><span class="ot"> class=</span><span class="st">&quot;mdl-data-table__cell--non-numeric&quot;</span><span class="kw">&gt;</span>Steve Moreno<span class="kw">&lt;/td&gt;</span></a>
+<a class="sourceLine" id="cb4-22" data-line-number="22">      <span class="kw">&lt;td&gt;</span>29<span class="kw">&lt;/td&gt;</span></a>
+<a class="sourceLine" id="cb4-23" data-line-number="23">      <span class="kw">&lt;td&gt;</span>12359<span class="kw">&lt;/td&gt;</span></a>
+<a class="sourceLine" id="cb4-24" data-line-number="24">    <span class="kw">&lt;/tr&gt;</span></a>
+<a class="sourceLine" id="cb4-25" data-line-number="25">  <span class="kw">&lt;/tbody&gt;</span></a>
+<a class="sourceLine" id="cb4-26" data-line-number="26"><span class="kw">&lt;/table&gt;</span></a></code></pre></div>
 <p>The data-table component is ready for use.</p>
-<h4 id="examples">Examples</h4>
+<h4>Examples</h4>
 <p>A data-table with a &quot;master&quot; select checkbox and individual row select checkboxes.</p>
-<div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;table</span><span class="ot"> class=</span><span class="st">&quot;mdl-data-table mdl-js-data-table mdl-data-table--selectable&quot;</span><span class="kw">&gt;</span>
-  <span class="kw">&lt;thead&gt;</span>
-    <span class="kw">&lt;tr&gt;</span>
-      <span class="kw">&lt;th</span><span class="ot"> class=</span><span class="st">&quot;mdl-data-table__cell--non-numeric&quot;</span><span class="kw">&gt;</span>Material<span class="kw">&lt;/th&gt;</span>
-      <span class="kw">&lt;th&gt;</span>Quantity<span class="kw">&lt;/th&gt;</span>
-      <span class="kw">&lt;th&gt;</span>Unit price<span class="kw">&lt;/th&gt;</span>
-    <span class="kw">&lt;/tr&gt;</span>
-  <span class="kw">&lt;/thead&gt;</span>
-  <span class="kw">&lt;tbody&gt;</span>
-    <span class="kw">&lt;tr&gt;</span>
-      <span class="kw">&lt;td</span><span class="ot"> class=</span><span class="st">&quot;mdl-data-table__cell--non-numeric&quot;</span><span class="kw">&gt;</span>Acrylic (Transparent)<span class="kw">&lt;/td&gt;</span>
-      <span class="kw">&lt;td&gt;</span>250<span class="kw">&lt;/td&gt;</span>
-      <span class="kw">&lt;td&gt;</span>$2.90<span class="kw">&lt;/td&gt;</span>
-    <span class="kw">&lt;/tr&gt;</span>
-    <span class="kw">&lt;tr&gt;</span>
-      <span class="kw">&lt;td</span><span class="ot"> class=</span><span class="st">&quot;mdl-data-table__cell--non-numeric&quot;</span><span class="kw">&gt;</span>Plywood (Birch)<span class="kw">&lt;/td&gt;</span>
-      <span class="kw">&lt;td&gt;</span>50<span class="kw">&lt;/td&gt;</span>
-      <span class="kw">&lt;td&gt;</span>$1.25<span class="kw">&lt;/td&gt;</span>
-    <span class="kw">&lt;/tr&gt;</span>
-    <span class="kw">&lt;tr&gt;</span>
-      <span class="kw">&lt;td</span><span class="ot"> class=</span><span class="st">&quot;mdl-data-table__cell--non-numeric&quot;</span><span class="kw">&gt;</span>Laminate (Gold on Blue)<span class="kw">&lt;/td&gt;</span>
-      <span class="kw">&lt;td&gt;</span>10<span class="kw">&lt;/td&gt;</span>
-      <span class="kw">&lt;td&gt;</span>$12.35<span class="kw">&lt;/td&gt;</span>
-    <span class="kw">&lt;/tr&gt;</span>
-  <span class="kw">&lt;/tbody&gt;</span>
-<span class="kw">&lt;/table&gt;</span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode html"><code class="sourceCode html"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="kw">&lt;table</span><span class="ot"> class=</span><span class="st">&quot;mdl-data-table mdl-js-data-table mdl-data-table--selectable&quot;</span><span class="kw">&gt;</span></a>
+<a class="sourceLine" id="cb5-2" data-line-number="2">  <span class="kw">&lt;thead&gt;</span></a>
+<a class="sourceLine" id="cb5-3" data-line-number="3">    <span class="kw">&lt;tr&gt;</span></a>
+<a class="sourceLine" id="cb5-4" data-line-number="4">      <span class="kw">&lt;th</span><span class="ot"> class=</span><span class="st">&quot;mdl-data-table__cell--non-numeric&quot;</span><span class="kw">&gt;</span>Material<span class="kw">&lt;/th&gt;</span></a>
+<a class="sourceLine" id="cb5-5" data-line-number="5">      <span class="kw">&lt;th&gt;</span>Quantity<span class="kw">&lt;/th&gt;</span></a>
+<a class="sourceLine" id="cb5-6" data-line-number="6">      <span class="kw">&lt;th&gt;</span>Unit price<span class="kw">&lt;/th&gt;</span></a>
+<a class="sourceLine" id="cb5-7" data-line-number="7">    <span class="kw">&lt;/tr&gt;</span></a>
+<a class="sourceLine" id="cb5-8" data-line-number="8">  <span class="kw">&lt;/thead&gt;</span></a>
+<a class="sourceLine" id="cb5-9" data-line-number="9">  <span class="kw">&lt;tbody&gt;</span></a>
+<a class="sourceLine" id="cb5-10" data-line-number="10">    <span class="kw">&lt;tr&gt;</span></a>
+<a class="sourceLine" id="cb5-11" data-line-number="11">      <span class="kw">&lt;td</span><span class="ot"> class=</span><span class="st">&quot;mdl-data-table__cell--non-numeric&quot;</span><span class="kw">&gt;</span>Acrylic (Transparent)<span class="kw">&lt;/td&gt;</span></a>
+<a class="sourceLine" id="cb5-12" data-line-number="12">      <span class="kw">&lt;td&gt;</span>250<span class="kw">&lt;/td&gt;</span></a>
+<a class="sourceLine" id="cb5-13" data-line-number="13">      <span class="kw">&lt;td&gt;</span>$2.90<span class="kw">&lt;/td&gt;</span></a>
+<a class="sourceLine" id="cb5-14" data-line-number="14">    <span class="kw">&lt;/tr&gt;</span></a>
+<a class="sourceLine" id="cb5-15" data-line-number="15">    <span class="kw">&lt;tr&gt;</span></a>
+<a class="sourceLine" id="cb5-16" data-line-number="16">      <span class="kw">&lt;td</span><span class="ot"> class=</span><span class="st">&quot;mdl-data-table__cell--non-numeric&quot;</span><span class="kw">&gt;</span>Plywood (Birch)<span class="kw">&lt;/td&gt;</span></a>
+<a class="sourceLine" id="cb5-17" data-line-number="17">      <span class="kw">&lt;td&gt;</span>50<span class="kw">&lt;/td&gt;</span></a>
+<a class="sourceLine" id="cb5-18" data-line-number="18">      <span class="kw">&lt;td&gt;</span>$1.25<span class="kw">&lt;/td&gt;</span></a>
+<a class="sourceLine" id="cb5-19" data-line-number="19">    <span class="kw">&lt;/tr&gt;</span></a>
+<a class="sourceLine" id="cb5-20" data-line-number="20">    <span class="kw">&lt;tr&gt;</span></a>
+<a class="sourceLine" id="cb5-21" data-line-number="21">      <span class="kw">&lt;td</span><span class="ot"> class=</span><span class="st">&quot;mdl-data-table__cell--non-numeric&quot;</span><span class="kw">&gt;</span>Laminate (Gold on Blue)<span class="kw">&lt;/td&gt;</span></a>
+<a class="sourceLine" id="cb5-22" data-line-number="22">      <span class="kw">&lt;td&gt;</span>10<span class="kw">&lt;/td&gt;</span></a>
+<a class="sourceLine" id="cb5-23" data-line-number="23">      <span class="kw">&lt;td&gt;</span>$12.35<span class="kw">&lt;/td&gt;</span></a>
+<a class="sourceLine" id="cb5-24" data-line-number="24">    <span class="kw">&lt;/tr&gt;</span></a>
+<a class="sourceLine" id="cb5-25" data-line-number="25">  <span class="kw">&lt;/tbody&gt;</span></a>
+<a class="sourceLine" id="cb5-26" data-line-number="26"><span class="kw">&lt;/table&gt;</span></a></code></pre></div>
 <p>A data-table without select checkboxes containing mostly text data.</p>
-<div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;table</span><span class="ot"> class=</span><span class="st">&quot;mdl-data-table mdl-js-data-table&quot;</span><span class="kw">&gt;</span>
-  <span class="kw">&lt;thead&gt;</span>
-    <span class="kw">&lt;tr&gt;</span>
-      <span class="kw">&lt;th</span><span class="ot"> class=</span><span class="st">&quot;mdl-data-table__cell--non-numeric&quot;</span><span class="kw">&gt;</span>Name<span class="kw">&lt;/th&gt;</span>
-      <span class="kw">&lt;th</span><span class="ot"> class=</span><span class="st">&quot;mdl-data-table__cell--non-numeric&quot;</span><span class="kw">&gt;</span>Nickname<span class="kw">&lt;/th&gt;</span>
-      <span class="kw">&lt;th&gt;</span>Age<span class="kw">&lt;/th&gt;</span>
-      <span class="kw">&lt;th</span><span class="ot"> class=</span><span class="st">&quot;mdl-data-table__cell--non-numeric&quot;</span><span class="kw">&gt;</span>Living?<span class="kw">&lt;/th&gt;</span>
-    <span class="kw">&lt;/tr&gt;</span>
-  <span class="kw">&lt;/thead&gt;</span>
-  <span class="kw">&lt;tbody&gt;</span>
-    <span class="kw">&lt;tr&gt;</span>
-      <span class="kw">&lt;td</span><span class="ot"> class=</span><span class="st">&quot;mdl-data-table__cell--non-numeric&quot;</span><span class="kw">&gt;</span>John Lennon<span class="kw">&lt;/td&gt;</span>
-      <span class="kw">&lt;td</span><span class="ot"> class=</span><span class="st">&quot;mdl-data-table__cell--non-numeric&quot;</span><span class="kw">&gt;</span>The smart one<span class="kw">&lt;/td&gt;</span>
-      <span class="kw">&lt;td&gt;</span>40<span class="kw">&lt;/td&gt;</span>
-      <span class="kw">&lt;td</span><span class="ot"> class=</span><span class="st">&quot;mdl-data-table__cell--non-numeric&quot;</span><span class="kw">&gt;</span>No<span class="kw">&lt;/td&gt;</span>
-    <span class="kw">&lt;/tr&gt;</span>
-    <span class="kw">&lt;tr&gt;</span>
-      <span class="kw">&lt;td</span><span class="ot"> class=</span><span class="st">&quot;mdl-data-table__cell--non-numeric&quot;</span><span class="kw">&gt;</span>Paul McCartney<span class="kw">&lt;/td&gt;</span>
-      <span class="kw">&lt;td</span><span class="ot"> class=</span><span class="st">&quot;mdl-data-table__cell--non-numeric&quot;</span><span class="kw">&gt;</span>The cute one<span class="kw">&lt;/td&gt;</span>
-      <span class="kw">&lt;td&gt;</span>73<span class="kw">&lt;/td&gt;</span>
-      <span class="kw">&lt;td</span><span class="ot"> class=</span><span class="st">&quot;mdl-data-table__cell--non-numeric&quot;</span><span class="kw">&gt;</span>Yes<span class="kw">&lt;/td&gt;</span>
-    <span class="kw">&lt;/tr&gt;</span>
-    <span class="kw">&lt;tr&gt;</span>
-      <span class="kw">&lt;td</span><span class="ot"> class=</span><span class="st">&quot;mdl-data-table__cell--non-numeric&quot;</span><span class="kw">&gt;</span>George Harrison<span class="kw">&lt;/td&gt;</span>
-      <span class="kw">&lt;td</span><span class="ot"> class=</span><span class="st">&quot;mdl-data-table__cell--non-numeric&quot;</span><span class="kw">&gt;</span>The shy one<span class="kw">&lt;/td&gt;</span>
-      <span class="kw">&lt;td&gt;</span>58<span class="kw">&lt;/td&gt;</span>
-      <span class="kw">&lt;td</span><span class="ot"> class=</span><span class="st">&quot;mdl-data-table__cell--non-numeric&quot;</span><span class="kw">&gt;</span>No<span class="kw">&lt;/td&gt;</span>
-    <span class="kw">&lt;/tr&gt;</span>
-    <span class="kw">&lt;tr&gt;</span>
-      <span class="kw">&lt;td</span><span class="ot"> class=</span><span class="st">&quot;mdl-data-table__cell--non-numeric&quot;</span><span class="kw">&gt;</span>Ringo Starr<span class="kw">&lt;/td&gt;</span>
-      <span class="kw">&lt;td</span><span class="ot"> class=</span><span class="st">&quot;mdl-data-table__cell--non-numeric&quot;</span><span class="kw">&gt;</span>The funny one<span class="kw">&lt;/td&gt;</span>
-      <span class="kw">&lt;td&gt;</span>74<span class="kw">&lt;/td&gt;</span>
-      <span class="kw">&lt;td</span><span class="ot"> class=</span><span class="st">&quot;mdl-data-table__cell--non-numeric&quot;</span><span class="kw">&gt;</span>Yes<span class="kw">&lt;/td&gt;</span>
-    <span class="kw">&lt;/tr&gt;</span>
-  <span class="kw">&lt;/tbody&gt;</span>
-<span class="kw">&lt;/table&gt;</span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode html"><code class="sourceCode html"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="kw">&lt;table</span><span class="ot"> class=</span><span class="st">&quot;mdl-data-table mdl-js-data-table&quot;</span><span class="kw">&gt;</span></a>
+<a class="sourceLine" id="cb6-2" data-line-number="2">  <span class="kw">&lt;thead&gt;</span></a>
+<a class="sourceLine" id="cb6-3" data-line-number="3">    <span class="kw">&lt;tr&gt;</span></a>
+<a class="sourceLine" id="cb6-4" data-line-number="4">      <span class="kw">&lt;th</span><span class="ot"> class=</span><span class="st">&quot;mdl-data-table__cell--non-numeric&quot;</span><span class="kw">&gt;</span>Name<span class="kw">&lt;/th&gt;</span></a>
+<a class="sourceLine" id="cb6-5" data-line-number="5">      <span class="kw">&lt;th</span><span class="ot"> class=</span><span class="st">&quot;mdl-data-table__cell--non-numeric&quot;</span><span class="kw">&gt;</span>Nickname<span class="kw">&lt;/th&gt;</span></a>
+<a class="sourceLine" id="cb6-6" data-line-number="6">      <span class="kw">&lt;th&gt;</span>Age<span class="kw">&lt;/th&gt;</span></a>
+<a class="sourceLine" id="cb6-7" data-line-number="7">      <span class="kw">&lt;th</span><span class="ot"> class=</span><span class="st">&quot;mdl-data-table__cell--non-numeric&quot;</span><span class="kw">&gt;</span>Living?<span class="kw">&lt;/th&gt;</span></a>
+<a class="sourceLine" id="cb6-8" data-line-number="8">    <span class="kw">&lt;/tr&gt;</span></a>
+<a class="sourceLine" id="cb6-9" data-line-number="9">  <span class="kw">&lt;/thead&gt;</span></a>
+<a class="sourceLine" id="cb6-10" data-line-number="10">  <span class="kw">&lt;tbody&gt;</span></a>
+<a class="sourceLine" id="cb6-11" data-line-number="11">    <span class="kw">&lt;tr&gt;</span></a>
+<a class="sourceLine" id="cb6-12" data-line-number="12">      <span class="kw">&lt;td</span><span class="ot"> class=</span><span class="st">&quot;mdl-data-table__cell--non-numeric&quot;</span><span class="kw">&gt;</span>John Lennon<span class="kw">&lt;/td&gt;</span></a>
+<a class="sourceLine" id="cb6-13" data-line-number="13">      <span class="kw">&lt;td</span><span class="ot"> class=</span><span class="st">&quot;mdl-data-table__cell--non-numeric&quot;</span><span class="kw">&gt;</span>The smart one<span class="kw">&lt;/td&gt;</span></a>
+<a class="sourceLine" id="cb6-14" data-line-number="14">      <span class="kw">&lt;td&gt;</span>40<span class="kw">&lt;/td&gt;</span></a>
+<a class="sourceLine" id="cb6-15" data-line-number="15">      <span class="kw">&lt;td</span><span class="ot"> class=</span><span class="st">&quot;mdl-data-table__cell--non-numeric&quot;</span><span class="kw">&gt;</span>No<span class="kw">&lt;/td&gt;</span></a>
+<a class="sourceLine" id="cb6-16" data-line-number="16">    <span class="kw">&lt;/tr&gt;</span></a>
+<a class="sourceLine" id="cb6-17" data-line-number="17">    <span class="kw">&lt;tr&gt;</span></a>
+<a class="sourceLine" id="cb6-18" data-line-number="18">      <span class="kw">&lt;td</span><span class="ot"> class=</span><span class="st">&quot;mdl-data-table__cell--non-numeric&quot;</span><span class="kw">&gt;</span>Paul McCartney<span class="kw">&lt;/td&gt;</span></a>
+<a class="sourceLine" id="cb6-19" data-line-number="19">      <span class="kw">&lt;td</span><span class="ot"> class=</span><span class="st">&quot;mdl-data-table__cell--non-numeric&quot;</span><span class="kw">&gt;</span>The cute one<span class="kw">&lt;/td&gt;</span></a>
+<a class="sourceLine" id="cb6-20" data-line-number="20">      <span class="kw">&lt;td&gt;</span>73<span class="kw">&lt;/td&gt;</span></a>
+<a class="sourceLine" id="cb6-21" data-line-number="21">      <span class="kw">&lt;td</span><span class="ot"> class=</span><span class="st">&quot;mdl-data-table__cell--non-numeric&quot;</span><span class="kw">&gt;</span>Yes<span class="kw">&lt;/td&gt;</span></a>
+<a class="sourceLine" id="cb6-22" data-line-number="22">    <span class="kw">&lt;/tr&gt;</span></a>
+<a class="sourceLine" id="cb6-23" data-line-number="23">    <span class="kw">&lt;tr&gt;</span></a>
+<a class="sourceLine" id="cb6-24" data-line-number="24">      <span class="kw">&lt;td</span><span class="ot"> class=</span><span class="st">&quot;mdl-data-table__cell--non-numeric&quot;</span><span class="kw">&gt;</span>George Harrison<span class="kw">&lt;/td&gt;</span></a>
+<a class="sourceLine" id="cb6-25" data-line-number="25">      <span class="kw">&lt;td</span><span class="ot"> class=</span><span class="st">&quot;mdl-data-table__cell--non-numeric&quot;</span><span class="kw">&gt;</span>The shy one<span class="kw">&lt;/td&gt;</span></a>
+<a class="sourceLine" id="cb6-26" data-line-number="26">      <span class="kw">&lt;td&gt;</span>58<span class="kw">&lt;/td&gt;</span></a>
+<a class="sourceLine" id="cb6-27" data-line-number="27">      <span class="kw">&lt;td</span><span class="ot"> class=</span><span class="st">&quot;mdl-data-table__cell--non-numeric&quot;</span><span class="kw">&gt;</span>No<span class="kw">&lt;/td&gt;</span></a>
+<a class="sourceLine" id="cb6-28" data-line-number="28">    <span class="kw">&lt;/tr&gt;</span></a>
+<a class="sourceLine" id="cb6-29" data-line-number="29">    <span class="kw">&lt;tr&gt;</span></a>
+<a class="sourceLine" id="cb6-30" data-line-number="30">      <span class="kw">&lt;td</span><span class="ot"> class=</span><span class="st">&quot;mdl-data-table__cell--non-numeric&quot;</span><span class="kw">&gt;</span>Ringo Starr<span class="kw">&lt;/td&gt;</span></a>
+<a class="sourceLine" id="cb6-31" data-line-number="31">      <span class="kw">&lt;td</span><span class="ot"> class=</span><span class="st">&quot;mdl-data-table__cell--non-numeric&quot;</span><span class="kw">&gt;</span>The funny one<span class="kw">&lt;/td&gt;</span></a>
+<a class="sourceLine" id="cb6-32" data-line-number="32">      <span class="kw">&lt;td&gt;</span>74<span class="kw">&lt;/td&gt;</span></a>
+<a class="sourceLine" id="cb6-33" data-line-number="33">      <span class="kw">&lt;td</span><span class="ot"> class=</span><span class="st">&quot;mdl-data-table__cell--non-numeric&quot;</span><span class="kw">&gt;</span>Yes<span class="kw">&lt;/td&gt;</span></a>
+<a class="sourceLine" id="cb6-34" data-line-number="34">    <span class="kw">&lt;/tr&gt;</span></a>
+<a class="sourceLine" id="cb6-35" data-line-number="35">  <span class="kw">&lt;/tbody&gt;</span></a>
+<a class="sourceLine" id="cb6-36" data-line-number="36"><span class="kw">&lt;/table&gt;</span></a></code></pre></div>
 <p>A table that has name and values for the checkboxes.</p>
-<div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;table</span><span class="ot"> class=</span><span class="st">&quot;mdl-data-table mdl-js-data-table mdl-data-table--selectable&quot;</span><span class="kw">&gt;</span>
-  <span class="kw">&lt;thead&gt;</span>
-    <span class="kw">&lt;tr&gt;</span>
-      <span class="kw">&lt;th</span><span class="ot"> class=</span><span class="st">&quot;mdl-data-table__cell--non-numeric&quot;</span><span class="kw">&gt;</span>Material<span class="kw">&lt;/th&gt;</span>
-      <span class="kw">&lt;th&gt;</span>Quantity<span class="kw">&lt;/th&gt;</span>
-      <span class="kw">&lt;th&gt;</span>Unit price<span class="kw">&lt;/th&gt;</span>
-    <span class="kw">&lt;/tr&gt;</span>
-  <span class="kw">&lt;/thead&gt;</span>
-  <span class="kw">&lt;tbody&gt;</span>
-    <span class="kw">&lt;tr</span><span class="ot"> data-mdl-data-table-selectable-name=</span><span class="st">&quot;materials[]&quot;</span><span class="ot"> data-mdl-data-table-selectable-value=</span><span class="st">&quot;acrylic&quot;</span><span class="kw">&gt;</span>
-      <span class="kw">&lt;td</span><span class="ot"> class=</span><span class="st">&quot;mdl-data-table__cell--non-numeric&quot;</span><span class="kw">&gt;</span>Acrylic (Transparent)<span class="kw">&lt;/td&gt;</span>
-      <span class="kw">&lt;td&gt;</span>250<span class="kw">&lt;/td&gt;</span>
-      <span class="kw">&lt;td&gt;</span>$2.90<span class="kw">&lt;/td&gt;</span>
-    <span class="kw">&lt;/tr&gt;</span>
-    <span class="kw">&lt;tr</span><span class="ot"> data-mdl-data-table-selectable-name=</span><span class="st">&quot;materials[]&quot;</span><span class="ot"> data-mdl-data-table-selectable-value=</span><span class="st">&quot;plywood&quot;</span><span class="kw">&gt;</span>
-      <span class="kw">&lt;td</span><span class="ot"> class=</span><span class="st">&quot;mdl-data-table__cell--non-numeric&quot;</span><span class="kw">&gt;</span>Plywood (Birch)<span class="kw">&lt;/td&gt;</span>
-      <span class="kw">&lt;td&gt;</span>50<span class="kw">&lt;/td&gt;</span>
-      <span class="kw">&lt;td&gt;</span>$1.25<span class="kw">&lt;/td&gt;</span>
-    <span class="kw">&lt;/tr&gt;</span>
-    <span class="kw">&lt;tr</span><span class="ot"> data-mdl-data-table-selectable-name=</span><span class="st">&quot;materials[]&quot;</span><span class="ot"> data-mdl-data-table-selectable-value=</span><span class="st">&quot;laminate&quot;</span><span class="kw">&gt;</span>
-      <span class="kw">&lt;td</span><span class="ot"> class=</span><span class="st">&quot;mdl-data-table__cell--non-numeric&quot;</span><span class="kw">&gt;</span>Laminate (Gold on Blue)<span class="kw">&lt;/td&gt;</span>
-      <span class="kw">&lt;td&gt;</span>10<span class="kw">&lt;/td&gt;</span>
-      <span class="kw">&lt;td&gt;</span>$12.35<span class="kw">&lt;/td&gt;</span>
-    <span class="kw">&lt;/tr&gt;</span>
-  <span class="kw">&lt;/tbody&gt;</span>
-<span class="kw">&lt;/table&gt;</span></code></pre></div>
-<h2 id="configuration-options">Configuration options</h2>
+<div class="sourceCode" id="cb7"><pre class="sourceCode html"><code class="sourceCode html"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="kw">&lt;table</span><span class="ot"> class=</span><span class="st">&quot;mdl-data-table mdl-js-data-table mdl-data-table--selectable&quot;</span><span class="kw">&gt;</span></a>
+<a class="sourceLine" id="cb7-2" data-line-number="2">  <span class="kw">&lt;thead&gt;</span></a>
+<a class="sourceLine" id="cb7-3" data-line-number="3">    <span class="kw">&lt;tr&gt;</span></a>
+<a class="sourceLine" id="cb7-4" data-line-number="4">      <span class="kw">&lt;th</span><span class="ot"> class=</span><span class="st">&quot;mdl-data-table__cell--non-numeric&quot;</span><span class="kw">&gt;</span>Material<span class="kw">&lt;/th&gt;</span></a>
+<a class="sourceLine" id="cb7-5" data-line-number="5">      <span class="kw">&lt;th&gt;</span>Quantity<span class="kw">&lt;/th&gt;</span></a>
+<a class="sourceLine" id="cb7-6" data-line-number="6">      <span class="kw">&lt;th&gt;</span>Unit price<span class="kw">&lt;/th&gt;</span></a>
+<a class="sourceLine" id="cb7-7" data-line-number="7">    <span class="kw">&lt;/tr&gt;</span></a>
+<a class="sourceLine" id="cb7-8" data-line-number="8">  <span class="kw">&lt;/thead&gt;</span></a>
+<a class="sourceLine" id="cb7-9" data-line-number="9">  <span class="kw">&lt;tbody&gt;</span></a>
+<a class="sourceLine" id="cb7-10" data-line-number="10">    <span class="kw">&lt;tr</span><span class="ot"> data-mdl-data-table-selectable-name=</span><span class="st">&quot;materials[]&quot;</span><span class="ot"> data-mdl-data-table-selectable-value=</span><span class="st">&quot;acrylic&quot;</span><span class="kw">&gt;</span></a>
+<a class="sourceLine" id="cb7-11" data-line-number="11">      <span class="kw">&lt;td</span><span class="ot"> class=</span><span class="st">&quot;mdl-data-table__cell--non-numeric&quot;</span><span class="kw">&gt;</span>Acrylic (Transparent)<span class="kw">&lt;/td&gt;</span></a>
+<a class="sourceLine" id="cb7-12" data-line-number="12">      <span class="kw">&lt;td&gt;</span>250<span class="kw">&lt;/td&gt;</span></a>
+<a class="sourceLine" id="cb7-13" data-line-number="13">      <span class="kw">&lt;td&gt;</span>$2.90<span class="kw">&lt;/td&gt;</span></a>
+<a class="sourceLine" id="cb7-14" data-line-number="14">    <span class="kw">&lt;/tr&gt;</span></a>
+<a class="sourceLine" id="cb7-15" data-line-number="15">    <span class="kw">&lt;tr</span><span class="ot"> data-mdl-data-table-selectable-name=</span><span class="st">&quot;materials[]&quot;</span><span class="ot"> data-mdl-data-table-selectable-value=</span><span class="st">&quot;plywood&quot;</span><span class="kw">&gt;</span></a>
+<a class="sourceLine" id="cb7-16" data-line-number="16">      <span class="kw">&lt;td</span><span class="ot"> class=</span><span class="st">&quot;mdl-data-table__cell--non-numeric&quot;</span><span class="kw">&gt;</span>Plywood (Birch)<span class="kw">&lt;/td&gt;</span></a>
+<a class="sourceLine" id="cb7-17" data-line-number="17">      <span class="kw">&lt;td&gt;</span>50<span class="kw">&lt;/td&gt;</span></a>
+<a class="sourceLine" id="cb7-18" data-line-number="18">      <span class="kw">&lt;td&gt;</span>$1.25<span class="kw">&lt;/td&gt;</span></a>
+<a class="sourceLine" id="cb7-19" data-line-number="19">    <span class="kw">&lt;/tr&gt;</span></a>
+<a class="sourceLine" id="cb7-20" data-line-number="20">    <span class="kw">&lt;tr</span><span class="ot"> data-mdl-data-table-selectable-name=</span><span class="st">&quot;materials[]&quot;</span><span class="ot"> data-mdl-data-table-selectable-value=</span><span class="st">&quot;laminate&quot;</span><span class="kw">&gt;</span></a>
+<a class="sourceLine" id="cb7-21" data-line-number="21">      <span class="kw">&lt;td</span><span class="ot"> class=</span><span class="st">&quot;mdl-data-table__cell--non-numeric&quot;</span><span class="kw">&gt;</span>Laminate (Gold on Blue)<span class="kw">&lt;/td&gt;</span></a>
+<a class="sourceLine" id="cb7-22" data-line-number="22">      <span class="kw">&lt;td&gt;</span>10<span class="kw">&lt;/td&gt;</span></a>
+<a class="sourceLine" id="cb7-23" data-line-number="23">      <span class="kw">&lt;td&gt;</span>$12.35<span class="kw">&lt;/td&gt;</span></a>
+<a class="sourceLine" id="cb7-24" data-line-number="24">    <span class="kw">&lt;/tr&gt;</span></a>
+<a class="sourceLine" id="cb7-25" data-line-number="25">  <span class="kw">&lt;/tbody&gt;</span></a>
+<a class="sourceLine" id="cb7-26" data-line-number="26"><span class="kw">&lt;/table&gt;</span></a></code></pre></div>
+<h2>Configuration options</h2>
 <p>The MDL CSS classes apply various predefined visual and behavioral enhancements to the data-table. The table below lists the available classes and their effects.</p>
-<table style="width:43%;">
+<table>
 <colgroup>
-<col width="16%" />
-<col width="12%" />
-<col width="13%" />
+<col style="width: 39%" />
+<col style="width: 28%" />
+<col style="width: 32%" />
 </colgroup>
 <thead>
 <tr class="header">
