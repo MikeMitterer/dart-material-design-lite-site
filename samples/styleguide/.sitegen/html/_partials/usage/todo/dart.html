@@ -1,33 +1,7 @@
 import &#39;package:mdl&#47;mdl.dart&#39;;
-import &#39;package:mdl&#47;mdlobservable.dart&#39;;
 
-@MdlComponentModel @di.inject
-class Application implements MaterialApplication &#123;
-    final Logger _logger = new Logger(&#39;main.Application&#39;);
 
-    &#47;&#47;&#47; Added by the MDL&#47;Dart-Framework (mdlapplication.dart)
-    final ActionBus _actionbus;
-
-    @di.inject
-    Application(this._actionbus) &#123;
-    &#125;
-
-    @override
-    void run() &#123;
-        _bindSignals();
-    &#125;
-
-    &#47;&#47;- private -----------------------------------------------------------------------------------
-
-    void _bindSignals() &#123;
-        &#47;&#47; Not necessary - just a demonstration how to listen to the &quot;global&quot; ActionBus
-        _actionbus.on(AddItemAction.NAME).listen((_) &#123;
-            _logger.info(&quot;User clicked on &#39;Add&#39;!&quot;);
-        &#125;);
-    &#125;
-&#125;
-
-Future main() async &#123;
+main() async &#123;
     &#47;&#47; final Logger _logger = new Logger(&#39;main.ToDo&#39;);
 
     registerMdl();
@@ -40,16 +14,3 @@ Future main() async &#123;
     application.run();
 
 &#125;
-
-&#47;**
- * Application-Config via DI
- *&#47;
-class SampleModule extends di.Module &#123;
-    configure() &#123;
-        final store = new ToDoDataStore(new ActionBus());
-        register(ToDoInputStoreInterface).toInstance(store);
-        register(ToDoListStoreInterface).toInstance(store);
-    &#125;
-&#125;
-
-
