@@ -1,6 +1,5 @@
-import 'package:logging/logging.dart';
 import 'package:console_log_handler/console_log_handler.dart';
-import 'package:dryice/dryice.dart' as di;
+import 'package:dryice/dryice.dart';
 
 import 'package:intl/intl.dart';
 import 'package:intl/intl_browser.dart';
@@ -12,6 +11,8 @@ import 'package:mdl/mdlobservable.dart';
 
 // 1.) Add the generated messages-File
 import 'package:mdl_translate_sample/locale/messages.dart';
+
+import 'main.reflectable.dart';
 
 // Simple Translation-Table for testing
 // Make sure that each language has at least one element
@@ -25,7 +26,7 @@ import 'package:mdl_translate_sample/locale/messages.dart';
 //    }
 //});
 
-@di.injectable
+@inject
 class Application extends MaterialApplication {
     //final Logger _logger = new Logger('main.Application');
 
@@ -47,6 +48,7 @@ main() async {
     final Logger _logger = new Logger('main.Application');
 
     configLogging();
+    initializeReflectable();
 
     // 2.) Set your language (en,de,fr...)
     final String locale = await findSystemLocale();

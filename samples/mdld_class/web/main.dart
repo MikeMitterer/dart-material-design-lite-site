@@ -1,11 +1,12 @@
-import 'package:logging/logging.dart';
 import 'package:console_log_handler/console_log_handler.dart';
-import 'package:dryice/dryice.dart' as di;
+import 'package:dryice/dryice.dart';
 
 import 'package:mdl/mdl.dart';
 import 'package:mdl/mdlobservable.dart';
 
-@di.injectable
+import 'main.reflectable.dart';
+
+@inject
 class Application extends MaterialApplication {
     final Logger _logger = new Logger('main.Application');
 
@@ -26,6 +27,7 @@ class Application extends MaterialApplication {
 
 main() async {
     configLogging();
+    initializeReflectable();
 
     registerMdl();
 

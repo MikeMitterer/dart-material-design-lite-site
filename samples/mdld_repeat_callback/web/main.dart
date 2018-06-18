@@ -1,22 +1,23 @@
 import 'dart:async';
 import 'dart:math';
 
-import 'package:logging/logging.dart';
 import 'package:console_log_handler/console_log_handler.dart';
-import 'package:dryice/dryice.dart' as di;
+import 'package:dryice/dryice.dart';
 
 import 'package:mdl/mdl.dart';
 import 'package:mdl_repeat_callback_sample/components/interfaces.dart';
 import 'package:mdl_repeat_callback_sample/components.dart';
 import 'package:mdl_repeat_callback_sample/datastore.dart';
 
-@di.injectable
+import 'main.reflectable.dart';
+
+@inject
 class Application implements MaterialApplication {
     //final Logger _logger = new Logger('main.Application');
 
     final ActionBus _actionbus;
 
-    @di.inject
+    @inject
     Application(this._actionbus);
 
     @override
@@ -38,6 +39,7 @@ class Application implements MaterialApplication {
 
 main() async {
     configLogging();
+    initializeReflectable();
 
     registerMdl();
     registerRepeatCallbackComponents();
@@ -52,17 +54,8 @@ main() async {
 /**
  * Application-Config via DI
  */
-class SampleModule extends di.Module {
+class SampleModule extends Module {
     configure() {
         register(SampleStore).toType(SampleStoreImpl).asSingleton();
     }
-}
-
-void configLogging() {
-    hierarchicalLoggingEnabled = false; // set this to true - its part of Logging SDK
-
-    // now control the logging.
-    // Turn off all logging first
-    Logger.root.level = Level.INFO;
-    Logger.root.onRecord.listen(new LogConsoleHandler());
 }

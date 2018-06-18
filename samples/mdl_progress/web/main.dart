@@ -1,59 +1,51 @@
 import "dart:html" as dom;
 
-import 'package:logging/logging.dart';
 import 'package:console_log_handler/console_log_handler.dart';
 
 import 'package:mdl/mdl.dart';
+import 'main.reflectable.dart';
 
-main() {
+main() async {
     final Logger _logger = new Logger('example.progress.main');
+    
     configLogging();
+    initializeReflectable();
 
     registerMdl();
 
-    componentFactory().run().then((_) {
-        _logger.info("All components upgraded");
+    await componentFactory().run();
 
-        // 1
-        MaterialProgress.widget(dom.querySelector("#p1")).progress = 44;
-        MaterialProgressVertical.widget(dom.querySelector("#p1v")).progress = 44;
-        MaterialProgressVertical.widget(dom.querySelector("#p11v")).progress = 44;
+    _logger.info("All components upgraded");
 
-        // 2
-        MaterialProgress.widget(dom.querySelector("#p3")).progress = 33;
-        MaterialProgress.widget(dom.querySelector("#p3")).buffer = 87;
+    // 1
+    MaterialProgress.widget(dom.querySelector("#p1")).progress = 44;
+    MaterialProgressVertical.widget(dom.querySelector("#p1v")).progress = 44;
+    MaterialProgressVertical.widget(dom.querySelector("#p11v")).progress = 44;
 
-        MaterialProgressVertical.widget(dom.querySelector("#p3v")).progress = 33;
-        MaterialProgressVertical.widget(dom.querySelector("#p3v")).buffer = 87;
+    // 2
+    MaterialProgress.widget(dom.querySelector("#p3")).progress = 33;
+    MaterialProgress.widget(dom.querySelector("#p3")).buffer = 87;
 
-        (dom.querySelector("#slider") as dom.RangeInputElement).onInput.listen((final dom.Event event) {
-            final int value = int.parse((event.target as dom.RangeInputElement).value);
+    MaterialProgressVertical.widget(dom.querySelector("#p3v")).progress = 33;
+    MaterialProgressVertical.widget(dom.querySelector("#p3v")).buffer = 87;
 
-            final component = MaterialProgress.widget(dom.querySelector("#p1"))
-                ..progress = value
-                ..classes.toggle("test");
+    (dom.querySelector("#slider") as dom.RangeInputElement).onInput.listen((final dom.Event event) {
+        final int value = int.parse((event.target as dom.RangeInputElement).value);
 
-            MaterialProgress.widget(dom.querySelector("#p3")).progress = value;
+        final component = MaterialProgress.widget(dom.querySelector("#p1"))
+            ..progress = value
+            ..classes.toggle("test");
 
-            final component2 = MaterialProgressVertical.widget(dom.querySelector("#p1v"))
-                ..progress = value
-                ..classes.toggle("test");
+        MaterialProgress.widget(dom.querySelector("#p3")).progress = value;
 
-            MaterialProgressVertical.widget(dom.querySelector("#p11v")).progress = value;
-            MaterialProgressVertical.widget(dom.querySelector("#p3v")).progress = value;
+        final component2 = MaterialProgressVertical.widget(dom.querySelector("#p1v"))
+            ..progress = value
+            ..classes.toggle("test");
 
-            _logger.info("Value1: ${component.progress}");
-            _logger.info("Value2: ${component2.progress}");
-        });
+        MaterialProgressVertical.widget(dom.querySelector("#p11v")).progress = value;
+        MaterialProgressVertical.widget(dom.querySelector("#p3v")).progress = value;
 
+        _logger.info("Value1: ${component.progress}");
+        _logger.info("Value2: ${component2.progress}");
     });
-}
-
-void configLogging() {
-    hierarchicalLoggingEnabled = false; // set this to true - its part of Logging SDK
-
-    // now control the logging.
-    // Turn off all logging first
-    Logger.root.level = Level.INFO;
-    Logger.root.onRecord.listen(new LogConsoleHandler());
 }

@@ -1,13 +1,15 @@
 import "dart:html" as dom;
 
-import 'package:logging/logging.dart';
 import 'package:console_log_handler/console_log_handler.dart';
-import 'package:dryice/dryice.dart' as di;
+import 'package:dryice/dryice.dart';
+import 'package:mustache/mustache.dart';
 
 import 'package:mdl/mdl.dart';
 import 'package:mdl/mdlobservable.dart';
 
-@MdlComponentModel
+import 'main.reflectable.dart';
+
+@Component @mustache
 class HackintoshComponent {
     final Logger _logger = new Logger('main.HackintoshComponent');
 
@@ -21,7 +23,7 @@ class HackintoshComponent {
     HackintoshComponent(this.id,this.name, this.quantity, this.price);
 }
 
-@MdlComponentModel
+@Component @inject
 class Application implements MaterialApplication {
     final Logger _logger = new Logger('main.Application');
 
@@ -106,6 +108,7 @@ class Application implements MaterialApplication {
 
 main() async {
     configLogging();
+    initializeReflectable();
 
     registerMdl();
 
@@ -127,15 +130,4 @@ main() async {
 
     application.run();
 
-}
-
-
-
-void configLogging() {
-    hierarchicalLoggingEnabled = false; // set this to true - its part of Logging SDK
-
-    // now control the logging.
-    // Turn off all logging first
-    Logger.root.level = Level.INFO;
-    Logger.root.onRecord.listen(new LogConsoleHandler());
 }

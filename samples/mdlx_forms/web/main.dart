@@ -3,7 +3,7 @@ import 'dart:html' as dom;
 import 'package:l10n/l10n.dart';
 import 'package:logging/logging.dart';
 import 'package:console_log_handler/console_log_handler.dart';
-import 'package:dryice/dryice.dart' as di;
+import 'package:dryice/dryice.dart';
 
 // For Date- and TimePicker
 import 'package:intl/intl.dart';
@@ -15,6 +15,8 @@ import 'package:mdl/mdl.dart';
 import "package:mdl/mdldialog.dart";
 
 import 'package:mdl_forms_sample/dialog.dart';
+
+import 'main.reflectable.dart';
 
 /// Simple Translation-Table for testing (see L10N for more)
 final L10NTranslate translate = new L10NTranslate.withTranslations( {
@@ -38,7 +40,7 @@ final L10NTranslate translate = new L10NTranslate.withTranslations( {
     }
 });
 
-@di.injectable
+@inject
 class Application extends MaterialApplication {
     final Logger _logger = new Logger('form_sample.Application');
 
@@ -76,6 +78,7 @@ main() async {
     // final Logger _logger = new Logger('mdlx_form.main');
 
     configLogging();
+    initializeReflectable();
 
     // Determine your locale automatically:
     final String locale = await findSystemLocale();
@@ -97,18 +100,9 @@ main() async {
 /**
  * Demo Module
  */
-class SampleModule extends di.Module {
+class SampleModule extends Module {
     configure() {
         // Configure Translator
         bind(Translator).toInstance(translate);
     }
-}
-
-void configLogging() {
-    hierarchicalLoggingEnabled = false; // set this to true - its part of Logging SDK
-
-    // now control the logging.
-    // Turn off all logging first
-    Logger.root.level = Level.INFO;
-    Logger.root.onRecord.listen(new LogConsoleHandler());
 }

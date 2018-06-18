@@ -3,14 +3,15 @@ import 'package:console_log_handler/console_log_handler.dart';
 
 import 'package:mdl/mdl.dart';
 
-main() {
+import 'main.reflectable.dart';
+
+main() async {
     configLogging();
+    initializeReflectable();
 
     registerMdl();
 
-    componentFactory().run().then((_) {
-
-    });
+    await componentFactory();
 }
 
 void configLogging() {

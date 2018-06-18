@@ -1,8 +1,7 @@
 import "dart:async";
 
-import 'package:logging/logging.dart';
 import 'package:console_log_handler/console_log_handler.dart';
-import 'package:dryice/dryice.dart' as di;
+import 'package:dryice/dryice.dart';
 
 import 'package:mdl/mdl.dart';
 
@@ -10,14 +9,16 @@ import "package:mdl_todo_sample/src/interfaces.dart";
 import "package:mdl_todo_sample/components.dart";
 import "package:mdl_todo_sample/datastore.dart";
 
-@Model @di.inject
+import 'main.reflectable.dart';
+
+@Model @inject
 class Application implements MaterialApplication {
     final Logger _logger = new Logger('main.Application');
 
     /// Added by the MDL/Dart-Framework (mdlapplication.dart)
     final ActionBus _actionbus;
 
-    @di.inject
+    @inject
     Application(this._actionbus) {
     }
 
@@ -40,6 +41,7 @@ Future main() async {
     // final Logger _logger = new Logger('main.ToDo');
 
     configLogging();
+    initializeReflectable();
 
     registerMdl();
     registerToDoComponents();
@@ -55,7 +57,7 @@ Future main() async {
 /**
  * Application-Config via DI
  */
-class SampleModule extends di.Module {
+class SampleModule extends Module {
     configure() {
         final store = new ToDoDataStore(new ActionBus());
         register(ToDoInputStoreInterface).toInstance(store);
@@ -63,11 +65,3 @@ class SampleModule extends di.Module {
     }
 }
 
-void configLogging() {
-    hierarchicalLoggingEnabled = false; // set this to true - its part of Logging SDK
-
-    // now control the logging.
-    // Turn off all logging first
-    Logger.root.level = Level.INFO;
-    Logger.root.onRecord.listen(new LogConsoleHandler());
-}

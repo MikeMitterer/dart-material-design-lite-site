@@ -1,10 +1,10 @@
-import 'package:logging/logging.dart';
 import 'package:console_log_handler/console_log_handler.dart';
-import 'package:dryice/dryice.dart' as di;
+import 'package:dryice/dryice.dart';
 
 import 'package:mdl/mdl.dart';
+import 'main.reflectable.dart';
 
-@Model
+@Model @inject
 class _Language {
     final String name;
     final String type;
@@ -19,7 +19,7 @@ class _Natural extends _Language {
     _Natural(final String name) : super(name,"natural");
 }
 
-@di.injectable
+@inject
 class Application extends MaterialApplication {
     // final _logger = new Logger('dnd.Application');
 
@@ -72,6 +72,7 @@ class Application extends MaterialApplication {
 
 main() {
     configLogging();
+    initializeReflectable();
 
     registerMdl();
     registerMdlDND();
@@ -79,13 +80,4 @@ main() {
     componentFactory().rootContext(Application).run().then((final MaterialApplication application) {
         application.run();
     });
-}
-
-void configLogging() {
-    hierarchicalLoggingEnabled = false; // set this to true - its part of Logging SDK
-
-    // now control the logging.
-    // Turn off all logging first
-    Logger.root.level = Level.INFO;
-    Logger.root.onRecord.listen(new LogConsoleHandler());
 }

@@ -8,23 +8,19 @@ environment:
   sdk: '>=1.0.0 <2.0.0'
 
 dependencies:
-  browser: any
-
   mdl:
     # '>=2.1.0 <3.0.0'
-    git:
-      url: git@github.com:MikeMitterer/dart-material-design-lite.git
+    # git:
+    #  url: git@github.com:MikeMitterer/dart-material-design-lite.git
     #  ref: v2.2
-    # path: /Volumes/Daten/DevLocal/DevDart/MaterialDesignLite
+    path: /Volumes/Daten/DevLocal/DevDart/MaterialDesignLite
     
   logging: '>=0.11.3 <1.0.0'
-  console_log_handler: '>=0.5.0 <1.0.0'
+  console_log_handler: ^1.0.0
     # git: git@github.com:MikeMitterer/dart-console_log_handler.git
     # path: /Volumes/Daten/DevLocal/DevDart/ConsoleLogHandler
 
 dev_dependencies:
-
-  dart_to_js_script_rewriter: ^0.1.0
-
-transformers:
-  - dart_to_js_script_rewriter
+  build_runner: any
+  build_web_compilers: any
+  sass_builder: any

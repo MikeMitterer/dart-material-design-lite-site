@@ -2,19 +2,22 @@ import "dart:async";
 
 import 'package:logging/logging.dart';
 import 'package:console_log_handler/console_log_handler.dart';
-import 'package:dryice/dryice.dart' as di;
+import 'package:dryice/dryice.dart';
+import 'package:mustache/mustache.dart';
 
 import 'package:mdl/mdl.dart';
 import 'package:mdl/mdlobservable.dart';
 
-@Model
+import 'main.reflectable.dart';
+
+@Model @mustache
 class _Language {
     final String name;
     final String type;
     _Language(this.name, this.type);
 }
 
-@Model
+@Model @mustache
 class _Name {
     final String first;
     final String last;
@@ -30,7 +33,7 @@ class _Natural extends _Language {
     _Natural(final String name) : super(name,"natural");
 }
 
-@Model
+@Model @inject @mustache
 class Application extends MaterialApplication {
     final Logger _logger = new Logger('main.Application');
 
@@ -110,6 +113,7 @@ main() {
     // final Logger _logger = new Logger('main.MaterialRepeat');
 
     configLogging();
+    initializeReflectable();
 
     registerMdl();
 

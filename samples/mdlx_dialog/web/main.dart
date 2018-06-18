@@ -1,5 +1,5 @@
 import "dart:html" as dom;
-import 'package:dryice/dryice.dart' as di;
+import 'package:dryice/dryice.dart';
 
 import 'package:logging/logging.dart';
 import 'package:console_log_handler/console_log_handler.dart';
@@ -16,6 +16,9 @@ import 'package:intl/intl_browser.dart';
 import 'package:intl/date_symbol_data_local.dart';
 import 'package:l10n/l10n.dart';
 
+import 'main.reflectable.dart';
+
+
 /// Simple Translation-Table for testing (see L10N for more)
 final L10NTranslate translate = new L10NTranslate.withTranslations( {
     "de": {
@@ -27,7 +30,7 @@ final L10NTranslate translate = new L10NTranslate.withTranslations( {
     }
 });
 
-@di.injectable
+@inject
 class Application extends MaterialApplication {
     final Logger _logger = new Logger('dialog.Application');
 
@@ -197,7 +200,9 @@ class Application extends MaterialApplication {
 
 main() async {
     final Logger _logger = new Logger('dialog.main');
+    
     configLogging();
+    initializeReflectable();
 
     // Determine your locale automatically:
     final String locale = await findSystemLocale();

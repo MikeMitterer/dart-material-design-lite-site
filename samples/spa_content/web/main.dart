@@ -3,19 +3,21 @@ import "dart:async";
 import "dart:math" as Math;
 
 import 'package:intl/intl.dart';
-import 'package:logging/logging.dart';
 import 'package:console_log_handler/console_log_handler.dart';
 
 import 'package:mdl/mdl.dart' as mdl;
+import 'package:mustache/mustache.dart';
 
 import 'package:mdl/mdlapplication.dart';
 import 'package:mdl/mdlobservable.dart';
 import 'package:route_hierarchical/client.dart';
 
+import 'main.reflectable.dart';
+
 class ModelChangedEvent { }
 
 /// Model is a Singleton
-@mdl.Model
+@mdl.Model @mustache
 class Model {
     static Model _model;
 
@@ -56,6 +58,8 @@ main() {
     final Model model = new Model();
 
     configLogging();
+    initializeReflectable();
+
     mdl.registerMdl();
 
     mdl.componentFactory().run().then((_) {
