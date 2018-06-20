@@ -36,7 +36,7 @@ class WithoutCallbackComponentModule  extends di.Module {
 
 /// Controller-View for <without-callback></without-callback>
 ///
-@MdlComponentModel
+@Component @inject
 class WithoutCallbackComponent extends MdlTemplateComponent {
     final Logger _logger = new Logger('mdld_repeat_callback_sample.components.WithoutCallbackComponent');
 
@@ -52,7 +52,7 @@ class WithoutCallbackComponent extends MdlTemplateComponent {
     static final DateFormat _formatter = new DateFormat("yyyy.MM.dd HH.mm.ss");
 
     
-    WithoutCallbackComponent.fromElement(final dom.HtmlElement element,final di.Injector injector)
+    WithoutCallbackComponent.fromElement(final dom.HtmlElement element,final Injector injector)
         : _store = injector.getInstance(SampleStore), super(element,injector) {
         _init();
     }
@@ -161,7 +161,7 @@ class WithoutCallbackComponent extends MdlTemplateComponent {
 void registerWithoutCallbackComponent() {
     final MdlConfig config = new MdlWidgetConfig<WithoutCallbackComponent>(
         _WithoutCallbackComponentConstant.WIDGET_SELECTOR,
-            (final dom.HtmlElement element,final di.Injector injector) => new WithoutCallbackComponent.fromElement(element,injector)
+            (final dom.HtmlElement element,final Injector injector) => new WithoutCallbackComponent.fromElement(element,injector)
     );
     
     // If you want <with-callback></with-callback> set selectorType to SelectorType.TAG.

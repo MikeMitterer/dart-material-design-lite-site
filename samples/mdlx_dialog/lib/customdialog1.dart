@@ -22,10 +22,10 @@ library mdl_dialog_sample.customdialog1;
 import 'package:mdl/mdl.dart';
 import "package:mdl/mdldialog.dart";
 
-import 'package:dryice/dryice.dart' as di;
+import 'package:dryice/dryice.dart';
+import 'package:mustache/mustache.dart';
 
-
-@di.injectable
+@inject @mustache
 class CustomDialog1 extends MaterialDialog {
 
     static const String _DEFAULT_YES_BUTTON = "Yes";

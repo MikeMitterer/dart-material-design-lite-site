@@ -36,7 +36,7 @@ class WithCallbackComponentModule  extends di.Module {
 
 /// Controller-View for <with-callback></with-callback>
 ///
-@MdlComponentModel
+@Component @inject
 class WithCallbackComponent extends MdlTemplateComponent {
     final Logger _logger = new Logger('mdld_repeat_callback_sample.components.WithCallbackComponent');
 
@@ -53,7 +53,7 @@ class WithCallbackComponent extends MdlTemplateComponent {
     static final DateFormat _formatter = new DateFormat("yyyy.MM.dd HH.mm.ss");
 
     
-    WithCallbackComponent.fromElement(final dom.HtmlElement element,final di.Injector injector)
+    WithCallbackComponent.fromElement(final dom.HtmlElement element,final Injector injector)
         : _store = injector.getInstance(SampleStore), super(element,injector) {
         _init();
     }
@@ -136,14 +136,14 @@ class WithCallbackComponent extends MdlTemplateComponent {
     }
 
     /// Called if List-Items updates
-    static bool _updateListItem(final dom.HtmlElement element, final RandomItem item) {
+    static bool _updateListItem(final dom.HtmlElement element, final item) {
         if(element == null) {
             return false;
         }
         final dom.SpanElement date = element.querySelector(".date");
         final dom.SpanElement records = element.querySelector(".value");
 
-        date.text = _formatter.format(item.date);
+        date.text = _formatter.format((item as RandomItem).date);
         records.text = item.value.toString();
         return true;
     }
@@ -175,7 +175,7 @@ class WithCallbackComponent extends MdlTemplateComponent {
 void registerWithCallbackComponent() {
     final MdlConfig config = new MdlWidgetConfig<WithCallbackComponent>(
         _WithCallbackComponentConstant.WIDGET_SELECTOR,
-            (final dom.HtmlElement element,final di.Injector injector) => new WithCallbackComponent.fromElement(element,injector)
+            (final dom.HtmlElement element,final Injector injector) => new WithCallbackComponent.fromElement(element,injector)
     );
     
     // If you want <with-callback></with-callback> set selectorType to SelectorType.TAG.

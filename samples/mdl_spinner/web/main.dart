@@ -1,13 +1,12 @@
 import "dart:html" as dom;
 
-import 'package:logging/logging.dart';
 import 'package:console_log_handler/console_log_handler.dart';
 import 'package:dryice/dryice.dart';
 
 import 'package:mdl/mdl.dart';
 import 'main.reflectable.dart';
 
-@MdlComponentModel @inject
+@Component @inject
 class Application implements MaterialApplication {
     // final Logger _logger = new Logger('main.Application');
 
@@ -59,16 +58,7 @@ main() async {
 /**
  * Application-Config via DI
  */
-class SampleModule extends di.Module {
+class SampleModule extends Module {
     configure() {
     }
-}
-
-void configLogging() {
-    hierarchicalLoggingEnabled = false; // set this to true - its part of Logging SDK
-
-    // now control the logging.
-    // Turn off all logging first
-    Logger.root.level = Level.INFO;
-    Logger.root.onRecord.listen(new LogConsoleHandler());
 }

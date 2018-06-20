@@ -28,8 +28,8 @@ class Application implements MaterialApplication {
     final Logger _logger = new Logger('main.Application');
 
     final ObservableList<HackintoshComponent> components = new ObservableList<HackintoshComponent>();
-    final ObservableProperty<bool>   isListEmpty = new ObservableProperty<bool>(true);
-    final ObservableProperty<double> total = new ObservableProperty<double>(0.0);
+    final ObservableProperty<bool>   isListEmpty = new ObservableProperty<bool>(true,observeViaTimer: false);
+    final ObservableProperty<double> total = new ObservableProperty<double>(0.0,observeViaTimer: false);
 
     Application() {
         isListEmpty.observes(() => components.isEmpty);

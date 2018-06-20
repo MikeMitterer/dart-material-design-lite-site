@@ -19,10 +19,13 @@
 
 library mdld_repeat_callback_sample.components.interfaces;
 
-import 'package:dryice/dryice.dart' as di;
+import 'package:dryice/dryice.dart';
+import 'package:mustache/mustache.dart';
+
 import "package:mdl/mdlcore.dart";
 import "package:mdl/mdlflux.dart";
 
+@mustache
 class RandomItem {
     final DateTime date;
     final int value;
@@ -32,7 +35,7 @@ class RandomItem {
 
 // - DataStores for our components -------------------------------------------------------------------------------------
 
-@di.injectable
+@inject
 abstract class SampleStore extends DataStore {
     List<RandomItem> get items;
 }

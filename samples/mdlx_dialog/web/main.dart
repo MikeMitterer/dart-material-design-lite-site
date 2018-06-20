@@ -201,7 +201,7 @@ class Application extends MaterialApplication {
 main() async {
     final Logger _logger = new Logger('dialog.main');
     
-    configLogging();
+    configLogging(show: Level.INFO);
     initializeReflectable();
 
     // Determine your locale automatically:
@@ -224,18 +224,9 @@ main() async {
 /**
  * Demo Module
  */
-class SampleModule extends di.Module {
+class SampleModule extends Module {
     configure() {
         // Configure Translator
         bind(Translator).toInstance(translate);
     }
-}
-
-void configLogging() {
-    hierarchicalLoggingEnabled = false; // set this to true - its part of Logging SDK
-
-    // now control the logging.
-    // Turn off all logging first
-    Logger.root.level = Level.INFO;
-    Logger.root.onRecord.listen(new LogConsoleHandler());
 }

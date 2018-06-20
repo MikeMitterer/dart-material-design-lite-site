@@ -36,13 +36,3 @@ main() async {
 
     application.run();
 }
-
-
-void configLogging() {
-    hierarchicalLoggingEnabled = false; // set this to true - its part of Logging SDK
-
-    // now control the logging.
-    // Turn off all logging first
-    Logger.root.level = Level.FINE;
-    Logger.root.onRecord.listen(new LogConsoleHandler());
-}

@@ -1,6 +1,5 @@
 import "dart:async";
 
-import 'package:logging/logging.dart';
 import 'package:console_log_handler/console_log_handler.dart';
 import 'package:dryice/dryice.dart';
 import 'package:mustache/mustache.dart';
@@ -11,17 +10,17 @@ import 'package:mdl/mdlobservable.dart';
 import 'main.reflectable.dart';
 
 @Model @mustache
-class _Language {
+class Language {
     final String name;
     final String type;
-    _Language(this.name, this.type);
+    Language(this.name, this.type);
 }
 
 @Model @mustache
-class _Name {
+class Name {
     final String first;
     final String last;
-    _Name(this.first, this.last);
+    Name(this.first, this.last);
 
     @override
     String toString() {
@@ -29,7 +28,7 @@ class _Name {
     }
 }
 
-class _Natural extends _Language {
+class _Natural extends Language {
     _Natural(final String name) : super(name,"natural");
 }
 
@@ -37,13 +36,13 @@ class _Natural extends _Language {
 class Application extends MaterialApplication {
     final Logger _logger = new Logger('main.Application');
 
-    final ObservableList<_Language>  languages = new ObservableList<_Language>();
+    final ObservableList<Language>  languages = new ObservableList<Language>();
     final ObservableProperty<String> time = new ObservableProperty<String>("",interval: new Duration(seconds: 1));
     final ObservableProperty<String> records = new ObservableProperty<String>("");
-    final ObservableProperty<_Name>  nameObject = new ObservableProperty<_Name>(null);
+    final ObservableProperty<Name>  nameObject = new ObservableProperty<Name>(null);
     final ObservableProperty<bool>   isNameNull = new ObservableProperty<bool>(true);
 
-    final List<_Name> _names = new List<_Name>();
+    final List<Name> _names = new List<Name>();
 
     Application() {
         records.observes(() => (languages.isNotEmpty ? languages.length.toString() : "<empty>"));
@@ -55,9 +54,9 @@ class Application extends MaterialApplication {
         languages.add(new _Natural("French"));
         languages.add(new _Natural("Spanish"));
 
-        _names.add(new _Name("Bill","Gates"));
-        _names.add(new _Name("Steven","Jobs"));
-        _names.add(new _Name("Larry","Page"));
+        _names.add(new Name("Bill","Gates"));
+        _names.add(new Name("Steven","Jobs"));
+        _names.add(new Name("Larry","Page"));
         _names.add(null);
 
     }
@@ -82,8 +81,8 @@ class Application extends MaterialApplication {
     void remove(final String language) {
         _logger.info("Remove $language clicked!!!!!");
 
-        final _Language lang = languages.firstWhere(
-                (final _Language check) {
+        final Language lang = languages.firstWhere(
+                (final Language check) {
 
                     final bool result = (check.name.toLowerCase() == language.toLowerCase());
                     _logger.fine("Check: ${check.name} -> $language, Result: $result");
@@ -123,13 +122,4 @@ main() {
     });
 
 }
-
-
-void configLogging() {
-    hierarchicalLoggingEnabled = false; // set this to true - its part of Logging SDK
-
-    // now control the logging.
-    // Turn off all logging first
-    Logger.root.level = Level.INFO;
-    Logger.root.onRecord.listen(new LogConsoleHandler());
-}
+              
