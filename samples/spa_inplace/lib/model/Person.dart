@@ -19,7 +19,7 @@
      
 part of mdl_inplace_edit_sample.model;
 
-@MdlComponentModel
+@Model @mustache
 class Person {
     // final Logger _logger = new Logger('mdl_inplace_edit_sample.model.Person');
 

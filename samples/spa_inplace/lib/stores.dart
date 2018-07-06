@@ -21,7 +21,7 @@ library mdl_inplace_edit_sample.stores;
 
 import 'dart:async';
 
-import 'package:dryice/dryice.dart' as di;
+import 'package:dryice/dryice.dart';
 import 'package:logging/logging.dart';
 import 'package:validate/validate.dart';
 import 'package:intl/intl.dart';
@@ -45,7 +45,7 @@ PersonsStore _singletonStore = null;
 ///             install(new StoreModule());
 ///         }
 ///     }
-class StoreModule  extends di.Module {
+class StoreModule  extends Module {
     configure() {
         register(PersonsStore).toInstance(_singletonFactory());
         register(PersonStore).toInstance(_singletonFactory());

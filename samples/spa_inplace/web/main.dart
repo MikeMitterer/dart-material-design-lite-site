@@ -35,12 +35,12 @@ Future main() async {
     registerMdl();
     registerInplaceSampleComponents();
 
-        final MaterialApplication application = await componentFactory()
-            .rootContext(Application)
-            .addModule(new SampleModule1())
-            .run();
+    final MaterialApplication application = await componentFactory()
+        .rootContext(Application)
+        .addModule(new SampleModule1())
+        .run();
 
-        application.run();
+    application.run();
 }
 
 /**

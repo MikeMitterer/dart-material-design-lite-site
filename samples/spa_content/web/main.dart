@@ -5,19 +5,19 @@ import "dart:math" as Math;
 import 'package:intl/intl.dart';
 import 'package:console_log_handler/console_log_handler.dart';
 
-import 'package:mdl/mdl.dart' as mdl;
+import 'package:mdl/mdl.dart';
 import 'package:mustache/mustache.dart';
 
 import 'package:mdl/mdlapplication.dart';
 import 'package:mdl/mdlobservable.dart';
-import 'package:route_hierarchical/client.dart';
+import 'package:m4d_router/browser.dart';
 
 import 'main.reflectable.dart';
 
 class ModelChangedEvent { }
 
 /// Model is a Singleton
-@mdl.Model @mustache
+@mustache
 class Model {
     static Model _model;
 
@@ -53,107 +53,107 @@ class Model {
 }
 
 
-main() {
+main() async {
     final Logger _logger = new Logger('main.MaterialContent');
     final Model model = new Model();
+    final router = new Router();
 
-    configLogging();
+    configLogging(show: Level.INFO);
     initializeReflectable();
 
-    mdl.registerMdl();
+    registerMdl();
 
-    mdl.componentFactory().run().then((_) {
-        configRouter();
+    await componentFactory().run();
 
-        final mdl.MaterialSlider mainslider = mdl.MaterialSlider.widget(dom.querySelector("#mainslider2"));
-        final mdl.MaterialContent list = mdl.MaterialContent.widget(dom.querySelector("#list"));
-        final mdl.MaterialMustache mustache = mdl.MaterialMustache.widget(dom.querySelector("#mustache"));
+    _configRouter(router);
 
-        mustache.template = """
-            <div>
-                Slider value: {{sliderValue}}
-                    <ol>
-                    {{#randomValues}}
-                        <li>{{ . }},</li>
-                    {{/randomValues}}
-                    {{^randomValues }}
-                        <li>No values</li>
-                    {{/randomValues }}
-                    </ol>
-            </div>""";
+    final MaterialSlider mainslider = MaterialSlider.widget(dom.querySelector("#mainslider2"));
+    final MaterialContent list = MaterialContent.widget(dom.querySelector("#list"));
+    final MaterialMustache mustache = MaterialMustache.widget(dom.querySelector("#mustache"));
 
-        mainslider.value = model.sliderValue;
+    mustache.template = """
+        <div>
+            Slider value: {{sliderValue}}
+                <ol>
+                {{#randomValues}}
+                    <li>{{ . }},</li>
+                {{/randomValues}}
+                {{^randomValues }}
+                    <li>No values</li>
+                {{/randomValues }}
+                </ol>
+        </div>""";
 
-        mainslider.onInput.listen((_) => model.sliderValue = mainslider.value);
+    mainslider.value = model.sliderValue;
 
-        model.onChange.listen((_) {
+    mainslider.onInput.listen((_) => model.sliderValue = mainslider.value);
 
-            String items() {
-                final StringBuffer line = new StringBuffer();
-                for(int counter = 0; counter < model.sliderValue; counter++) {
-                    final String id = "${counter + 1}";
+    model.onChange.listen((_) {
 
-                    line.write("<li>");
-                    line.write("Item #${id}");
-                    line.write('<button id="btn$id" class="mdl-button mdl-button--raised mdl-button--colored mdl-ripple-effect">Button #${id}</button>');
-                    line.write("</li>");
-                }
-                return line.toString();
+        String items() {
+            final StringBuffer line = new StringBuffer();
+            for(int counter = 0; counter < model.sliderValue; counter++) {
+                final String id = "${counter + 1}";
+
+                line.write("<li>");
+                line.write("Item #${id}");
+                line.write('<button id="btn$id" class="mdl-button mdl-button--raised mdl-button--colored mdl-ripple-effect">Button #${id}</button>');
+                line.write("</li>");
             }
+            return line.toString();
+        }
 
-            new Future(() {
-                mainslider.value = model.sliderValue;
-                _logger.info("Model ${model.sliderValue}");
+        new Future(() {
+            mainslider.value = model.sliderValue;
+            _logger.info("Model ${model.sliderValue}");
 
-                list.render("<ul>" + items() + "</ul>").then((_) {
-                    for(int counter = 0; counter < model.sliderValue; counter++) {
-                        final dom.Element element  = list.element.querySelector("#btn${counter+1}");
+            list.render("<ul>" + items() + "</ul>").then((_) {
+                for(int counter = 0; counter < model.sliderValue; counter++) {
+                    final dom.Element element  = list.element.querySelector("#btn${counter+1}");
 
-                        // check for null - if elements are added to fast it could be possible that
-                        // the element you are searching for was already removed
-                        if(element != null) {
-                            element.onClick.listen((final dom.MouseEvent event) {
-                                dom.window.alert("Clicked on Button #${counter+1}");
-                            });
+                    // check for null - if elements are added to fast it could be possible that
+                    // the element you are searching for was already removed
+                    if(element != null) {
+                        element.onClick.listen((final dom.MouseEvent event) {
+                            dom.window.alert("Clicked on Button #${counter+1}");
+                        });
 
-                        }
                     }
-                });
+                }
             });
-
-            mustache.render(model);
         });
 
+        mustache.render(model);
     });
 }
 
-@mdl.Model
-class _Day {
+@mustache
+class Day {
     final DateTime _date;
 
-    _Day(this._date);
+    Day(this._date);
 
     String get name => new DateFormat("E").format(_date);
     String get date => new DateFormat.yMd().format(_date);
 }
 
 /// If you have observable-Properties in your Controller it must be
-/// marked as [@mdl.Model]
-@mdl.Model
-class ObservableController extends mdl.MaterialController implements ScopeAware {
+/// marked as [@Model]
+@mustache
+class ObservableController extends MaterialController implements ScopeAware {
     final time = new ObservableProperty<String>("",interval: new Duration(seconds: 1));
-    final days = new ObservableList<_Day>();
+    final days = new ObservableList<Day>();
 
     @override
-    void loaded(final Route route) {
+    void loaded(final RouteEvent event) {
         time.observes(() => _getTime());
         for(int counter = 0; days.length < 7 ;counter++) {
-            days.add(new _Day(new DateTime.now().add(new Duration(days: counter))));
+            days.add(new Day(new DateTime.now().add(new Duration(days: counter))));
         }
     }
 
     @override
-    mdl.Scope get scope => new mdl.Scope(this);
+    Scope get scope => new Scope(this);
 
     // - private ------------------------------------------------------------------------------------------------------
 
@@ -163,16 +163,16 @@ class ObservableController extends mdl.MaterialController implements ScopeAware 
     }
 }
 
-class DemoController extends mdl.MaterialController {
+class DemoController extends MaterialController {
     final Model _model = new Model();
 
-    mdl.MaterialSlider _slider5;
-    mdl.MaterialSlider _slider2;
+    MaterialSlider _slider5;
+    MaterialSlider _slider2;
 
     @override
-    void loaded(final Route route) {
-        _slider5 = mdl.MaterialSlider.widget(dom.querySelector("#slider5"));
-        _slider2 = mdl.MaterialSlider.widget(dom.querySelector("#slider2"));
+    void loaded(final RouteEvent event) {
+        _slider5 = MaterialSlider.widget(dom.querySelector("#slider5"));
+        _slider2 = MaterialSlider.widget(dom.querySelector("#slider2"));
 
         if(_slider5 == null) {
             // ERROR-PAGE not slider 5
@@ -198,37 +198,64 @@ class DemoController extends mdl.MaterialController {
 
 }
 
-void configRouter() {
-    final router = new Router(useFragment: true);
+void _configRouter(final Router router ) {
+    final logger = new Logger('main.configRouter');
     final view = new ViewFactory();
 
-    router.root
+    router
+        ..addRoute(name: "Test0", path: new UrlPattern('/#/test0'),
+            enter: (final RouteEvent event) {
+                logger.info(event);
+            })
 
-        ..addRoute(name: 'test', path: '/test',
-            enter: view("views/test.html", new mdl.DummyController()))
+        ..addRoute(name: 'test', path: new ReactPattern('/test'),
+            enter: view("views/test.html", new DummyController()))
 
-        ..addRoute(name: 'test2', path: '/test2',
-            enter: view("views/test2.html", new ObservableController()))
+        ..addRoute(name: "Test3", path: new ReactPattern(r'/names/(\w+)'),
+            enter: (final RouteEnterEvent event) {
+                logger.info("Path: ${event.path} Params: ${event.params.join(",")}");
+            })
 
-        ..addRoute(name: 'slider', path: '/slider',
+        ..addRoute(name: "Test2", path: new ReactPattern('/names'),
+            enter: (final RouteEvent event) {
+                logger.info(event);
+            })
+
+        ..addRoute(name: 'slider', path: new ReactPattern('/slider'),
             enter: view("views/slider.html", new DemoController()))
-
-        ..addRoute(name: 'error', path: '/error',
-            enter: view("views/doesnotexist.html", new DemoController()))
-
-        ..addRoute(name: 'home', defaultRoute: true, path: '/',
-            enter: view("views/home.html" ,new mdl.DummyController()))
 
     ;
 
-    router.listen();
+    router.onEnter.listen((final RouteEnterEvent event) {
+        logger.info("RoutEvent ${event.route.title} -> ${event.route.urlPattern.pattern}");
+    });
+
+    router.onError.listen((final RouteErrorEvent event) {
+        logger.info("RouteErrorEvent ${event.exception}");
+    });
+
+    router.listen(); // Start listening
+
+//    router.root
+//
+//        ..addRoute(name: 'test', path: '/test',
+//            enter: view("views/test.html", new DummyController()))
+//
+//        ..addRoute(name: 'test2', path: '/test2',
+//            enter: view("views/test2.html", new ObservableController()))
+//
+//        ..addRoute(name: 'slider', path: '/slider',
+//            enter: view("views/slider.html", new DemoController()))
+//
+//        ..addRoute(name: 'error', path: '/error',
+//            enter: view("views/doesnotexist.html", new DemoController()))
+//
+//        ..addRoute(name: 'home', defaultRoute: true, path: '/',
+//            enter: view("views/home.html" ,new DummyController()))
+//
+//    ;
+//
+//    router.listen();
+
 }
 
-void configLogging() {
-    hierarchicalLoggingEnabled = false; // set this to true - its part of Logging SDK
-
-    // now control the logging.
-    // Turn off all logging first
-    Logger.root.level = Level.INFO;
-    Logger.root.onRecord.listen(new LogConsoleHandler());
-}

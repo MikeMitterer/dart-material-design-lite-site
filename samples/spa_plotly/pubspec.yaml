@@ -22,7 +22,7 @@ dependencies:
     #  ref: v2.2
     path: /Volumes/Daten/DevLocal/DevDart/MaterialDesignLite
 
-  plotly: ^0.7.0
+  plotly: 0.8.0-alpha.1
 
 dev_dependencies:
   build_runner: any

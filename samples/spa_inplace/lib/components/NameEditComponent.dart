@@ -26,7 +26,7 @@ part of mdl_inplace_edit_sample.components;
 ///             install(new NameEditComponentModule());
 ///         }     
 ///     }
-class NameEditComponentModule  extends di.Module {
+class NameEditComponentModule  extends Module {
     configure() {
         // bind(DeviceProxy);
     }
@@ -34,7 +34,7 @@ class NameEditComponentModule  extends di.Module {
 
 /// Controller for <name-editor></name-editor>
 ///
-@MdlComponentModel
+@Component @inject @mustache
 class NameEditComponent extends MdlTemplateComponent {
     final Logger _logger = new Logger('mdl_inplace_edit_sample.components.NameEditComponent');
 
@@ -47,7 +47,7 @@ class NameEditComponent extends MdlTemplateComponent {
     /// Only a single person is necessary
     final PersonStore _store;
 
-    NameEditComponent.fromElement(final dom.HtmlElement element,final di.Injector injector)
+    NameEditComponent.fromElement(final dom.HtmlElement element,final Injector injector)
         : _store = injector.getInstance(PersonStore), super(element,injector) {
         
         _init();
@@ -299,7 +299,7 @@ class NameEditComponent extends MdlTemplateComponent {
 void registerNameEditComponent() {
     final MdlConfig config = new MdlWidgetConfig<NameEditComponent>(
         _NameEditComponentConstant.WIDGET_SELECTOR,
-            (final dom.HtmlElement element,final di.Injector injector) => new NameEditComponent.fromElement(element,injector)
+            (final dom.HtmlElement element,final Injector injector) => new NameEditComponent.fromElement(element,injector)
     );
     
     // If you want <name-editor></name-editor> set selectorType to SelectorType.TAG.

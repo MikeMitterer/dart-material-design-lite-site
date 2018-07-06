@@ -27,7 +27,7 @@ import 'package:mdl/mdl.dart';
 import 'package:mdl/mdlanimation.dart';
 import "package:mdl/mdldialog.dart";
 import 'package:mdl/mdlobservable.dart';
-import 'package:route_hierarchical/client.dart';
+import 'package:route/browser.dart';
 import "package:spa_template/dialogs.dart";
 
 final MdlAnimation bounceInRight = new MdlAnimation.fromStock(StockAnimation.BounceInRight);

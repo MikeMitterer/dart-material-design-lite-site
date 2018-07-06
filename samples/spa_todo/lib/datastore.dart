@@ -24,15 +24,17 @@ import 'dart:collection';
 import 'package:logging/logging.dart';
 import 'package:mdl/mdl.dart';
 import 'package:mdl_todo_sample/src/interfaces.dart';
-import 'package:dryice/dryice.dart' as di;
 
-@di.injectable
+import 'package:dryice/dryice.dart';
+import 'package:mustache/mustache.dart';
+
+@inject @mustache
 class ToDoDataStore extends Dispatcher implements ToDoInputStoreInterface, ToDoListStoreInterface {
     final Logger _logger = new Logger('mdl_todo_sample.datastore.ToDoDataStore');
 
     final List<ToDoItem> _items = new List<ToDoItem>();
 
-    @di.inject
+    @inject
     ToDoDataStore(final ActionBus actionbus) : super(actionbus) {
         _bindSignals();
     }

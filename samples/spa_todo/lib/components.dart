@@ -23,7 +23,8 @@ import "dart:html" as dom;
 import "dart:async";
 
 import 'package:logging/logging.dart';
-import 'package:dryice/dryice.dart' as di;
+import 'package:dryice/dryice.dart';
+import 'package:mustache/mustache.dart';
 
 import 'package:mdl/mdl.dart';
 

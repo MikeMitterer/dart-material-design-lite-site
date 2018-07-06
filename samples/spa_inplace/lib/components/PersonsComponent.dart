@@ -23,7 +23,7 @@ part of mdl_inplace_edit_sample.components;
 ///
 /// We make this component [ScopeAware] so that MaterialRepeat (mdl-repeat)
 /// can use it!
-@MdlComponentModel
+@Component @inject @mustache
 class PersonsComponent extends MdlComponent implements ScopeAware {
     final Logger _logger = new Logger('mdl_inplace_edit_sample.components.PersonsComponent');
 
@@ -34,7 +34,7 @@ class PersonsComponent extends MdlComponent implements ScopeAware {
 
     Scope scope;
 
-    PersonsComponent.fromElement(final dom.HtmlElement element,final di.Injector injector)
+    PersonsComponent.fromElement(final dom.HtmlElement element,final Injector injector)
         : _store = injector.getInstance(PersonsStore), super(element,injector) {
 
         scope = new Scope(this,mdlParentScope(this));
@@ -74,7 +74,7 @@ class PersonsComponent extends MdlComponent implements ScopeAware {
 void registerPersonsComponent() {
     final MdlConfig config = new MdlWidgetConfig<PersonsComponent>(
         _PersonsComponentConstant.WIDGET_SELECTOR,
-            (final dom.HtmlElement element,final di.Injector injector) => new PersonsComponent.fromElement(element,injector)
+            (final dom.HtmlElement element,final Injector injector) => new PersonsComponent.fromElement(element,injector)
     );
     
     // If you want <sample-inplace-persons></sample-inplace-persons> set selectorType to SelectorType.TAG.

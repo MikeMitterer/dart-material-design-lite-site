@@ -1,0 +1,13 @@
+# Rsync-Destination für dieses sample
+#
+#   - ssh ls2
+#   - cd ~/website/config/nginx
+#   - cp -a m4d_router.conf <new sample>.conf
+#   - ls -la ~/website/data/example/
+#   - sudo mcedit <new sample>.conf
+#   - sudo mkdir ~/website/data/example/<new sample>
+#   - sudo chown ubuntu:ubuntu ~/website/data/example/<new sample>
+#   - sudo chmod 775 ~/website/data/example/<new sample>
+#
+RSYNC_DESTINATION=":~/website/data/example/mdl_animation/"
+EXAMPLE_URL="http://abc/123"

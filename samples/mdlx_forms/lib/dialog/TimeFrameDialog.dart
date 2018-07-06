@@ -19,7 +19,7 @@
 
 part of mdl_forms_sample.dialog;
 
-@Component
+@Component @inject @mustache
 class TimeFrameDialog extends MaterialDialog {
     final Logger _logger = new Logger('mobiad_rest_ui_mdl.dialogs.TimeFrameDialog');
 

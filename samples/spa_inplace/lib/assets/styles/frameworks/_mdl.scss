@@ -2,7 +2,7 @@
 // SASS_PATH is automatically set by sitegen
 //      Checkout the settings in .sitegen/site.yaml
 
-@import "assets/styles/theme/theme";
+@import "package:mdl/assets/styles/theme/theme";
 
-@import "assets/styles/shadow/mixins";
-@import "assets/styles/typography/mixins";
+@import "package:mdl/assets/styles/shadow/mixins";
+@import "package:mdl/assets/styles/typography/mixins";

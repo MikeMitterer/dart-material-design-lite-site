@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'package:console_log_handler/console_log_handler.dart';
 
 import 'package:mdl/mdl.dart';
@@ -5,7 +6,7 @@ import 'package:mdl/mdldemo.dart';
 
 import 'main.reflectable.dart';
 
-main() async {
+Future main() async {
     configLogging();
     initializeReflectable();
 
