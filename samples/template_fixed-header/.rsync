@@ -1,0 +1,14 @@
+# Rsync-Destination für dieses sample
+#
+#   - ssh ls2
+#   - cat ~/website/config/nginx/_template.conf.txt | sed -e 's/%example%/template_fixed-header/' > ~/website/config/nginx/template_fixed-header.conf
+#   - cat ~/website/config/nginx/template_fixed-header.conf
+#   - sudo mkdir -p ~/website/data/example/template_fixed-header
+#   - sudo chown ubuntu:ubuntu ~/website/data/example/template_fixed-header
+#   - sudo chmod 775 ~/website/data/example/template_fixed-header
+#   - ls -lad ~/website/data/example/template_fixed-header
+#   - cd ~/website && docker-compose restart
+#
+RSYNC_DESTINATION=":~/website/data/example/template_fixed-header/"
+EXAMPLE_URL="http://template_fixed-header.example.mikemitterer.at/"
+

@@ -1,0 +1,14 @@
+# Rsync-Destination für dieses sample
+#
+#   - ssh ls2
+#   - cat ~/website/config/nginx/_template.conf.txt | sed -e 's/%example%/styleguide/' > ~/website/config/nginx/styleguide.conf
+#   - cat ~/website/config/nginx/styleguide.conf
+#   - sudo mkdir -p ~/website/data/example/styleguide
+#   - sudo chown ubuntu:ubuntu ~/website/data/example/styleguide
+#   - sudo chmod 775 ~/website/data/example/styleguide
+#   - ls -lad ~/website/data/example/styleguide
+#   - cd ~/website && docker-compose restart
+#
+RSYNC_DESTINATION=":~/website/data/example/styleguide/"
+EXAMPLE_URL="http://styleguide.example.mikemitterer.at/"
+

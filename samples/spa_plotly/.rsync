@@ -1,0 +1,14 @@
+# Rsync-Destination für dieses sample
+#
+#   - ssh ls2
+#   - cat ~/website/config/nginx/_template.conf.txt | sed -e 's/%example%/spa_plotly/' > ~/website/config/nginx/spa_plotly.conf
+#   - cat ~/website/config/nginx/spa_plotly.conf
+#   - sudo mkdir -p ~/website/data/example/spa_plotly
+#   - sudo chown ubuntu:ubuntu ~/website/data/example/spa_plotly
+#   - sudo chmod 775 ~/website/data/example/spa_plotly
+#   - ls -lad ~/website/data/example/spa_plotly
+#   - cd ~/website && docker-compose restart
+#
+RSYNC_DESTINATION=":~/website/data/example/spa_plotly/"
+EXAMPLE_URL="http://spa_plotly.example.mikemitterer.at/"
+

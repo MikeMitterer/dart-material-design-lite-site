@@ -1,0 +1,14 @@
+# Rsync-Destination für dieses sample
+#
+#   - ssh ls2
+#   - cat ~/website/config/nginx/_template.conf.txt | sed -e 's/%example%/mdlx_nav-pills/' > ~/website/config/nginx/mdlx_nav-pills.conf
+#   - cat ~/website/config/nginx/mdlx_nav-pills.conf
+#   - sudo mkdir -p ~/website/data/example/mdlx_nav-pills
+#   - sudo chown ubuntu:ubuntu ~/website/data/example/mdlx_nav-pills
+#   - sudo chmod 775 ~/website/data/example/mdlx_nav-pills
+#   - ls -lad ~/website/data/example/mdlx_nav-pills
+#   - cd ~/website && docker-compose restart
+#
+RSYNC_DESTINATION=":~/website/data/example/mdlx_nav-pills/"
+EXAMPLE_URL="http://mdlx_nav-pills.example.mikemitterer.at/"
+

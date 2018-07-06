@@ -1,0 +1,14 @@
+# Rsync-Destination für dieses sample
+#
+#   - ssh ls2
+#   - cat ~/website/config/nginx/_template.conf.txt | sed -e 's/%example%/template_android-dot-com/' > ~/website/config/nginx/template_android-dot-com.conf
+#   - cat ~/website/config/nginx/template_android-dot-com.conf
+#   - sudo mkdir -p ~/website/data/example/template_android-dot-com
+#   - sudo chown ubuntu:ubuntu ~/website/data/example/template_android-dot-com
+#   - sudo chmod 775 ~/website/data/example/template_android-dot-com
+#   - ls -lad ~/website/data/example/template_android-dot-com
+#   - cd ~/website && docker-compose restart
+#
+RSYNC_DESTINATION=":~/website/data/example/template_android-dot-com/"
+EXAMPLE_URL="http://template_android-dot-com.example.mikemitterer.at/"
+

@@ -1,0 +1,14 @@
+# Rsync-Destination für dieses sample
+#
+#   - ssh ls2
+#   - cat ~/website/config/nginx/_template.conf.txt | sed -e 's/%example%/mdld_attribute/' > ~/website/config/nginx/mdld_attribute.conf
+#   - cat ~/website/config/nginx/mdld_attribute.conf
+#   - sudo mkdir -p ~/website/data/example/mdld_attribute
+#   - sudo chown ubuntu:ubuntu ~/website/data/example/mdld_attribute
+#   - sudo chmod 775 ~/website/data/example/mdld_attribute
+#   - ls -lad ~/website/data/example/mdld_attribute
+#   - cd ~/website && docker-compose restart
+#
+RSYNC_DESTINATION=":~/website/data/example/mdld_attribute/"
+EXAMPLE_URL="http://mdld_attribute.example.mikemitterer.at/"
+

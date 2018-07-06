@@ -1,0 +1,14 @@
+# Rsync-Destination für dieses sample
+#
+#   - ssh ls2
+#   - cat ~/website/config/nginx/_template.conf.txt | sed -e 's/%example%/mdld_repeat_callback/' > ~/website/config/nginx/mdld_repeat_callback.conf
+#   - cat ~/website/config/nginx/mdld_repeat_callback.conf
+#   - sudo mkdir -p ~/website/data/example/mdld_repeat_callback
+#   - sudo chown ubuntu:ubuntu ~/website/data/example/mdld_repeat_callback
+#   - sudo chmod 775 ~/website/data/example/mdld_repeat_callback
+#   - ls -lad ~/website/data/example/mdld_repeat_callback
+#   - cd ~/website && docker-compose restart
+#
+RSYNC_DESTINATION=":~/website/data/example/mdld_repeat_callback/"
+EXAMPLE_URL="http://mdld_repeat_callback.example.mikemitterer.at/"
+

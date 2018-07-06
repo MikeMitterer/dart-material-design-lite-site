@@ -1,14 +1,14 @@
 # Rsync-Destination für dieses sample
 #
 #   - ssh ls2
-#   - cd ~/website/config/nginx
-#   - cp -a m4d_router.conf <new sample>.conf
-#   - ls -la ~/website/data/example/
-#   - sudo mcedit <new sample>.conf
-#   - sudo mkdir ~/website/data/example/<new sample>
-#   - sudo chown ubuntu:ubuntu ~/website/data/example/<new sample>
-#   - sudo chmod 775 ~/website/data/example/<new sample>
+#   - cat ~/website/config/nginx/_template.conf.txt | sed -e 's/%example%/mdl_badge/' > ~/website/config/nginx/mdl_badge.conf
+#   - cat ~/website/config/nginx/mdl_badge.conf
+#   - sudo mkdir -p ~/website/data/example/mdl_badge
+#   - sudo chown ubuntu:ubuntu ~/website/data/example/mdl_badge
+#   - sudo chmod 775 ~/website/data/example/mdl_badge
+#   - ls -lad ~/website/data/example/mdl_badge
+#   - cd ~/website && docker-compose restart
 #
-
 RSYNC_DESTINATION=":~/website/data/example/mdl_badge/"
-EXAMPLE_URL="http://abc/456"
+EXAMPLE_URL="http://mdl_badge.example.mikemitterer.at/"
+

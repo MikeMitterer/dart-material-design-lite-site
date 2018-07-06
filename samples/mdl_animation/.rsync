@@ -1,13 +1,14 @@
 # Rsync-Destination für dieses sample
 #
 #   - ssh ls2
-#   - cd ~/website/config/nginx
-#   - cp -a m4d_router.conf <new sample>.conf
-#   - ls -la ~/website/data/example/
-#   - sudo mcedit <new sample>.conf
-#   - sudo mkdir ~/website/data/example/<new sample>
-#   - sudo chown ubuntu:ubuntu ~/website/data/example/<new sample>
-#   - sudo chmod 775 ~/website/data/example/<new sample>
+#   - cat ~/website/config/nginx/_template.conf.txt | sed -e 's/%example%/mdl_animation/' > ~/website/config/nginx/mdl_animation.conf
+#   - cat ~/website/config/nginx/mdl_animation.conf
+#   - sudo mkdir -p ~/website/data/example/mdl_animation
+#   - sudo chown ubuntu:ubuntu ~/website/data/example/mdl_animation
+#   - sudo chmod 775 ~/website/data/example/mdl_animation
+#   - ls -lad ~/website/data/example/mdl_animation
+#   - cd ~/website && docker-compose restart
 #
 RSYNC_DESTINATION=":~/website/data/example/mdl_animation/"
-EXAMPLE_URL="http://abc/123"
+EXAMPLE_URL="http://mdl_animation.example.mikemitterer.at/"
+

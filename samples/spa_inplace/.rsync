@@ -1,0 +1,14 @@
+# Rsync-Destination für dieses sample
+#
+#   - ssh ls2
+#   - cat ~/website/config/nginx/_template.conf.txt | sed -e 's/%example%/spa_inplace/' > ~/website/config/nginx/spa_inplace.conf
+#   - cat ~/website/config/nginx/spa_inplace.conf
+#   - sudo mkdir -p ~/website/data/example/spa_inplace
+#   - sudo chown ubuntu:ubuntu ~/website/data/example/spa_inplace
+#   - sudo chmod 775 ~/website/data/example/spa_inplace
+#   - ls -lad ~/website/data/example/spa_inplace
+#   - cd ~/website && docker-compose restart
+#
+RSYNC_DESTINATION=":~/website/data/example/spa_inplace/"
+EXAMPLE_URL="http://spa_inplace.example.mikemitterer.at/"
+

@@ -1,0 +1,14 @@
+# Rsync-Destination für dieses sample
+#
+#   - ssh ls2
+#   - cat ~/website/config/nginx/_template.conf.txt | sed -e 's/%example%/mdl_checkbox/' > ~/website/config/nginx/mdl_checkbox.conf
+#   - cat ~/website/config/nginx/mdl_checkbox.conf
+#   - sudo mkdir -p ~/website/data/example/mdl_checkbox
+#   - sudo chown ubuntu:ubuntu ~/website/data/example/mdl_checkbox
+#   - sudo chmod 775 ~/website/data/example/mdl_checkbox
+#   - ls -lad ~/website/data/example/mdl_checkbox
+#   - cd ~/website && docker-compose restart
+#
+RSYNC_DESTINATION=":~/website/data/example/mdl_checkbox/"
+EXAMPLE_URL="http://mdl_checkbox.example.mikemitterer.at/"
+

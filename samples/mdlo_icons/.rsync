@@ -1,0 +1,14 @@
+# Rsync-Destination für dieses sample
+#
+#   - ssh ls2
+#   - cat ~/website/config/nginx/_template.conf.txt | sed -e 's/%example%/mdlo_icons/' > ~/website/config/nginx/mdlo_icons.conf
+#   - cat ~/website/config/nginx/mdlo_icons.conf
+#   - sudo mkdir -p ~/website/data/example/mdlo_icons
+#   - sudo chown ubuntu:ubuntu ~/website/data/example/mdlo_icons
+#   - sudo chmod 775 ~/website/data/example/mdlo_icons
+#   - ls -lad ~/website/data/example/mdlo_icons
+#   - cd ~/website && docker-compose restart
+#
+RSYNC_DESTINATION=":~/website/data/example/mdlo_icons/"
+EXAMPLE_URL="http://mdlo_icons.example.mikemitterer.at/"
+

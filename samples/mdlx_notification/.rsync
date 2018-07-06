@@ -1,0 +1,14 @@
+# Rsync-Destination für dieses sample
+#
+#   - ssh ls2
+#   - cat ~/website/config/nginx/_template.conf.txt | sed -e 's/%example%/mdlx_notification/' > ~/website/config/nginx/mdlx_notification.conf
+#   - cat ~/website/config/nginx/mdlx_notification.conf
+#   - sudo mkdir -p ~/website/data/example/mdlx_notification
+#   - sudo chown ubuntu:ubuntu ~/website/data/example/mdlx_notification
+#   - sudo chmod 775 ~/website/data/example/mdlx_notification
+#   - ls -lad ~/website/data/example/mdlx_notification
+#   - cd ~/website && docker-compose restart
+#
+RSYNC_DESTINATION=":~/website/data/example/mdlx_notification/"
+EXAMPLE_URL="http://mdlx_notification.example.mikemitterer.at/"
+

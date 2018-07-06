@@ -1,0 +1,14 @@
+# Rsync-Destination für dieses sample
+#
+# - ssh ls2
+# - cd ~/website/config/nginx
+# - cp -a m4d_router.conf samples.conf
+# - ls -la ~/website/data/example/
+# - sudo mcedit samples.conf
+# - sudo mkdir ~/website/data/example/samples
+# - sudo chown ubuntu:ubuntu ~/website/data/example/samples
+# - sudo chmod 775 ~/website/data/example/samples
+#
+RSYNC_DESTINATION=:/Users/mikemitterer/website/data/example/samples/
+EXAMPLE_URL=http://samples.example.mikemitterer.at/
+

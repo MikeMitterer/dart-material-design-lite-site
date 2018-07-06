@@ -1,0 +1,14 @@
+# Rsync-Destination für dieses sample
+#
+#   - ssh ls2
+#   - cat ~/website/config/nginx/_template.conf.txt | sed -e 's/%example%/mdl_icon-toggle/' > ~/website/config/nginx/mdl_icon-toggle.conf
+#   - cat ~/website/config/nginx/mdl_icon-toggle.conf
+#   - sudo mkdir -p ~/website/data/example/mdl_icon-toggle
+#   - sudo chown ubuntu:ubuntu ~/website/data/example/mdl_icon-toggle
+#   - sudo chmod 775 ~/website/data/example/mdl_icon-toggle
+#   - ls -lad ~/website/data/example/mdl_icon-toggle
+#   - cd ~/website && docker-compose restart
+#
+RSYNC_DESTINATION=":~/website/data/example/mdl_icon-toggle/"
+EXAMPLE_URL="http://mdl_icon-toggle.example.mikemitterer.at/"
+

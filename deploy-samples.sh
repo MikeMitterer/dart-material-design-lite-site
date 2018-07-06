@@ -100,6 +100,15 @@ case "${CMDLINE}" in
         fi
     ;;
 
+
+    -g|generate|-generate|--generate)
+        if [ -n "${OPTION1+set}" -a "${OPTION1}" != "--force"  -a "${OPTION1}" != "" ]; then
+            generateRsyncSetting "${EXAMPLE_FOLDER}/${OPTION1}"
+        else
+            generateRsyncSetting "${EXAMPLES[@]}"
+        fi
+    ;;
+
     -h|-help|--help|*)
         usage
     ;;

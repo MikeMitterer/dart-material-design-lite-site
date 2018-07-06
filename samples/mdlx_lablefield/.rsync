@@ -1,0 +1,14 @@
+# Rsync-Destination für dieses sample
+#
+#   - ssh ls2
+#   - cat ~/website/config/nginx/_template.conf.txt | sed -e 's/%example%/mdlx_lablefield/' > ~/website/config/nginx/mdlx_lablefield.conf
+#   - cat ~/website/config/nginx/mdlx_lablefield.conf
+#   - sudo mkdir -p ~/website/data/example/mdlx_lablefield
+#   - sudo chown ubuntu:ubuntu ~/website/data/example/mdlx_lablefield
+#   - sudo chmod 775 ~/website/data/example/mdlx_lablefield
+#   - ls -lad ~/website/data/example/mdlx_lablefield
+#   - cd ~/website && docker-compose restart
+#
+RSYNC_DESTINATION=":~/website/data/example/mdlx_lablefield/"
+EXAMPLE_URL="http://mdlx_lablefield.example.mikemitterer.at/"
+

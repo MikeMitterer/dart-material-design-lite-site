@@ -1,0 +1,14 @@
+# Rsync-Destination für dieses sample
+#
+#   - ssh ls2
+#   - cat ~/website/config/nginx/_template.conf.txt | sed -e 's/%example%/mdl_switch/' > ~/website/config/nginx/mdl_switch.conf
+#   - cat ~/website/config/nginx/mdl_switch.conf
+#   - sudo mkdir -p ~/website/data/example/mdl_switch
+#   - sudo chown ubuntu:ubuntu ~/website/data/example/mdl_switch
+#   - sudo chmod 775 ~/website/data/example/mdl_switch
+#   - ls -lad ~/website/data/example/mdl_switch
+#   - cd ~/website && docker-compose restart
+#
+RSYNC_DESTINATION=":~/website/data/example/mdl_switch/"
+EXAMPLE_URL="http://mdl_switch.example.mikemitterer.at/"
+
