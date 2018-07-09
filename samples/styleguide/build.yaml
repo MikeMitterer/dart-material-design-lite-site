@@ -1,0 +1,10 @@
+# Read about `build.yaml` at https://pub.dartlang.org/packages/build_config
+targets:
+  $default:
+    builders:
+      reflectable:
+        generate_for:
+          exclude:
+          - lib/**.dart
+        options:
+          formatted: true

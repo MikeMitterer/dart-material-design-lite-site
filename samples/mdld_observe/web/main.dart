@@ -2,7 +2,7 @@ import "dart:async";
 
 import 'package:console_log_handler/console_log_handler.dart';
 import 'package:dryice/dryice.dart';
-import 'package:mustache/mustache.dart';
+import 'package:reflected_mustache/mustache.dart';
 
 import 'package:mdl/mdl.dart';
 import 'package:mdl/mdlobservable.dart';
@@ -28,8 +28,9 @@ class Name {
     }
 }
 
-class _Natural extends Language {
-    _Natural(final String name) : super(name,"natural");
+@mustache
+class Natural extends Language {
+    Natural(final String name) : super(name,"natural");
 }
 
 @Model @inject @mustache
@@ -48,11 +49,11 @@ class Application extends MaterialApplication {
         records.observes(() => (languages.isNotEmpty ? languages.length.toString() : "<empty>"));
         time.observes(() => _getTime());
 
-        languages.add(new _Natural("English"));
-        languages.add(new _Natural("German"));
-        languages.add(new _Natural("Italian"));
-        languages.add(new _Natural("French"));
-        languages.add(new _Natural("Spanish"));
+        languages.add(new Natural("English"));
+        languages.add(new Natural("German"));
+        languages.add(new Natural("Italian"));
+        languages.add(new Natural("French"));
+        languages.add(new Natural("Spanish"));
 
         _names.add(new Name("Bill","Gates"));
         _names.add(new Name("Steven","Jobs"));
@@ -66,7 +67,7 @@ class Application extends MaterialApplication {
 
         new Timer(new Duration(seconds: 2),() {
             for(int index = 0;index < 10;index++) {
-                languages.add(new _Natural("Sample - $index"));
+                languages.add(new Natural("Sample - $index"));
             }
         });
 
@@ -93,7 +94,7 @@ class Application extends MaterialApplication {
         if(language == "German") {
 
             int index = languages.indexOf(lang);
-            languages[index] = new _Natural("Austrian");
+            languages[index] = new Natural("Austrian");
 
         } else {
             languages.remove(lang);

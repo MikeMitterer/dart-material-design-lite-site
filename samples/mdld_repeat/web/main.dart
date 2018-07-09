@@ -6,14 +6,14 @@ import 'package:console_log_handler/console_log_handler.dart';
 import 'package:mdl/mdl.dart';
 
 import 'package:dryice/dryice.dart';
-import 'package:mustache/mustache.dart';
+import 'package:reflected_mustache/mustache.dart';
 
 import 'main.reflectable.dart';
 
-typedef void RemoveCallback(final Name name);
+typedef void RemoveCallback(final NameForRepeatSample name);
 
-@inject
-class Name {
+@inject @mustache
+class NameForRepeatSample {
     final Logger _logger = new Logger('main.Name');
 
     static int _counter = 0;
@@ -25,8 +25,7 @@ class Name {
 
     String get id => _id.toString();
 
-    Name(this.name,this._callback) { _id = _counter++; }
-
+    NameForRepeatSample(this.name,this._callback) { _id = _counter++; }
 
     void clicked(final String value) {
         _logger.info("Clicked on $value");
@@ -53,24 +52,25 @@ main() async {
 
         final MaterialRepeat repeater = MaterialRepeat.widget(dom.querySelector("#main"));
 
-        final List<Name> names = new List<Name>();
-        final RemoveCallback removeCallback = (final Name nameToRemove) {
-            _logger.info("Name to remove: ${nameToRemove.name}");
+        final names = new List<NameForRepeatSample>();
+        final RemoveCallback removeCallback = (final NameForRepeatSample nameToRemove) {
+            _logger.fine("Name to remove: ${nameToRemove.name}");
 
-            repeater.remove(nameToRemove);
+            repeater.remove({ "nrfs" : nameToRemove });
             names.remove(nameToRemove);
         };
 
-        names.add(new Name("A - Nicki",removeCallback));
-        names.add(new Name("B - Mike",removeCallback));
-        names.add(new Name("C - Gerda",removeCallback));
-        names.add(new Name("D - Sarah",removeCallback));
+        names.add(new NameForRepeatSample("A - Nicki",removeCallback));
+        names.add(new NameForRepeatSample("B - Mike",removeCallback));
+        names.add(new NameForRepeatSample("C - Gerda",removeCallback));
+        names.add(new NameForRepeatSample("D - Sarah",removeCallback));
 
-        await repeater.add(names.first);
+        await repeater.add({ "nfrs" : new NameForRepeatSample("A - Nicki II",removeCallback)});
+        //await repeater.add({ "name" : names });
 
-//            await Future.forEach(names, (final Name name) async {
-//                await repeater.add(name);
-//            });
+        await Future.forEach(names, (final NameForRepeatSample name) async {
+            await repeater.add({ "nfrs" : name } );
+        });
 
         void _test0(final int milliseconds) {
 
@@ -94,7 +94,7 @@ main() async {
 
         void _test2(final int milliseconds) {
 
-            final hudriwudri = new Name("HudriWudri",removeCallback);
+            final hudriwudri = new NameForRepeatSample("HudriWudri",removeCallback);
             new Timer(new Duration(milliseconds: milliseconds), () {
                 names.insert(2,hudriwudri);
                 repeater.insert(2,hudriwudri);
@@ -129,7 +129,7 @@ main() async {
 
                 int i = 0;
                 for (;i < 10;i++) {
-                    final name = new Name("Name: $i", removeCallback);
+                    final name = new NameForRepeatSample("Name: $i", removeCallback);
 
                     names.add(name);
                     futures.add(repeater.add(name));
@@ -175,12 +175,12 @@ main() async {
             });
         }
 
-        _test0(500);
-        _test1(1500);
-        _test2(2500);
-        _test3(4500);
-        _test4(5500);
-        _test5(6500);
+//        _test0(500);
+//        _test1(1500);
+//        _test2(2500);
+//        _test3(4500);
+//        _test4(5500);
+//        _test5(6500);
 
     }
 

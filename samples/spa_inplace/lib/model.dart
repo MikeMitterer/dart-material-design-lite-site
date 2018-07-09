@@ -22,7 +22,7 @@ library mdl_inplace_edit_sample.model;
 import 'package:uuid/uuid.dart';
 import 'package:validate/validate.dart';
 
-import 'package:mustache/mustache.dart';
+import 'package:reflected_mustache/mustache.dart';
 
 import 'package:mdl/src/core/annotations.dart';
 

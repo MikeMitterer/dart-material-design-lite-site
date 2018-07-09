@@ -26,10 +26,10 @@ import 'package:intl/intl.dart';
 import 'package:mdl/mdl.dart';
 import "package:mdl/mdldialog.dart";
 
-import 'package:dryice/dryice.dart' as di;
+import 'package:dryice/dryice.dart';
+import 'package:reflected_mustache/mustache.dart';
 
-
-@MdlComponentModel
+@inject @mustache
 class CustomDialog2 extends MaterialDialog {
 
     static const String _DEFAULT_SUBMIT_BUTTON = "Submit";

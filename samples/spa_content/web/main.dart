@@ -6,7 +6,7 @@ import 'package:intl/intl.dart';
 import 'package:console_log_handler/console_log_handler.dart';
 
 import 'package:mdl/mdl.dart';
-import 'package:mustache/mustache.dart';
+import 'package:mus/mustache.dart';
 
 import 'package:mdl/mdlapplication.dart';
 import 'package:mdl/mdlobservable.dart';

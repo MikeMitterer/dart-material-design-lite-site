@@ -2,7 +2,7 @@ import "dart:html" as dom;
 
 import 'package:console_log_handler/console_log_handler.dart';
 import 'package:dryice/dryice.dart';
-import 'package:mustache/mustache.dart';
+import 'package:reflected_mustache/mustache.dart';
 
 import 'package:mdl/mdl.dart';
 import 'package:mdl/mdlobservable.dart';
@@ -28,8 +28,8 @@ class Application implements MaterialApplication {
     final Logger _logger = new Logger('main.Application');
 
     final ObservableList<HackintoshComponent> components = new ObservableList<HackintoshComponent>();
-    final ObservableProperty<bool>   isListEmpty = new ObservableProperty<bool>(true,observeViaTimer: false);
-    final ObservableProperty<double> total = new ObservableProperty<double>(0.0,observeViaTimer: false);
+    final ObservableProperty<bool>   isListEmpty = new ObservableProperty<bool>(true,observeViaTimer: true);
+    final ObservableProperty<double> total = new ObservableProperty<double>(0.0,treatAsDouble: true, observeViaTimer: false);
 
     Application() {
         isListEmpty.observes(() => components.isEmpty);
@@ -124,6 +124,7 @@ main() async {
         add.enabled = property.value;
         remove.enabled = !property.value;
         application.total.value = 0.0;
+
         final MaterialDivDataTable table = MaterialDivDataTable.widget(dom.querySelector(".mdl-data-tableex"));
         table.select = false;
     });

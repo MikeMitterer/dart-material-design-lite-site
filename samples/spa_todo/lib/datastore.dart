@@ -26,7 +26,7 @@ import 'package:mdl/mdl.dart';
 import 'package:mdl_todo_sample/src/interfaces.dart';
 
 import 'package:dryice/dryice.dart';
-import 'package:mustache/mustache.dart';
+import 'package:reflected_mustache/mustache.dart';
 
 @inject @mustache
 class ToDoDataStore extends Dispatcher implements ToDoInputStoreInterface, ToDoListStoreInterface {

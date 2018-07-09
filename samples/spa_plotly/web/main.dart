@@ -4,7 +4,7 @@ import "dart:math" as math;
 
 import 'package:console_log_handler/console_log_handler.dart';
 import 'package:dryice/dryice.dart';
-import 'package:mustache/mustache.dart';
+import 'package:reflected_mustache/mustache.dart';
 
 import 'package:mdl/mdl.dart';
 import 'package:mdl/mdlobservable.dart';

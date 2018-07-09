@@ -27,7 +27,7 @@ import 'package:mdl/mdl.dart';
 import "package:mdl/mdldialog.dart";
 
 import 'package:dryice/dryice.dart';
-import 'package:mustache/mustache.dart';
+import 'package:reflected_mustache/mustache.dart';
 
 @inject @mustache
 class CustomDialog2 extends MaterialDialog {

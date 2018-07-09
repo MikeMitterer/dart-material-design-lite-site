@@ -18,8 +18,8 @@
  */
      
 part of mdl_todo_sample.components;
- 
-@MdlComponentModel
+
+@inject @mustache
 class ToDoInputComponent extends MdlTemplateComponent {
     final Logger _logger = new Logger('mdl_todo_sample.components.ToDoInputComponent');
 
@@ -31,7 +31,7 @@ class ToDoInputComponent extends MdlTemplateComponent {
 
     final ToDoInputStoreInterface _datastore;
 
-    ToDoInputComponent.fromElement(final dom.HtmlElement element,final di.Injector injector)
+    ToDoInputComponent.fromElement(final dom.HtmlElement element,final Injector injector)
         : _datastore = injector.getInstance(ToDoInputStoreInterface),super(element,injector) {
         
         _init();
@@ -114,7 +114,7 @@ class ToDoInputComponent extends MdlTemplateComponent {
 void registerToDoInputComponent() {
     final MdlConfig config = new MdlWidgetConfig<ToDoInputComponent>(
         _ToDoInputComponentConstant.WIDGET_SELECTOR,
-            (final dom.HtmlElement element,final di.Injector injector) => new ToDoInputComponent.fromElement(element,injector)
+            (final dom.HtmlElement element,final Injector injector) => new ToDoInputComponent.fromElement(element,injector)
     );
     
     // If you want <todo-input></todo-input> set selectorType to SelectorType.TAG.

@@ -37,7 +37,7 @@ class ModelChangedEvent {
     ModelChangedEvent(this.item);
 }
 
-@MdlComponentModel
+@inject @mustache
 class ToDoListComponent extends MdlTemplateComponent implements ScopeAware {
     final Logger _logger = new Logger('todo.ToDoListComponent');
 
@@ -46,7 +46,7 @@ class ToDoListComponent extends MdlTemplateComponent implements ScopeAware {
     final ObservableList<ToDoItem> items = new ObservableList<ToDoItem>();
     final ToDoListStoreInterface _datastore;
 
-    ToDoListComponent.fromElement(final dom.HtmlElement element,final di.Injector injector)
+    ToDoListComponent.fromElement(final dom.HtmlElement element,final Injector injector)
         : _datastore = injector.getInstance(ToDoListStoreInterface),super(element,injector) {
         _init();
     }
@@ -151,7 +151,7 @@ class ToDoListComponent extends MdlTemplateComponent implements ScopeAware {
 void registerToDoListComponent() {
     final MdlConfig config = new MdlWidgetConfig<ToDoListComponent>(
         _ToDoListComponentCssClasses.MAIN_CLASS,
-            (final dom.HtmlElement element, final di.Injector injector) => new ToDoListComponent.fromElement(element, injector));
+            (final dom.HtmlElement element, final Injector injector) => new ToDoListComponent.fromElement(element, injector));
 
     config.selectorType = SelectorType.TAG;
 

@@ -34,10 +34,11 @@ import 'package:mdl/mdl.dart';
 import 'package:mdl/mdldemo.dart';
 import 'package:mdl/mdlobservable.dart';
 
-import 'package:route_hierarchical/client.dart';
+import 'package:dryice/dryice.dart';
+import 'package:m4d_router/browser.dart';
+import 'package:reflected_mustache/mustache.dart';
 
 import 'package:prettify/prettify.dart';
-import 'package:dryice/dryice.dart' as di;
 
 import "package:mdl/mdldialog.dart";
 
@@ -48,6 +49,8 @@ import "package:mdl_styleguide/customdialog2.dart";
 import "package:mdl_styleguide/src/interfaces.dart";
 import "package:mdl_styleguide/components.dart";
 import "package:mdl_styleguide/datastore.dart";
+
+import 'main.reflectable.dart';
 
 /// Simple Translation-Table for testing (see L10N for more)
 final L10NTranslate translate = new L10NTranslate.withTranslations( {
@@ -63,7 +66,7 @@ final L10NTranslate translate = new L10NTranslate.withTranslations( {
 /**
  * Used for mdl-model sample
  */
-@Model
+@inject
 class ModelTest {
     final ObservableProperty<String> minimodel = new ObservableProperty<String>("test");
 
@@ -81,7 +84,7 @@ class ModelTest {
 /**
  * Application - you can get the Application via injector.getByKey(MDLROOTCONTEXT)
  */
-@di.injectable
+@inject
 class Application extends MaterialApplication {
     final Logger _logger = new Logger('main.Application');
 
@@ -89,10 +92,10 @@ class Application extends MaterialApplication {
     final ObservableList<_Language> languages = new ObservableList<_Language>();
     final ObservableProperty<String> time = new ObservableProperty<String>("", interval: new Duration(seconds: 1));
     final ObservableProperty<String> records = new ObservableProperty<String>("");
-    final ObservableProperty<_Name> nameObject = new ObservableProperty<_Name>(null);
+    final ObservableProperty<SimpleName> nameObject = new ObservableProperty<SimpleName>(null);
     final ObservableProperty<bool> isNameNull = new ObservableProperty<bool>(true);
 
-    final List<_Name> names = new List<_Name>();
+    final List<SimpleName> names = new List<SimpleName>();
 
     // To-Do-Sample
     final ObservableProperty<int> nrOfItems = new ObservableProperty<int>(0);
@@ -123,7 +126,7 @@ class Application extends MaterialApplication {
     /// Added by the MDL/Dart-Framework (mdlapplication.dart)
     final ActionBus _actionbus;
 
-    @di.inject
+    @inject
     Application(this._actionbus) {
         _logger.info("Application created");
 
@@ -159,7 +162,7 @@ class Application extends MaterialApplication {
 
         if (language == "German") {
             int index = languages.indexOf(lang);
-            languages[index] = new _Natural("Austrian");
+            languages[index] = new Natural("Austrian");
         }
         else {
             languages.remove(lang);
@@ -210,7 +213,7 @@ class Application extends MaterialApplication {
     }
 }
 
-class StyleguideModule extends di.Module {
+class StyleguideModule extends Module {
 
     @override
     configure() {
@@ -228,6 +231,7 @@ main() async {
 
     configLogging();
     enableTheming();
+    initializeReflectable();
 
     registerMdl();
     registerMdlDND();
@@ -259,9 +263,9 @@ class DemoController extends MaterialController {
     static final Logger _logger = new Logger('main.DemoController');
 
     @override
-    void loaded(final Route route) {
+    void loaded(final RouteEnterEvent event) {
         final Application app = componentFactory().application;
-        app.title.value = route.name;
+        app.title.value = event.route.title;
 
         final dom.HtmlElement element = dom.querySelector("#usage");
 
@@ -285,8 +289,8 @@ class BadgeController extends DemoController {
     bool stopTimer = false;
 
     @override
-    void loaded(final Route route) {
-        super.loaded(route);
+    void loaded(final RouteEnterEvent event) {
+        super.loaded(event);
 
         final MaterialBadge badge1 = MaterialBadge.widget(dom.querySelector("#el1"));
         int counter = 1;
@@ -314,8 +318,8 @@ class DialogController extends DemoController {
     static final Logger _logger = new Logger('main.DialogController');
 
     @override
-    void loaded(final Route route) {
-        super.loaded(route);
+    void loaded(final RouteEnterEvent event) {
+        super.loaded(event);
 
         final MaterialButton btnAlertDialog = MaterialButton.widget(dom.querySelector("#alertdialog"));
         final MaterialButton btnConfirmDialog = MaterialButton.widget(dom.querySelector("#confirmdialog"));
@@ -446,8 +450,8 @@ class DNDController extends DemoController {
     static final Logger _logger = new Logger('main.DNDController');
 
     @override
-    void loaded(final Route route) {
-        super.loaded(route);
+    void loaded(final RouteEnterEvent event) {
+        super.loaded(event);
 
         _addLanguages();
     }
@@ -464,15 +468,15 @@ class DNDController extends DemoController {
 
     _addLanguages() {
         final Application app = componentFactory().application;
-        app.languages.add(new _Natural("English"));
-        app.languages.add(new _Natural("German"));
-        app.languages.add(new _Natural("Italian"));
-        app.languages.add(new _Natural("French"));
-        app.languages.add(new _Natural("Spanish"));
+        app.languages.add(new Natural("English"));
+        app.languages.add(new Natural("German"));
+        app.languages.add(new Natural("Italian"));
+        app.languages.add(new Natural("French"));
+        app.languages.add(new Natural("Spanish"));
 
-        app.languages.add(new _Programming("CPP"));
-        app.languages.add(new _Programming("Dart"));
-        app.languages.add(new _Programming("Java"));
+        app.languages.add(new Programming("CPP"));
+        app.languages.add(new Programming("Dart"));
+        app.languages.add(new Programming("Java"));
     }
 }
 
@@ -491,8 +495,8 @@ class FormatterController extends DemoController {
     bool cancelTimer = false;
 
     @override
-    void loaded(final Route route) {
-        super.loaded(route);
+    void loaded(final RouteEnterEvent event) {
+        super.loaded(event);
 
         final Application app = componentFactory().application;
 
@@ -566,8 +570,8 @@ class IconToggleController extends DemoController {
     static final Logger _logger = new Logger('main.IconToggleController');
 
     @override
-    void loaded(final Route route) {
-        super.loaded(route);
+    void loaded(final RouteEnterEvent event) {
+        super.loaded(event);
 
         final MaterialIconToggle toggle = MaterialIconToggle.widget(dom.querySelector("#public-checkbox-1"));
         new Timer.periodic(new Duration(milliseconds: 500), (final Timer timer) {
@@ -583,8 +587,8 @@ class MenuController extends DemoController {
     static const int TIMEOUT_IN_SECS = 5;
 
     @override
-    void loaded(final Route route) {
-        super.loaded(route);
+    void loaded(final RouteEnterEvent event) {
+        super.loaded(event);
 
         final dom.HtmlElement element = dom.querySelector(".mdl-menu"); // first menu
         final MaterialMenu menu1 = MaterialMenu.widget(element);
@@ -597,27 +601,34 @@ class MenuController extends DemoController {
         //            element.insertAdjacentElement("beforeEnd", message);
         //        }
 
-        void _showMessage(final int secsToClose) {
-            final dom.DivElement message = dom.querySelector("#message");
-            message.text = "Menu closes in ${secsToClose} seconds...";
+        void _showMessage(final dom.DivElement output, final int secsToClose) {
+            output.text = "Menu closes in ${secsToClose} seconds...";
             if (secsToClose <= 0) {
-                message.text = "Closed!";
+                output.text = "Closed!";
             }
         }
 
-        menu1.show();
+        menu1?.show();
         //        _addMessageDiv();
-        _showMessage(TIMEOUT_IN_SECS);
+        //_showMessage(TIMEOUT_IN_SECS);
         int tick = 0;
         new Timer.periodic(new Duration(milliseconds: 1000), (final Timer timer) {
-            _showMessage(TIMEOUT_IN_SECS - tick - 1);
-            if (tick >= TIMEOUT_IN_SECS - 1) {
+            final dom.DivElement output = dom.querySelector("#message");
+            if (output == null || tick >= TIMEOUT_IN_SECS - 1) {
                 timer.cancel();
-                menu1.hide();
+
+                menu1?.hide();
+                output?.text = "";
+            } else {
+                _showMessage(output, TIMEOUT_IN_SECS - tick - 1);
             }
+
             tick++;
         });
+
+
     }
+
 // - private ------------------------------------------------------------------------------------------------------
 }
 
@@ -625,8 +636,8 @@ class NotificationController extends DemoController {
     static final Logger _logger = new Logger('main.NotificationController');
 
     @override
-    void loaded(final Route route) {
-        super.loaded(route);
+    void loaded(final RouteEnterEvent event) {
+        super.loaded(event);
 
         final MaterialButton btnNotification = MaterialButton.widget(dom.querySelector("#notification"));
         final MaterialButton btnDialog = MaterialButton.widget(dom.querySelector("#dialog"));
@@ -692,7 +703,6 @@ class NotificationController extends DemoController {
 // - private ------------------------------------------------------------------------------------------------------
 }
 
-@Model
 class _Language {
     final String name;
     final String type;
@@ -700,20 +710,22 @@ class _Language {
     _Language(this.name, this.type);
 }
 
-class _Natural extends _Language {
-    _Natural(final String name) : super(name, "natural");
+@mustache
+class Natural extends _Language {
+    Natural(final String name) : super(name, "natural");
 }
 
-class _Programming extends _Language {
-    _Programming(final String name) : super(name, "programming");
+@mustache
+class Programming extends _Language {
+    Programming(final String name) : super(name, "programming");
 }
 
-@Model
-class _Name {
+@mustache
+class SimpleName {
     final String first;
     final String last;
 
-    _Name(this.first, this.last);
+    SimpleName(this.first, this.last);
 
     @override
     String toString() {
@@ -726,8 +738,8 @@ class ObserverController extends DemoController {
     bool stopTimer = false;
 
     @override
-    void loaded(final Route route) {
-        super.loaded(route);
+    void loaded(final RouteEnterEvent event) {
+        super.loaded(event);
         stopTimer = false;
 
         _addLanguages();
@@ -747,15 +759,15 @@ class ObserverController extends DemoController {
     void _addLanguages() {
         final Application app = componentFactory().application;
 
-        app.languages.add(new _Natural("English"));
-        app.languages.add(new _Natural("German"));
-        app.languages.add(new _Natural("Italian"));
-        app.languages.add(new _Natural("French"));
-        app.languages.add(new _Natural("Spanish"));
+        app.languages.add(new Natural("English"));
+        app.languages.add(new Natural("German"));
+        app.languages.add(new Natural("Italian"));
+        app.languages.add(new Natural("French"));
+        app.languages.add(new Natural("Spanish"));
 
         new Timer(new Duration(seconds: 2), () {
             for (int index = 0; index < 10; index++) {
-                app.languages.add(new _Natural("Sample - $index"));
+                app.languages.add(new Natural("Sample - $index"));
             }
         });
     }
@@ -763,9 +775,9 @@ class ObserverController extends DemoController {
     void _addNames() {
         final Application app = componentFactory().application;
 
-        app.names.add(new _Name("Bill", "Gates"));
-        app.names.add(new _Name("Steven", "Jobs"));
-        app.names.add(new _Name("Larry", "Page"));
+        app.names.add(new SimpleName("Bill", "Gates"));
+        app.names.add(new SimpleName("Steven", "Jobs"));
+        app.names.add(new SimpleName("Larry", "Page"));
         app.names.add(null);
 
         int counter = 0;
@@ -788,8 +800,8 @@ class ProgressController extends DemoController {
     static final Logger _logger = new Logger('main.ProgressController');
 
     @override
-    void loaded(final Route route) {
-        super.loaded(route);
+    void loaded(final RouteEnterEvent event) {
+        super.loaded(event);
 
         // 1
         MaterialProgress
@@ -820,7 +832,7 @@ class ProgressController extends DemoController {
         (dom.querySelector("#slider") as dom.RangeInputElement).onInput.listen((final dom.Event event) {
             final int value = int.parse((event.target as dom.RangeInputElement).value);
 
-            final component = MaterialProgress.widget(dom.querySelector("#p1"))
+            final MaterialProgress component = MaterialProgress.widget(dom.querySelector("#p1"))
                 ..progress = value
                 ..classes.toggle("test");
 
@@ -828,7 +840,7 @@ class ProgressController extends DemoController {
                 .widget(dom.querySelector("#p3"))
                 .progress = value;
 
-            final component2 = MaterialProgressVertical.widget(dom.querySelector("#p1v"))
+            final MaterialProgressVertical component2 = MaterialProgressVertical.widget(dom.querySelector("#p1v"))
                 ..progress = value
                 ..classes.toggle("test");
 
@@ -839,8 +851,8 @@ class ProgressController extends DemoController {
                 .widget(dom.querySelector("#p3v"))
                 .progress = value;
 
-            _logger.info("Value1: ${component.progress}");
-            _logger.info("Value2: ${component2.progress}");
+            _logger.fine("Value1: ${component.progress}");
+            _logger.fine("Value2: ${component2.progress}");
         });
     }
 }
@@ -849,8 +861,8 @@ class RadioController extends DemoController {
     static final Logger _logger = new Logger('main.RadioController');
 
     @override
-    void loaded(final Route route) {
-        super.loaded(route);
+    void loaded(final RouteEnterEvent event) {
+        super.loaded(event);
 
         MaterialRadio.widget(dom.querySelector("#wifi2")).disable();
 
@@ -867,11 +879,11 @@ class RadioController extends DemoController {
 }
 
 /// For Repeat-Sample
-typedef void RemoveCallback(final Name name);
+typedef void RemoveCallback(final NameForRepeatSample name);
 
 /// For Repeat-Sample
-@Model
-class Name {
+@inject @mustache
+class NameForRepeatSample {
     final Logger _logger = new Logger('main.Name');
 
     static int _counter = 0;
@@ -883,7 +895,7 @@ class Name {
 
     String get id => _id.toString();
 
-    Name(this.name, this._callback) {
+    NameForRepeatSample(this.name, this._callback) {
         _id = _counter++;
     }
 
@@ -903,16 +915,16 @@ class RepeatController extends DemoController {
     bool stop = false;
 
     @override
-    void loaded(final Route route) {
-        super.loaded(route);
+    void loaded(final RouteEnterEvent event) {
+        super.loaded(event);
 
         bool swapping = false;
         stop = false;
 
         final MaterialRepeat repeater = MaterialRepeat.widget(dom.querySelector(".mdl-repeat"));
 
-        final List<Name> names = new List<Name>();
-        final RemoveCallback removeCallback = (final Name nameToRemove) {
+        final List<NameForRepeatSample> names = new List<NameForRepeatSample>();
+        final RemoveCallback removeCallback = (final NameForRepeatSample nameToRemove) {
             if (swapping) {
                 _logger.info("Removing items while swapping is not possible...");
                 return;
@@ -923,13 +935,13 @@ class RepeatController extends DemoController {
             names.remove(nameToRemove);
         };
 
-        names.add(new Name("A - Nicki", removeCallback));
-        names.add(new Name("B - Mike", removeCallback));
-        names.add(new Name("C - Gerda", removeCallback));
-        names.add(new Name("D - Sarah", removeCallback));
+        names.add(new NameForRepeatSample("A - Nicki", removeCallback));
+        names.add(new NameForRepeatSample("B - Mike", removeCallback));
+        names.add(new NameForRepeatSample("C - Gerda", removeCallback));
+        names.add(new NameForRepeatSample("D - Sarah", removeCallback));
 
         for (int i = 0; i < 10; i++) {
-            names.add(new Name("Name: $i", removeCallback));
+            names.add(new NameForRepeatSample("Name: $i", removeCallback));
         }
 
         void _swapItems() {
@@ -979,7 +991,7 @@ class RepeatController extends DemoController {
         Future.forEach(names, (final name) async {
             await repeater.add(name);
         }).then((_) {
-            final Name name = names.first; // Nicki
+            final NameForRepeatSample name = names.first; // Nicki
             final String idForCheckbox = "#check-${name.id}";
 
             final MaterialCheckbox checkbox = MaterialCheckbox.widget(dom.querySelector(idForCheckbox));
@@ -999,8 +1011,8 @@ class SliderController extends DemoController {
     static final Logger _logger = new Logger('main.SliderController');
 
     @override
-    void loaded(final Route route) {
-        super.loaded(route);
+    void loaded(final RouteEnterEvent event) {
+        super.loaded(event);
 
         final MaterialSlider slider2 = MaterialSlider.widget(dom.querySelector("#slider2"));
         final MaterialSlider slider4 = MaterialSlider.widget(dom.querySelector("#slider4"));
@@ -1015,8 +1027,8 @@ class SpinnerController extends DemoController {
     static final Logger _logger = new Logger('main.SpinnerController');
 
     @override
-    void loaded(final Route route) {
-        super.loaded(route);
+    void loaded(final RouteEnterEvent event) {
+        super.loaded(event);
 
         final MaterialSpinner spinner = MaterialSpinner.widget(dom.querySelector("#first"));
         final MaterialButton button = MaterialButton.widget(dom.querySelector("#button"));
@@ -1031,8 +1043,8 @@ class SnackbarController extends DemoController {
     static final Logger _logger = new Logger('main.SnackbarController');
 
     @override
-    void loaded(final Route route) {
-        super.loaded(route);
+    void loaded(final RouteEnterEvent event) {
+        super.loaded(event);
 
         final MaterialButton btnToast = MaterialButton.widget(dom.querySelector("#toast"));
         final MaterialButton btnWithAction = MaterialButton.widget(dom.querySelector("#withAction"));
@@ -1090,8 +1102,8 @@ class ToDoController extends DemoController {
     static final Logger _logger = new Logger('main.ToDoController');
 
     @override
-    void loaded(final Route route) {
-        super.loaded(route);
+    void loaded(final RouteEnterEvent event) {
+        super.loaded(event);
     }
 
     @override
@@ -1106,8 +1118,8 @@ class LablefieldController extends DemoController {
     static final Logger _logger = new Logger('main.LablefieldController');
 
     @override
-    void loaded(final Route route) {
-        super.loaded(route);
+    void loaded(final RouteEnterEvent event) {
+        super.loaded(event);
 
         final MaterialButton button = MaterialButton.widget(dom.querySelector(".mdl-button"));
         button.onClick.listen((final dom.Event event) {
@@ -1137,8 +1149,8 @@ class DataTable2Controller extends DemoController {
     static final Logger _logger = new Logger('main.DataTable2Controller');
 
     @override
-    void loaded(final Route route) {
-        super.loaded(route);
+    void loaded(final RouteEnterEvent event) {
+        super.loaded(event);
 
         final MaterialDivDataTable table = MaterialDivDataTable.widget(dom.querySelector(".mdl-data-tableex"));
         final MaterialLabelfield label = MaterialLabelfield.widget(dom.querySelector("#selection"));
@@ -1160,69 +1172,159 @@ class DataTable2Controller extends DemoController {
 }
 
 void configRouter() {
-    final Router router = new Router(useFragment: true);
+    final Router router = new Router();
     final ViewFactory view = new ViewFactory();
 
-    router.root..addRoute(name: 'accordion', path: '/accordion',
-        enter: view("views/accordion.html", new DemoController()))..addRoute(name: 'animation', path: '/animation',
-        enter: view("views/animation.html", new DemoController()))..addRoute(name: 'attribute', path: '/attribute',
-        enter: view("views/attribute.html", new DemoController()))..addRoute(name: 'badge', path: '/badge',
-        enter: view("views/badge.html", new BadgeController()))..addRoute(name: 'button', path: '/button',
-        enter: view("views/button.html", new DemoController()))..addRoute(name: 'card', path: '/card',
-        enter: view("views/card.html", new DemoController()))..addRoute(name: 'contribute', path: '/contribute',
-        enter: view("views/contribute.html", new DemoController()))..addRoute(name: 'checkbox', path: '/checkbox',
-        enter: view("views/checkbox.html", new DemoController()))..addRoute(name: 'class', path: '/class',
-        enter: view("views/class.html", new DemoController()))..addRoute(name: 'data-table', path: '/data-table',
-        enter: view("views/data-table.html", new DemoController()))..addRoute(name: 'data-table2', path: '/data-table2',
-        enter: view("views/data-table2.html", new DataTable2Controller()))..addRoute(name: 'dialog', path: '/dialog',
-        enter: view("views/dialog.html", new DialogController()))..addRoute(name: 'dnd', path: '/dnd',
-        enter: view("views/dnd.html", new DNDController()))..addRoute(name: 'footer', path: '/footer',
-        enter: view("views/footer.html", new DemoController()))..addRoute(name: 'formatter', path: '/formatter',
-        enter: view("views/formatter.html", new FormatterController()))..addRoute(
-        name: 'getting started', path: '/gettingstarted',
-        enter: view("views/gettingstarted.html", new DemoController()))..addRoute(name: 'grid', path: '/grid',
-        enter: view("views/grid.html", new DemoController()))..addRoute(name: 'icons', path: '/icons',
-        enter: view("views/icons.html", new DemoController()))..addRoute(name: 'icon-toggle', path: '/icon-toggle',
-        enter: view("views/icon-toggle.html", new IconToggleController()))..addRoute(name: 'layout', path: '/layout',
-        enter: view("views/layout.html", new DemoController()))..addRoute(name: 'lablefield', path: '/lablefield',
-        enter: view("views/lablefield.html", new LablefieldController()))..addRoute(name: 'list', path: '/list',
-        enter: view("views/list.html", new DemoController()))..addRoute(name: 'materialdesign', path: '/materialdesign',
-        enter: view("views/materialdesign.html", new DemoController()))..addRoute(name: 'mdlflux', path: '/mdlflux',
-        enter: view("views/mdlflux.html", new DemoController()))..addRoute(name: 'menu', path: '/menu',
-        enter: view("views/menu.html", new MenuController()))..addRoute(name: 'model', path: '/model',
-        enter: view("views/model.html", new DemoController()))..addRoute(name: 'nav-pills', path: '/nav-pills',
-        enter: view("views/nav-pills.html", new DemoController()))..addRoute(
-        name: 'notification', path: '/notification',
-        enter: view("views/notification.html", new NotificationController()))..addRoute(
-        name: 'observe', path: '/observe',
-        enter: view("views/observe.html", new ObserverController()))..addRoute(name: 'palette', path: '/palette',
-        enter: view("views/palette.html", new DemoController()))..addRoute(name: 'panel', path: '/panel',
-        enter: view("views/panel.html", new DemoController()))..addRoute(name: 'progress', path: '/progress',
-        enter: view("views/progress.html", new ProgressController()))..addRoute(name: 'radio', path: '/radio',
-        enter: view("views/radio.html", new RadioController()))..addRoute(name: 'repeat', path: '/repeat',
-        enter: view("views/repeat.html", new RepeatController()))..addRoute(name: 'shadow', path: '/shadow',
-        enter: view("views/shadow.html", new DemoController()))..addRoute(name: 'samples', path: '/samples',
-        enter: view("views/samples.html", new DemoController()))..addRoute(name: 'slider', path: '/slider',
-        enter: view("views/slider.html", new SliderController()))..addRoute(name: 'snackbar', path: '/snackbar',
-        enter: view("views/snackbar.html", new SnackbarController()))..addRoute(name: 'spinner', path: '/spinner',
-        enter: view("views/spinner.html", new SpinnerController()))..addRoute(name: 'stagedive', path: '/stagedive',
-        enter: view("views/stagedive.html", new DemoController()))..addRoute(name: 'switch', path: '/switch',
-        enter: view("views/switch.html", new DemoController()))..addRoute(name: 'tabs', path: '/tabs',
-        enter: view("views/tabs.html", new DemoController()))..addRoute(name: 'templates', path: '/templates',
-        enter: view("views/templates.html", new DemoController()))..addRoute(name: 'textfield', path: '/textfield',
-        enter: view("views/textfield.html", new DemoController()))..addRoute(name: 'theming', path: '/theming',
-        enter: view("views/theming.html", new DemoController()))..addRoute(name: 'tooltip', path: '/tooltip',
-        enter: view("views/tooltip.html", new DemoController()))..addRoute(name: 'todo', path: '/todo',
-        enter: view("views/todo.html", new ToDoController()))..addRoute(name: 'typography', path: '/typography',
-        enter: view("views/typography.html", new DemoController()))
+    router
+        
+		..addRoute(name: 'accordion', path: new ReactPattern('/accordion'),
+        	enter: view("views/accordion.html", new DemoController()))
 
-    // No 'defaultRoute' - Application#run redirects to '/#/'
-    // Makes it possible to use in-page-links
-        ..addRoute(name: 'home', path: '/',
+		..addRoute(name: 'animation', path: new ReactPattern('/animation'),
+        	enter: view("views/animation.html", new DemoController()))
+
+		..addRoute(name: 'attribute', path: new ReactPattern('/attribute'),
+        	enter: view("views/attribute.html", new DemoController()))
+
+		..addRoute(name: 'badge', path: new ReactPattern('/badge'),
+        	enter: view("views/badge.html", new BadgeController()))
+
+		..addRoute(name: 'button', path: new ReactPattern('/button'),
+        	enter: view("views/button.html", new DemoController()))
+
+		..addRoute(name: 'card', path: new ReactPattern('/card'),
+        	enter: view("views/card.html", new DemoController()))
+
+		..addRoute(name: 'contribute', path: new ReactPattern('/contribute'),
+        	enter: view("views/contribute.html", new DemoController()))
+
+		..addRoute(name: 'checkbox', path: new ReactPattern('/checkbox'),
+        	enter: view("views/checkbox.html", new DemoController()))
+
+		..addRoute(name: 'class', path: new ReactPattern('/class'),
+        	enter: view("views/class.html", new DemoController()))
+
+		..addRoute(name: 'data-table', path: new ReactPattern('/data-table'),
+        	enter: view("views/data-table.html", new DemoController()))
+
+		..addRoute(name: 'data-table2', path: new ReactPattern('/data-table2'),
+        	enter: view("views/data-table2.html", new DataTable2Controller()))
+
+		..addRoute(name: 'dialog', path: new ReactPattern('/dialog'),
+        	enter: view("views/dialog.html", new DialogController()))
+
+		..addRoute(name: 'dnd', path: new ReactPattern('/dnd'),
+        	enter: view("views/dnd.html", new DNDController()))
+
+		..addRoute(name: 'footer', path: new ReactPattern('/footer'),
+        	enter: view("views/footer.html", new DemoController()))
+
+		..addRoute(name: 'formatter', path: new ReactPattern('/formatter'),
+        	enter: view("views/formatter.html", new FormatterController()))
+
+		..addRoute( name: 'getting started', path: new ReactPattern('/gettingstarted'),
+        	enter: view("views/gettingstarted.html", new DemoController()))
+
+		..addRoute(name: 'grid', path: new ReactPattern('/grid'),
+        	enter: view("views/grid.html", new DemoController()))
+
+		..addRoute(name: 'icons', path: new ReactPattern('/icons'),
+        	enter: view("views/icons.html", new DemoController()))
+
+		..addRoute(name: 'icon-toggle', path: new ReactPattern('/icon-toggle'),
+        	enter: view("views/icon-toggle.html", new IconToggleController()))
+
+		..addRoute(name: 'layout', path: new ReactPattern('/layout'),
+        	enter: view("views/layout.html", new DemoController()))
+
+		..addRoute(name: 'lablefield', path: new ReactPattern('/lablefield'),
+        	enter: view("views/lablefield.html", new LablefieldController()))
+
+		..addRoute(name: 'list', path: new ReactPattern('/list'),
+        	enter: view("views/list.html", new DemoController()))
+
+		..addRoute(name: 'materialdesign', path: new ReactPattern('/materialdesign'),
+        	enter: view("views/materialdesign.html", new DemoController()))
+
+		..addRoute(name: 'mdlflux', path: new ReactPattern('/mdlflux'),
+        	enter: view("views/mdlflux.html", new DemoController()))
+
+		..addRoute(name: 'menu', path: new ReactPattern('/menu'),
+        	enter: view("views/menu.html", new MenuController()))
+
+		..addRoute(name: 'model', path: new ReactPattern('/model'),
+        	enter: view("views/model.html", new DemoController()))
+
+		..addRoute(name: 'nav-pills', path: new ReactPattern('/nav-pills'),
+        	enter: view("views/nav-pills.html", new DemoController()))
+
+		..addRoute(name: 'notification', path: new ReactPattern('/notification'),
+        	enter: view("views/notification.html", new NotificationController()))
+
+		..addRoute(name: 'observe', path: new ReactPattern('/observe'),
+        	enter: view("views/observe.html", new ObserverController()))
+
+		..addRoute(name: 'palette', path: new ReactPattern('/palette'),
+        	enter: view("views/palette.html", new DemoController()))
+
+		..addRoute(name: 'panel', path: new ReactPattern('/panel'),
+        	enter: view("views/panel.html", new DemoController()))
+
+		..addRoute(name: 'progress', path: new ReactPattern('/progress'),
+        	enter: view("views/progress.html", new ProgressController()))
+
+		..addRoute(name: 'radio', path: new ReactPattern('/radio'),
+        	enter: view("views/radio.html", new RadioController()))
+
+		..addRoute(name: 'repeat', path: new ReactPattern('/repeat'),
+        	enter: view("views/repeat.html", new RepeatController()))
+
+		..addRoute(name: 'shadow', path: new ReactPattern('/shadow'),
+        	enter: view("views/shadow.html", new DemoController()))
+
+		..addRoute(name: 'samples', path: new ReactPattern('/samples'),
+        	enter: view("views/samples.html", new DemoController()))
+
+		..addRoute(name: 'slider', path: new ReactPattern('/slider'),
+        	enter: view("views/slider.html", new SliderController()))
+
+		..addRoute(name: 'snackbar', path: new ReactPattern('/snackbar'),
+        	enter: view("views/snackbar.html", new SnackbarController()))
+
+		..addRoute(name: 'spinner', path: new ReactPattern('/spinner'),
+        	enter: view("views/spinner.html", new SpinnerController()))
+
+		..addRoute(name: 'stagedive', path: new ReactPattern('/stagedive'),
+        	enter: view("views/stagedive.html", new DemoController()))
+
+		..addRoute(name: 'switch', path: new ReactPattern('/switch'),
+        	enter: view("views/switch.html", new DemoController()))
+
+		..addRoute(name: 'tabs', path: new ReactPattern('/tabs'),
+        	enter: view("views/tabs.html", new DemoController()))
+
+		..addRoute(name: 'templates', path: new ReactPattern('/templates'),
+        	enter: view("views/templates.html", new DemoController()))
+
+		..addRoute(name: 'textfield', path: new ReactPattern('/textfield'),
+        	enter: view("views/textfield.html", new DemoController()))
+
+		..addRoute(name: 'theming', path: new ReactPattern('/theming'),
+        	enter: view("views/theming.html", new DemoController()))
+
+		..addRoute(name: 'tooltip', path: new ReactPattern('/tooltip'),
+        	enter: view("views/tooltip.html", new DemoController()))
+
+		..addRoute(name: 'todo', path: new ReactPattern('/todo'),
+        	enter: view("views/todo.html", new ToDoController()))
+
+		..addRoute(name: 'typography', path: new ReactPattern('/typography'),
+        	enter: view("views/typography.html", new DemoController()))
+
+        // No 'defaultRoute' - Application#run redirects to '/#/'
+        // Makes it possible to use in-page-links
+        ..addRoute(name: 'home', path: new ReactPattern('/'),
             enter: view("views/home.html", new DemoController()))
-
-    // ..addRoute(name: 'default', defaultRoute: true, path: '/',
-    //    enter: view("views/home.html", new DemoController()))
         ;
 
     router.listen();

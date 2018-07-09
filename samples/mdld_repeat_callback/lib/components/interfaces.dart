@@ -20,7 +20,7 @@
 library mdld_repeat_callback_sample.components.interfaces;
 
 import 'package:dryice/dryice.dart';
-import 'package:mustache/mustache.dart';
+import 'package:reflected_mustache/mustache.dart';
 
 import "package:mdl/mdlcore.dart";
 import "package:mdl/mdlflux.dart";

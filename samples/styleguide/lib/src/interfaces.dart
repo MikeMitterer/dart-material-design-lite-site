@@ -19,20 +19,22 @@
 
 library mdl_todo_sample.components.interfaces;
 
-import 'package:dryice/dryice.dart' as di;
-import "package:mdl/mdlcore.dart";
-import "package:mdl/mdlflux.dart";
 import 'dart:collection';
+
+import "package:mdl/mdlflux.dart";
+
+import 'package:dryice/dryice.dart';
+import 'package:reflected_mustache/mustache.dart';
 
 // - DataStores for our components -------------------------------------------------------------------------------------
 
-@di.injectable
+@inject
 abstract class ToDoInputStoreInterface extends DataStore {
     int get nrOfItemsDone;
     int get nrOfItems;
 }
 
-@di.injectable
+@inject
 abstract class ToDoListStoreInterface extends DataStore {
     UnmodifiableListView<ToDoItem> get items;
 }
@@ -58,7 +60,8 @@ class RemoveItemAction extends DataAction<ToDoItem> {
 ///
 /// MdlComponentModel is needed because we use this class (object)
 /// in a (mustache) rendering process
-@MdlComponentModel
+
+@inject @mustache
 class ToDoItem {
     static int counter = 0;
     int id;
