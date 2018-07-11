@@ -5,16 +5,16 @@
     <div class="demo-preview-block">
         <h5 class="mdl-color-text--primary-dark">Displays 'Names-List' via public MaterialRepeat functions</h5>
         <div mdl-repeat id="main">
-             
+
             <template>
                 <div>
-                    <label class="mdl-checkbox mdl-ripple-effect" for="check-{{id}}">
-                        <input type="checkbox" id="check-{{id}}" class="mdl-checkbox__input"
-                               data-mdl-click="clicked('{{name}}')" />
-                        <span class="mdl-checkbox__label">Repeat me: <strong>{{name}}</strong> (ID: {{id}})</span>
+                    <label class="mdl-checkbox mdl-ripple-effect" for="check-{{nfrs.id}}">
+                        <input type="checkbox" id="check-{{nfrs.id}}" class="mdl-checkbox__input"
+                               data-mdl-click="nfrs.clicked('{{nfrs.name}}')" />
+                        <span class="mdl-checkbox__label">Repeat me: <strong>{{nfrs.name}}</strong> (ID: {{nfrs.id}})</span>
                     </label>
                     <button class="mdl-button mdl-button--colored mdl-ripple-effect"
-                            data-mdl-click="remove()">Remove</button>
+                            data-mdl-click="nfrs.remove()">Remove</button>
                 </div>
             </template>
              

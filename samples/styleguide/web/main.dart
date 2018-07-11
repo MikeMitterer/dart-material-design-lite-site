@@ -904,9 +904,23 @@ class NameForRepeatSample {
     }
 
     void remove() {
-        _logger.info("Remove ID $id");
+        //_logger.fine("Remove ID $id");
         _callback(this);
     }
+
+    @override
+    String toString() => "NameForRepeatSample(id: $id, name: $name)";
+
+    @override
+    bool operator ==(final Object other) =>
+        identical(this, other) ||
+            other is NameForRepeatSample &&
+                runtimeType == other.runtimeType &&
+                _id == other._id &&
+                name == other.name;
+
+    @override
+    int get hashCode => _id.hashCode ^ name.hashCode;
 }
 
 class RepeatController extends DemoController {
@@ -923,15 +937,16 @@ class RepeatController extends DemoController {
 
         final MaterialRepeat repeater = MaterialRepeat.widget(dom.querySelector(".mdl-repeat"));
 
-        final List<NameForRepeatSample> names = new List<NameForRepeatSample>();
+        final names = new List<NameForRepeatSample>();
         final RemoveCallback removeCallback = (final NameForRepeatSample nameToRemove) {
             if (swapping) {
                 _logger.info("Removing items while swapping is not possible...");
                 return;
             }
 
-            _logger.info("Name to remove: ${nameToRemove.name}");
-            repeater.remove(nameToRemove);
+            _logger.info("Name to remove: ${nameToRemove})");
+            
+            repeater.remove(new Pair("nfrs", nameToRemove));
             names.remove(nameToRemove);
         };
 
@@ -976,7 +991,7 @@ class RepeatController extends DemoController {
                     names[index1] = item2;
                     names[index2] = item1;
 
-                    await repeater.swap(item1, item2);
+                    await repeater.swap(new Pair("nfrs", item1 ),new Pair("nfrs", item2 ));
 
                     numberOwSwaps++;
                     if (numberOwSwaps >= maxSwaps) {
@@ -989,7 +1004,7 @@ class RepeatController extends DemoController {
         }
 
         Future.forEach(names, (final name) async {
-            await repeater.add(name);
+            await repeater.add(new Pair("nfrs", name ));
         }).then((_) {
             final NameForRepeatSample name = names.first; // Nicki
             final String idForCheckbox = "#check-${name.id}";

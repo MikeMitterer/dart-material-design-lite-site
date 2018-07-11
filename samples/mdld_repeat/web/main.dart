@@ -56,7 +56,7 @@ main() async {
         final RemoveCallback removeCallback = (final NameForRepeatSample nameToRemove) {
             _logger.fine("Name to remove: ${nameToRemove.name}");
 
-            repeater.remove({ "nrfs" : nameToRemove });
+            repeater.remove(new Pair("nrfs", nameToRemove));
             names.remove(nameToRemove);
         };
 
@@ -65,11 +65,11 @@ main() async {
         names.add(new NameForRepeatSample("C - Gerda",removeCallback));
         names.add(new NameForRepeatSample("D - Sarah",removeCallback));
 
-        await repeater.add({ "nfrs" : new NameForRepeatSample("A - Nicki II",removeCallback)});
+        await repeater.add(new Pair("nfrs", new NameForRepeatSample("A - Nicki II",removeCallback)));
         //await repeater.add({ "name" : names });
 
         await Future.forEach(names, (final NameForRepeatSample name) async {
-            await repeater.add({ "nfrs" : name } );
+            await repeater.add(new Pair("nfrs", name ));
         });
 
         void _test0(final int milliseconds) {
@@ -88,7 +88,7 @@ main() async {
             new Timer(new Duration(milliseconds: milliseconds), () {
                 final name = names.getRange(2,3).first;
                 names.remove(name);
-                repeater.remove(name);
+                repeater.remove(new Pair("nfrs", name ));
             });
         }
 
@@ -97,12 +97,12 @@ main() async {
             final hudriwudri = new NameForRepeatSample("HudriWudri",removeCallback);
             new Timer(new Duration(milliseconds: milliseconds), () {
                 names.insert(2,hudriwudri);
-                repeater.insert(2,hudriwudri);
+                repeater.insert(2,new Pair("nfrs", hudriwudri ));
             });
 
             new Timer(new Duration(milliseconds: milliseconds + 1000), () {
                 names.remove(hudriwudri);
-                repeater.remove(hudriwudri);
+                repeater.remove(new Pair("nfrs", hudriwudri ));
             });
         }
 
@@ -117,7 +117,7 @@ main() async {
                 _logger.fine("Swap in main: ${item1.name} -> ${item2.name}");
                 names[index2] = item1;
                 names[index1] = item2;
-                await repeater.swap(item1,item2);
+                await repeater.swap(new Pair("nfrs", item1 ),new Pair("nfrs", item2 ));
             });
         }
 
@@ -132,7 +132,7 @@ main() async {
                     final name = new NameForRepeatSample("Name: $i", removeCallback);
 
                     names.add(name);
-                    futures.add(repeater.add(name));
+                    futures.add(repeater.add(new Pair("nfrs", name )));
                 }
                 Future.wait(futures).then((_) {
                     stopwatch.stop();
@@ -167,7 +167,7 @@ main() async {
                         names[index1] = item2;
                         names[index2] = item1;
 
-                        await repeater.swap(item1, item2);
+                        await repeater.swap(new Pair("nfrs", item1 ),new Pair("nfrs", item2 ));
                     });
 
                     index++;
