@@ -1,6 +1,6 @@
-name: mdl_{{samplename}}_sample
+name: {{samplename}}_sample
 description: Material Design Lite '{{samplename}}' Sample
-version: 0.1.0
+version: 0.1.3
 author: Mike Mitterer <office@mikemitterer.at>
 homepage: https://github.com/MikeMitterer/dart-material-design-lite
 
@@ -21,6 +21,9 @@ dependencies:
     #  url: git@github.com:MikeMitterer/dart-material-design-lite.git
     #  ref: v2.2
     path: /Volumes/Daten/DevLocal/DevDart/MaterialDesignLite
+
+  reflected_mustache:
+    path: /Volumes/Daten/DevLocal/DevDart/reflected_mustache
 
 dev_dependencies:
   build_runner: any

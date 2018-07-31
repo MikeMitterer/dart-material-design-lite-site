@@ -22,7 +22,6 @@ dependencies:
     #  ref: v2.2
     path: /Volumes/Daten/DevLocal/DevDart/MaterialDesignLite
 
-
   reflected_mustache:
     path: /Volumes/Daten/DevLocal/DevDart/reflected_mustache
 

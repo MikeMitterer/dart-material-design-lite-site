@@ -16,3 +16,5 @@ syncsite
 
 site/downloads/
 web/downloads
+samples/**/deploy
+example/**/deploy

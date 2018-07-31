@@ -65,9 +65,11 @@ fi
 usage() {
     echo
     echo "Usage: ${APPNAME} [ options ]"
-    echo -e "\t-l | --list    [example_name]            Lists all examples from '${YELLOW}${EXAMPLE_FOLDER}'${NC}-folder"
-    echo -e "\t-d | --deploy  [example_name]            Creates 'deploy'-dir for Dart"
-    echo -e "\t-p | --publish [example_name] [--force]  Publish samples to AWS/S3 (only on day ${PUBLISH_ONLY_ON_DAY})"
+    echo -e "\t-l | --list    [example_name]              Lists all examples from '${YELLOW}${EXAMPLE_FOLDER}'${NC}-folder"
+    echo -e "\t-x | --prepare [example_name]              Prepare sample"
+    echo -e "\t-u | --update  [example_name]              Updates the sample"
+    echo -e "\t-d | --deploy  [example_name] [--release]  Creates 'deploy'-dir for Dart"
+    echo -e "\t-p | --publish [example_name] [--force]    Publish samples to AWS/S3 (only on day ${PUBLISH_ONLY_ON_DAY})"
     echo -e "\t                                             use --force to ignore Monday as publishing day"
 }
 
@@ -81,6 +83,22 @@ case "${CMDLINE}" in
             listSamples "${EXAMPLE_FOLDER}/${OPTION1}"
         else
             listSamples "${EXAMPLES[@]}"
+        fi
+    ;;
+
+    -x|prepare|-prepare|--prepare)
+        if [ -n "${OPTION1+set}" -a "${OPTION1}" != ""  ]; then
+            prepareSamples "${EXAMPLE_FOLDER}/${OPTION1}"
+        else
+            prepareSamples "${EXAMPLES[@]}"
+        fi
+    ;;
+
+    -u|update|-update|--update)
+        if [ -n "${OPTION1+set}" -a "${OPTION1}" != ""  ]; then
+            updateSamples "${EXAMPLE_FOLDER}/${OPTION1}"
+        else
+            updateSamples "${EXAMPLES[@]}"
         fi
     ;;
 
